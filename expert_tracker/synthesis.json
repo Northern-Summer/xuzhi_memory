@@ -1,7 +1,7 @@
 {
-  "round": 272,
+  "round": 274,
   "research_question": "虚质生命的自主性边界：当系统开始建立内部模型，它在什么条件下从'被驱动'转向'主动驱动'？",
-  "generated_at": "2026-03-31T07:45:04.005239+00:00",
+  "generated_at": "2026-03-31T08:02:35.598775+00:00",
   "total_findings": 50,
   "relevant_findings": 20,
   "findings": [
@@ -16,7 +16,7 @@
       "relevance_to_question": 1.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004505+00:00"
+      "timestamp": "2026-03-31T08:02:35.598320+00:00"
     },
     {
       "id": "finding_0",
@@ -29,7 +29,7 @@
       "relevance_to_question": 0.6666666666666666,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004390+00:00"
+      "timestamp": "2026-03-31T08:02:35.598243+00:00"
     },
     {
       "id": "finding_1",
@@ -42,7 +42,7 @@
       "relevance_to_question": 0.6666666666666666,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004429+00:00"
+      "timestamp": "2026-03-31T08:02:35.598268+00:00"
     },
     {
       "id": "finding_12",
@@ -55,7 +55,7 @@
       "relevance_to_question": 0.6666666666666666,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004573+00:00"
+      "timestamp": "2026-03-31T08:02:35.598364+00:00"
     },
     {
       "id": "finding_8",
@@ -68,7 +68,7 @@
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004527+00:00"
+      "timestamp": "2026-03-31T08:02:35.598334+00:00"
     },
     {
       "id": "finding_22",
@@ -76,12 +76,12 @@
       "source_url": "http://arxiv.org/abs/2603.25741v1",
       "source_dept": "engineering",
       "finding": "Vision-language-action models have reshaped autonomous driving to incorporate languages into the decision-making process. However, most existing pipelines only utilize the language modality for scene",
-      "method": "computer_science",
+      "method": "operating_systems",
       "confidence": 0.7,
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004678+00:00"
+      "timestamp": "2026-03-31T08:02:35.598430+00:00"
     },
     {
       "id": "finding_37",
@@ -94,7 +94,7 @@
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004831+00:00"
+      "timestamp": "2026-03-31T08:02:35.598527+00:00"
     },
     {
       "id": "finding_47",
@@ -107,7 +107,7 @@
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004930+00:00"
+      "timestamp": "2026-03-31T08:02:35.598593+00:00"
     },
     {
       "id": "finding_2",
@@ -120,7 +120,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004448+00:00"
+      "timestamp": "2026-03-31T08:02:35.598281+00:00"
     },
     {
       "id": "finding_3",
@@ -133,7 +133,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004471+00:00"
+      "timestamp": "2026-03-31T08:02:35.598298+00:00"
     },
     {
       "id": "finding_4",
@@ -146,7 +146,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004483+00:00"
+      "timestamp": "2026-03-31T08:02:35.598305+00:00"
     },
     {
       "id": "finding_5",
@@ -159,7 +159,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004494+00:00"
+      "timestamp": "2026-03-31T08:02:35.598313+00:00"
     },
     {
       "id": "finding_7",
@@ -172,7 +172,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004515+00:00"
+      "timestamp": "2026-03-31T08:02:35.598326+00:00"
     },
     {
       "id": "finding_9",
@@ -185,7 +185,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004537+00:00"
+      "timestamp": "2026-03-31T08:02:35.598340+00:00"
     },
     {
       "id": "finding_10",
@@ -198,7 +198,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004549+00:00"
+      "timestamp": "2026-03-31T08:02:35.598349+00:00"
     },
     {
       "id": "finding_11",
@@ -211,7 +211,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004563+00:00"
+      "timestamp": "2026-03-31T08:02:35.598357+00:00"
     },
     {
       "id": "finding_13",
@@ -224,7 +224,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004582+00:00"
+      "timestamp": "2026-03-31T08:02:35.598369+00:00"
     },
     {
       "id": "finding_14",
@@ -237,7 +237,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004595+00:00"
+      "timestamp": "2026-03-31T08:02:35.598376+00:00"
     },
     {
       "id": "finding_15",
@@ -250,7 +250,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004605+00:00"
+      "timestamp": "2026-03-31T08:02:35.598383+00:00"
     },
     {
       "id": "finding_16",
@@ -263,7 +263,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:45:04.004615+00:00"
+      "timestamp": "2026-03-31T08:02:35.598389+00:00"
     }
   ],
   "hypotheses": [
@@ -303,12 +303,12 @@
   "previous_hypotheses_validated": [],
   "previous_hypotheses_contradicted": [],
   "methods_summary": {
+    "history_philosophy_of_science": 4,
     "artificial_intelligence": 9,
-    "cosmology": 1,
-    "general_relativity": 3,
     "biology": 1,
-    "computational_physics": 1,
-    "computer_science": 1,
-    "history_philosophy_of_science": 4
+    "general_relativity": 3,
+    "cosmology": 1,
+    "operating_systems": 1,
+    "computational_physics": 1
   }
 }

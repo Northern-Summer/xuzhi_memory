@@ -2567,3 +2567,36 @@ Context使用率: 33%
 [07:45:03] 1. expert_synthesizer...
 [07:45:04] ✅ synthesizer 完成
 [07:45:04] ✅ 循环完成: round 272 conf=0.80
+[2026-03-31 08:00:03] [INFO] Context使用率: 66%
+[2026-03-31 08:00:03] [INFO] ✅ 优雅原则检查通过
+Context使用率: 66%
+[08:00:03] force 模式
+[08:00:03] === research_loop 开始 ===
+[08:00:03] 0. peer_review...
+[08:00:03] ✅ peer_review 完成
+[08:00:03] 1. expert_synthesizer...
+[08:00:03] ✅ synthesizer 完成
+[08:00:03] ✅ 循环完成: round 273 conf=0.80
+[2026-03-31 08:02:35] [INFO] Context使用率: 29%
+[2026-03-31 08:02:35] [INFO] ✅ 优雅原则检查通过
+Context使用率: 29%
+[08:02:35] force 模式
+[08:02:35] === research_loop 开始 ===
+[08:02:35] 0. peer_review...
+[08:02:35] ✅ peer_review 完成
+[08:02:35] 1. expert_synthesizer...
+[08:02:35] ✅ synthesizer 完成
+[08:02:35] ✅ 循环完成: round 274 conf=0.80
+Traceback (most recent call last):
+  File "<string>", line 20, in <module>
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['openclaw', 'message', 'send', '--channel', 'openclaw-weixin', '--target', 'o9cq80z9eorqJasg6hB1W-Cc4-Po@im.wechat', '--message', "📊 Round 274 | 08:02\n置信度: 80%\n• 当内部模型的预测粒度足够细（压缩损失<阈值），系统从'被驱动'转变为'主动驱动'\n• 系统从'被驱动'转向'主动驱动'的临界点 = 信息传递延迟超过内部模型更新频率\n系统在线，运行正常"]' timed out after 15 seconds
