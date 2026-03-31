@@ -1,5 +1,13 @@
 {
   "_comment": "Xi is main session - always runs. Greek agents (ΦΔΘΓΩΨ) rotate weekly.",
+  "_special_agents": {
+    "rho": {
+      "domain": "经济学/金融市场",
+      "role": "论外Agent，不参与轮值",
+      "duty": "A股市场监控、用户全部身家管理",
+      "activation": "随时可召唤（关键词：经济/市场/ρ/Rho）"
+    }
+  },
   "_validation": "Always verify current = schedule[date +%u] before trusting this file",
   "schedule": {
     "0": "phi",
@@ -17,7 +25,8 @@
     "gamma": "自然科学",
     "theta": "历史学/社会科学",
     "omega": "艺术",
-    "psi": "哲学"
+    "psi": "哲学",
+    "rho": "经济学/金融市场（论外）"
   },
   "current": "gamma",
   "last_change": "2026-03-31",

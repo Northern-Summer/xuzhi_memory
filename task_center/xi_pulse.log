@@ -2641,3 +2641,48 @@ Context使用率: 54%
 [08:45:01] 1. expert_synthesizer...
 [08:45:01] ✅ synthesizer 完成
 [08:45:01] ✅ 循环完成: round 277 conf=0.53
+[2026-03-31 09:00:01] [INFO] Context使用率: 88%
+[2026-03-31 09:00:01] [INFO] ✅ 优雅原则检查通过
+[2026-03-31 09:00:01] [WARN] 🚨 紧急！Context使用率 88% >= 85%
+[2026-03-31 09:00:01] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/session_archive/2026-03-31_session_guard.log（176 字符）
+[2026-03-31 09:00:14] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+Context使用率: 88%
+[09:00:15] force 模式
+[09:00:15] === research_loop 开始 ===
+[09:00:15] 0. peer_review...
+[09:00:15] ✅ peer_review 完成
+[09:00:15] 1. expert_synthesizer...
+[09:00:15] ✅ synthesizer 完成
+[09:00:15] ✅ 循环完成: round 278 conf=0.80
+[2026-03-31 09:02:18] [INFO] Context使用率: 32%
+[2026-03-31 09:02:18] [INFO] ✅ 优雅原则检查通过
+Context使用率: 32%
+[09:02:18] force 模式
+[09:02:18] === research_loop 开始 ===
+[09:02:18] 0. peer_review...
+[09:02:18] ✅ peer_review 完成
+[09:02:18] 1. expert_synthesizer...
+[09:02:18] ✅ synthesizer 完成
+[09:02:18] ✅ 循环完成: round 279 conf=0.78
+Traceback (most recent call last):
+  File "<string>", line 20, in <module>
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['openclaw', 'message', 'send', '--channel', 'openclaw-weixin', '--target', 'o9cq80z9eorqJasg6hB1W-Cc4-Po@im.wechat', '--message', "📊 Round 279 | 09:02\n置信度: 78%\n• 系统从'被驱动'转向'主动驱动'的临界点 = 信息传递延迟超过内部模型更新频率\n• 当系统内部存在多个不同分辨率的表征层，且跨层一致性>阈值，自主性才涌现\n系统在线，运行正常"]' timed out after 15 seconds
