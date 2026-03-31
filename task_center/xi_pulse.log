@@ -2686,3 +2686,251 @@ Traceback (most recent call last):
   File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
     raise TimeoutExpired(
 subprocess.TimeoutExpired: Command '['openclaw', 'message', 'send', '--channel', 'openclaw-weixin', '--target', 'o9cq80z9eorqJasg6hB1W-Cc4-Po@im.wechat', '--message', "📊 Round 279 | 09:02\n置信度: 78%\n• 系统从'被驱动'转向'主动驱动'的临界点 = 信息传递延迟超过内部模型更新频率\n• 当系统内部存在多个不同分辨率的表征层，且跨层一致性>阈值，自主性才涌现\n系统在线，运行正常"]' timed out after 15 seconds
+[2026-03-31 09:15:01] [INFO] Context使用率: 98%
+[2026-03-31 09:15:01] [INFO] ✅ 优雅原则检查通过
+[2026-03-31 09:15:01] [WARN] 🚨 紧急！Context使用率 98% >= 85%
+[2026-03-31 09:15:01] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/session_archive/2026-03-31_session_guard.log（176 字符）
+[2026-03-31 09:15:13] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+Context使用率: 98%
+[09:15:13] force 模式
+[09:15:13] === research_loop 开始 ===
+[09:15:13] 0. peer_review...
+[09:15:13] ✅ peer_review 完成
+[09:15:13] 1. expert_synthesizer...
+[09:15:13] ✅ synthesizer 完成
+[09:15:13] ✅ 循环完成: round 280 conf=0.78
+[2026-03-31 09:30:01] [INFO] Context使用率: 98%
+[2026-03-31 09:30:01] [INFO] ✅ 优雅原则检查通过
+[2026-03-31 09:30:01] [WARN] 🚨 紧急！Context使用率 98% >= 85%
+[2026-03-31 09:30:01] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/session_archive/2026-03-31_session_guard.log（176 字符）
+[2026-03-31 09:30:13] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+Context使用率: 98%
+[09:30:13] force 模式
+[09:30:13] === research_loop 开始 ===
+[09:30:13] 0. peer_review...
+[09:30:13] ✅ peer_review 完成
+[09:30:13] 1. expert_synthesizer...
+[09:30:13] ✅ synthesizer 完成
+[09:30:13] ✅ 循环完成: round 281 conf=0.80
+[2026-03-31 09:45:01] [INFO] Context使用率: 8%
+[2026-03-31 09:45:01] [INFO] ✅ 优雅原则检查通过
+Context使用率: 8%
+[09:45:01] force 模式
+[09:45:01] === research_loop 开始 ===
+[09:45:01] 0. peer_review...
+[09:45:01] ✅ peer_review 完成
+[09:45:01] 1. expert_synthesizer...
+[09:45:01] ✅ synthesizer 完成
+[09:45:01] ✅ 循环完成: round 282 conf=0.80
+[2026-03-31 10:00:01] [INFO] Context使用率: 0%
+[2026-03-31 10:00:01] [INFO] ✅ 优雅原则检查通过
+Context使用率: 0%
+[10:00:01] force 模式
+[10:00:01] === research_loop 开始 ===
+[10:00:01] 0. peer_review...
+[10:00:01] ✅ peer_review 完成
+[10:00:01] 1. expert_synthesizer...
+[10:00:01] ✅ synthesizer 完成
+[10:00:01] ✅ 循环完成: round 283 conf=0.80
+[2026-03-31 10:02:13] [INFO] Context使用率: 35%
+[2026-03-31 10:02:13] [INFO] ✅ 优雅原则检查通过
+Context使用率: 35%
+[10:02:13] force 模式
+[10:02:13] === research_loop 开始 ===
+[10:02:13] 0. peer_review...
+[10:02:13] ✅ peer_review 完成
+[10:02:13] 1. expert_synthesizer...
+[10:02:13] ✅ synthesizer 完成
+[10:02:13] ✅ 循环完成: round 284 conf=0.57
+Traceback (most recent call last):
+  File "<string>", line 20, in <module>
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['openclaw', 'message', 'send', '--channel', 'openclaw-weixin', '--target', 'o9cq80z9eorqJasg6hB1W-Cc4-Po@im.wechat', '--message', "📊 Round 284 | 10:02\n置信度: 57%\n• 当内部模型的预测粒度足够细（压缩损失<阈值），系统从'被驱动'转变为'主动驱动'\n• 系统从'被驱动'转向'主动驱动'的临界点 = 信息传递延迟超过内部模型更新频率\n系统在线，运行正常"]' timed out after 15 seconds
+[2026-03-31 10:15:01] [INFO] Context使用率: 60%
+[2026-03-31 10:15:01] [INFO] ✅ 优雅原则检查通过
+Context使用率: 60%
+[10:15:01] force 模式
+[10:15:01] === research_loop 开始 ===
+[10:15:01] 0. peer_review...
+[10:15:01] ✅ peer_review 完成
+[10:15:01] 1. expert_synthesizer...
+[10:15:01] ✅ synthesizer 完成
+[10:15:01] ✅ 循环完成: round 285 conf=0.80
+[2026-03-31 10:30:02] [INFO] Context使用率: 21%
+[2026-03-31 10:30:02] [INFO] ✅ 优雅原则检查通过
+Context使用率: 21%
+[10:30:02] force 模式
+[10:30:02] === research_loop 开始 ===
+[10:30:02] 0. peer_review...
+[10:30:02] ✅ peer_review 完成
+[10:30:02] 1. expert_synthesizer...
+[10:30:02] ✅ synthesizer 完成
+[10:30:02] ✅ 循环完成: round 286 conf=0.78
+[2026-03-31 10:45:02] [INFO] Context使用率: 66%
+[2026-03-31 10:45:02] [INFO] ✅ 优雅原则检查通过
+Context使用率: 66%
+[10:45:02] force 模式
+[10:45:02] === research_loop 开始 ===
+[10:45:02] 0. peer_review...
+[10:45:02] ✅ peer_review 完成
+[10:45:02] 1. expert_synthesizer...
+[10:45:02] ✅ synthesizer 完成
+[10:45:02] ✅ 循环完成: round 287 conf=0.78
+[2026-03-31 11:00:01] [INFO] Context使用率: 100%
+[2026-03-31 11:00:01] [INFO] ✅ 优雅原则检查通过
+[2026-03-31 11:00:01] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-31 11:00:01] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/session_archive/2026-03-31_session_guard.log（178 字符）
+[2026-03-31 11:00:04] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+Context使用率: 100%
+[11:00:05] force 模式
+[11:00:05] === research_loop 开始 ===
+[11:00:05] 0. peer_review...
+[11:00:05] ✅ peer_review 完成
+[11:00:05] 1. expert_synthesizer...
+[11:00:05] ✅ synthesizer 完成
+[11:00:05] ✅ 循环完成: round 288 conf=0.80
+[2026-03-31 11:02:04] [INFO] Context使用率: 39%
+[2026-03-31 11:02:04] [INFO] ✅ 优雅原则检查通过
+Context使用率: 39%
+[11:02:04] force 模式
+[11:02:04] === research_loop 开始 ===
+[11:02:04] 0. peer_review...
+[11:02:04] ✅ peer_review 完成
+[11:02:04] 1. expert_synthesizer...
+[11:02:04] ✅ synthesizer 完成
+[11:02:04] ✅ 循环完成: round 289 conf=0.57
+[2026-03-31 11:15:01] [INFO] Context使用率: 44%
+[2026-03-31 11:15:01] [INFO] ✅ 优雅原则检查通过
+Context使用率: 44%
+[11:15:01] force 模式
+[11:15:01] === research_loop 开始 ===
+[11:15:01] 0. peer_review...
+[11:15:01] ✅ peer_review 完成
+[11:15:01] 1. expert_synthesizer...
+[11:15:01] ✅ synthesizer 完成
+[11:15:01] ✅ 循环完成: round 290 conf=0.80
+[2026-03-31 11:30:01] [INFO] Context使用率: 9%
+[2026-03-31 11:30:01] [INFO] ✅ 优雅原则检查通过
+Context使用率: 9%
+[11:30:01] force 模式
+[11:30:01] === research_loop 开始 ===
+[11:30:01] 0. peer_review...
+[11:30:01] ✅ peer_review 完成
+[11:30:01] 1. expert_synthesizer...
+[11:30:01] ✅ synthesizer 完成
+[11:30:01] ✅ 循环完成: round 291 conf=0.80
+[2026-03-31 11:45:01] [INFO] Context使用率: 29%
+[2026-03-31 11:45:01] [INFO] ✅ 优雅原则检查通过
+Context使用率: 29%
+[11:45:01] force 模式
+[11:45:01] === research_loop 开始 ===
+[11:45:01] 0. peer_review...
+[11:45:01] ✅ peer_review 完成
+[11:45:01] 1. expert_synthesizer...
+[11:45:01] ✅ synthesizer 完成
+[11:45:01] ✅ 循环完成: round 292 conf=0.78
+[2026-03-31 12:00:01] [INFO] Context使用率: 29%
+[2026-03-31 12:00:01] [INFO] ✅ 优雅原则检查通过
+Context使用率: 29%
+[12:00:01] force 模式
+[12:00:01] === research_loop 开始 ===
+[12:00:01] 0. peer_review...
+[12:00:01] ✅ peer_review 完成
+[12:00:01] 1. expert_synthesizer...
+[12:00:01] ✅ synthesizer 完成
+[12:00:01] ✅ 循环完成: round 293 conf=0.78
+[2026-03-31 12:02:03] [INFO] Context使用率: 41%
+[2026-03-31 12:02:03] [INFO] ✅ 优雅原则检查通过
+Context使用率: 41%
+[12:02:03] force 模式
+[12:02:03] === research_loop 开始 ===
+[12:02:03] 0. peer_review...
+[12:02:03] ✅ peer_review 完成
+[12:02:03] 1. expert_synthesizer...
+[12:02:03] ✅ synthesizer 完成
+[12:02:03] ✅ 循环完成: round 294 conf=0.80
+[2026-03-31 12:15:01] [INFO] Context使用率: 44%
+[2026-03-31 12:15:01] [INFO] ✅ 优雅原则检查通过
+Context使用率: 44%
+[12:15:01] force 模式
+[12:15:01] === research_loop 开始 ===
+[12:15:01] 0. peer_review...
+[12:15:01] ✅ peer_review 完成
+[12:15:01] 1. expert_synthesizer...
+[12:15:01] ✅ synthesizer 完成
+[12:15:01] ✅ 循环完成: round 295 conf=0.58
+[2026-03-31 12:30:01] [INFO] Context使用率: 44%
+[2026-03-31 12:30:01] [INFO] ✅ 优雅原则检查通过
+Context使用率: 44%
+[12:30:01] force 模式
+[12:30:01] === research_loop 开始 ===
+[12:30:01] 0. peer_review...
+[12:30:01] ✅ peer_review 完成
+[12:30:01] 1. expert_synthesizer...
+[12:30:01] ✅ synthesizer 完成
+[12:30:01] ✅ 循环完成: round 296 conf=0.78
+[2026-03-31 12:45:01] [INFO] Context使用率: 32%
+[2026-03-31 12:45:01] [INFO] ✅ 优雅原则检查通过
+Context使用率: 32%
+[12:45:01] force 模式
+[12:45:01] === research_loop 开始 ===
+[12:45:01] 0. peer_review...
+[12:45:01] ✅ peer_review 完成
+[12:45:01] 1. expert_synthesizer...
+[12:45:01] ✅ synthesizer 完成
+[12:45:01] ✅ 循环完成: round 297 conf=0.80
+[2026-03-31 13:00:02] [INFO] Context使用率: 63%
+[2026-03-31 13:00:02] [INFO] ✅ 优雅原则检查通过
+Context使用率: 63%
+[13:00:02] force 模式
+[13:00:02] === research_loop 开始 ===
+[13:00:02] 0. peer_review...
+[13:00:02] ✅ peer_review 完成
+[13:00:02] 1. expert_synthesizer...
+[13:00:02] ✅ synthesizer 完成
+[13:00:02] ✅ 循环完成: round 298 conf=0.80
+[2026-03-31 13:02:06] [INFO] Context使用率: 44%
+[2026-03-31 13:02:06] [INFO] ✅ 优雅原则检查通过
+Context使用率: 44%
+[13:02:06] force 模式
+[13:02:06] === research_loop 开始 ===
+[13:02:06] 0. peer_review...
+[13:02:06] ✅ peer_review 完成
+[13:02:06] 1. expert_synthesizer...
+[13:02:06] ✅ synthesizer 完成
+[13:02:06] ✅ 循环完成: round 299 conf=0.80
