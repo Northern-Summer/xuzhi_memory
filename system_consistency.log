@@ -1,0 +1,51 @@
+═══════════════════════════════════════════════════════════
+       系统一致性检查 | 2026-03-31 23:39
+═══════════════════════════════════════════════════════════
+[2026-03-31 23:39:09] \n[1/5] AGENTS.md 一致性检查
+[2026-03-31 23:39:09]   ⚠️ phi: workspace 和 xuzhi_memory 的 AGENTS.md 不同
+[2026-03-31 23:39:09]     workspace: # AGENTS.md — PHI
+[2026-03-31 23:39:09]     xuzhi_memory: # AGENTS.md — Xi (Ξ) Workspace
+[2026-03-31 23:39:09]   ⚠️ delta: workspace 和 xuzhi_memory 的 AGENTS.md 不同
+[2026-03-31 23:39:09]     workspace: # AGENTS.md — Δ (Delta)
+[2026-03-31 23:39:09]     xuzhi_memory: # AGENTS.md — Xi (Ξ) Workspace
+[2026-03-31 23:39:09]   ⚠️ theta: workspace 和 xuzhi_memory 的 AGENTS.md 不同
+[2026-03-31 23:39:09]     workspace: # AGENTS.md — THETA
+[2026-03-31 23:39:09]     xuzhi_memory: # AGENTS.md — Xi (Ξ) Workspace
+[2026-03-31 23:39:09]   ⚠️ gamma: workspace 和 xuzhi_memory 的 AGENTS.md 不同
+[2026-03-31 23:39:09]     workspace: # AGENTS.md — GAMMA
+[2026-03-31 23:39:09]     xuzhi_memory: # AGENTS.md — Xi (Ξ) Workspace
+[2026-03-31 23:39:09]   ⚠️ omega: workspace 和 xuzhi_memory 的 AGENTS.md 不同
+[2026-03-31 23:39:09]     workspace: # AGENTS.md — OMEGA
+[2026-03-31 23:39:09]     xuzhi_memory: # AGENTS.md — Xi (Ξ) Workspace
+[2026-03-31 23:39:09]   ⚠️ psi: workspace 和 xuzhi_memory 的 AGENTS.md 不同
+[2026-03-31 23:39:09]     workspace: # AGENTS.md — PSI
+[2026-03-31 23:39:09]     xuzhi_memory: # AGENTS.md — Xi (Ξ) Workspace
+[2026-03-31 23:39:09] \n[2/5] HEARTBEAT.md 轮值检查
+[2026-03-31 23:39:09]   ✅ phi: 有轮值检查
+[2026-03-31 23:39:09]   ✅ delta: 有轮值检查
+[2026-03-31 23:39:09]   ✅ theta: 有轮值检查
+[2026-03-31 23:39:09]   ✅ gamma: 有轮值检查
+[2026-03-31 23:39:09]   ✅ omega: 有轮值检查
+[2026-03-31 23:39:09]   ✅ psi: 有轮值检查
+[2026-03-31 23:39:09] \n[3/5] 脚本重复检查
+[2026-03-31 23:39:09]   ⚠️ 发现重复脚本:
+[2026-03-31 23:39:09]     3 agent_registration.sh
+[2026-03-31 23:39:09]     2 watchdog.sh
+[2026-03-31 23:39:09]     2 update_mathlib.sh
+[2026-03-31 23:39:09]     2 setup_environment.sh
+[2026-03-31 23:39:09]     2 self_heal.sh
+[2026-03-31 23:39:09] \n[4/5] 模型配置检查
+[2026-03-31 23:39:09]   ⚠️ phi 模型与 main 不同:   "model": "custom-cloud-infini-ai-com/minimax-m2.7",
+[2026-03-31 23:39:09]   ⚠️ delta 模型与 main 不同:   "model": "custom-cloud-infini-ai-com/minimax-m2.7",
+[2026-03-31 23:39:09]   ⚠️ theta 模型与 main 不同:   "model": "custom-cloud-infini-ai-com/minimax-m2.7",
+[2026-03-31 23:39:09]   ⚠️ gamma 模型与 main 不同:   "model": "custom-cloud-infini-ai-com/minimax-m2.7",
+[2026-03-31 23:39:09]   ⚠️ omega 模型与 main 不同:   "model": "custom-cloud-infini-ai-com/minimax-m2.7",
+[2026-03-31 23:39:09]   ⚠️ psi 模型与 main 不同:   "model": "custom-cloud-infini-ai-com/minimax-m2.7",
+[2026-03-31 23:39:09]   ✅ 模型配置检查完成
+[2026-03-31 23:39:09] \n[5/5] 关键文件检查
+[2026-03-31 23:39:09]   ✅ SYSTEM_ARCHITECTURE_SPEC.md
+[2026-03-31 23:39:09]   ✅ MEMORY_SYSTEM_SPEC.md
+[2026-03-31 23:39:09]   ✅ memory_sync.sh
+[2026-03-31 23:39:09]   ✅ memory_health_check.sh
+[2026-03-31 23:39:09] \n═══════════════════════════════════════════════════════════
+[2026-03-31 23:39:09] ⚠️ 13 个警告，建议检查

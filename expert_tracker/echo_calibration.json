@@ -335,6 +335,116 @@
       "actual_result": null,
       "calibrated": false,
       "calibrated_at": null
+    },
+    {
+      "id": 6,
+      "code": "603228",
+      "name": "景旺电子",
+      "prediction": "观望（MA空头排列，RSI偏弱，等待信号）",
+      "confidence": 0.33,
+      "quality": 0.33,
+      "trend": "下降",
+      "pct_today": 2.1377,
+      "stop_loss": 54.85,
+      "data_source": "baostock+sina 双源验证",
+      "timestamp": "2026-03-31T23:02:44.362605",
+      "note": "今日+2.14%独立行情，非趋势反转"
+    },
+    {
+      "id": 7,
+      "code": "603228",
+      "name": "景旺电子",
+      "prediction": "观望",
+      "confidence": 0.33,
+      "quality": 0.26,
+      "data_source": "baostock(technical) + 新浪(price)",
+      "note": "MA空头排列，RSI偏弱，等待信号",
+      "timestamp": "2026-03-31T23:13:39.961331"
+    },
+    {
+      "id": 8,
+      "code": "002600",
+      "name": "领益智造",
+      "prediction": "观望",
+      "confidence": 0.25,
+      "quality": 0.2,
+      "data_source": "baostock(technical) + 新浪(price)",
+      "note": "大盘下跌，等待企稳",
+      "timestamp": "2026-03-31T23:13:39.961346"
+    },
+    {
+      "id": 9,
+      "code": "688004",
+      "name": "华丰科技",
+      "prediction": "观望",
+      "confidence": 0.25,
+      "quality": 0.2,
+      "data_source": "baostock(technical) + 新浪(price)",
+      "note": "技术偏弱，基本面未知",
+      "timestamp": "2026-03-31T23:13:39.961348"
+    },
+    {
+      "id": 10,
+      "code": "600032",
+      "name": "浙江新能",
+      "prediction": "❌不碰",
+      "confidence": 0.7,
+      "quality": 0.56,
+      "data_source": "baostock(technical) + 新浪(price)",
+      "note": "5日-15.8%，加速下跌，基本面未明，风险未知",
+      "timestamp": "2026-03-31T23:13:39.961350"
+    },
+    {
+      "id": 11,
+      "code": "603803",
+      "name": "瑞斯康达",
+      "prediction": "❌不碰",
+      "confidence": 0.7,
+      "quality": 0.56,
+      "data_source": "baostock(technical) + 新浪(price)",
+      "note": "5日-20.3%，深度超卖，基本面未明",
+      "timestamp": "2026-03-31T23:13:39.961351"
+    },
+    {
+      "id": 12,
+      "code": "600667",
+      "name": "太极实业",
+      "prediction": "❌不碰",
+      "confidence": 0.7,
+      "quality": 0.56,
+      "data_source": "baostock(technical) + 新浪(price)",
+      "note": "今日-8%，量比1.7x，抛盘未完",
+      "timestamp": "2026-03-31T23:13:39.961353"
+    },
+    {
+      "id": 13,
+      "code": "688041",
+      "name": "海光信息",
+      "prediction": "观望",
+      "confidence": 0.25,
+      "quality": 0.2,
+      "data_source": "baostock(technical) + 新浪(price)",
+      "note": "科技股跟跌，等待企稳",
+      "timestamp": "2026-03-31T23:13:39.961354"
+    },
+    {
+      "id": 14,
+      "code": "300496",
+      "name": "中科创达",
+      "prediction": "观望（RSI超卖反弹机会）",
+      "confidence": 0.38,
+      "reasoning_quality": 0.42,
+      "trend": "下降",
+      "agent_outputs": {
+        "sector": "软件/AI",
+        "source": "search_candidates"
+      },
+      "note": "候选推荐：RSI=14.9超卖，MA空头排列但下降动能减弱",
+      "timestamp": "2026-03-31T23:43:00.396330",
+      "outcome": null,
+      "actual_result": null,
+      "calibrated": false,
+      "calibrated_at": null
     }
   ],
   "calibrations": [],
@@ -344,5 +454,6 @@
     "record": "预测内容 + 预期结果 + 时间戳",
     "validate": "下次 session 检查实际结果",
     "calibrate": "对比偏差 → 更新 confidence"
-  }
+  },
+  "_test": "2026-03-31T23:34:32.290862"
 }
