@@ -1,0 +1,7 @@
+22:53:51 === 网络探测开始 ===
+22:53:52   ❌ github: 595ms — HTTP Error 401: Unauthorized
+22:53:53   ✅ arxiv: 959ms
+22:53:53   ✅ searxng: 591ms — localhost:8080
+22:53:54   ❌ semantic_scholar: 294ms — HTTP Error 429: 
+22:53:54   ❌ brave: 0ms — no API key
+22:53:54 === 可用源: ['arxiv', 'searxng'] ===

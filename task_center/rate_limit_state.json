@@ -1,0 +1,1 @@
+{"tokens": 0, "window_start": 1774579813.9847198, "requests": [{"time": 1774579813.9847198, "source": "task_exec_batch:1,40,6"}, {"time": 1774579814.0106099, "source": "task_exec:1,40,6"}], "cooldown_until": 0, "cooldown_level": 0, "shrink_until": 0, "quota_cache": {"pct": 24.2, "ts": 1774534251.663585}, "last_refill": 1774534251.663585}

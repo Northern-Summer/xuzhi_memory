@@ -1,0 +1,322 @@
+{
+  "round": 2,
+  "research_question": "虚质生命的自主性边界：当系统开始建立内部模型，它在什么条件下从'被驱动'转向'主动驱动'？",
+  "generated_at": "2026-03-27T04:11:57.911727+00:00",
+  "total_findings": 50,
+  "relevant_findings": 20,
+  "findings": [
+    {
+      "id": "finding_6",
+      "source_title": "DreamerAD: Efficient Reinforcement Learning via Latent World Model for Autonomous Driving",
+      "source_url": "http://arxiv.org/abs/2603.24587v1",
+      "source_dept": "mind",
+      "finding": "DreamerAD: Efficient Reinforcement Learning via Latent World Model for Autonomous Driving",
+      "method": "latent_representation",
+      "confidence": 0.5,
+      "relevance_to_question": 1.0,
+      "limitation": "latent model 可能丢失高频细节，泛化边界不清晰",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911265+00:00"
+    },
+    {
+      "id": "finding_0",
+      "source_title": "Latent-WAM: Latent World Action Modeling for End-to-End Autonomous Driving",
+      "source_url": "http://arxiv.org/abs/2603.24581v1",
+      "source_dept": "science",
+      "finding": "Latent-WAM: Latent World Action Modeling for End-to-End Autonomous Driving",
+      "method": "latent_representation",
+      "confidence": 0.7,
+      "relevance_to_question": 0.6666666666666666,
+      "limitation": "latent model 可能丢失高频细节，泛化边界不清晰",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911186+00:00"
+    },
+    {
+      "id": "finding_1",
+      "source_title": "Dynamical Systems in Cosmology: Reviewing An Alternative Approach",
+      "source_url": "http://arxiv.org/abs/2603.24568v1",
+      "source_dept": "mind",
+      "finding": "Dynamical Systems in Cosmology: Reviewing An Alternative Approach",
+      "method": "theoretical_physics",
+      "confidence": 0.8,
+      "relevance_to_question": 0.6666666666666666,
+      "limitation": "理论预测尚未被实验验证",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911204+00:00"
+    },
+    {
+      "id": "finding_12",
+      "source_title": "Cascading Failures and Critical Infrastructures in Future Renewable European Power Systems",
+      "source_url": "http://arxiv.org/abs/2603.24529v1",
+      "source_dept": "philosophy",
+      "finding": "Cascading Failures and Critical Infrastructures in Future Renewable European Power Systems",
+      "method": "complex_systems",
+      "confidence": 0.5,
+      "relevance_to_question": 0.6666666666666666,
+      "limitation": "小样本统计，尾部事件难以预测",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911313+00:00"
+    },
+    {
+      "id": "finding_8",
+      "source_title": "The role of spatial context and multitask learning in the detection of organic and conventional farming systems based on Sentinel-2 time series",
+      "source_url": "http://arxiv.org/abs/2603.24552v1",
+      "source_dept": "mind",
+      "finding": "The role of spatial context and multitask learning in the detection of organic and conventional farming systems based on Sentinel-2 time series",
+      "method": "unknown",
+      "confidence": 0.5,
+      "relevance_to_question": 0.3333333333333333,
+      "limitation": "方法论局限未标注",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911283+00:00"
+    },
+    {
+      "id": "finding_22",
+      "source_title": "Vega: Learning to Drive with Natural Language Instructions",
+      "source_url": "http://arxiv.org/abs/2603.25741v1",
+      "source_dept": "engineering",
+      "finding": "Vega: Learning to Drive with Natural Language Instructions",
+      "method": "unknown",
+      "confidence": 0.7,
+      "relevance_to_question": 0.3333333333333333,
+      "limitation": "方法论局限未标注",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911391+00:00"
+    },
+    {
+      "id": "finding_37",
+      "source_title": "Krylov-space anatomy and spread complexity of a disordered quantum spin chain",
+      "source_url": "http://arxiv.org/abs/2603.25724v1",
+      "source_dept": "mind",
+      "finding": "Krylov-space anatomy and spread complexity of a disordered quantum spin chain",
+      "method": "theoretical_physics",
+      "confidence": 0.5,
+      "relevance_to_question": 0.3333333333333333,
+      "limitation": "理论预测尚未被实验验证",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911506+00:00"
+    },
+    {
+      "id": "finding_47",
+      "source_title": "Krylov-space anatomy and spread complexity of a disordered quantum spin chain",
+      "source_url": "http://arxiv.org/abs/2603.25724v1",
+      "source_dept": "science",
+      "finding": "Krylov-space anatomy and spread complexity of a disordered quantum spin chain",
+      "method": "theoretical_physics",
+      "confidence": 0.7,
+      "relevance_to_question": 0.3333333333333333,
+      "limitation": "理论预测尚未被实验验证",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911580+00:00"
+    },
+    {
+      "id": "finding_2",
+      "source_title": "Coordinating Spot and Contract Supply in Freight Marketplaces",
+      "source_url": "http://arxiv.org/abs/2603.24574v1",
+      "source_dept": "mind",
+      "finding": "Coordinating Spot and Contract Supply in Freight Marketplaces",
+      "method": "unknown",
+      "confidence": 0.5,
+      "relevance_to_question": 0.0,
+      "limitation": "方法论局限未标注",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911215+00:00"
+    },
+    {
+      "id": "finding_3",
+      "source_title": "Robust valley-polarized excitonic Mott states and doublons enabled by stacking-controlled moiré geometry",
+      "source_url": "http://arxiv.org/abs/2603.24494v1",
+      "source_dept": "mind",
+      "finding": "Robust valley-polarized excitonic Mott states and doublons enabled by stacking-controlled moiré geometry",
+      "method": "unknown",
+      "confidence": 0.5,
+      "relevance_to_question": 0.0,
+      "limitation": "方法论局限未标注",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911245+00:00"
+    },
+    {
+      "id": "finding_4",
+      "source_title": "A Modular Platooning and Vehicle Coordination Simulator for Research and Education",
+      "source_url": "http://arxiv.org/abs/2603.24540v1",
+      "source_dept": "mind",
+      "finding": "A Modular Platooning and Vehicle Coordination Simulator for Research and Education",
+      "method": "control_theory",
+      "confidence": 0.5,
+      "relevance_to_question": 0.0,
+      "limitation": "仿真环境与真实世界存在分布偏移",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911251+00:00"
+    },
+    {
+      "id": "finding_5",
+      "source_title": "Efficient photon-pair emission from a nanostructured resonator and its theoretical description",
+      "source_url": "http://arxiv.org/abs/2603.24351v1",
+      "source_dept": "mind",
+      "finding": "Efficient photon-pair emission from a nanostructured resonator and its theoretical description",
+      "method": "unknown",
+      "confidence": 0.5,
+      "relevance_to_question": 0.0,
+      "limitation": "方法论局限未标注",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911260+00:00"
+    },
+    {
+      "id": "finding_7",
+      "source_title": "Landau and fractionalized theories of periodically driven intertwined orders",
+      "source_url": "http://arxiv.org/abs/2603.24592v1",
+      "source_dept": "mind",
+      "finding": "Landau and fractionalized theories of periodically driven intertwined orders",
+      "method": "unknown",
+      "confidence": 0.5,
+      "relevance_to_question": 0.0,
+      "limitation": "方法论局限未标注",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911273+00:00"
+    },
+    {
+      "id": "finding_9",
+      "source_title": "Landau and fractionalized theories of periodically driven intertwined orders",
+      "source_url": "http://arxiv.org/abs/2603.24592v1",
+      "source_dept": "mind",
+      "finding": "Landau and fractionalized theories of periodically driven intertwined orders",
+      "method": "unknown",
+      "confidence": 0.5,
+      "relevance_to_question": 0.0,
+      "limitation": "方法论局限未标注",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911290+00:00"
+    },
+    {
+      "id": "finding_10",
+      "source_title": "Unlocking HST's Stellar Treasure Trove: Stellar Activity Minima for HAT-P-11 Offer Prime Windows for Transmission Spectroscopy",
+      "source_url": "http://arxiv.org/abs/2603.24585v1",
+      "source_dept": "philosophy",
+      "finding": "Unlocking HST's Stellar Treasure Trove: Stellar Activity Minima for HAT-P-11 Offer Prime Windows for Transmission Spectroscopy",
+      "method": "unknown",
+      "confidence": 0.5,
+      "relevance_to_question": 0.0,
+      "limitation": "方法论局限未标注",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911299+00:00"
+    },
+    {
+      "id": "finding_11",
+      "source_title": "Testing Dark Energy with Black Hole Ringdown",
+      "source_url": "http://arxiv.org/abs/2603.23634v1",
+      "source_dept": "philosophy",
+      "finding": "Testing Dark Energy with Black Hole Ringdown",
+      "method": "unknown",
+      "confidence": 0.5,
+      "relevance_to_question": 0.0,
+      "limitation": "方法论局限未标注",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911306+00:00"
+    },
+    {
+      "id": "finding_13",
+      "source_title": "Group Editing : Edit Multiple Images in One Go",
+      "source_url": "http://arxiv.org/abs/2603.22883v2",
+      "source_dept": "philosophy",
+      "finding": "Group Editing : Edit Multiple Images in One Go",
+      "method": "unknown",
+      "confidence": 0.5,
+      "relevance_to_question": 0.0,
+      "limitation": "方法论局限未标注",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911320+00:00"
+    },
+    {
+      "id": "finding_14",
+      "source_title": "Chiral Epitaxy: Enantioselective Growth of Chiral Nanowires on Low-Symmetry Two-Dimensional Materials",
+      "source_url": "http://arxiv.org/abs/2603.24565v1",
+      "source_dept": "philosophy",
+      "finding": "Chiral Epitaxy: Enantioselective Growth of Chiral Nanowires on Low-Symmetry Two-Dimensional Materials",
+      "method": "unknown",
+      "confidence": 0.5,
+      "relevance_to_question": 0.0,
+      "limitation": "方法论局限未标注",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911329+00:00"
+    },
+    {
+      "id": "finding_15",
+      "source_title": "Polynomial Speedup in Diffusion Models with the Multilevel Euler-Maruyama Method",
+      "source_url": "http://arxiv.org/abs/2603.24594v1",
+      "source_dept": "philosophy",
+      "finding": "Polynomial Speedup in Diffusion Models with the Multilevel Euler-Maruyama Method",
+      "method": "unknown",
+      "confidence": 0.5,
+      "relevance_to_question": 0.0,
+      "limitation": "方法论局限未标注",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911337+00:00"
+    },
+    {
+      "id": "finding_16",
+      "source_title": "Effective geometrostatics of spherical stars beyond general relativity",
+      "source_url": "http://arxiv.org/abs/2603.24269v1",
+      "source_dept": "philosophy",
+      "finding": "Effective geometrostatics of spherical stars beyond general relativity",
+      "method": "unknown",
+      "confidence": 0.5,
+      "relevance_to_question": 0.0,
+      "limitation": "方法论局限未标注",
+      "open_problem": "未标注（需原文确认）",
+      "timestamp": "2026-03-27T04:11:57.911344+00:00"
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "hyp_1",
+      "hypothesis": "当内部模型的预测粒度足够细（压缩损失<阈值），系统从'被驱动'转变为'主动驱动'",
+      "based_on": [
+        "finding_6",
+        "finding_0"
+      ],
+      "confidence": 0.5,
+      "assumption": "latent model 的粒度和系统自主性存在单调关系",
+      "testable": true,
+      "validation_criteria": "对比不同压缩率下的系统行为转变点"
+    },
+    {
+      "id": "hyp_2",
+      "hypothesis": "复杂系统从'被驱动'转向'主动驱动'的临界点 = 信息传递延迟超过内部模型更新频率",
+      "based_on": [
+        "finding_12"
+      ],
+      "confidence": 0.4,
+      "assumption": "信息延迟是驱动模式切换的唯一瓶颈",
+      "testable": true,
+      "validation_criteria": "实验测量信息延迟 vs 系统行为模式转变"
+    },
+    {
+      "id": "hyp_3",
+      "hypothesis": "当系统内部存在多个不同分辨率的表征层，且跨层一致性>阈值，自主性才涌现",
+      "based_on": [
+        "finding_1",
+        "finding_37",
+        "finding_47"
+      ],
+      "confidence": 0.35,
+      "assumption": "多尺度一致性是自主性的充分条件",
+      "testable": true,
+      "validation_criteria": "测量跨层一致性指标与系统自主行为的相关性"
+    }
+  ],
+  "confidence": 0.4166666666666667,
+  "open_questions": [
+    "latent representation 的'粒度'如何量化？",
+    "系统自主性如何可操作化定义？",
+    "信息传递延迟的临界值如何测量？"
+  ],
+  "previous_hypotheses_validated": [],
+  "previous_hypotheses_contradicted": [],
+  "methods_summary": {
+    "theoretical_physics": 3,
+    "unknown": 13,
+    "latent_representation": 2,
+    "control_theory": 1,
+    "complex_systems": 1
+  }
+}

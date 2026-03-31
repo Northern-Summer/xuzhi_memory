@@ -1,0 +1,3 @@
+[18:01:19] === 开拓相诊断 ===
+[18:01:19] Δ_Stability: quota=0.0% exhausted=False tasks=34 healthy=False
+[18:01:19] ⏸ 未触发开拓相: 系统不健康 + quota=0.0%≤40%

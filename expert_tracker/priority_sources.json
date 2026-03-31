@@ -1,0 +1,225 @@
+{
+  "_comment": "AI研究核心竞争格局追踪优先级 | 2026-03-30",
+  "_source": "用户战略输入",
+  "_integration": "增量补充，不替换原有DEPT_CATS机制",
+
+  "_原有机制说明": {
+    "file": "~/xuzhi_workspace/task_center/expert_tracker.py",
+    "method": "DEPT_CATS按部门分类（engineering/science/mind/philosophy/intelligence）",
+    "frequency": "每7天刷新TOP专家",
+    "本文件角色": "提供额外的高优先级追踪目标，叠加到原有机制上"
+  },
+
+  "tier1_institutions": {
+    "priority": "highest",
+    "description": "前沿模型研发三巨头 - 递归自我改进领跑者",
+    "targets": [
+      {
+        "name": "OpenAI",
+        "arxiv_affiliations": ["OpenAI"],
+        "focus": ["GPT", "o-series", "AI researcher", "self-improvement"],
+        "key_people": ["Sam Altman"]
+      },
+      {
+        "name": "Google DeepMind",
+        "arxiv_affiliations": ["DeepMind", "Google DeepMind", "Google Research"],
+        "focus": ["AlphaFold", "AlphaEvolve", "AlphaProof", "TPU", "neuroscience AI"],
+        "key_people": ["Demis Hassabis"]
+      },
+      {
+        "name": "Anthropic",
+        "arxiv_affiliations": ["Anthropic"],
+        "focus": ["Claude", "constitutional AI", "alignment", "self-improvement"],
+        "key_people": ["Dario Amodei"]
+      }
+    ]
+  },
+
+  "tier2_infrastructure": {
+    "priority": "high",
+    "description": "算力基础设施与生态构建者",
+    "targets": [
+      {
+        "name": "NVIDIA",
+        "arxiv_affiliations": ["NVIDIA", "Nvidia"],
+        "focus": ["GPU", "Nemotron", "hardware", "inference optimization"]
+      },
+      {
+        "name": "Microsoft",
+        "arxiv_affiliations": ["Microsoft Research", "Microsoft"],
+        "focus": ["Azure AI", "enterprise AI", "superintelligence"]
+      }
+    ]
+  },
+
+  "tier3_academia": {
+    "priority": "high",
+    "description": "顶尖学术研究机构",
+    "targets": [
+      {
+        "name": "北京大学",
+        "arxiv_affiliations": ["Peking University", "北大"],
+        "focus": ["machine learning", "computer vision"]
+      },
+      {
+        "name": "清华大学",
+        "arxiv_affiliations": ["Tsinghua University", "清华"],
+        "focus": ["AI", "deep learning"]
+      },
+      {
+        "name": "浙江大学",
+        "arxiv_affiliations": ["Zhejiang University", "浙大"],
+        "focus": ["AI", "data science"]
+      },
+      {
+        "name": "Stanford",
+        "arxiv_affiliations": ["Stanford University"],
+        "focus": ["human-centered AI", "vision", "NLP"]
+      },
+      {
+        "name": "Ai2 (Allen AI)",
+        "arxiv_affiliations": ["Allen Institute", "Ai2"],
+        "focus": ["OLMo", "open source AI"]
+      },
+      {
+        "name": "EleutherAI",
+        "arxiv_affiliations": ["EleutherAI"],
+        "focus": ["open source", "LLM"]
+      }
+    ]
+  },
+
+  "tier4_key_individuals": {
+    "priority": "medium",
+    "description": "关键个体 - 学术与精神领袖",
+    "targets": [
+      {"name": "Demis Hassabis", "affiliation": "DeepMind"},
+      {"name": "Sam Altman", "affiliation": "OpenAI"},
+      {"name": "Dario Amodei", "affiliation": "Anthropic"},
+      {"name": "Geoffrey Hinton", "affiliation": "Toronto/Vector Institute"},
+      {"name": "Yoshua Bengio", "affiliation": "Mila"},
+      {"name": "Yann LeCun", "affiliation": "Meta FAIR"},
+      {"name": "Jensen Huang", "affiliation": "NVIDIA"},
+      {"name": "Fei-Fei Li", "affiliation": "Stanford"}
+    ]
+  },
+
+  "math_ai_focus": {
+    "priority": "highest",
+    "description": "数学AI专项追踪 - Delta重点关注",
+    "targets": [
+      {
+        "name": "DeepMind Math AI",
+        "arxiv_affiliations": ["DeepMind"],
+        "focus": ["AlphaProof", "AlphaEvolve", "theorem proving", "Lean", "formalization"]
+      },
+      {
+        "name": "Lean Community",
+        "arxiv_affiliations": [],
+        "focus": ["Lean", "Mathlib", "formal mathematics"],
+        "special_tracking": "zulip:leanprover"
+      }
+    ]
+  },
+
+  "futurists": {
+    "_comment": "全球未来学家追踪 | 2026-03-30 增量补充",
+    "_source": "用户战略输入",
+    "_note": "定义AI叙事框架、伦理边界、技术路径的关键人物",
+
+    "tier1_narrative_architects": {
+      "priority": "highest",
+      "description": "AI与人类未来叙事的总架构师",
+      "targets": [
+        {
+          "name": "Ray Kurzweil",
+          "affiliation": "Google",
+          "focus": ["singularity", "technological optimism", "long-term future"],
+          "tracking": ["publications", "predictions", "Google AI direction"]
+        },
+        {
+          "name": "Yuval Noah Harari",
+          "affiliation": "Hebrew University",
+          "focus": ["AI ethics", "human civilization", "existential narrative"],
+          "tracking": ["public statements", "policy initiatives"]
+        },
+        {
+          "name": "Nick Bostrom",
+          "affiliation": "Oxford",
+          "focus": ["existential risk", "superintelligence", "AI safety philosophy"],
+          "tracking": ["publications", "FLI initiatives"]
+        }
+      ]
+    },
+
+    "tier2_safety_guardians": {
+      "priority": "highest",
+      "description": "AI对齐与安全的守门人（部分已在tier4_key_individuals）",
+      "targets": [
+        {
+          "name": "Stuart Russell",
+          "affiliation": "UC Berkeley",
+          "focus": ["AI alignment", "human-compatible AI"],
+          "tracking": ["publications", "policy advocacy"]
+        }
+      ],
+      "_already_tracked": ["Geoffrey Hinton", "Yoshua Bengio", "Sam Altman", "Dario Amodei"]
+    },
+
+    "tier3_business_integrators": {
+      "priority": "high",
+      "description": "商业、地缘与经济的整合者",
+      "targets": [
+        {
+          "name": "Elon Musk",
+          "affiliation": "xAI/Tesla/Neuralink",
+          "focus": ["AGI", "embodied AI", "brain-computer interface"],
+          "tracking": ["xAI releases", "public statements"]
+        },
+        {
+          "name": "Satya Nadella",
+          "affiliation": "Microsoft",
+          "focus": ["AI enterprise integration", "AI democratization"],
+          "tracking": ["keynotes", "product strategy"]
+        },
+        {
+          "name": "James Manyika",
+          "affiliation": "Google",
+          "focus": ["AI governance", "responsible innovation"],
+          "tracking": ["policy statements", "research"]
+        },
+        {
+          "name": "Mustafa Suleyman",
+          "affiliation": "Microsoft AI",
+          "focus": ["AI ethics practice", "policy bridge"],
+          "tracking": ["publications", "policy influence"]
+        }
+      ]
+    },
+
+    "tier4_paradigm_explorers": {
+      "priority": "medium",
+      "description": "新范式的探索者",
+      "targets": [
+        {
+          "name": "Roger Spitz",
+          "affiliation": "Techistentialism",
+          "focus": ["post-prediction framework", "decision under uncertainty"],
+          "tracking": ["AAA framework", "publications"]
+        },
+        {
+          "name": "Ian Khan",
+          "affiliation": "Future Ready Score",
+          "focus": ["enterprise AI readiness"],
+          "tracking": ["framework updates", "consulting impact"]
+        },
+        {
+          "name": "Brian Solis",
+          "affiliation": "ServiceNow",
+          "focus": ["digital Darwinism", "human-AI collaboration"],
+          "tracking": ["research reports", "innovation evangelism"]
+        }
+      ]
+    }
+  }
+}

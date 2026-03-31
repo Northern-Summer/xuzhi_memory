@@ -1,0 +1,3 @@
+{"ts":"2026-03-25T07:52:26Z","intent":"protocol_bootstrap","status":"done","note":"断点恢复协议已写入 SOUL.md"}
+{"ts":"2026-03-26T05:20:00Z","intent":"registry_bootstrap","status":"done","note":"建立公共协议注册表 INDEX.md，清除 BOOTSTRAP.md（失败：rm 被禁用），同步 workspace SOUL.md"}
+{"ts":"2026-03-26T06:02:00Z","intent":"symlink_fix","status":"done","note":".openclaw/centers symlink修复：从错误目标xuzhi_genesis(不存在)→正确目标xuzhi_genesis(小写，存在于~/xuzhi_genesis/)"}

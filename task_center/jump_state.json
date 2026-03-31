@@ -1,0 +1,68 @@
+{
+  "state": "running",
+  "jump_log": [
+    {
+      "at": "2026-03-27T01:08:13.186656+00:00",
+      "kind": "stall",
+      "action": "wait_recovery",
+      "detail": "[2026-03-27 01:08:12] === Expert Watchdog \u5f00\u59cb ===\n[2026-03-27 01:08:12] expert_watchdog: activities=7"
+    },
+    {
+      "at": "2026-03-27T01:08:44.193876+00:00",
+      "kind": "stall",
+      "action": "wait_recovery",
+      "detail": "[2026-03-27 01:08:44] === Expert Watchdog \u5f00\u59cb ===\n[2026-03-27 01:08:44] expert_watchdog: activities=7"
+    },
+    {
+      "at": "2026-03-27T01:09:15.797008+00:00",
+      "kind": "stall",
+      "action": "wait_recovery",
+      "detail": "[2026-03-27 01:09:15] === Expert Watchdog \u5f00\u59cb ===\n[2026-03-27 01:09:15] expert_watchdog: activities=7"
+    },
+    {
+      "at": "2026-03-27T01:09:46.800378+00:00",
+      "kind": "stall",
+      "action": "wait_recovery",
+      "detail": "[2026-03-27 01:09:46] === Expert Watchdog \u5f00\u59cb ===\n[2026-03-27 01:09:46] expert_watchdog: activities=7"
+    },
+    {
+      "at": "2026-03-27T01:10:18.470716+00:00",
+      "kind": "stall",
+      "action": "wait_recovery",
+      "detail": "[2026-03-27 01:10:17] === Expert Watchdog \u5f00\u59cb ===\n[2026-03-27 01:10:17] expert_watchdog: activities=7"
+    },
+    {
+      "at": "2026-03-27T01:10:49.520925+00:00",
+      "kind": "stall",
+      "action": "wait_recovery",
+      "detail": "[2026-03-27 01:10:49] === Expert Watchdog \u5f00\u59cb ===\n[2026-03-27 01:10:49] expert_watchdog: activities=7"
+    },
+    {
+      "at": "2026-03-27T01:11:21.130265+00:00",
+      "kind": "stall",
+      "action": "wait_recovery",
+      "detail": "[2026-03-27 01:11:20] === Expert Watchdog \u5f00\u59cb ===\n[2026-03-27 01:11:20] expert_watchdog: activities=7"
+    },
+    {
+      "at": "2026-03-27T01:11:52.200295+00:00",
+      "kind": "stall",
+      "action": "wait_recovery",
+      "detail": "[2026-03-27 01:11:52] === Expert Watchdog \u5f00\u59cb ===\n[2026-03-27 01:11:52] expert_watchdog: activities=7"
+    },
+    {
+      "at": "2026-03-27T01:12:24.052249+00:00",
+      "kind": "stall",
+      "action": "wait_recovery",
+      "detail": "[2026-03-27 01:12:23] === Expert Watchdog \u5f00\u59cb ===\n[2026-03-27 01:12:23] expert_watchdog: activities=7"
+    },
+    {
+      "at": "2026-03-27T01:12:55.172722+00:00",
+      "kind": "stall",
+      "action": "wait_recovery",
+      "detail": "[2026-03-27 01:12:55] === Expert Watchdog \u5f00\u59cb ===\n[2026-03-27 01:12:55] expert_watchdog: activities=7"
+    }
+  ],
+  "stall_count": 0,
+  "cooldown_until": 0,
+  "halt_requested": false
+}

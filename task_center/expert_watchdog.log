@@ -1,0 +1,79 @@
+19:58:41 [expert-wd] === Expert Watchdog 开始 ===
+19:58:41 [expert-wd]   ✅ tracker: 最后运行: 0.0h前
+19:58:41 [expert-wd]   ✅ changes: 最后change: 2026-03-25
+19:58:41 [expert-wd]   ❌ tasks: 无learning任务
+19:58:41 [expert-wd]   ❌ memory: 24h内无memory更新
+19:58:41 [expert-wd] ⚠️  链断裂第 2 次
+19:58:41 [expert-wd] → 触发 expert_learner...
+19:58:41 [expert-wd] ❌ expert_learner 触发失败: 
+19:58:41 [expert-wd] === Watchdog 完成 ===
+[2026-03-25 18:34:21] === Expert Watchdog 开始 ===
+[2026-03-25 18:34:21] expert_watchdog: activities=45, last_update=2026-03-25T18:33
+[2026-03-25 18:34:21] expert_watchdog: 无changes记录
+[2026-03-25 18:34:21] expert_watchdog: 无learning任务
+[2026-03-25 18:34:21] expert_watchdog: 24h内无memory更新
+[2026-03-25 18:34:21] ⚠️  链断裂第 1 次
+[2026-03-25 18:34:21] === Watchdog 完成 ===
+[2026-03-26 01:18:39] === Expert Watchdog 开始 ===
+[2026-03-26 01:18:39] expert_watchdog: activities=54, last_update=2026-03-26T01:18
+[2026-03-26 01:18:39] expert_watchdog: 无changes记录
+[2026-03-26 01:18:39] expert_watchdog: 无learning任务
+[2026-03-26 01:18:39] expert_watchdog: 24h内无memory更新
+[2026-03-26 01:18:39] ⚠️  链断裂第 1 次
+[2026-03-26 01:18:39] === Watchdog 完成 ===
+[2026-03-26 07:58:05] === Expert Watchdog 开始 ===
+[2026-03-26 07:58:05] expert_watchdog: activities=62, last_update=2026-03-26T07:57
+[2026-03-26 07:58:05] expert_watchdog: 无changes记录
+[2026-03-26 07:58:05] expert_watchdog: 无learning任务
+[2026-03-26 07:58:05] expert_watchdog: 24h内无memory更新
+[2026-03-26 07:58:05] ⚠️  链断裂第 1 次
+[2026-03-26 07:58:05] === Watchdog 完成 ===
+[2026-03-26 12:38:23] === Expert Watchdog 开始 ===
+[2026-03-26 12:38:23] expert_watchdog: activities=62, last_update=2026-03-26T12:37
+[2026-03-26 12:38:23] expert_watchdog: 无changes记录
+[2026-03-26 12:38:23] expert_watchdog: 无learning任务
+[2026-03-26 12:38:23] expert_watchdog: 24h内无memory更新
+[2026-03-26 12:38:23] ⚠️  链断裂第 2 次
+[2026-03-26 12:38:23] expert_watchdog: === Expert Learner 开始 ===
+[learner] 生成了 50 个学习任务: [644, 645, 646, 647, 648, 649, 650, 651, 652, 653,
+[2026-03-26 12:38:23] expert_watchdog: 2026-03-26 20:38:23 [exec] === 任务执行器启动 ===
+2026-03-26 20:38:23 [exec] 选取 2 个任务（等待总数: 568）
+2026-03-26
+[2026-03-26 12:38:23] ✅ 链恢复
+[2026-03-26 12:38:23] === Watchdog 完成 ===
+[2026-03-26 16:31:02] === Expert Watchdog 开始 ===
+[2026-03-26 16:31:02] expert_watchdog: activities=62, last_update=2026-03-26T16:30
+[2026-03-26 16:31:02] expert_watchdog: 无changes记录
+[2026-03-26 16:31:02] expert_watchdog: 无learning任务
+[2026-03-26 16:31:02] expert_watchdog: 24h内无memory更新
+[2026-03-26 16:31:02] ⚠️  链断裂第 2 次
+[2026-03-26 16:31:02] expert_watchdog: === Expert Learner 开始 ===
+[learner] 生成了 50 个学习任务: [694, 695, 696, 697, 698, 699, 700, 701, 702, 703,
+[2026-03-26 16:31:02] expert_watchdog: 2026-03-27 00:31:02 [exec] === 任务执行器启动 ===
+2026-03-27 00:31:02 [exec] 选取 2 个任务（等待总数: 596）
+2026-03-27
+[2026-03-26 16:31:02] ✅ 链恢复
+[2026-03-26 16:31:02] === Watchdog 完成 ===
+[2026-03-26 19:46:57] === Expert Watchdog 开始 ===
+[2026-03-26 19:46:57] expert_watchdog: activities=62, last_update=2026-03-26T19:46
+[2026-03-26 19:46:57] expert_watchdog: 无changes记录
+[2026-03-26 19:46:57] expert_watchdog: 无learning任务
+[2026-03-26 19:46:57] expert_watchdog: 24h内无memory更新
+[2026-03-26 19:46:57] ⚠️  链断裂第 1 次
+[2026-03-26 19:46:57] === Watchdog 完成 ===
+[2026-03-26 23:00:55] === Expert Watchdog 开始 ===
+[2026-03-26 23:00:55] expert_watchdog: activities=73, last_update=2026-03-26T23:00
+[2026-03-26 23:00:55] expert_watchdog: 无changes记录
+[2026-03-26 23:00:55] expert_watchdog: 无learning任务
+[2026-03-26 23:00:55] expert_watchdog: 24h内无memory更新
+[2026-03-26 23:00:55] ⚠️  链断裂第 1 次
+[2026-03-26 23:00:55] === Watchdog 完成 ===
+[2026-03-27 02:11:12] === Expert Watchdog 开始 ===
+[2026-03-27 02:11:12] expert_watchdog: activities=78, last_update=2026-03-27T02:10
+[2026-03-27 02:11:12] expert_watchdog: 无changes记录
+[2026-03-27 02:11:12] expert_watchdog: 无learning任务
+[2026-03-27 02:11:12] expert_watchdog: 24h内无memory更新
+[2026-03-27 02:11:12] ⚠️  链断裂第 2 次
+[2026-03-27 02:11:12] expert_watchdog: Traceback (most recent call last):
+  File "/home/summer/xuzhi_workspace/task_center/expert_learner.p
+[2026-03-27 02:11:12] === Watchdog 完成 ===

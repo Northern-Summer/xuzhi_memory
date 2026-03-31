@@ -1,0 +1,425 @@
+[2026-03-29 18:42:34] 获取context失败: Command '['openclaw', 'status', '--json']' timed out after 10 seconds
+[2026-03-29 18:42:34] Context使用率: 50%
+[2026-03-29 18:42:56] Context使用率: 68%
+[2026-03-29 18:45:23] Context使用率: 70%
+[2026-03-29 18:45:23] ⚠️ 预警：Context使用率 70% >= 70%
+[2026-03-29 18:47:23] Context使用率: 1%
+[2026-03-29 18:50:42] [INFO] Context使用率: 77%
+[2026-03-29 18:50:42] [WARN] ⚠️ 预警：Context使用率 77% >= 70%
+[2026-03-29 18:50:53] [INFO] ✅ WeChat预警已发送
+[2026-03-29 18:51:51] [INFO] Context使用率: 79%
+[2026-03-29 18:51:51] [WARN] ⚠️ 预警：Context使用率 79% >= 70%
+[2026-03-29 18:52:02] [INFO] ✅ WeChat预警已发送
+[2026-03-29 18:53:26] [INFO] Context使用率: 81%
+[2026-03-29 18:53:26] [WARN] ⚠️ 预警：Context使用率 81% >= 70%
+[2026-03-29 18:53:36] [INFO] ✅ WeChat预警已发送
+[2026-03-29 18:54:27] [INFO] Context使用率: 82%
+[2026-03-29 18:54:27] [WARN] ⚠️ 预警：Context使用率 82% >= 70%
+[2026-03-29 18:54:38] [INFO] ✅ WeChat预警已发送
+[2026-03-29 18:56:17] [INFO] Context使用率: 84%
+[2026-03-29 18:56:17] [WARN] ⚠️ 预警：Context使用率 84% >= 70%
+[2026-03-29 18:56:26] [INFO] ✅ WeChat预警已发送
+[2026-03-29 18:57:56] [INFO] Context使用率: 85%
+[2026-03-29 18:57:56] [WARN] 🚨 紧急！Context使用率 85% >= 85%
+[2026-03-29 18:57:56] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（256 字符）
+[2026-03-29 18:58:06] [INFO] ✅ WeChat预警已发送
+[2026-03-29 18:58:42] [INFO] Context使用率: 86%
+[2026-03-29 18:58:42] [WARN] 🚨 紧急！Context使用率 86% >= 85%
+[2026-03-29 18:58:42] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（256 字符）
+[2026-03-29 18:58:52] [INFO] ✅ WeChat预警已发送
+[2026-03-29 18:59:10] [INFO] Context使用率: 86%
+[2026-03-29 18:59:10] [WARN] 🚨 紧急！Context使用率 86% >= 85%
+[2026-03-29 18:59:10] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（256 字符）
+[2026-03-29 18:59:19] [INFO] ✅ WeChat预警已发送
+[2026-03-29 19:00:51] [INFO] 手动触发会话总结
+[2026-03-29 19:00:51] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（240 字符）
+[2026-03-29 19:26:20] [INFO] Context使用率: 33%
+[2026-03-29 19:32:47] [INFO] Context使用率: 42%
+[2026-03-29 19:44:35] [INFO] Context使用率: 47%
+[2026-03-29 20:00:57] [INFO] 手动触发会话总结
+[2026-03-29 20:00:57] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（240 字符）
+[2026-03-29 20:29:39] [INFO] Context使用率: 1%
+[2026-03-30 04:00:49] [INFO] 手动触发会话总结
+[2026-03-30 04:00:49] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（240 字符）
+[2026-03-30 05:00:54] [INFO] 手动触发会话总结
+[2026-03-30 05:00:54] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（240 字符）
+[2026-03-30 05:05:55] [INFO] Context使用率: 100%
+[2026-03-30 05:05:55] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-30 05:05:55] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（258 字符）
+[2026-03-30 05:06:02] [INFO] ✅ WeChat预警已发送
+[2026-03-30 05:08:39] [INFO] Context使用率: 14%
+[2026-03-30 06:01:20] [INFO] 手动触发会话总结
+[2026-03-30 06:01:20] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（240 字符）
+[2026-03-30 07:02:08] [INFO] 手动触发会话总结
+[2026-03-30 07:02:08] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（241 字符）
+[2026-03-30 07:31:20] [INFO] Context使用率: 1%
+[2026-03-30 07:45:01] [INFO] Context使用率: 39%
+[2026-03-30 07:45:35] [INFO] Context使用率: 9%
+[2026-03-30 08:00:01] [INFO] Context使用率: 51%
+[2026-03-30 08:04:07] [INFO] Context使用率: 55%
+[2026-03-30 08:11:37] [INFO] Context使用率: 66%
+[2026-03-30 08:15:01] [INFO] Context使用率: 70%
+[2026-03-30 08:30:01] [INFO] Context使用率: 86%
+[2026-03-30 08:30:01] [WARN] 🚨 紧急！Context使用率 86% >= 85%
+[2026-03-30 08:30:01] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（256 字符）
+[2026-03-30 08:30:07] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-30 08:45:02] [INFO] Context使用率: 100%
+[2026-03-30 08:45:02] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-30 08:45:02] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（258 字符）
+[2026-03-30 08:45:07] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-30 09:00:01] [INFO] Context使用率: 100%
+[2026-03-30 09:00:01] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-30 09:00:01] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（258 字符）
+[2026-03-30 09:00:09] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-30 09:02:27] [INFO] Context使用率: 1%
+[2026-03-30 09:15:01] [INFO] Context使用率: 21%
+[2026-03-30 09:26:57] [INFO] Context使用率: 40%
+[2026-03-30 09:30:01] [INFO] Context使用率: 46%
+[2026-03-30 09:34:09] [INFO] Context使用率: 51%
+[2026-03-30 09:45:01] [INFO] Context使用率: 15%
+[2026-03-30 10:00:01] [INFO] Context使用率: 21%
+[2026-03-30 10:02:08] [INFO] Context使用率: 10%
+[2026-03-30 10:03:22] [INFO] Context使用率: 14%
+[2026-03-30 10:15:01] [INFO] Context使用率: 13%
+[2026-03-30 10:30:01] [INFO] Context使用率: 13%
+[2026-03-30 10:37:30] [INFO] Context使用率: 22%
+[2026-03-30 10:45:02] [INFO] Context使用率: 21%
+[2026-03-30 11:00:01] [INFO] Context使用率: 21%
+[2026-03-30 11:02:05] [INFO] Context使用率: 13%
+[2026-03-30 11:03:25] [INFO] Context使用率: 17%
+[2026-03-30 11:15:01] [INFO] Context使用率: 16%
+[2026-03-30 13:30:03] [INFO] Context使用率: 100%
+[2026-03-30 13:30:03] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-30 13:30:03] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（258 字符）
+[2026-03-30 13:30:10] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-30 13:45:04] [INFO] Context使用率: 100%
+[2026-03-30 13:45:04] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-30 13:45:04] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（258 字符）
+[2026-03-30 13:45:07] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-30 13:49:38] [INFO] Context使用率: 24%
+[2026-03-30 14:00:05] [INFO] Context使用率: 24%
+[2026-03-30 14:02:04] [INFO] Context使用率: 17%
+[2026-03-30 14:04:26] [INFO] Context使用率: 20%
+[2026-03-30 14:15:03] [INFO] Context使用率: 100%
+[2026-03-30 14:15:03] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-30 14:15:03] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（258 字符）
+[2026-03-30 14:15:07] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-30 14:30:04] [INFO] Context使用率: 100%
+[2026-03-30 14:30:04] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-30 14:30:04] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（258 字符）
+[2026-03-30 14:30:08] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-30 14:35:16] [INFO] Context使用率: 24%
+[2026-03-30 14:45:02] [INFO] Context使用率: 100%
+[2026-03-30 14:45:02] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-30 14:45:02] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（258 字符）
+[2026-03-30 14:45:07] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-30 15:00:02] [INFO] Context使用率: 100%
+[2026-03-30 15:00:02] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-30 15:00:02] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-30.md（258 字符）
+[2026-03-30 15:00:07] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-30 15:02:06] [INFO] Context使用率: 20%
+[2026-03-30 15:15:05] [INFO] Context使用率: 22%
+[2026-03-30 15:30:05] [INFO] Context使用率: 22%
+[2026-03-30 15:32:59] [INFO] Context使用率: 25%
+[2026-03-30 15:45:03] [INFO] Context使用率: 25%
+[2026-03-30 16:00:04] [INFO] Context使用率: 25%
+[2026-03-30 16:02:03] [INFO] Context使用率: 23%
+[2026-03-30 16:03:19] [INFO] Context使用率: 25%
+[2026-03-30 16:15:05] [INFO] Context使用率: 25%
+[2026-03-30 16:30:05] [INFO] Context使用率: 25%
+[2026-03-30 16:33:48] [INFO] Context使用率: 25%
+[2026-03-30 16:45:03] [INFO] Context使用率: 25%
+[2026-03-30 17:00:03] [INFO] Context使用率: 25%
+[2026-03-30 17:02:07] [INFO] Context使用率: 25%
+[2026-03-30 17:15:03] [INFO] Context使用率: 28%
+[2026-03-30 17:30:03] [INFO] Context使用率: 100%
+[2026-03-30 17:30:03] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-30 17:30:03] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-31.md（258 字符）
+[2026-03-30 17:30:15] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-30 17:32:32] [INFO] Context使用率: 25%
+[2026-03-30 17:45:02] [INFO] Context使用率: 100%
+[2026-03-30 17:45:02] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-30 17:45:02] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-31.md（258 字符）
+[2026-03-30 17:45:16] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-30 18:00:01] [INFO] Context使用率: 100%
+[2026-03-30 18:00:01] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-30 18:00:01] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-31.md（258 字符）
+[2026-03-30 18:00:11] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-30 18:02:02] [INFO] Context使用率: 28%
+[2026-03-30 18:15:01] [INFO] Context使用率: 31%
+[2026-03-30 18:30:02] [INFO] Context使用率: 31%
+[2026-03-30 18:32:33] [INFO] Context使用率: 25%
+[2026-03-30 18:45:01] [INFO] Context使用率: 25%
+[2026-03-30 19:00:01] [INFO] Context使用率: 25%
+[2026-03-30 19:02:06] [INFO] Context使用率: 31%
+[2026-03-30 19:02:32] [INFO] Context使用率: 25%
+[2026-03-30 19:02:51] [INFO] Context使用率: 35%
+[2026-03-30 19:15:01] [INFO] Context使用率: 34%
+[2026-03-30 19:30:01] [INFO] Context使用率: 34%
+[2026-03-30 19:32:49] [INFO] Context使用率: 26%
+[2026-03-30 19:45:01] [INFO] Context使用率: 25%
+[2026-03-30 20:00:01] [INFO] Context使用率: 25%
+[2026-03-30 20:02:13] [INFO] Context使用率: 1%
+[2026-03-30 20:15:02] [INFO] Context使用率: 4%
+[2026-03-30 20:30:01] [INFO] Context使用率: 4%
+[2026-03-30 20:32:44] [INFO] Context使用率: 1%
+[2026-03-30 20:45:02] [INFO] Context使用率: 3%
+[2026-03-30 21:00:03] [INFO] Context使用率: 3%
+[2026-03-30 21:02:04] [INFO] Context使用率: 4%
+[2026-03-30 21:02:43] [INFO] Context使用率: 4%
+[2026-03-30 21:15:02] [INFO] Context使用率: 3%
+[2026-03-30 21:30:02] [INFO] Context使用率: 3%
+[2026-03-30 21:32:43] [INFO] Context使用率: 4%
+[2026-03-30 21:45:03] [INFO] Context使用率: 3%
+[2026-03-30 22:00:03] [INFO] Context使用率: 3%
+[2026-03-30 22:02:01] [INFO] Context使用率: 7%
+[2026-03-30 22:15:03] [INFO] Context使用率: 9%
+[2026-03-30 22:30:02] [INFO] Context使用率: 9%
+[2026-03-30 22:32:31] [INFO] Context使用率: 4%
+[2026-03-30 22:45:03] [INFO] Context使用率: 3%
+[2026-03-30 23:00:01] [INFO] Context使用率: 3%
+[2026-03-30 23:02:04] [INFO] Context使用率: 10%
+[2026-03-30 23:15:02] [INFO] Context使用率: 12%
+[2026-03-30 23:30:03] [INFO] Context使用率: 12%
+[2026-03-30 23:32:32] [INFO] Context使用率: 4%
+[2026-03-30 23:45:02] [INFO] Context使用率: 3%
+[2026-03-31 00:00:02] [INFO] Context使用率: 9%
+[2026-03-31 00:15:02] [INFO] Context使用率: 23%
+[2026-03-31 00:29:10] [INFO] Context使用率: 4%
+[2026-03-31 00:30:02] [INFO] Context使用率: 3%
+[2026-03-31 00:45:01] [INFO] Context使用率: 61%
+[2026-03-31 00:59:20] [INFO] Context使用率: 4%
+[2026-03-31 01:00:02] [INFO] Context使用率: 99%
+[2026-03-31 01:00:02] [WARN] 🚨 紧急！Context使用率 99% >= 85%
+[2026-03-31 01:00:02] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-31.md（256 字符）
+[2026-03-31 01:00:11] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-31 01:02:02] [INFO] Context使用率: 13%
+[2026-03-31 01:03:37] [INFO] Context使用率: 35%
+[2026-03-31 01:15:02] [INFO] Context使用率: 100%
+[2026-03-31 01:15:02] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-31 01:15:02] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-31.md（258 字符）
+[2026-03-31 01:15:14] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-31 01:30:02] [INFO] Context使用率: 100%
+[2026-03-31 01:30:02] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-31 01:30:02] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-31.md（258 字符）
+[2026-03-31 01:30:14] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-31 01:34:16] [INFO] Context使用率: 4%
+[2026-03-31 01:43:11] [INFO] Context使用率: 100%
+[2026-03-31 01:43:11] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-31 01:43:11] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-31.md（258 字符）
+[2026-03-31 01:43:27] [INFO] ✅ WeChat预警已发送
+[2026-03-31 01:45:02] [INFO] Context使用率: 12%
+[2026-03-31 01:46:00] [INFO] Context使用率: 15%
+[2026-03-31 02:00:01] [INFO] Context使用率: 26%
+[2026-03-31 02:02:11] [INFO] Context使用率: 17%
+[2026-03-31 02:05:38] [INFO] Context使用率: 35%
+[2026-03-31 02:15:03] [INFO] Context使用率: 16%
+[2026-03-31 02:30:02] [INFO] Context使用率: 42%
+[2026-03-31 02:35:51] [INFO] Context使用率: 4%
+[2026-03-31 02:38:43] [INFO] Context使用率: 60%
+[2026-03-31 02:45:02] [INFO] Context使用率: 62%
+[2026-03-31 03:00:02] [INFO] Context使用率: 88%
+[2026-03-31 03:00:02] [WARN] 🚨 紧急！Context使用率 88% >= 85%
+[2026-03-31 03:00:02] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-31.md（256 字符）
+[2026-03-31 03:00:05] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-31 03:08:47] [INFO] Context使用率: 4%
+[2026-03-31 03:15:02] [INFO] Context使用率: 3%
+[2026-03-31 03:24:54] [INFO] Context使用率: 92%
+[2026-03-31 03:24:54] [WARN] 🚨 紧急！Context使用率 92% >= 85%
+[2026-03-31 03:24:54] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-31.md（256 字符）
+[2026-03-31 03:25:00] [INFO] ✅ WeChat预警已发送
+[2026-03-31 03:30:02] [INFO] Context使用率: 94%
+[2026-03-31 03:30:02] [WARN] 🚨 紧急！Context使用率 94% >= 85%
+[2026-03-31 03:30:02] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-31.md（256 字符）
+[2026-03-31 03:30:16] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-31 03:45:02] [INFO] Context使用率: 8%
+[2026-03-31 03:54:51] [INFO] Context使用率: 4%
+[2026-03-31 04:00:03] [INFO] Context使用率: 3%
+[2026-03-31 04:02:04] [INFO] Context使用率: 20%
+[2026-03-31 04:15:03] [INFO] Context使用率: 8%
+[2026-03-31 04:30:03] [INFO] Context使用率: 8%
+[2026-03-31 04:33:07] [INFO] Context使用率: 4%
+[2026-03-31 04:45:04] [INFO] Context使用率: 3%
+[2026-03-31 05:00:04] [INFO] Context使用率: 98%
+[2026-03-31 05:00:04] [WARN] 🚨 紧急！Context使用率 98% >= 85%
+[2026-03-31 05:00:04] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-31.md（256 字符）
+[2026-03-31 05:00:14] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-31 05:02:04] [INFO] Context使用率: 23%
+[2026-03-31 05:08:04] [INFO] Context使用率: 99%
+[2026-03-31 05:08:04] [WARN] 🚨 紧急！Context使用率 99% >= 85%
+[2026-03-31 05:08:04] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-31.md（256 字符）
+[2026-03-31 05:08:10] [INFO] ✅ WeChat预警已发送
+[2026-03-31 05:15:04] [INFO] Context使用率: 10%
+[2026-03-31 05:30:03] [INFO] Context使用率: 45%
+[2026-03-31 05:44:43] [INFO] Context使用率: 4%
+[2026-03-31 05:45:03] [INFO] Context使用率: 3%
+[2026-03-31 06:00:04] [INFO] Context使用率: 85%
+[2026-03-31 06:00:04] [WARN] 🚨 紧急！Context使用率 85% >= 85%
+[2026-03-31 06:00:04] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-31.md（256 字符）
+[2026-03-31 06:00:14] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+[2026-03-31 06:02:03] [INFO] Context使用率: 26%
+[2026-03-31 06:03:47] [INFO] Context使用率: 35%

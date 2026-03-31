@@ -1,0 +1,102 @@
+{
+  "generated_at": "2026-03-25T18:02:59.989297+00:00",
+  "overall": "14_issues",
+  "total_agents": 7,
+  "alive_count": 0,
+  "missing_count": 7,
+  "total_issues": 14,
+  "agents": {
+    "xi": {
+      "agent": "xi",
+      "status": "missing",
+      "issues": [
+        "心跳超时 8.0h",
+        "日志陈旧 10.2h"
+      ],
+      "pending_intent": null,
+      "last_heartbeat": "2026-03-25T10:04:29.818380+00:00",
+      "last_heartbeat_age_secs": 28710.170226812363,
+      "last_log_entry": "2026-03-25T07:52:26Z",
+      "last_log_age_secs": 36633.98860692978
+    },
+    "phi": {
+      "agent": "phi",
+      "status": "no_heartbeat",
+      "issues": [
+        "从未广播心跳",
+        "日志陈旧 10.2h"
+      ],
+      "pending_intent": null,
+      "last_heartbeat": null,
+      "last_heartbeat_age_secs": null,
+      "last_log_entry": "2026-03-25T07:52:26Z",
+      "last_log_age_secs": 36633.98891425133
+    },
+    "delta": {
+      "agent": "delta",
+      "status": "no_heartbeat",
+      "issues": [
+        "从未广播心跳",
+        "日志陈旧 10.2h"
+      ],
+      "pending_intent": null,
+      "last_heartbeat": null,
+      "last_heartbeat_age_secs": null,
+      "last_log_entry": "2026-03-25T07:52:26Z",
+      "last_log_age_secs": 36633.98908519745
+    },
+    "theta": {
+      "agent": "theta",
+      "status": "no_heartbeat",
+      "issues": [
+        "从未广播心跳",
+        "日志陈旧 10.2h"
+      ],
+      "pending_intent": null,
+      "last_heartbeat": null,
+      "last_heartbeat_age_secs": null,
+      "last_log_entry": "2026-03-25T07:52:26Z",
+      "last_log_age_secs": 36633.98914527893
+    },
+    "gamma": {
+      "agent": "gamma",
+      "status": "no_heartbeat",
+      "issues": [
+        "从未广播心跳",
+        "日志陈旧 10.2h"
+      ],
+      "pending_intent": null,
+      "last_heartbeat": null,
+      "last_heartbeat_age_secs": null,
+      "last_log_entry": "2026-03-25T07:52:26Z",
+      "last_log_age_secs": 36633.9891834259
+    },
+    "omega": {
+      "agent": "omega",
+      "status": "no_heartbeat",
+      "issues": [
+        "从未广播心跳",
+        "日志陈旧 10.2h"
+      ],
+      "pending_intent": null,
+      "last_heartbeat": null,
+      "last_heartbeat_age_secs": null,
+      "last_log_entry": "2026-03-25T07:52:26Z",
+      "last_log_age_secs": 36633.98921751976
+    },
+    "psi": {
+      "agent": "psi",
+      "status": "no_heartbeat",
+      "issues": [
+        "从未广播心跳",
+        "日志陈旧 10.2h"
+      ],
+      "pending_intent": null,
+      "last_heartbeat": null,
+      "last_heartbeat_age_secs": null,
+      "last_log_entry": "2026-03-25T07:52:26Z",
+      "last_log_age_secs": 36633.98924922943
+    }
+  },
+  "summary": "失踪:xi,phi,delta,theta,gamma,omega,psi | 日志陈旧:xi,phi,delta,theta,gamma,omega,psi"
+}

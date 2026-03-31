@@ -1,0 +1,51 @@
+{
+  "papers_reviewed": 3,
+  "avg_overall": 4.0,
+  "accepted": 1,
+  "minor_revision": 2,
+  "major_revision": 0,
+  "reviews": [
+    {
+      "arxiv_id": "2603.22281",
+      "title": "ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning M",
+      "scores": {
+        "novelty": 3,
+        "methodology": 4,
+        "relevance": 4,
+        "reliability": 4,
+        "overall": 3.8
+      },
+      "verdict": "minor_revision",
+      "key_strength": "Orthogonal pathways provide complementary information sources",
+      "key_weakness": "Computational cost not reported; may not scale to large systems"
+    },
+    {
+      "arxiv_id": "2603.18000",
+      "title": "AgentFactory: Towards Arbitrary Skill Learning in LLM-based Agents via Generativ",
+      "scores": {
+        "novelty": 4,
+        "methodology": 4,
+        "relevance": 3,
+        "reliability": 4,
+        "overall": 3.8
+      },
+      "verdict": "minor_revision",
+      "key_strength": "Executable code preservation enables portable, feedback-driven skill improvement",
+      "key_weakness": "Ablation analysis incomplete; hyperparameter sensitivity not explored"
+    },
+    {
+      "arxiv_id": "2603.23500",
+      "title": "UniGRPO: Unified Policy Optimization for Reasoning-Driven Visual Generation",
+      "scores": {
+        "novelty": 5,
+        "methodology": 5,
+        "relevance": 4,
+        "reliability": 4,
+        "overall": 4.5
+      },
+      "verdict": "accept",
+      "key_strength": "Strong empirical validation across multiple benchmarks",
+      "key_weakness": "May be validated on limited task types"
+    }
+  ]
+}

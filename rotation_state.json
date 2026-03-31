@@ -1,0 +1,26 @@
+{
+  "_comment": "Xi is main session - always runs. Greek agents (ΦΔΘΓΩΨ) rotate weekly.",
+  "_validation": "Always verify current = schedule[date +%u] before trusting this file",
+  "schedule": {
+    "0": "phi",
+    "1": "delta",
+    "2": "gamma",
+    "3": "theta",
+    "4": "omega",
+    "5": "psi",
+    "6": "xi"
+  },
+  "departments": {
+    "xi": "人工智能",
+    "phi": "语言学/文学",
+    "delta": "数学",
+    "gamma": "自然科学",
+    "theta": "历史学/社会科学",
+    "omega": "艺术",
+    "psi": "哲学"
+  },
+  "current": "gamma",
+  "last_change": "2026-03-31",
+  "last_active_day": "2026-03-31",
+  "validation_note": "2026-03-31 is Tuesday (weekday 2) → gamma"
+}

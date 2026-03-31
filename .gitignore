@@ -1,0 +1,48 @@
+# 运行时文件（永不提交）
+.sync.log
+.conflict_report.txt
+.write.lock
+.hygiene.lock
+.hygiene_sha256.json
+session_guard_state.json
+
+# Expert tracker 运行时
+expert_tracker/reviewed_output.json
+expert_tracker/synthesis.json
+expert_tracker/activity.json
+expert_tracker/*.log
+expert_tracker/review_archive/
+expert_tracker/synthesis_archive/
+
+# 临时文件
+*.tmp
+*.tmp.*
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+.idea/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 备份目录（可选追踪）
+# backup/
+
+# 备份和检查点
+backup/
+checkpoints/
+
+# daily 目录（已迁移到 memory/）
+daily/
+
+# 高风险文件（含明文 token）
+.git-askpass.sh
+session_archive/
+*.jsonl
+.github_token

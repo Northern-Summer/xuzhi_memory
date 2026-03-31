@@ -1,0 +1,171 @@
+[07:23:10] === heartbeat_tasks: 开始 ===
+[07:23:10] Quota 检查通过: quota_guard: OK (19.7%)
+[07:23:14] === heartbeat_tasks: 开始 ===
+[07:23:14] Quota 检查通过: quota_guard: OK (19.7%)
+[07:23:36] === heartbeat_tasks: 开始 ===
+[07:23:36] Quota 检查通过: quota_guard: OK (19.7%)
+[07:24:15] === heartbeat_tasks: 开始 ===
+[07:24:16] Quota 检查通过: quota_guard: OK (19.7%)
+[07:24:16] 等待任务: 3 个
+[07:24:17] ❌ task #68: spawn failed — error: unknown option '--name'
+
+[07:24:17] === heartbeat_tasks: 派发 0 个任务 ===
+[07:53:26] === heartbeat_tasks: 开始 ===
+[07:53:26] Quota 检查通过: quota_guard: OK (20.3%)
+[07:53:26] 等待任务: 1 个
+[07:53:28] ❌ task #69: spawn failed — error: unknown option '--name'
+
+[07:53:28] === heartbeat_tasks: 派发 0 个任务 ===
+[07:55:39] === heartbeat_tasks: 开始 ===
+[07:55:39] Quota 检查通过: quota_guard: OK (20.3%)
+[07:55:39] 等待任务: 1 个
+[07:55:41] ❌ task #69: spawn failed — error: unknown option '--name'
+
+[07:55:41] === heartbeat_tasks: 派发 0 个任务 ===
+[08:23:40] === heartbeat_tasks: 开始 ===
+[08:23:40] Quota 检查通过: quota_guard: OK (19.9%)
+[08:23:40] 等待任务: 1 个
+[08:23:40] Rate limiter 禁止派发（窗口满或冷却中）
+[08:23:40] === heartbeat_tasks: 派发 0 个任务 ===
+[08:43:47] === heartbeat_tasks: 开始 ===
+[08:43:47] Quota 检查通过: quota_guard: OK (20.5%)
+[08:43:47] 等待任务: 1 个
+[08:43:47] Rate limiter 禁止派发（窗口满或冷却中）
+[08:43:47] === heartbeat_tasks: 派发 0 个任务 ===
+[08:53:52] === heartbeat_tasks: 开始 ===
+[08:53:52] Quota 检查通过: quota_guard: OK (20.4%)
+[08:53:52] 等待任务: 1 个
+[08:53:52] Rate limiter 禁止派发（窗口满或冷却中）
+[08:53:52] === heartbeat_tasks: 派发 0 个任务 ===
+[09:24:17] === heartbeat_tasks: 开始 ===
+[09:24:17] Quota 检查通过: quota_guard: OK (21.6%)
+[09:24:17] 等待任务: 1 个
+[09:24:17] Rate limiter 禁止派发（窗口满或冷却中）
+[09:24:17] === heartbeat_tasks: 派发 0 个任务 ===
+[09:54:34] === heartbeat_tasks: 开始 ===
+[09:54:34] Quota 检查通过: quota_guard: OK (21.8%)
+[09:54:34] 等待任务: 1 个
+[09:54:34] Rate limiter 禁止派发（窗口满或冷却中）
+[09:54:34] === heartbeat_tasks: 派发 0 个任务 ===
+[10:25:03] === heartbeat_tasks: 开始 ===
+[10:25:03] Quota 检查通过: quota_guard: OK (22.3%)
+[10:25:03] 等待任务: 1 个
+[10:25:03] Rate limiter 禁止派发（窗口满或冷却中）
+[10:25:03] === heartbeat_tasks: 派发 0 个任务 ===
+[10:55:10] === heartbeat_tasks: 开始 ===
+[10:55:10] Quota 检查通过: quota_guard: OK (20.0%)
+[10:55:10] 等待任务: 1 个
+[10:55:10] Rate limiter 禁止派发（窗口满或冷却中）
+[10:55:10] === heartbeat_tasks: 派发 0 个任务 ===
+[11:25:21] === heartbeat_tasks: 开始 ===
+[11:25:21] Quota 检查通过: quota_guard: OK (19.3%)
+[11:25:21] 等待任务: 1 个
+[11:25:21] Rate limiter 禁止派发（窗口满或冷却中）
+[11:25:21] === heartbeat_tasks: 派发 0 个任务 ===
+[11:55:30] === heartbeat_tasks: 开始 ===
+[11:55:30] Quota 检查通过: quota_guard: OK (16.5%)
+[11:55:30] 等待任务: 1 个
+[11:55:30] Rate limiter 禁止派发（窗口满或冷却中）
+[11:55:30] === heartbeat_tasks: 派发 0 个任务 ===
+[12:22:11] === heartbeat_tasks: 开始 ===
+[12:22:11] Quota 检查通过: [2026-03-25T12:22:11.046840+00:00] quota_guard: GATEWAY_UNREACHABLE
+[12:22:11] 等待任务: 1 个
+[12:22:11] Rate limiter 禁止派发（窗口满或冷却中）
+[12:22:11] === heartbeat_tasks: 派发 0 个任务 ===
+[12:25:49] === heartbeat_tasks: 开始 ===
+[12:25:49] Quota 检查通过: [2026-03-25T12:25:49.243920+00:00] quota_guard: GATEWAY_UNREACHABLE
+[12:25:49] 等待任务: 1 个
+[12:25:49] Rate limiter 禁止派发（窗口满或冷却中）
+[12:25:49] === heartbeat_tasks: 派发 0 个任务 ===
+[12:56:03] === heartbeat_tasks: 开始 ===
+[12:56:03] Quota 检查通过: [2026-03-25T12:56:03.635933+00:00] quota_guard: OK (18.7%)
+[12:56:03] 等待任务: 1 个
+[12:56:03] Rate limiter 禁止派发（窗口满或冷却中）
+[12:56:03] === heartbeat_tasks: 派发 0 个任务 ===
+[13:26:31] === heartbeat_tasks: 开始 ===
+[13:26:31] Quota 检查通过: [2026-03-25T13:26:31.032464+00:00] quota_guard: OK (20.7%)
+[13:26:31] 等待任务: 1 个
+[13:26:31] Rate limiter 禁止派发（窗口满或冷却中）
+[13:26:31] === heartbeat_tasks: 派发 0 个任务 ===
+[13:56:51] === heartbeat_tasks: 开始 ===
+[13:56:51] Quota 检查通过: [2026-03-25T13:56:51.750248+00:00] quota_guard: OK (21.6%)
+[13:56:51] 等待任务: 1 个
+[13:56:51] Rate limiter 禁止派发（窗口满或冷却中）
+[13:56:51] === heartbeat_tasks: 派发 0 个任务 ===
+[14:27:02] === heartbeat_tasks: 开始 ===
+[14:27:02] Quota 检查通过: [2026-03-25T14:27:02.168036+00:00] quota_guard: OK (20.8%)
+[14:27:02] 等待任务: 1 个
+[14:27:02] Rate limiter 禁止派发（窗口满或冷却中）
+[14:27:02] === heartbeat_tasks: 派发 0 个任务 ===
+[14:57:07] === heartbeat_tasks: 开始 ===
+[14:57:07] Quota 检查通过: [2026-03-25T14:57:07.133348+00:00] quota_guard: OK (20.7%)
+[14:57:07] 等待任务: 1 个
+[14:57:07] Rate limiter 禁止派发（窗口满或冷却中）
+[14:57:07] === heartbeat_tasks: 派发 0 个任务 ===
+[15:27:22] === heartbeat_tasks: 开始 ===
+[15:27:22] Quota 检查通过: [2026-03-25T15:27:22.113675+00:00] quota_guard: OK (20.5%)
+[15:27:22] 等待任务: 1 个
+[15:27:22] Rate limiter 禁止派发（窗口满或冷却中）
+[15:27:22] === heartbeat_tasks: 派发 0 个任务 ===
+[15:57:22] === heartbeat_tasks: 开始 ===
+[15:57:22] Quota 检查通过: [2026-03-25T15:57:22.386913+00:00] quota_guard: OK (23.0%)
+[15:57:22] 等待任务: 1 个
+[15:57:22] Rate limiter 禁止派发（窗口满或冷却中）
+[15:57:22] === heartbeat_tasks: 派发 0 个任务 ===
+[22:04:04] === heartbeat_tasks: 开始 ===
+[22:04:04] Quota 检查通过: [2026-03-26T14:04:04.481968+00:00] quota_guard: OK (24.2%)
+[22:04:04] 等待任务: 3 个
+[22:04:04] Rate limiter 禁止派发（窗口满或冷却中）
+[22:04:04] === heartbeat_tasks: 派发 0 个任务 ===
+[22:05:04] === heartbeat_tasks: 开始 ===
+[22:05:04] Quota 检查通过: [2026-03-26T14:05:04.822547+00:00] quota_guard: OK (24.2%)
+[22:05:04] 等待任务: 3 个
+[22:05:06] ❌ task #69: spawn failed — error: required option '--name <name>' not specified
+[22:05:09] ❌ task #72: spawn failed — error: required option '--name <name>' not specified
+[22:05:10] Rate limiter 禁止派发（窗口满或冷却中）
+[22:05:10] === heartbeat_tasks: 派发 0 个任务 ===
+[22:05:48] === heartbeat_tasks: 开始 ===
+[22:05:48] Quota 检查通过: [2026-03-26T14:05:48.982292+00:00] quota_guard: OK (24.2%)
+[22:05:48] 等待任务: 3 个
+[22:05:49] Rate limiter 禁止派发（窗口满或冷却中）
+[22:05:49] === heartbeat_tasks: 派发 0 个任务 ===
+[22:07:27] === heartbeat_tasks: 开始 ===
+[22:07:27] Quota 检查通过: [2026-03-26T14:07:27.265291+00:00] quota_guard: OK (24.2%)
+[22:07:27] 等待任务: 3 个
+[22:07:32] ❌ task #69: spawn failed — gateway connect failed: Error: gateway closed (1000): 
+Error: gateway closed (1000 normal closure): 
+[22:07:38] ✅ task #72: cron job 3915b77b-54f6-453e-913c-082e512822b5 created
+[22:07:39] Rate limiter 禁止派发（窗口满或冷却中）
+[22:07:39] === heartbeat_tasks: 派发 1 个任务 ===
+[22:07:50] === heartbeat_tasks: 开始 ===
+[22:07:50] Quota 检查通过: [2026-03-26T14:07:50.902128+00:00] quota_guard: OK (24.2%)
+[22:07:50] 等待任务: 3 个
+[22:07:55] ✅ task #69: cron job 58b8d521-e83c-42b2-aa0c-94c7b653fb81 created
+[22:08:01] ❌ task #72: spawn failed — gateway connect failed: Error: gateway closed (1000): 
+Error: gateway closed (1000 normal closure): 
+[22:08:02] Rate limiter 禁止派发（窗口满或冷却中）
+[22:08:02] === heartbeat_tasks: 派发 1 个任务 ===
+[22:09:22] === heartbeat_tasks: 开始 ===
+[22:09:22] Quota 检查通过: [2026-03-26T14:09:22.514599+00:00] quota_guard: OK (24.2%)
+[22:09:22] 等待任务: 3 个
+[22:09:22] Rate limiter 禁止派发（窗口满或冷却中）
+[22:09:22] === heartbeat_tasks: 派发 0 个任务 ===
+[22:10:51] === heartbeat_tasks: 开始 ===
+[22:10:51] Quota 检查通过: [2026-03-26T14:10:51.693477+00:00] quota_guard: OK (24.2%)
+[22:10:51] 等待任务: 3 个
+[22:10:57] ❌ task #69: spawn failed — gateway connect failed: Error: gateway closed (1000): 
+Error: gateway closed (1000 normal closure): 
+[22:11:03] ❌ task #72: spawn failed — gateway connect failed: Error: gateway closed (1000): 
+Error: gateway closed (1000 normal closure): 
+[22:11:04] Rate limiter 禁止派发（窗口满或冷却中）
+[22:11:04] === heartbeat_tasks: 派发 0 个任务 ===
+[22:11:04] === heartbeat_tasks: 开始 ===
+[22:11:04] Quota 检查通过: [2026-03-26T14:11:04.297525+00:00] quota_guard: OK (24.2%)
+[22:11:04] 等待任务: 3 个
+[22:11:04] Rate limiter 禁止派发（窗口满或冷却中）
+[22:11:04] === heartbeat_tasks: 派发 0 个任务 ===
+[22:12:00] === heartbeat_tasks: 开始 ===
+[22:12:00] Quota 检查通过: [2026-03-26T14:12:00.521404+00:00] quota_guard: OK (24.2%)
+[22:12:00] 等待任务: 3 个
+[22:12:00] Rate limiter 禁止派发（窗口满或冷却中）
+[22:12:00] === heartbeat_tasks: 派发 0 个任务 ===

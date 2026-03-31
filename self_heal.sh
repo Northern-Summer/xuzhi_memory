@@ -1,0 +1,1 @@
+/home/summer/xuzhi_genesis/centers/engineering/self_heal.sh

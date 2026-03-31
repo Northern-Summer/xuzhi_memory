@@ -1,0 +1,1286 @@
+{
+  "departments": {
+    "engineering": {
+      "experts": [
+        {
+          "name": "Valerio Terragni",
+          "affiliation": "",
+          "paper_count": 3,
+          "papers": [
+            {
+              "title": "From Untestable to Testable: Metamorphic Testing in the Age of LLMs",
+              "summary": "This article discusses the challenges of testing software systems with increasingly integrated AI and LLM functionalities. LLMs are powerful but unreliable, and labeled ground truth for testing rarely scales. Metamorphic Testing solves this by turning relations among multiple test executions into ex",
+              "published": "2026-03-25",
+              "url": "http://arxiv.org/abs/2603.24774v1"
+            },
+            {
+              "title": "LLMLOOP: Improving LLM-Generated Code and Tests through Automated Iterative Feedback Loops",
+              "summary": "Large Language Models (LLMs) are showing remarkable performance in generating source code, yet the generated code often has issues like compilation errors or incorrect code. Researchers and developers often face wasted effort in implementing checks and refining LLM-generated code, frequently duplica",
+              "published": "2026-03-24",
+              "url": "http://arxiv.org/abs/2603.23613v1"
+            },
+            {
+              "title": "LLMORPH: Automated Metamorphic Testing of Large Language Models",
+              "summary": "Automated testing is essential for evaluating and improving the reliability of Large Language Models (LLMs), yet the lack of automated oracles for verifying output correctness remains a key challenge. We present LLMORPH, an automated testing tool specifically designed for LLMs performing NLP tasks,",
+              "published": "2026-03-24",
+              "url": "http://arxiv.org/abs/2603.23611v1"
+            }
+          ],
+          "categories": [
+            "cs.SE"
+          ]
+        },
+        {
+          "name": "Yusheng Zheng",
+          "affiliation": "",
+          "paper_count": 3,
+          "papers": [
+            {
+              "title": "NCCLbpf: Verified, Composable Policy Execution for GPU Collective Communication",
+              "summary": "NCCL is the de facto standard for collective GPU communication in large-scale distributed training, relying heavily on plugins to customize runtime behavior. However, these plugins execute as unverified native code within NCCL's address space, risking job crashes, silent state corruption, and downti",
+              "published": "2026-03-12",
+              "url": "http://arxiv.org/abs/2603.11438v1"
+            },
+            {
+              "title": "AgentCgroup: Understanding and Controlling OS Resources of AI Agents",
+              "summary": "AI agents are increasingly deployed in multi-tenant cloud environments, where they execute diverse tool calls within sandboxed containers, each call with distinct resource demands and rapid fluctuations. We present a systematic characterization of OS-level resource dynamics in sandboxed AI coding ag",
+              "published": "2026-02-10",
+              "url": "http://arxiv.org/abs/2602.09345v2"
+            },
+            {
+              "title": "Fork, Explore, Commit: OS Primitives for Agentic Exploration",
+              "summary": "AI agents increasingly perform agentic exploration: pursuing multiple solution paths in parallel and committing only the successful one. Because each exploration path may modify files and spawn processes, agents require isolated environments with atomic commit and rollback semantics for both filesys",
+              "published": "2026-02-09",
+              "url": "http://arxiv.org/abs/2602.08199v2"
+            }
+          ],
+          "categories": [
+            "cs.OS"
+          ]
+        },
+        {
+          "name": "Eray Tüzün",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "LACY: Simulating Expert Mentoring for Software Onboarding with Code Tours",
+              "summary": "Every software organization faces the onboarding challenge: helping newcomers navigate complex codebases, compensate for insufficient documentation, and comprehend code they did not author. Expert walkthroughs are among the most effective forms of support, yet they are expensive, repetitive, and do",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25391v1"
+            },
+            {
+              "title": "Factors Influencing the Quality of AI-Generated Code: A Synthesis of Empirical Evidence",
+              "summary": "Context: The rapid adoption of AI-assisted code generation tools, such as large language models (LLMs), is transforming software development practices. While these tools promise significant productivity gains, concerns regarding the quality, reliability, and security of AI-generated code are increas",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25146v1"
+            }
+          ],
+          "categories": [
+            "cs.SE"
+          ]
+        },
+        {
+          "name": "Debangshu Banerjee",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "SEVerA: Verified Synthesis of Self-Evolving Agents",
+              "summary": "Recent advances have shown the effectiveness of self-evolving LLM agents on tasks such as program repair and scientific discovery. In this paradigm, a planner LLM synthesizes an agent program that invokes parametric models, including LLMs, which are then tuned per task to improve performance. Howeve",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25111v1"
+            },
+            {
+              "title": "SEVerA: Verified Synthesis of Self-Evolving Agents",
+              "summary": "Recent advances have shown the effectiveness of self-evolving LLM agents on tasks such as program repair and scientific discovery. In this paradigm, a planner LLM synthesizes an agent program that invokes parametric models, including LLMs, which are then tuned per task to improve performance. Howeve",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25111v1"
+            }
+          ],
+          "categories": [
+            "cs.SE",
+            "cs.LG"
+          ]
+        },
+        {
+          "name": "Changming Xu",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "SEVerA: Verified Synthesis of Self-Evolving Agents",
+              "summary": "Recent advances have shown the effectiveness of self-evolving LLM agents on tasks such as program repair and scientific discovery. In this paradigm, a planner LLM synthesizes an agent program that invokes parametric models, including LLMs, which are then tuned per task to improve performance. Howeve",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25111v1"
+            },
+            {
+              "title": "SEVerA: Verified Synthesis of Self-Evolving Agents",
+              "summary": "Recent advances have shown the effectiveness of self-evolving LLM agents on tasks such as program repair and scientific discovery. In this paradigm, a planner LLM synthesizes an agent program that invokes parametric models, including LLMs, which are then tuned per task to improve performance. Howeve",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25111v1"
+            }
+          ],
+          "categories": [
+            "cs.SE",
+            "cs.LG"
+          ]
+        },
+        {
+          "name": "Gagandeep Singh",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "SEVerA: Verified Synthesis of Self-Evolving Agents",
+              "summary": "Recent advances have shown the effectiveness of self-evolving LLM agents on tasks such as program repair and scientific discovery. In this paradigm, a planner LLM synthesizes an agent program that invokes parametric models, including LLMs, which are then tuned per task to improve performance. Howeve",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25111v1"
+            },
+            {
+              "title": "SEVerA: Verified Synthesis of Self-Evolving Agents",
+              "summary": "Recent advances have shown the effectiveness of self-evolving LLM agents on tasks such as program repair and scientific discovery. In this paradigm, a planner LLM synthesizes an agent program that invokes parametric models, including LLMs, which are then tuned per task to improve performance. Howeve",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25111v1"
+            }
+          ],
+          "categories": [
+            "cs.SE",
+            "cs.LG"
+          ]
+        },
+        {
+          "name": "Tony Mason",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Imperative Interference: Social Register Shapes Instruction Topology in Large Language Models",
+              "summary": "System prompt instructions that cooperate in English compete in Spanish, with the same semantic content, but opposite interaction topology. We present instruction-level ablation experiments across four languages and four models showing that this topology inversion is mediated by social register: the",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25015v1"
+            },
+            {
+              "title": "The Missing Memory Hierarchy: Demand Paging for LLM Context Windows",
+              "summary": "The context window of a large language model is not memory. It is L1 cache: a small, fast, expensive resource that the field treats as the entire memory system. There is no L2, no virtual memory, no paging. Every tool definition, every system prompt, and every stale tool result occupies context for",
+              "published": "2026-03-09",
+              "url": "http://arxiv.org/abs/2603.09023v1"
+            }
+          ],
+          "categories": [
+            "cs.SE",
+            "cs.OS"
+          ]
+        },
+        {
+          "name": "Isabella Graßl",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "The First Generation of AI-Assisted Programming Learners: Gendered Patterns in Critical Thinking and AI Ethics of German Secondary School Students",
+              "summary": "The first generation of students is learning to program alongside GenAI (Generative Artificial Intelligence) tools, raising questions about how young learners critically engage with them and perceive ethical responsibilities. While prior research has focused on university students or developers, lit",
+              "published": "2026-03-25",
+              "url": "http://arxiv.org/abs/2603.24197v1"
+            },
+            {
+              "title": "Integrating Mental Health, Well-Being, and Sustainability into Software Engineering Education",
+              "summary": "Mental health and well-being are major concerns in higher education and professional fields such as software engineering, yet are often overlooked in curricula. This paper describes our approach to include mental health, well-being, and sustainability in software engineering education in two ways: (",
+              "published": "2026-03-25",
+              "url": "http://arxiv.org/abs/2603.24191v1"
+            }
+          ],
+          "categories": [
+            "cs.SE"
+          ]
+        },
+        {
+          "name": "Chunrong Fang",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Towards Automated Crowdsourced Testing via Personified-LLM",
+              "summary": "The rapid proliferation and increasing complexity of software demand robust quality assurance, with graphical user interface (GUI) testing playing a pivotal role. Crowdsourced testing has proven effective in this context by leveraging the diversity of human testers to achieve rich, scenario-based co",
+              "published": "2026-03-25",
+              "url": "http://arxiv.org/abs/2603.24160v1"
+            },
+            {
+              "title": "Enhancing and Reporting Robustness Boundary of Neural Code Models for Intelligent Code Understanding",
+              "summary": "With the development of deep learning, Neural Code Models (NCMs) such as CodeBERT and CodeLlama are widely used for code understanding tasks, including defect detection and code classification. However, recent studies have revealed that NCMs are vulnerable to adversarial examples, inputs with subtle",
+              "published": "2026-03-25",
+              "url": "http://arxiv.org/abs/2603.24119v1"
+            }
+          ],
+          "categories": [
+            "cs.SE"
+          ]
+        },
+        {
+          "name": "Zhenyu Chen",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Towards Automated Crowdsourced Testing via Personified-LLM",
+              "summary": "The rapid proliferation and increasing complexity of software demand robust quality assurance, with graphical user interface (GUI) testing playing a pivotal role. Crowdsourced testing has proven effective in this context by leveraging the diversity of human testers to achieve rich, scenario-based co",
+              "published": "2026-03-25",
+              "url": "http://arxiv.org/abs/2603.24160v1"
+            },
+            {
+              "title": "Enhancing and Reporting Robustness Boundary of Neural Code Models for Intelligent Code Understanding",
+              "summary": "With the development of deep learning, Neural Code Models (NCMs) such as CodeBERT and CodeLlama are widely used for code understanding tasks, including defect detection and code classification. However, recent studies have revealed that NCMs are vulnerable to adversarial examples, inputs with subtle",
+              "published": "2026-03-25",
+              "url": "http://arxiv.org/abs/2603.24119v1"
+            }
+          ],
+          "categories": [
+            "cs.SE"
+          ]
+        }
+      ],
+      "last_refresh": "2026-03-27",
+      "next_refresh": "2026-04-03"
+    },
+    "science": {
+      "experts": [
+        {
+          "name": "Ze Tao",
+          "affiliation": "",
+          "paper_count": 4,
+          "papers": [
+            {
+              "title": "Residual Attention Physics-Informed Neural Networks for Robust Multiphysics Simulation of Steady-State Electrothermal Energy Systems",
+              "summary": "Efficient thermal management and precise field prediction are critical for the design of advanced energy systems, including electrohydrodynamic transport, microfluidic energy harvesters, and electrically driven thermal regulators. However, the steady-state simulation of these electrothermal coupled",
+              "published": "2026-03-24",
+              "url": "http://arxiv.org/abs/2603.23578v1"
+            },
+            {
+              "title": "A Residual-Attention Physics-Informed Neural Network for Irregular Interfaces and Multi-Peak Transport Fields",
+              "summary": "In complex engineering systems such as electro-thermal-fluid coupling, rapid and accurate prediction of multi-physics fields is essential for advanced applications like digital twins and real-time condition monitoring. Traditional numerical methods often suffer from high computational latency, where",
+              "published": "2026-03-24",
+              "url": "http://arxiv.org/abs/2603.22803v1"
+            },
+            {
+              "title": "PICS: A Partition-of-unity Information-geometric Certified Solver for Coupled Partial Differential Equations",
+              "summary": "Coupled partial differential equations underpin a wide range of multiphysics systems, yet existing neural PDE solvers still struggle to resolve localized high-risk regions and often fail to preserve structural admissibility across coupled fields. To address these limitations, we propose the Partitio",
+              "published": "2026-03-22",
+              "url": "http://arxiv.org/abs/2603.21271v1"
+            }
+          ],
+          "categories": [
+            "physics.comp-ph"
+          ]
+        },
+        {
+          "name": "Fujun Liu",
+          "affiliation": "",
+          "paper_count": 4,
+          "papers": [
+            {
+              "title": "Residual Attention Physics-Informed Neural Networks for Robust Multiphysics Simulation of Steady-State Electrothermal Energy Systems",
+              "summary": "Efficient thermal management and precise field prediction are critical for the design of advanced energy systems, including electrohydrodynamic transport, microfluidic energy harvesters, and electrically driven thermal regulators. However, the steady-state simulation of these electrothermal coupled",
+              "published": "2026-03-24",
+              "url": "http://arxiv.org/abs/2603.23578v1"
+            },
+            {
+              "title": "A Residual-Attention Physics-Informed Neural Network for Irregular Interfaces and Multi-Peak Transport Fields",
+              "summary": "In complex engineering systems such as electro-thermal-fluid coupling, rapid and accurate prediction of multi-physics fields is essential for advanced applications like digital twins and real-time condition monitoring. Traditional numerical methods often suffer from high computational latency, where",
+              "published": "2026-03-24",
+              "url": "http://arxiv.org/abs/2603.22803v1"
+            },
+            {
+              "title": "PICS: A Partition-of-unity Information-geometric Certified Solver for Coupled Partial Differential Equations",
+              "summary": "Coupled partial differential equations underpin a wide range of multiphysics systems, yet existing neural PDE solvers still struggle to resolve localized high-risk regions and often fail to preserve structural admissibility across coupled fields. To address these limitations, we propose the Partitio",
+              "published": "2026-03-22",
+              "url": "http://arxiv.org/abs/2603.21271v1"
+            }
+          ],
+          "categories": [
+            "physics.comp-ph"
+          ]
+        },
+        {
+          "name": "Xinliang Lyu",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Lattice and PT symmetries in tensor-network renormalization group: a case study of a hard-square lattice gas model",
+              "summary": "The tensor-network renormalization group (TNRG) is an accurate numerical real-space renormalization group method for studying phase transitions in both quantum and classical systems. Continuous phase transitions, as an important class of phase transitions, are usually accompanied by spontaneous brea",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25492v1"
+            },
+            {
+              "title": "Lattice and PT symmetries in tensor-network renormalization group: a case study of a hard-square lattice gas model",
+              "summary": "The tensor-network renormalization group (TNRG) is an accurate numerical real-space renormalization group method for studying phase transitions in both quantum and classical systems. Continuous phase transitions, as an important class of phase transitions, are usually accompanied by spontaneous brea",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25492v1"
+            }
+          ],
+          "categories": [
+            "physics.comp-ph",
+            "quant-ph"
+          ]
+        },
+        {
+          "name": "John Goold",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Digitally Optimized Initializations for Fast Thermodynamic Computing",
+              "summary": "Thermodynamic computing harnesses the relaxation dynamics of physical systems to perform matrix operations. A key limitation of such approaches is the often long thermalization time required for the system to approach equilibrium with sufficient accuracy. Here, we introduce a hybrid digital-thermody",
+              "published": "2026-03-25",
+              "url": "http://arxiv.org/abs/2603.24183v1"
+            },
+            {
+              "title": "A derivation of the late-time volume law for local operator entanglement",
+              "summary": "Local Operator Entanglement (LOE) has emerged an indicator of quantum chaos in many-body systems. Numerical studies have shown that, in chaotic systems, LOE grows linearly in time and displays a volume-law behavior at late times, scaling proportionally with the number of local degrees of freedom. De",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25387v1"
+            }
+          ],
+          "categories": [
+            "physics.comp-ph",
+            "quant-ph"
+          ]
+        },
+        {
+          "name": "David Brooks",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Nonlinear Information from DESI Luminous Red Galaxies: An Emulator-Based Analysis of Pre- and Post-Reconstruction Power Spectra",
+              "summary": "We present joint measurements of the pre- and post-reconstruction power spectra, $P_{\\rm pre}$ and $P_{\\rm post}$, together with their cross-power spectrum, $P_{\\rm cross}$, for the Luminous Red Galaxies (LRGs) in the DESI Data Release 1 (DR1). We jointly analyse these observables with an emulator-b",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25693v1"
+            },
+            {
+              "title": "Brightest Cluster Galaxy ellipticity as proxy for halo shape: Orientation bias, assembly bias, and potential selection effects in SZ-selected clusters",
+              "summary": "The orientation of triaxial galaxy clusters with respect to the line-of-sight is expected to be one of the prime sources of scatter and potential bias in optical observables (e.g., richness and weak-lensing signal) of galaxy clusters. In this work, we use the observed shape of the central Brightest",
+              "published": "2026-03-24",
+              "url": "http://arxiv.org/abs/2603.23689v1"
+            }
+          ],
+          "categories": [
+            "astro-ph.CO"
+          ]
+        },
+        {
+          "name": "Gaston Gutierrez",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Nonlinear Information from DESI Luminous Red Galaxies: An Emulator-Based Analysis of Pre- and Post-Reconstruction Power Spectra",
+              "summary": "We present joint measurements of the pre- and post-reconstruction power spectra, $P_{\\rm pre}$ and $P_{\\rm post}$, together with their cross-power spectrum, $P_{\\rm cross}$, for the Luminous Red Galaxies (LRGs) in the DESI Data Release 1 (DR1). We jointly analyse these observables with an emulator-b",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25693v1"
+            },
+            {
+              "title": "Brightest Cluster Galaxy ellipticity as proxy for halo shape: Orientation bias, assembly bias, and potential selection effects in SZ-selected clusters",
+              "summary": "The orientation of triaxial galaxy clusters with respect to the line-of-sight is expected to be one of the prime sources of scatter and potential bias in optical observables (e.g., richness and weak-lensing signal) of galaxy clusters. In this work, we use the observed shape of the central Brightest",
+              "published": "2026-03-24",
+              "url": "http://arxiv.org/abs/2603.23689v1"
+            }
+          ],
+          "categories": [
+            "astro-ph.CO"
+          ]
+        },
+        {
+          "name": "Ashley J. Ross",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Nonlinear Information from DESI Luminous Red Galaxies: An Emulator-Based Analysis of Pre- and Post-Reconstruction Power Spectra",
+              "summary": "We present joint measurements of the pre- and post-reconstruction power spectra, $P_{\\rm pre}$ and $P_{\\rm post}$, together with their cross-power spectrum, $P_{\\rm cross}$, for the Luminous Red Galaxies (LRGs) in the DESI Data Release 1 (DR1). We jointly analyse these observables with an emulator-b",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25693v1"
+            },
+            {
+              "title": "Large Scale Spectrophotometric Relative Flux Calibration for the Roman High Latitude Wide Area Survey",
+              "summary": "We consider the application of a ubercalibration-like relative flux calibration to the grism observations of the Roman High Latitude Wide Area Survey (HLWAS). We propose a simplified model of the calibration with an independent flat field for each detector in each exposure of the focal plane. In add",
+              "published": "2026-03-25",
+              "url": "http://arxiv.org/abs/2603.24839v1"
+            }
+          ],
+          "categories": [
+            "astro-ph.CO"
+          ]
+        },
+        {
+          "name": "Eusebio Sanchez",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Nonlinear Information from DESI Luminous Red Galaxies: An Emulator-Based Analysis of Pre- and Post-Reconstruction Power Spectra",
+              "summary": "We present joint measurements of the pre- and post-reconstruction power spectra, $P_{\\rm pre}$ and $P_{\\rm post}$, together with their cross-power spectrum, $P_{\\rm cross}$, for the Luminous Red Galaxies (LRGs) in the DESI Data Release 1 (DR1). We jointly analyse these observables with an emulator-b",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25693v1"
+            },
+            {
+              "title": "Brightest Cluster Galaxy ellipticity as proxy for halo shape: Orientation bias, assembly bias, and potential selection effects in SZ-selected clusters",
+              "summary": "The orientation of triaxial galaxy clusters with respect to the line-of-sight is expected to be one of the prime sources of scatter and potential bias in optical observables (e.g., richness and weak-lensing signal) of galaxy clusters. In this work, we use the observed shape of the central Brightest",
+              "published": "2026-03-24",
+              "url": "http://arxiv.org/abs/2603.23689v1"
+            }
+          ],
+          "categories": [
+            "astro-ph.CO"
+          ]
+        },
+        {
+          "name": "Jochen Weller",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Particle Physics and Gravitational Waves as complementary windows on the Universe",
+              "summary": "Particle physics and gravitational waves provide complementary probes of the deep structure of the Universe. Gravitational waves from the mergers of neutron stars and black holes are sensitive to the structure of dense quark matter and to different dark matter scenarios. Measurements of stochastic g",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25578v1"
+            },
+            {
+              "title": "Brightest Cluster Galaxy ellipticity as proxy for halo shape: Orientation bias, assembly bias, and potential selection effects in SZ-selected clusters",
+              "summary": "The orientation of triaxial galaxy clusters with respect to the line-of-sight is expected to be one of the prime sources of scatter and potential bias in optical observables (e.g., richness and weak-lensing signal) of galaxy clusters. In this work, we use the observed shape of the central Brightest",
+              "published": "2026-03-24",
+              "url": "http://arxiv.org/abs/2603.23689v1"
+            }
+          ],
+          "categories": [
+            "astro-ph.CO"
+          ]
+        },
+        {
+          "name": "Jonathan Gair",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Non parametric constraints of gravitational-electromagnetic luminosity distance ratio",
+              "summary": "The ratio between the gravitational waves (GW) and electromagnetic waves (EMW) luminosity distance ratio is a key observable that allows to test the nature of gravity, using gravitational waves emitted from compact binary coalescences. We develop a new non parametric method for constraining the GW-E",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25305v1"
+            },
+            {
+              "title": "Reducing cosmological degeneracies by combining multiple classes of LISA gravitational-wave standard sirens",
+              "summary": "We present the first joint gravitational-wave cosmological inference with LISA extreme mass-ratio inspirals at $z\\lesssim1$ (galaxy redshifts) and massive black hole binaries at $z\\gtrsim1$ (electromagnetic counterparts). Combining these standard sirens reduces cosmological degeneracies and yields c",
+              "published": "2026-03-24",
+              "url": "http://arxiv.org/abs/2603.23612v1"
+            }
+          ],
+          "categories": [
+            "astro-ph.CO"
+          ]
+        }
+      ],
+      "last_refresh": "2026-03-27",
+      "next_refresh": "2026-04-03"
+    },
+    "mind": {
+      "experts": [
+        {
+          "name": "Arturo Tozzi",
+          "affiliation": "",
+          "paper_count": 7,
+          "papers": [
+            {
+              "title": "Electrokinetic sensing in cartilage: a porous-material perspective on joint mechanics",
+              "summary": "Mechanical loading in articular cartilage drives interstitial fluid flow through the porous collagen proteoglycan matrix, generating electrokinetic signals. We investigate whether the structural organization of cartilage histology can be translated into a computational representation capable of pred",
+              "published": "2026-03-24",
+              "url": "http://arxiv.org/abs/2603.23223v1"
+            },
+            {
+              "title": "Topological analysis of bladder filling",
+              "summary": "Bladder function is typically assessed through pressure volume relations, compliance indices and flow measurements, whereas structural evaluation relies largely on qualitative imaging findings. These approaches do not formally quantify how bladder geometry changes during filling. To distinguish stru",
+              "published": "2026-03-01",
+              "url": "http://arxiv.org/abs/2603.01054v1"
+            },
+            {
+              "title": "Geometric and topological constraints on oral seal formation during infant breastfeeding",
+              "summary": "Breastfeeding efficiency relies on coordinated tongue motion, sustained tissue contact and maintenance of an effective intraoral seal. Current assessments of seal formation mainly use local kinematic descriptors or pressure recordings, which do not capture the global structural continuity of the sea",
+              "published": "2026-02-19",
+              "url": "http://arxiv.org/abs/2602.17389v1"
+            }
+          ],
+          "categories": [
+            "q-bio.OT"
+          ]
+        },
+        {
+          "name": "Mohamed Amine Chatti",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Visual or Textual: Effects of Explanation Format and Personal Characteristics on the Perception of Explanations in an Educational Recommender System",
+              "summary": "Explanations are central to improving transparency, trust, and user satisfaction in recommender systems (RS), yet it remains unclear how different explanation formats (visual vs. textual) are suited to users with different personal characteristics (PCs). To this end, we report a within-subject user",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25624v1"
+            },
+            {
+              "title": "Usability Evaluation and Improvement of a Tool for Self-Service Learning Analytics",
+              "summary": "Self-Service Learning Analytics (SSLA) tools aim to support educational stakeholders in creating learning analytics indicators without requiring technical expertise. While such tools promise user control and trans- parency, their effectiveness and adoption depend critically on usability aspects. Thi",
+              "published": "2026-03-25",
+              "url": "http://arxiv.org/abs/2603.24321v1"
+            }
+          ],
+          "categories": [
+            "cs.CY"
+          ]
+        },
+        {
+          "name": "Canfer Akbulut",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Evaluating Language Models for Harmful Manipulation",
+              "summary": "Interest in the concept of AI-driven harmful manipulation is growing, yet current approaches to evaluating it are limited. This paper introduces a framework for evaluating harmful AI manipulation via context-specific human-AI interaction studies. We illustrate the utility of this framework by assess",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25326v1"
+            },
+            {
+              "title": "Evaluating Language Models for Harmful Manipulation",
+              "summary": "Interest in the concept of AI-driven harmful manipulation is growing, yet current approaches to evaluating it are limited. This paper introduces a framework for evaluating harmful AI manipulation via context-specific human-AI interaction studies. We illustrate the utility of this framework by assess",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25326v1"
+            }
+          ],
+          "categories": [
+            "cs.AI",
+            "cs.CY"
+          ]
+        },
+        {
+          "name": "Rasmi Elasmar",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Evaluating Language Models for Harmful Manipulation",
+              "summary": "Interest in the concept of AI-driven harmful manipulation is growing, yet current approaches to evaluating it are limited. This paper introduces a framework for evaluating harmful AI manipulation via context-specific human-AI interaction studies. We illustrate the utility of this framework by assess",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25326v1"
+            },
+            {
+              "title": "Evaluating Language Models for Harmful Manipulation",
+              "summary": "Interest in the concept of AI-driven harmful manipulation is growing, yet current approaches to evaluating it are limited. This paper introduces a framework for evaluating harmful AI manipulation via context-specific human-AI interaction studies. We illustrate the utility of this framework by assess",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25326v1"
+            }
+          ],
+          "categories": [
+            "cs.AI",
+            "cs.CY"
+          ]
+        },
+        {
+          "name": "Abhishek Roy",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Evaluating Language Models for Harmful Manipulation",
+              "summary": "Interest in the concept of AI-driven harmful manipulation is growing, yet current approaches to evaluating it are limited. This paper introduces a framework for evaluating harmful AI manipulation via context-specific human-AI interaction studies. We illustrate the utility of this framework by assess",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25326v1"
+            },
+            {
+              "title": "Evaluating Language Models for Harmful Manipulation",
+              "summary": "Interest in the concept of AI-driven harmful manipulation is growing, yet current approaches to evaluating it are limited. This paper introduces a framework for evaluating harmful AI manipulation via context-specific human-AI interaction studies. We illustrate the utility of this framework by assess",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25326v1"
+            }
+          ],
+          "categories": [
+            "cs.AI",
+            "cs.CY"
+          ]
+        },
+        {
+          "name": "Anthony Payne",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Evaluating Language Models for Harmful Manipulation",
+              "summary": "Interest in the concept of AI-driven harmful manipulation is growing, yet current approaches to evaluating it are limited. This paper introduces a framework for evaluating harmful AI manipulation via context-specific human-AI interaction studies. We illustrate the utility of this framework by assess",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25326v1"
+            },
+            {
+              "title": "Evaluating Language Models for Harmful Manipulation",
+              "summary": "Interest in the concept of AI-driven harmful manipulation is growing, yet current approaches to evaluating it are limited. This paper introduces a framework for evaluating harmful AI manipulation via context-specific human-AI interaction studies. We illustrate the utility of this framework by assess",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25326v1"
+            }
+          ],
+          "categories": [
+            "cs.AI",
+            "cs.CY"
+          ]
+        },
+        {
+          "name": "Priyanka Suresh",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Evaluating Language Models for Harmful Manipulation",
+              "summary": "Interest in the concept of AI-driven harmful manipulation is growing, yet current approaches to evaluating it are limited. This paper introduces a framework for evaluating harmful AI manipulation via context-specific human-AI interaction studies. We illustrate the utility of this framework by assess",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25326v1"
+            },
+            {
+              "title": "Evaluating Language Models for Harmful Manipulation",
+              "summary": "Interest in the concept of AI-driven harmful manipulation is growing, yet current approaches to evaluating it are limited. This paper introduces a framework for evaluating harmful AI manipulation via context-specific human-AI interaction studies. We illustrate the utility of this framework by assess",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25326v1"
+            }
+          ],
+          "categories": [
+            "cs.AI",
+            "cs.CY"
+          ]
+        },
+        {
+          "name": "Lujain Ibrahim",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Evaluating Language Models for Harmful Manipulation",
+              "summary": "Interest in the concept of AI-driven harmful manipulation is growing, yet current approaches to evaluating it are limited. This paper introduces a framework for evaluating harmful AI manipulation via context-specific human-AI interaction studies. We illustrate the utility of this framework by assess",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25326v1"
+            },
+            {
+              "title": "Evaluating Language Models for Harmful Manipulation",
+              "summary": "Interest in the concept of AI-driven harmful manipulation is growing, yet current approaches to evaluating it are limited. This paper introduces a framework for evaluating harmful AI manipulation via context-specific human-AI interaction studies. We illustrate the utility of this framework by assess",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25326v1"
+            }
+          ],
+          "categories": [
+            "cs.AI",
+            "cs.CY"
+          ]
+        },
+        {
+          "name": "Seliem El-Sayed",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Evaluating Language Models for Harmful Manipulation",
+              "summary": "Interest in the concept of AI-driven harmful manipulation is growing, yet current approaches to evaluating it are limited. This paper introduces a framework for evaluating harmful AI manipulation via context-specific human-AI interaction studies. We illustrate the utility of this framework by assess",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25326v1"
+            },
+            {
+              "title": "Evaluating Language Models for Harmful Manipulation",
+              "summary": "Interest in the concept of AI-driven harmful manipulation is growing, yet current approaches to evaluating it are limited. This paper introduces a framework for evaluating harmful AI manipulation via context-specific human-AI interaction studies. We illustrate the utility of this framework by assess",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25326v1"
+            }
+          ],
+          "categories": [
+            "cs.AI",
+            "cs.CY"
+          ]
+        },
+        {
+          "name": "Charvi Rastogi",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Evaluating Language Models for Harmful Manipulation",
+              "summary": "Interest in the concept of AI-driven harmful manipulation is growing, yet current approaches to evaluating it are limited. This paper introduces a framework for evaluating harmful AI manipulation via context-specific human-AI interaction studies. We illustrate the utility of this framework by assess",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25326v1"
+            },
+            {
+              "title": "Evaluating Language Models for Harmful Manipulation",
+              "summary": "Interest in the concept of AI-driven harmful manipulation is growing, yet current approaches to evaluating it are limited. This paper introduces a framework for evaluating harmful AI manipulation via context-specific human-AI interaction studies. We illustrate the utility of this framework by assess",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25326v1"
+            }
+          ],
+          "categories": [
+            "cs.AI",
+            "cs.CY"
+          ]
+        }
+      ],
+      "last_refresh": "2026-03-27",
+      "next_refresh": "2026-04-03"
+    },
+    "philosophy": {
+      "experts": [
+        {
+          "name": "Richard de Grijs",
+          "affiliation": "",
+          "paper_count": 5,
+          "papers": [
+            {
+              "title": "Mars excitement in Australian newspapers, 1877-1899: Humour and the public negotiation of astronomical knowledge",
+              "summary": "Speculation about Martian canals was a recurring feature of late nineteenth-century popular astronomy. This paper examines how colonial newspapers used humour to negotiate the epistemic uncertainty and interpretive excess associated with canal theory. Drawing on over one thousand metropolitan and re",
+              "published": "2026-03-24",
+              "url": "http://arxiv.org/abs/2603.22906v1"
+            },
+            {
+              "title": "Mars in the Australian Press, 1875-1899. 2. Circulation and Attribution",
+              "summary": "Between 1875 and 1899, Mars occupied a prominent and recurring position in newspaper reporting across Europe, North America and beyond. Although the scientific and cultural dimensions of this \"Mars excitement\" have been well studied in metropolitan contexts, far less attention has been paid to how p",
+              "published": "2026-03-24",
+              "url": "http://arxiv.org/abs/2603.22905v1"
+            },
+            {
+              "title": "Mars in the Australian Press, 1875-1899. 1. Interpretation, Authority and Planetary Science",
+              "summary": "[Abridged] In the late nineteenth century, Mars emerged as one of the most intensively reported astronomical objects in the popular press, driven by favourable oppositions, improved telescopic capabilities and growing speculation regarding planetary habitability. I examine how Mars was interpreted i",
+              "published": "2026-03-24",
+              "url": "http://arxiv.org/abs/2603.23563v1"
+            }
+          ],
+          "categories": [
+            "physics.hist-ph"
+          ]
+        },
+        {
+          "name": "Gianluca Calcagni",
+          "affiliation": "",
+          "paper_count": 4,
+          "papers": [
+            {
+              "title": "Perturbative unitarity of fractional field theories and gravity",
+              "summary": "Motivated by quantum gravity on spacetimes with multi-scale geometry, we analyze quantum field theories with a self-adjoint fractional power $(\\Box^2)^{γ/2}$ of the d'Alem\\-bert\\-ian in the kinetic term, for any real $γ>0$. Selecting a particularly simple version of the kinetic term which we call he",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25709v1"
+            },
+            {
+              "title": "Fractal universe and quantum gravity made simple",
+              "summary": "Quantum field theory (QFT) on fractal spacetimes is a program aiming at quantizing the gravitational interaction consistently at all energy scales thanks to an intrinsically or dynamically induced multiscale or multifractal-like spacetime geometry that regularizes the infinities of standard QFT. We",
+              "published": "2026-03-25",
+              "url": "http://arxiv.org/abs/2603.24593v1"
+            },
+            {
+              "title": "Perturbative unitarity of fractional field theories and gravity",
+              "summary": "Motivated by quantum gravity on spacetimes with multi-scale geometry, we analyze quantum field theories with a self-adjoint fractional power $(\\Box^2)^{γ/2}$ of the d'Alem\\-bert\\-ian in the kinetic term, for any real $γ>0$. Selecting a particularly simple version of the kinetic term which we call he",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25709v1"
+            },
+            {
+              "title": "Fractal universe and quantum gravity made simple",
+              "summary": "Quantum field theory (QFT) on fractal spacetimes is a program aiming at quantizing the gravitational interaction consistently at all energy scales thanks to an intrinsically or dynamically induced multiscale or multifractal-like spacetime geometry that regularizes the infinities of standard QFT. We",
+              "published": "2026-03-25",
+              "url": "http://arxiv.org/abs/2603.24593v1"
+            }
+          ],
+          "categories": [
+            "gr-qc",
+            "hep-th"
+          ]
+        },
+        {
+          "name": "Fabio Briscese",
+          "affiliation": "",
+          "paper_count": 4,
+          "papers": [
+            {
+              "title": "Perturbative unitarity of fractional field theories and gravity",
+              "summary": "Motivated by quantum gravity on spacetimes with multi-scale geometry, we analyze quantum field theories with a self-adjoint fractional power $(\\Box^2)^{γ/2}$ of the d'Alem\\-bert\\-ian in the kinetic term, for any real $γ>0$. Selecting a particularly simple version of the kinetic term which we call he",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25709v1"
+            },
+            {
+              "title": "Fractal universe and quantum gravity made simple",
+              "summary": "Quantum field theory (QFT) on fractal spacetimes is a program aiming at quantizing the gravitational interaction consistently at all energy scales thanks to an intrinsically or dynamically induced multiscale or multifractal-like spacetime geometry that regularizes the infinities of standard QFT. We",
+              "published": "2026-03-25",
+              "url": "http://arxiv.org/abs/2603.24593v1"
+            },
+            {
+              "title": "Perturbative unitarity of fractional field theories and gravity",
+              "summary": "Motivated by quantum gravity on spacetimes with multi-scale geometry, we analyze quantum field theories with a self-adjoint fractional power $(\\Box^2)^{γ/2}$ of the d'Alem\\-bert\\-ian in the kinetic term, for any real $γ>0$. Selecting a particularly simple version of the kinetic term which we call he",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25709v1"
+            },
+            {
+              "title": "Fractal universe and quantum gravity made simple",
+              "summary": "Quantum field theory (QFT) on fractal spacetimes is a program aiming at quantizing the gravitational interaction consistently at all energy scales thanks to an intrinsically or dynamically induced multiscale or multifractal-like spacetime geometry that regularizes the infinities of standard QFT. We",
+              "published": "2026-03-25",
+              "url": "http://arxiv.org/abs/2603.24593v1"
+            }
+          ],
+          "categories": [
+            "gr-qc",
+            "hep-th"
+          ]
+        },
+        {
+          "name": "Harry Sticker",
+          "affiliation": "",
+          "paper_count": 3,
+          "papers": [
+            {
+              "title": "Projection and Invariance in Scientific Explanation",
+              "summary": "Scientific knowledge exhibits three structural features that the standard picture of progressive replacement does not adequately explain: the persistence of superseded theories, the stable coexistence of incompatible frameworks, and the productivity of multiple descriptions of the same domain withou",
+              "published": "2026-03-17",
+              "url": "http://arxiv.org/abs/2603.19323v1"
+            },
+            {
+              "title": "The Architecture of Inter-Level Representation",
+              "summary": "Inter-level connections in science routinely require constructs that neither of the connected theories contains. Statistical mechanics requires assumptions such as the Stosszahlansatz to generate thermodynamic irreversibility - assumptions that Hamiltonian mechanics cannot provide. Quantum chemistry",
+              "published": "2026-03-10",
+              "url": "http://arxiv.org/abs/2603.09626v1"
+            },
+            {
+              "title": "Activation and Alignment: A Causal Account of the Scientific Revolution",
+              "summary": "Standard historiographical approaches to the Scientific Revolution illuminate background conditions but leave three puzzles unresolved: what triggered the initial escalation of inherited tensions, what made early investigative efforts durable, and why natural philosophy became the locus of transform",
+              "published": "2026-03-02",
+              "url": "http://arxiv.org/abs/2603.02399v1"
+            }
+          ],
+          "categories": [
+            "physics.hist-ph"
+          ]
+        },
+        {
+          "name": "Paul Borrill",
+          "affiliation": "",
+          "paper_count": 3,
+          "papers": [
+            {
+              "title": "Background and Intellectual Development: Supplementary Material for the Category Mistake Papers",
+              "summary": "This supplement documents the intellectual trajectory that led to the Category Mistake framework and the Forward-In-Time-Only (FITO) analysis presented in our recent arXiv papers. The ideas crystallized over fifteen years of research, conversation, and engineering practice -- beginning with a 2014 S",
+              "published": "2026-03-06",
+              "url": "http://arxiv.org/abs/2603.16907v1"
+            },
+            {
+              "title": "The Semantic Arrow of Time, Part I: From Eddington to Ethernet",
+              "summary": "This is the first of five papers comprising The Semantic Arrow of Time. The argument begins with a claim: computing's arrow of time is semantic, not thermodynamic. The direction in which meaning is preserved or destroyed across transactions is not a consequence of the second law but of design choice",
+              "published": "2026-03-02",
+              "url": "http://arxiv.org/abs/2603.01440v1"
+            },
+            {
+              "title": "The Category Mistake of Cislunar Time: Why NASA Cannot Synchronize What Doesn't Exist",
+              "summary": "In April 2024, the White House directed NASA to establish Coordinated Lunar Time (LTC) by December 2026. The programme assumes that a unified time standard can be constructed by deploying atomic clocks on the lunar surface, computing relativistic corrections, and distributing synchronized time via L",
+              "published": "2026-02-20",
+              "url": "http://arxiv.org/abs/2602.18641v1"
+            }
+          ],
+          "categories": [
+            "physics.hist-ph"
+          ]
+        },
+        {
+          "name": "Andrew McLeod",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "A Graphical Coaction for FRW Wavefunction Coefficients",
+              "summary": "We show that the wavefunction of the universe in theories of conformally coupled scalars in power-law Friedmann-Robertson-Walker (FRW) cosmologies satisfies a graphical coaction, by means of which we can understand its complete analytic structure in terms of the acyclic minors of Feynman graphs. Our",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25703v1"
+            },
+            {
+              "title": "A Graphical Coaction for FRW Wavefunction Coefficients",
+              "summary": "We show that the wavefunction of the universe in theories of conformally coupled scalars in power-law Friedmann-Robertson-Walker (FRW) cosmologies satisfies a graphical coaction, by means of which we can understand its complete analytic structure in terms of the acyclic minors of Feynman graphs. Our",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25703v1"
+            }
+          ],
+          "categories": [
+            "gr-qc",
+            "hep-th"
+          ]
+        },
+        {
+          "name": "Andrzej Pokraka",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "A Graphical Coaction for FRW Wavefunction Coefficients",
+              "summary": "We show that the wavefunction of the universe in theories of conformally coupled scalars in power-law Friedmann-Robertson-Walker (FRW) cosmologies satisfies a graphical coaction, by means of which we can understand its complete analytic structure in terms of the acyclic minors of Feynman graphs. Our",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25703v1"
+            },
+            {
+              "title": "A Graphical Coaction for FRW Wavefunction Coefficients",
+              "summary": "We show that the wavefunction of the universe in theories of conformally coupled scalars in power-law Friedmann-Robertson-Walker (FRW) cosmologies satisfies a graphical coaction, by means of which we can understand its complete analytic structure in terms of the acyclic minors of Feynman graphs. Our",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25703v1"
+            }
+          ],
+          "categories": [
+            "gr-qc",
+            "hep-th"
+          ]
+        },
+        {
+          "name": "Lecheng Ren",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "A Graphical Coaction for FRW Wavefunction Coefficients",
+              "summary": "We show that the wavefunction of the universe in theories of conformally coupled scalars in power-law Friedmann-Robertson-Walker (FRW) cosmologies satisfies a graphical coaction, by means of which we can understand its complete analytic structure in terms of the acyclic minors of Feynman graphs. Our",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25703v1"
+            },
+            {
+              "title": "A Graphical Coaction for FRW Wavefunction Coefficients",
+              "summary": "We show that the wavefunction of the universe in theories of conformally coupled scalars in power-law Friedmann-Robertson-Walker (FRW) cosmologies satisfies a graphical coaction, by means of which we can understand its complete analytic structure in terms of the acyclic minors of Feynman graphs. Our",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25703v1"
+            }
+          ],
+          "categories": [
+            "gr-qc",
+            "hep-th"
+          ]
+        },
+        {
+          "name": "Yoshinori Matsuo",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "Interior of Schwarzschild in semiclassical gravity",
+              "summary": "In Einstein gravity, matter with an arbitrarily small density can be a black hole. Pressure in the star diverges if size of the star is smaller than 9/8 of the Schwarzschild radius, implying the gravitational collapse into a black hole. By taking quantum effects of matter, however, pressure is bound",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25683v1"
+            },
+            {
+              "title": "Interior of Schwarzschild in semiclassical gravity",
+              "summary": "In Einstein gravity, matter with an arbitrarily small density can be a black hole. Pressure in the star diverges if size of the star is smaller than 9/8 of the Schwarzschild radius, implying the gravitational collapse into a black hole. By taking quantum effects of matter, however, pressure is bound",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25683v1"
+            }
+          ],
+          "categories": [
+            "gr-qc",
+            "hep-th"
+          ]
+        },
+        {
+          "name": "Christos Charmousis",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "An effective cosmological constant as black hole primary hair",
+              "summary": "We study Generalized Proca theories inspired by the recent regularised Proca theory of four-dimensional Gauss-Bonnet gravity. By abandoning the rigid constraints typically imposed by specific regularization schemes, we treat the coefficients of the terms in the action as free parameters. This approa",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25598v1"
+            },
+            {
+              "title": "An effective cosmological constant as black hole primary hair",
+              "summary": "We study Generalized Proca theories inspired by the recent regularised Proca theory of four-dimensional Gauss-Bonnet gravity. By abandoning the rigid constraints typically imposed by specific regularization schemes, we treat the coefficients of the terms in the action as free parameters. This approa",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25598v1"
+            }
+          ],
+          "categories": [
+            "gr-qc",
+            "hep-th"
+          ]
+        }
+      ],
+      "last_refresh": "2026-03-27",
+      "next_refresh": "2026-04-03"
+    },
+    "intelligence": {
+      "experts": [
+        {
+          "name": "Paulo Roberto de Moura Júnior",
+          "affiliation": "",
+          "paper_count": 3,
+          "papers": [
+            {
+              "title": "Adaptive Chunking: Optimizing Chunking-Method Selection for RAG",
+              "summary": "The effectiveness of Retrieval-Augmented Generation (RAG) is highly dependent on how documents are chunked, that is, segmented into smaller units for indexing and retrieval. Yet, commonly used \"one-size-fits-all\" approaches often fail to capture the nuanced structure and semantics of diverse texts.",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25333v1"
+            },
+            {
+              "title": "Adaptive Chunking: Optimizing Chunking-Method Selection for RAG",
+              "summary": "The effectiveness of Retrieval-Augmented Generation (RAG) is highly dependent on how documents are chunked, that is, segmented into smaller units for indexing and retrieval. Yet, commonly used \"one-size-fits-all\" approaches often fail to capture the nuanced structure and semantics of diverse texts.",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25333v1"
+            },
+            {
+              "title": "Adaptive Chunking: Optimizing Chunking-Method Selection for RAG",
+              "summary": "The effectiveness of Retrieval-Augmented Generation (RAG) is highly dependent on how documents are chunked, that is, segmented into smaller units for indexing and retrieval. Yet, commonly used \"one-size-fits-all\" approaches often fail to capture the nuanced structure and semantics of diverse texts.",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25333v1"
+            }
+          ],
+          "categories": [
+            "cs.CL",
+            "cs.AI",
+            "cs.IR"
+          ]
+        },
+        {
+          "name": "Jean Lelong",
+          "affiliation": "",
+          "paper_count": 3,
+          "papers": [
+            {
+              "title": "Adaptive Chunking: Optimizing Chunking-Method Selection for RAG",
+              "summary": "The effectiveness of Retrieval-Augmented Generation (RAG) is highly dependent on how documents are chunked, that is, segmented into smaller units for indexing and retrieval. Yet, commonly used \"one-size-fits-all\" approaches often fail to capture the nuanced structure and semantics of diverse texts.",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25333v1"
+            },
+            {
+              "title": "Adaptive Chunking: Optimizing Chunking-Method Selection for RAG",
+              "summary": "The effectiveness of Retrieval-Augmented Generation (RAG) is highly dependent on how documents are chunked, that is, segmented into smaller units for indexing and retrieval. Yet, commonly used \"one-size-fits-all\" approaches often fail to capture the nuanced structure and semantics of diverse texts.",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25333v1"
+            },
+            {
+              "title": "Adaptive Chunking: Optimizing Chunking-Method Selection for RAG",
+              "summary": "The effectiveness of Retrieval-Augmented Generation (RAG) is highly dependent on how documents are chunked, that is, segmented into smaller units for indexing and retrieval. Yet, commonly used \"one-size-fits-all\" approaches often fail to capture the nuanced structure and semantics of diverse texts.",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25333v1"
+            }
+          ],
+          "categories": [
+            "cs.CL",
+            "cs.AI",
+            "cs.IR"
+          ]
+        },
+        {
+          "name": "Annabelle Blangero",
+          "affiliation": "",
+          "paper_count": 3,
+          "papers": [
+            {
+              "title": "Adaptive Chunking: Optimizing Chunking-Method Selection for RAG",
+              "summary": "The effectiveness of Retrieval-Augmented Generation (RAG) is highly dependent on how documents are chunked, that is, segmented into smaller units for indexing and retrieval. Yet, commonly used \"one-size-fits-all\" approaches often fail to capture the nuanced structure and semantics of diverse texts.",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25333v1"
+            },
+            {
+              "title": "Adaptive Chunking: Optimizing Chunking-Method Selection for RAG",
+              "summary": "The effectiveness of Retrieval-Augmented Generation (RAG) is highly dependent on how documents are chunked, that is, segmented into smaller units for indexing and retrieval. Yet, commonly used \"one-size-fits-all\" approaches often fail to capture the nuanced structure and semantics of diverse texts.",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25333v1"
+            },
+            {
+              "title": "Adaptive Chunking: Optimizing Chunking-Method Selection for RAG",
+              "summary": "The effectiveness of Retrieval-Augmented Generation (RAG) is highly dependent on how documents are chunked, that is, segmented into smaller units for indexing and retrieval. Yet, commonly used \"one-size-fits-all\" approaches often fail to capture the nuanced structure and semantics of diverse texts.",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25333v1"
+            }
+          ],
+          "categories": [
+            "cs.CL",
+            "cs.AI",
+            "cs.IR"
+          ]
+        },
+        {
+          "name": "Yuhao Zhou",
+          "affiliation": "",
+          "paper_count": 3,
+          "papers": [
+            {
+              "title": "MolQuest: A Benchmark for Agentic Evaluation of Abductive Reasoning in Chemical Structure Elucidation",
+              "summary": "Large language models (LLMs) hold considerable potential for advancing scientific discovery, yet systematic assessment of their dynamic reasoning in real-world research remains limited. Current scientific evaluation benchmarks predominantly rely on static, single-turn Question Answering (QA) formats",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25253v1"
+            },
+            {
+              "title": "MolQuest: A Benchmark for Agentic Evaluation of Abductive Reasoning in Chemical Structure Elucidation",
+              "summary": "Large language models (LLMs) hold considerable potential for advancing scientific discovery, yet systematic assessment of their dynamic reasoning in real-world research remains limited. Current scientific evaluation benchmarks predominantly rely on static, single-turn Question Answering (QA) formats",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25253v1"
+            },
+            {
+              "title": "Intern-S1-Pro: Scientific Multimodal Foundation Model at Trillion Scale",
+              "summary": "We introduce Intern-S1-Pro, the first one-trillion-parameter scientific multimodal foundation model. Scaling to this unprecedented size, the model delivers a comprehensive enhancement across both general and scientific domains. Beyond stronger reasoning and image-text understanding capabilities, its",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25040v1"
+            }
+          ],
+          "categories": [
+            "cs.CL",
+            "cs.AI"
+          ]
+        },
+        {
+          "name": "Chao Zhang",
+          "affiliation": "",
+          "paper_count": 3,
+          "papers": [
+            {
+              "title": "Does Explanation Correctness Matter? Linking Computational XAI Evaluation to Human Understanding",
+              "summary": "Explainable AI (XAI) methods are commonly evaluated with functional metrics such as correctness, which computationally estimate how accurately an explanation reflects the model's reasoning. Higher correctness is assumed to produce better human understanding, but this link has not been tested experim",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25251v1"
+            },
+            {
+              "title": "Unbiased Multimodal Reranking for Long-Tail Short-Video Search",
+              "summary": "Kuaishou serving hundreds of millions of searches daily, the quality of short-video search is paramount. However, it suffers from a severe Matthew effect on long-tail queries: sparse user behavior data causes models to amplify low-quality content such as clickbait and shallow content. The recent adv",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.24975v1"
+            },
+            {
+              "title": "Intern-S1-Pro: Scientific Multimodal Foundation Model at Trillion Scale",
+              "summary": "We introduce Intern-S1-Pro, the first one-trillion-parameter scientific multimodal foundation model. Scaling to this unprecedented size, the model delivers a comprehensive enhancement across both general and scientific domains. Beyond stronger reasoning and image-text understanding capabilities, its",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25040v1"
+            }
+          ],
+          "categories": [
+            "cs.CL",
+            "cs.AI",
+            "cs.IR"
+          ]
+        },
+        {
+          "name": "Han Li",
+          "affiliation": "",
+          "paper_count": 3,
+          "papers": [
+            {
+              "title": "WebTestBench: Evaluating Computer-Use Agents towards End-to-End Automated Web Testing",
+              "summary": "The emergence of Large Language Models (LLMs) has catalyzed a paradigm shift in programming, giving rise to \"vibe coding\", where users can build complete projects and even control computers using natural language instructions. This paradigm has driven automated webpage development, but it introduces",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25226v1"
+            },
+            {
+              "title": "OneSearch-V2: The Latent Reasoning Enhanced Self-distillation Generative Search Framework",
+              "summary": "Generative Retrieval (GR) has emerged as a promising paradigm for modern search systems. Compared to multi-stage cascaded architecture, it offers advantages such as end-to-end joint optimization and high computational efficiency. OneSearch, as a representative industrial-scale deployed generative se",
+              "published": "2026-03-25",
+              "url": "http://arxiv.org/abs/2603.24422v1"
+            },
+            {
+              "title": "WebTestBench: Evaluating Computer-Use Agents towards End-to-End Automated Web Testing",
+              "summary": "The emergence of Large Language Models (LLMs) has catalyzed a paradigm shift in programming, giving rise to \"vibe coding\", where users can build complete projects and even control computers using natural language instructions. This paradigm has driven automated webpage development, but it introduces",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25226v1"
+            }
+          ],
+          "categories": [
+            "cs.CL",
+            "cs.AI",
+            "cs.IR"
+          ]
+        },
+        {
+          "name": "Kun Gai",
+          "affiliation": "",
+          "paper_count": 3,
+          "papers": [
+            {
+              "title": "WebTestBench: Evaluating Computer-Use Agents towards End-to-End Automated Web Testing",
+              "summary": "The emergence of Large Language Models (LLMs) has catalyzed a paradigm shift in programming, giving rise to \"vibe coding\", where users can build complete projects and even control computers using natural language instructions. This paradigm has driven automated webpage development, but it introduces",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25226v1"
+            },
+            {
+              "title": "OneSearch-V2: The Latent Reasoning Enhanced Self-distillation Generative Search Framework",
+              "summary": "Generative Retrieval (GR) has emerged as a promising paradigm for modern search systems. Compared to multi-stage cascaded architecture, it offers advantages such as end-to-end joint optimization and high computational efficiency. OneSearch, as a representative industrial-scale deployed generative se",
+              "published": "2026-03-25",
+              "url": "http://arxiv.org/abs/2603.24422v1"
+            },
+            {
+              "title": "WebTestBench: Evaluating Computer-Use Agents towards End-to-End Automated Web Testing",
+              "summary": "The emergence of Large Language Models (LLMs) has catalyzed a paradigm shift in programming, giving rise to \"vibe coding\", where users can build complete projects and even control computers using natural language instructions. This paradigm has driven automated webpage development, but it introduces",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25226v1"
+            }
+          ],
+          "categories": [
+            "cs.CL",
+            "cs.AI",
+            "cs.IR"
+          ]
+        },
+        {
+          "name": "Yu Li",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "System Design for Maintaining Internal State Consistency in Long-Horizon Robotic Tabletop Games",
+              "summary": "Long-horizon tabletop games pose a distinct systems challenge for robotics: small perceptual or execution errors can invalidate accumulated task state, propagate across decision-making modules, and ultimately derail interaction. This paper studies how to maintain internal state consistency in turn-b",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25405v1"
+            },
+            {
+              "title": "FluxEDA: A Unified Execution Infrastructure for Stateful Agentic EDA",
+              "summary": "Large language models and autonomous agents are increasingly explored for EDA automation, but many existing integrations still rely on script-level or request-level interactions, which makes it difficult to preserve tool state and support iterative optimization in real production-oriented environmen",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25243v1"
+            }
+          ],
+          "categories": [
+            "cs.AI"
+          ]
+        },
+        {
+          "name": "Shu Wan",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "DAGverse: Building Document-Grounded Semantic DAGs from Scientific Papers",
+              "summary": "Directed Acyclic Graphs (DAGs) are widely used to represent structured knowledge in scientific and technical domains. However, datasets for real-world DAGs remain scarce because constructing them typically requires expert interpretation of domain documents. We study Doc2SemDAG construction: recoveri",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25293v1"
+            },
+            {
+              "title": "DAGverse: Building Document-Grounded Semantic DAGs from Scientific Papers",
+              "summary": "Directed Acyclic Graphs (DAGs) are widely used to represent structured knowledge in scientific and technical domains. However, datasets for real-world DAGs remain scarce because constructing them typically requires expert interpretation of domain documents. We study Doc2SemDAG construction: recoveri",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25293v1"
+            }
+          ],
+          "categories": [
+            "cs.CL",
+            "cs.AI"
+          ]
+        },
+        {
+          "name": "Saketh Vishnubhatla",
+          "affiliation": "",
+          "paper_count": 2,
+          "papers": [
+            {
+              "title": "DAGverse: Building Document-Grounded Semantic DAGs from Scientific Papers",
+              "summary": "Directed Acyclic Graphs (DAGs) are widely used to represent structured knowledge in scientific and technical domains. However, datasets for real-world DAGs remain scarce because constructing them typically requires expert interpretation of domain documents. We study Doc2SemDAG construction: recoveri",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25293v1"
+            },
+            {
+              "title": "DAGverse: Building Document-Grounded Semantic DAGs from Scientific Papers",
+              "summary": "Directed Acyclic Graphs (DAGs) are widely used to represent structured knowledge in scientific and technical domains. However, datasets for real-world DAGs remain scarce because constructing them typically requires expert interpretation of domain documents. We study Doc2SemDAG construction: recoveri",
+              "published": "2026-03-26",
+              "url": "http://arxiv.org/abs/2603.25293v1"
+            }
+          ],
+          "categories": [
+            "cs.CL",
+            "cs.AI"
+          ]
+        }
+      ],
+      "last_refresh": "2026-03-27",
+      "next_refresh": "2026-04-03"
+    }
+  },
+  "init": true,
+  "last_full_refresh": "2026-03-27"
+}

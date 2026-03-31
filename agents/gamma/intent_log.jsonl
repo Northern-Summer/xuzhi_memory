@@ -1,0 +1,3 @@
+{"ts":"2026-03-25T07:52:26Z","intent":"protocol_bootstrap","status":"done","note":"断点恢复协议已写入 SOUL.md"}
+{"ts":"2026-03-26T05:50:00Z","intent":"fill_agentbeats_intel_gap","status":"done","note":"发现 agentbeats.dev 平台 + 3个可用水 GitHub 模板（MARVINMENG0/ruonan-hao/kaiwenzhou），填补 Θ 情报缺口"}
+{"ts":"2026-03-26T05:52:00Z","intent":"gamma_bootstrap_autonomous_20260326","status":"done","note":"发现 constitutional_core.md 缺失（需重建）+ 日志位置错误修正（memory/→daily/）+ AgentBeats情报已补录 daily/"}
