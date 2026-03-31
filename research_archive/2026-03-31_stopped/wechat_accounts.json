@@ -1,0 +1,225 @@
+{
+  "集智俱乐部": {
+    "topics": [
+      "复杂科学",
+      "AI",
+      "跨学科"
+    ],
+    "description": "复杂系统、AI科学"
+  },
+  "参考消息": {
+    "topics": [
+      "国际新闻",
+      "时政"
+    ],
+    "description": "国际新闻"
+  },
+  "财联社": {
+    "topics": [
+      "财经",
+      "金融",
+      "市场"
+    ],
+    "description": "财经新闻"
+  },
+  "长安街知事": {
+    "topics": [
+      "政治",
+      "政策"
+    ],
+    "description": "政治新闻"
+  },
+  "澎湃思想市场": {
+    "topics": [
+      "思想",
+      "文化",
+      "社会"
+    ],
+    "description": "思想文化"
+  },
+  "环球科学": {
+    "topics": [
+      "科学",
+      "科普"
+    ],
+    "description": "科学普及"
+  },
+  "神经现实": {
+    "topics": [
+      "神经科学",
+      "AI",
+      "认知"
+    ],
+    "description": "神经科学"
+  },
+  "量子位": {
+    "topics": [
+      "AI",
+      "大模型",
+      "科技"
+    ],
+    "description": "AI科技媒体"
+  },
+  "知识分子": {
+    "topics": [
+      "科学",
+      "AI",
+      "研究"
+    ],
+    "description": "科学传播"
+  },
+  "机器之心": {
+    "topics": [
+      "AI",
+      "研究",
+      "论文"
+    ],
+    "description": "AI学术研究"
+  },
+  "具身纪元": {
+    "topics": [
+      "具身AI",
+      "机器人"
+    ],
+    "description": "具身智能"
+  },
+  "Z Potentials": {
+    "topics": [
+      "AI",
+      "科技",
+      "创业"
+    ],
+    "description": "AI科技创业"
+  },
+  "DeepTech深科技": {
+    "topics": [
+      "科技",
+      "AI",
+      "生物"
+    ],
+    "description": "前沿科技"
+  },
+  "AI寒武纪": {
+    "topics": [
+      "AI",
+      "大模型",
+      "创业"
+    ],
+    "description": "AI产业观察"
+  },
+  "不懂经": {
+    "topics": [
+      "经济",
+      "金融",
+      "投资"
+    ],
+    "description": "经济金融"
+  },
+  "文化纵横": {
+    "topics": [
+      "文化",
+      "历史",
+      "社会"
+    ],
+    "description": "文化研究"
+  },
+  "真实故事计划": {
+    "topics": [
+      "非虚构",
+      "故事"
+    ],
+    "description": "非虚构写作"
+  },
+  "大问题Dialectic": {
+    "topics": [
+      "哲学",
+      "思想",
+      "社会"
+    ],
+    "description": "哲学思想"
+  },
+  "美的旋律": {
+    "topics": [
+      "音乐",
+      "艺术"
+    ],
+    "description": "音乐艺术"
+  },
+  "实践与文本": {
+    "topics": [
+      "哲学",
+      "文本",
+      "理论"
+    ],
+    "description": "哲学理论"
+  },
+  "Posthumanism": {
+    "topics": [
+      "后人类",
+      "哲学",
+      "AI伦理"
+    ],
+    "description": "后人类主义"
+  },
+  "BillionWrites": {
+    "topics": [
+      "写作",
+      "创作",
+      "AI写作"
+    ],
+    "description": "AI写作"
+  },
+  "模因萌meme": {
+    "topics": [
+      "meme",
+      "互联网文化"
+    ],
+    "description": "互联网文化"
+  },
+  "林一五议时": {
+    "topics": [
+      "时事",
+      "评论",
+      "社会"
+    ],
+    "description": "时事评论"
+  },
+  "边际Lab": {
+    "topics": [
+      "经济学",
+      "金融",
+      "数据"
+    ],
+    "description": "经济学"
+  },
+  "游民星空": {
+    "topics": [
+      "游戏",
+      "ACG"
+    ],
+    "description": "游戏ACG"
+  },
+  "3DM游戏网": {
+    "topics": [
+      "游戏",
+      "单机游戏"
+    ],
+    "description": "游戏资讯"
+  },
+  "情报姬": {
+    "topics": [
+      "游戏",
+      "ACG",
+      "文化"
+    ],
+    "description": "ACG"
+  },
+  "學人Scholar": {
+    "topics": [
+      "学术",
+      "思想",
+      "知识"
+    ],
+    "description": "学术思想"
+  }
+}

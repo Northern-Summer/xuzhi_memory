@@ -1,0 +1,14 @@
+{
+  "problem": "为什么多Agent系统中局部优化无法保证全局性能，联合优化是否是唯一解",
+  "relevant_papers_count": 3,
+  "methods": [
+    "Multi-Agent",
+    "World Models",
+    "RL/Policy Optimization",
+    "Executable Skills",
+    "Vision-Language",
+    "Evolutionary",
+    "SOPs/Workflow"
+  ],
+  "generated_at": "2026-03-27T19:34:11.041603"
+}

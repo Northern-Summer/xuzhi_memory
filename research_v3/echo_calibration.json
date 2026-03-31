@@ -1,0 +1,42 @@
+{
+  "predictions": [
+    {
+      "id": "pred_0",
+      "type": "literature_relevance",
+      "target": "搜索 3 个查询",
+      "predicted": 0.7,
+      "actual": null,
+      "created_at": "2026-03-31T14:31:13.374349+00:00",
+      "resolved_at": null
+    },
+    {
+      "id": "pred_1",
+      "type": "argument_strength",
+      "target": "多智能体系统的失败源于表示粒度不足",
+      "predicted": 0.8,
+      "actual": null,
+      "created_at": "2026-03-31T14:31:13.376319+00:00",
+      "resolved_at": null
+    },
+    {
+      "id": "pred_2",
+      "type": "literature_relevance",
+      "target": "搜索 3 个查询",
+      "predicted": 0.7,
+      "actual": null,
+      "created_at": "2026-03-31T14:31:27.025843+00:00",
+      "resolved_at": null
+    },
+    {
+      "id": "pred_3",
+      "type": "argument_strength",
+      "target": "多智能体系统的失败源于表示粒度不足",
+      "predicted": 0.8,
+      "actual": null,
+      "created_at": "2026-03-31T14:31:27.026651+00:00",
+      "resolved_at": null
+    }
+  ],
+  "calibration_scores": {},
+  "updated_at": "2026-03-31T14:31:27.026661+00:00"
+}

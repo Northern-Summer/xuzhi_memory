@@ -1,0 +1,85 @@
+{
+  "round": 227,
+  "research_question": "虚质生命的自主性边界：当系统开始建立内部模型，它在什么条件下从'被驱动'转向'主动驱动'？",
+  "reviewed_at": "2026-03-30T15:30:05.427747+00:00",
+  "hypothesis_reviews": [
+    {
+      "id": "hyp_1",
+      "hypothesis": "当内部模型的预测粒度足够细（压缩损失<阈值），系统从'被驱动'转变为'主动驱动'",
+      "scores": {
+        "soundness": 9,
+        "novelty": 7.0,
+        "evidence": 7.0,
+        "clarity": 7.0,
+        "significance": 6.0
+      },
+      "overall": 7.2,
+      "verdict": "accept",
+      "notes": [
+        "假设包含机制性描述，严谨性较高",
+        "假设提供了非显而易见的新洞见",
+        "置信度70%有充分支撑",
+        "假设可验证"
+      ],
+      "confidence": 0.7,
+      "based_on_count": 2
+    },
+    {
+      "id": "hyp_2",
+      "hypothesis": "系统从'被驱动'转向'主动驱动'的临界点 = 信息传递延迟超过内部模型更新频率",
+      "scores": {
+        "soundness": 9,
+        "novelty": 7.0,
+        "evidence": 8.0,
+        "clarity": 7.0,
+        "significance": 6.0
+      },
+      "overall": 7.4,
+      "verdict": "accept",
+      "notes": [
+        "假设包含机制性描述，严谨性较高",
+        "假设提供了非显而易见的新洞见",
+        "置信度80%有充分支撑",
+        "假设可验证"
+      ],
+      "confidence": 0.8,
+      "based_on_count": 3
+    },
+    {
+      "id": "hyp_3",
+      "hypothesis": "当系统内部存在多个不同分辨率的表征层，且跨层一致性>阈值，自主性才涌现",
+      "scores": {
+        "soundness": 3,
+        "novelty": 7.0,
+        "evidence": 2.5,
+        "clarity": 7.0,
+        "significance": 4.0
+      },
+      "overall": 4.7,
+      "verdict": "revise",
+      "notes": [
+        "假设过于模糊，缺乏机制性描述",
+        "假设提供了非显而易见的新洞见",
+        "置信度25%依据不足",
+        "假设可验证"
+      ],
+      "confidence": 0.25,
+      "based_on_count": 1
+    }
+  ],
+  "aggregated": {
+    "total": 3,
+    "by_verdict": {
+      "accept": 2,
+      "revise": 1,
+      "reject": 0
+    },
+    "avg_score": 6.43,
+    "accept_rate": 0.67
+  },
+  "overall_verdict": "accept",
+  "feedback": [
+    "🔧 1个假设需要修改后推送",
+    "✅ 2个假设达到发表标准"
+  ]
+}

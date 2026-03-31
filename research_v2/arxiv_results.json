@@ -1,0 +1,412 @@
+{
+  "count": 67,
+  "papers": [
+    {
+      "title": "On Verifiable Legal Reasoning: A Multi-Agent Framework with Formalized Knowledge Representations",
+      "abstract": "Legal reasoning requires both precise interpretation of statutory language and consistent application of complex rules, presenting significant challenges for AI systems. This paper introduces a modular multi-agent framework that decomposes legal reasoning into distinct knowledge acquisition and application stages. In the first stage, specialized agents extract legal concepts and formalize rules to",
+      "year": 2025,
+      "authors": [
+        "Albert Sadowski",
+        "Jaros\u0142aw A. Chudziak"
+      ],
+      "url": "http://arxiv.org/abs/2509.00710v1",
+      "score": 1.0
+    },
+    {
+      "title": "MAEBE: Multi-Agent Emergent Behavior Framework",
+      "abstract": "Traditional AI safety evaluations on isolated LLMs are insufficient as multi-agent AI ensembles become prevalent, introducing novel emergent risks. This paper introduces the Multi-Agent Emergent Behavior Evaluation (MAEBE) framework to systematically assess such risks. Using MAEBE with the Greatest Good Benchmark (and a novel double-inversion question technique), we demonstrate that: (1) LLM moral",
+      "year": 2025,
+      "authors": [
+        "Sinem Erisken",
+        "Timothy Gothard",
+        "Martin Leitgab",
+        "Ram Potham"
+      ],
+      "url": "http://arxiv.org/abs/2506.03053v2",
+      "score": 0.6
+    },
+    {
+      "title": "Knowledge Representation for Robots through Human-Robot Interaction",
+      "abstract": "The representation of the knowledge needed by a robot to perform complex tasks is restricted by the limitations of perception. One possible way of overcoming this situation and designing \"knowledgeable\" robots is to rely on the interaction with the user. We propose a multi-modal interaction framework that allows to effectively acquire knowledge about the environment where the robot operates. In pa",
+      "year": 2013,
+      "authors": [
+        "Emanuele Bastianelli",
+        "Domenico Bloisi",
+        "Roberto Capobianco",
+        "Guglielmo Gemignani",
+        "Luca Iocchi",
+        "Daniele Nardi"
+      ],
+      "url": "http://arxiv.org/abs/1307.7351v2",
+      "score": 0.4
+    },
+    {
+      "title": "Measuring Dataset Granularity",
+      "abstract": "Despite the increasing visibility of fine-grained recognition in our field, \"fine-grained'' has thus far lacked a precise definition. In this work, building upon clustering theory, we pursue a framework for measuring dataset granularity. We argue that dataset granularity should depend not only on the data samples and their labels, but also on the distance function we choose. We propose an axiomati",
+      "year": 2019,
+      "authors": [
+        "Yin Cui",
+        "Zeqi Gu",
+        "Dhruv Mahajan",
+        "Laurens van der Maaten",
+        "Serge Belongie",
+        "Ser-Nam Lim"
+      ],
+      "url": "http://arxiv.org/abs/1912.10154v1",
+      "score": 0.4
+    },
+    {
+      "title": "Interference-Aware K-Step Reachable Communication in Multi-Agent Reinforcement Learning",
+      "abstract": "Effective communication is pivotal for addressing complex collaborative tasks in multi-agent reinforcement learning (MARL). Yet, limited communication bandwidth and dynamic, intricate environmental topologies present significant challenges in identifying high-value communication partners. Agents must consequently select collaborators under uncertainty, lacking a priori knowledge of which partners ",
+      "year": 2026,
+      "authors": [
+        "Ziyu Cheng",
+        "Jinsheng Ren",
+        "Zhouxian Jiang",
+        "Chenzhihang Li",
+        "Rongye Shi",
+        "Bin Liang",
+        "Jun Yang"
+      ],
+      "url": "http://arxiv.org/abs/2603.15054v1",
+      "score": 0.4
+    },
+    {
+      "title": "Navigating the State of Cognitive Flow: Context-Aware AI Interventions for Effective Reasoning Support",
+      "abstract": "Flow theory describes an optimal cognitive state where individuals experience deep focus and intrinsic motivation when a task's difficulty aligns with their skill level. In AI-augmented reasoning, interventions that disrupt the state of cognitive flow can hinder rather than enhance decision-making. This paper proposes a context-aware cognitive augmentation framework that adapts interventions based",
+      "year": 2025,
+      "authors": [
+        "Dinithi Dissanayake",
+        "Suranga Nanayakkara"
+      ],
+      "url": "http://arxiv.org/abs/2504.16021v1",
+      "score": 0.4
+    },
+    {
+      "title": "Reasoning in Neurosymbolic AI",
+      "abstract": "Knowledge representation and reasoning in neural networks have been a long-standing endeavor which has attracted much attention recently. The principled integration of reasoning and learning in neural networks is a main objective of the area of neurosymbolic Artificial Intelligence (AI). In this chapter, a simple energy-based neurosymbolic AI system is described that can represent and reason forma",
+      "year": 2025,
+      "authors": [
+        "Son Tran",
+        "Edjard Mota",
+        "Artur d'Avila Garcez"
+      ],
+      "url": "http://arxiv.org/abs/2505.20313v1",
+      "score": 0.4
+    },
+    {
+      "title": "Supporting Data-Frame Dynamics in AI-assisted Decision Making",
+      "abstract": "High stakes decision-making often requires a continuous interplay between evolving evidence and shifting hypotheses, a dynamic that is not well supported by current AI decision support systems. In this paper, we introduce a mixed-initiative framework for AI assisted decision making that is grounded in the data-frame theory of sensemaking and the evaluative AI paradigm. Our approach enables both hu",
+      "year": 2025,
+      "authors": [
+        "Chengbo Zheng",
+        "Tim Miller",
+        "Alina Bialkowski",
+        "H Peter Soyer",
+        "Monika Janda"
+      ],
+      "url": "http://arxiv.org/abs/2504.15894v1",
+      "score": 0.3
+    },
+    {
+      "title": "Expert-Guided LLM Reasoning for Battery Discovery: From AI-Driven Hypothesis to Synthesis and Characterization",
+      "abstract": "Large language models (LLMs) leverage chain-of-thought (CoT) techniques to tackle complex problems, representing a transformative breakthrough in artificial intelligence (AI). However, their reasoning capabilities have primarily been demonstrated in solving math and coding problems, leaving their potential for domain-specific applications-such as battery discovery-largely unexplored. Inspired by t",
+      "year": 2025,
+      "authors": [
+        "Shengchao Liu",
+        "Hannan Xu",
+        "Yan Ai",
+        "Huanxin Li",
+        "Yoshua Bengio",
+        "Harry Guo"
+      ],
+      "url": "http://arxiv.org/abs/2507.16110v1",
+      "score": 0.3
+    },
+    {
+      "title": "Learning Attention-based Representations from Multiple Patterns for Relation Prediction in Knowledge Graphs",
+      "abstract": "Knowledge bases, and their representations in the form of knowledge graphs (KGs), are naturally incomplete. Since scientific and industrial applications have extensively adopted them, there is a high demand for solutions that complete their information. Several recent works tackle this challenge by learning embeddings for entities and relations, then employing them to predict new relations among t",
+      "year": 2022,
+      "authors": [
+        "V\u00edtor Louren\u00e7o",
+        "Aline Paes"
+      ],
+      "url": "http://arxiv.org/abs/2206.04801v1",
+      "score": 0.3
+    },
+    {
+      "title": "A Set Theoretic Approach for Knowledge Representation: the Representation Part",
+      "abstract": "In this paper, we propose a set theoretic approach for knowledge representation. While the syntax of an application domain is captured by set theoretic constructs including individuals, concepts and operators, knowledge is formalized by equality assertions. We first present a primitive form that uses minimal assumed knowledge and constructs. Then, assuming naive set theory, we extend it by definit",
+      "year": 2016,
+      "authors": [
+        "Yi Zhou"
+      ],
+      "url": "http://arxiv.org/abs/1603.03511v1",
+      "score": 0.3
+    },
+    {
+      "title": "Knowledge-Embedded Representation Learning for Fine-Grained Image Recognition",
+      "abstract": "Humans can naturally understand an image in depth with the aid of rich knowledge accumulated from daily lives or professions. For example, to achieve fine-grained image recognition (e.g., categorizing hundreds of subordinate categories of birds) usually requires a comprehensive visual concept organization including category labels and part-level attributes. In this work, we investigate how to unif",
+      "year": 2018,
+      "authors": [
+        "Tianshui Chen",
+        "Liang Lin",
+        "Riquan Chen",
+        "Yang Wu",
+        "Xiaonan Luo"
+      ],
+      "url": "http://arxiv.org/abs/1807.00505v1",
+      "score": 0.3
+    },
+    {
+      "title": "Application of Knowledge Distillation to Multi-task Speech Representation Learning",
+      "abstract": "Model architectures such as wav2vec 2.0 and HuBERT have been proposed to learn speech representations from audio waveforms in a self-supervised manner. When they are combined with downstream tasks such as keyword spotting and speaker verification, they provide state-of-the-art performance. However, these models use a large number of parameters, the smallest version of which has 95 million paramete",
+      "year": 2022,
+      "authors": [
+        "Mine Kerpicci",
+        "Van Nguyen",
+        "Shuhua Zhang",
+        "Erik Visser"
+      ],
+      "url": "http://arxiv.org/abs/2210.16611v2",
+      "score": 0.3
+    },
+    {
+      "title": "Knowledge Representation Concepts for Automated SLA Management",
+      "abstract": "Outsourcing of complex IT infrastructure to IT service providers has increased substantially during the past years. IT service providers must be able to fulfil their service-quality commitments based upon predefined Service Level Agreements (SLAs) with the service customer. They need to manage, execute and maintain thousands of SLAs for different customers and different types of services, which ne",
+      "year": 2006,
+      "authors": [
+        "Adrian Paschke",
+        "Martin Bichler"
+      ],
+      "url": "http://arxiv.org/abs/cs/0611122v1",
+      "score": 0.3
+    },
+    {
+      "title": "Knowledge Query Network: How Knowledge Interacts with Skills",
+      "abstract": "Knowledge Tracing (KT) is to trace the knowledge of students as they solve a sequence of problems represented by their related skills. This involves abstract concepts of students' states of knowledge and the interactions between those states and skills. Therefore, a KT model is designed to predict whether students will give correct answers and to describe such abstract concepts. However, existing ",
+      "year": 2019,
+      "authors": [
+        "Jinseok Lee",
+        "Dit-Yan Yeung"
+      ],
+      "url": "http://arxiv.org/abs/1908.02146v2",
+      "score": 0.3
+    },
+    {
+      "title": "Unifying Large Language Models and Knowledge Graphs: A Roadmap",
+      "abstract": "Large language models (LLMs), such as ChatGPT and GPT4, are making new waves in the field of natural language processing and artificial intelligence, due to their emergent ability and generalizability. However, LLMs are black-box models, which often fall short of capturing and accessing factual knowledge. In contrast, Knowledge Graphs (KGs), Wikipedia and Huapu for example, are structured knowledg",
+      "year": 2023,
+      "authors": [
+        "Shirui Pan",
+        "Linhao Luo",
+        "Yufei Wang",
+        "Chen Chen",
+        "Jiapu Wang",
+        "Xindong Wu"
+      ],
+      "url": "http://arxiv.org/abs/2306.08302v3",
+      "score": 0.3
+    },
+    {
+      "title": "A Survey of Multi-Agent Deep Reinforcement Learning with Communication",
+      "abstract": "Communication is an effective mechanism for coordinating the behaviors of multiple agents, broadening their views of the environment, and to support their collaborations. In the field of multi-agent deep reinforcement learning (MADRL), agents can improve the overall learning performance and achieve their objectives by communication. Agents can communicate various types of messages, either to all a",
+      "year": 2022,
+      "authors": [
+        "Changxi Zhu",
+        "Mehdi Dastani",
+        "Shihan Wang"
+      ],
+      "url": "http://arxiv.org/abs/2203.08975v2",
+      "score": 0.3
+    },
+    {
+      "title": "A Methodology to Engineer and Validate Dynamic Multi-level Multi-agent Based Simulations",
+      "abstract": "This article proposes a methodology to model and simulate complex systems, based on IRM4MLS, a generic agent-based meta-model able to deal with multi-level systems. This methodology permits the engineering of dynamic multi-level agent-based models, to represent complex systems over several scales and domains of interest. Its goal is to simulate a phenomenon using dynamically the lightest represent",
+      "year": 2013,
+      "authors": [
+        "Jean-Baptiste Soyez",
+        "Gildas Morvan",
+        "Daniel Dupont",
+        "Rochdi Merzouki"
+      ],
+      "url": "http://arxiv.org/abs/1311.5108v1",
+      "score": 0.3
+    },
+    {
+      "title": "Augmenting the action space with conventions to improve multi-agent cooperation in Hanabi",
+      "abstract": "The card game Hanabi is considered a strong medium for the testing and development of multi-agent reinforcement learning (MARL) algorithms, due to its cooperative nature, partial observability, limited communication and remarkable complexity. Previous research efforts have explored the capabilities of MARL algorithms within Hanabi, focusing largely on advanced architecture design and algorithmic m",
+      "year": 2024,
+      "authors": [
+        "F. Bredell",
+        "H. A. Engelbrecht",
+        "J. C. Schoeman"
+      ],
+      "url": "http://arxiv.org/abs/2412.06333v3",
+      "score": 0.3
+    },
+    {
+      "title": "AOAD-MAT: Transformer-based multi-agent deep reinforcement learning model considering agents' order of action decisions",
+      "abstract": "Multi-agent reinforcement learning focuses on training the behaviors of multiple learning agents that coexist in a shared environment. Recently, MARL models, such as the Multi-Agent Transformer (MAT) and ACtion dEpendent deep Q-learning (ACE), have significantly improved performance by leveraging sequential decision-making processes. Although these models can enhance performance, they do not expli",
+      "year": 2025,
+      "authors": [
+        "Shota Takayama",
+        "Katsuhide Fujita"
+      ],
+      "url": "http://arxiv.org/abs/2510.13343v1",
+      "score": 0.3
+    },
+    {
+      "title": "Pommerman: A Multi-Agent Playground",
+      "abstract": "We present Pommerman, a multi-agent environment based on the classic console game Bomberman. Pommerman consists of a set of scenarios, each having at least four players and containing both cooperative and competitive aspects. We believe that success in Pommerman will require a diverse set of tools and methods, including planning, opponent/teammate modeling, game theory, and communication, and cons",
+      "year": 2018,
+      "authors": [
+        "Cinjon Resnick",
+        "Wes Eldridge",
+        "David Ha",
+        "Denny Britz",
+        "Jakob Foerster",
+        "Julian Togelius",
+        "Kyunghyun Cho",
+        "Joan Bruna"
+      ],
+      "url": "http://arxiv.org/abs/1809.07124v2",
+      "score": 0.3
+    },
+    {
+      "title": "Quantifying the effects of environment and population diversity in multi-agent reinforcement learning",
+      "abstract": "Generalization is a major challenge for multi-agent reinforcement learning. How well does an agent perform when placed in novel environments and in interactions with new co-players? In this paper, we investigate and quantify the relationship between generalization and diversity in the multi-agent domain. Across the range of multi-agent environments considered here, procedurally generating training",
+      "year": 2021,
+      "authors": [
+        "Kevin R. McKee",
+        "Joel Z. Leibo",
+        "Charlie Beattie",
+        "Richard Everett"
+      ],
+      "url": "http://arxiv.org/abs/2102.08370v2",
+      "score": 0.3
+    },
+    {
+      "title": "Learning Reward Machines in Cooperative Multi-Agent Tasks",
+      "abstract": "This paper presents a novel approach to Multi-Agent Reinforcement Learning (MARL) that combines cooperative task decomposition with the learning of reward machines (RMs) encoding the structure of the sub-tasks. The proposed method helps deal with the non-Markovian nature of the rewards in partially observable environments and improves the interpretability of the learnt policies required to complet",
+      "year": 2023,
+      "authors": [
+        "Leo Ardon",
+        "Daniel Furelos-Blanco",
+        "Alessandra Russo"
+      ],
+      "url": "http://arxiv.org/abs/2303.14061v4",
+      "score": 0.3
+    },
+    {
+      "title": "Towards Effective GenAI Multi-Agent Collaboration: Design and Evaluation for Enterprise Applications",
+      "abstract": "AI agents powered by large language models (LLMs) have shown strong capabilities in problem solving. Through combining many intelligent agents, multi-agent collaboration has emerged as a promising approach to tackle complex, multi-faceted problems that exceed the capabilities of single AI agents. However, designing the collaboration protocols and evaluating the effectiveness of these systems remai",
+      "year": 2024,
+      "authors": [
+        "Raphael Shu",
+        "Nilaksh Das",
+        "Michelle Yuan",
+        "Monica Sunkara",
+        "Yi Zhang"
+      ],
+      "url": "http://arxiv.org/abs/2412.05449v1",
+      "score": 0.3
+    },
+    {
+      "title": "MLFC: From 10 to 50 Planners in the Multi-Agent Programming Contest",
+      "abstract": "In this paper, we describe the strategies used by our team, MLFC, that led us to achieve the 2nd place in the 15th edition of the Multi-Agent Programming Contest. The scenario used in the contest is an extension of the previous edition (14th) \"Agents Assemble\" wherein two teams of agents move around a 2D grid and compete to assemble complex block structures. We discuss the languages and tools used",
+      "year": 2021,
+      "authors": [
+        "Rafael C. Cardoso",
+        "Angelo Ferrando",
+        "Fabio Papacchini",
+        "Matt Luckcuck",
+        "Sven Linker",
+        "Terry R. Payne"
+      ],
+      "url": "http://arxiv.org/abs/2110.08172v2",
+      "score": 0.3
+    },
+    {
+      "title": "Deep Reinforcement Learning for Multi-Agent Interaction",
+      "abstract": "The development of autonomous agents which can interact with other agents to accomplish a given task is a core area of research in artificial intelligence and machine learning. Towards this goal, the Autonomous Agents Research Group develops novel machine learning algorithms for autonomous systems control, with a specific focus on deep reinforcement learning and multi-agent reinforcement learning.",
+      "year": 2022,
+      "authors": [
+        "Ibrahim H. Ahmed",
+        "Cillian Brewitt",
+        "Ignacio Carlucho",
+        "Filippos Christianos",
+        "Mhairi Dunion",
+        "Elliot Fosong",
+        "Samuel Garcin",
+        "Shangmin Guo",
+        "Balint Gyevnar",
+        "Trevor McInroe",
+        "Georgios Papoudakis",
+        "Arrasy Rahman",
+        "Lukas Sch\u00e4fer",
+        "Massimiliano Tamborski",
+        "Giuseppe Vecchio",
+        "Cheng Wang",
+        "Stefano V. Albrecht"
+      ],
+      "url": "http://arxiv.org/abs/2208.01769v1",
+      "score": 0.3
+    },
+    {
+      "title": "Multi-agent Collective Construction using 3D Decomposition",
+      "abstract": "This paper addresses a Multi-Agent Collective Construction (MACC) problem that aims to build a three-dimensional structure comprised of cubic blocks. We use cube-shaped robots that can carry one cubic block at a time, and move forward, reverse, left, and right to an adjacent cell of the same height or climb up and down one cube height. To construct structures taller than one cube, the robots must ",
+      "year": 2023,
+      "authors": [
+        "Akshaya Kesarimangalam Srinivasan",
+        "Shambhavi Singh",
+        "Geordan Gutow",
+        "Howie Choset",
+        "Bhaskar Vundurthy"
+      ],
+      "url": "http://arxiv.org/abs/2309.00985v1",
+      "score": 0.3
+    },
+    {
+      "title": "Normative Conflicts and Shallow AI Alignment",
+      "abstract": "The progress of AI systems such as large language models (LLMs) raises increasingly pressing concerns about their safe deployment. This paper examines the value alignment problem for LLMs, arguing that current alignment strategies are fundamentally inadequate to prevent misuse. Despite ongoing efforts to instill norms such as helpfulness, honesty, and harmlessness in LLMs through fine-tuning based",
+      "year": 2025,
+      "authors": [
+        "Rapha\u00ebl Milli\u00e8re"
+      ],
+      "url": "http://arxiv.org/abs/2506.04679v1",
+      "score": 0.3
+    },
+    {
+      "title": "Competing Visions of Ethical AI: A Case Study of OpenAI",
+      "abstract": "Introduction. AI Ethics is framed distinctly across actors and stakeholder groups. We report results from a case study of OpenAI analysing ethical AI discourse. Method. Research addressed: How has OpenAI's public discourse leveraged 'ethics', 'safety', 'alignment' and adjacent related concepts over time, and what does discourse signal about framing in practice? A structured corpus, differentiating",
+      "year": 2026,
+      "authors": [
+        "Melissa Wilfley",
+        "Mengting Ai",
+        "Madelyn Rose Sanfilippo"
+      ],
+      "url": "http://arxiv.org/abs/2601.16513v1",
+      "score": 0.1
+    },
+    {
+      "title": "White-Box AI Model: Next Frontier of Wireless Communications",
+      "abstract": "White-box AI (WAI), or explainable AI (XAI) model, a novel tool to achieve the reasoning behind decisions and predictions made by the AI algorithms, makes it more understandable and transparent. It offers a new approach to address key challenges of interpretability and mathematical validation in traditional black-box models. In this paper, WAI-aided wireless communication systems are proposed and ",
+      "year": 2025,
+      "authors": [
+        "Jiayao Yang",
+        "Jiayi Zhang",
+        "Bokai Xu",
+        "Jiakang Zheng",
+        "Zhilong Liu",
+        "Ziheng Liu",
+        "Dusit Niyato",
+        "M\u00e9rouane Debbah",
+        "Zhu Han",
+        "Bo Ai"
+      ],
+      "url": "http://arxiv.org/abs/2504.09138v1",
+      "score": 0.1
+    }
+  ]
+}

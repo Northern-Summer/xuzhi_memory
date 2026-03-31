@@ -1,0 +1,14 @@
+{
+  "problem": "多Agent系统的信用分配问题",
+  "relevant_papers_count": 3,
+  "methods": [
+    "Evolutionary",
+    "RL/Policy Optimization",
+    "Multi-Agent",
+    "Vision-Language",
+    "SOPs/Workflow",
+    "World Models",
+    "Executable Skills"
+  ],
+  "generated_at": "2026-03-27T19:32:44.391737"
+}

@@ -1,0 +1,32 @@
+21:03:38 [expert-wd] === Expert Watchdog 开始 ===
+21:03:38 [expert-wd]   ❌ tracker: changes.json无last_run
+21:03:38 [expert-wd]   ✅ changes: 最后change: 2026-03-24
+21:03:38 [expert-wd]   ✅ tasks: 完成=0 进行=0 等待=20
+21:03:38 [expert-wd]   ❌ memory: 24h内无memory更新
+21:03:38 [expert-wd] ⚠️  链断裂第 1 次
+21:03:38 [expert-wd] === Watchdog 完成 ===
+13:30:07 [expert-wd] === Expert Watchdog 开始 ===
+13:30:07 [expert-wd]   ❌ tracker: changes.json无last_run
+13:30:07 [expert-wd]   ✅ changes: 最后change: 2026-03-24
+13:30:07 [expert-wd]   ❌ tasks: 无learning任务
+13:30:07 [expert-wd]   ❌ memory: 24h内无memory更新
+13:30:07 [expert-wd] ⚠️  链断裂第 1 次
+13:30:07 [expert-wd] === Watchdog 完成 ===
+19:58:41 [expert-wd] === Expert Watchdog 开始 ===
+19:58:41 [expert-wd]   ✅ tracker: 最后运行: 0.0h前
+19:58:41 [expert-wd]   ✅ changes: 最后change: 2026-03-25
+19:58:41 [expert-wd]   ❌ tasks: 无learning任务
+19:58:41 [expert-wd]   ❌ memory: 24h内无memory更新
+19:58:41 [expert-wd] ⚠️  链断裂第 2 次
+19:58:41 [expert-wd] → 触发 expert_learner...
+19:58:41 [expert-wd] ❌ expert_learner 触发失败: 
+19:58:41 [expert-wd] === Watchdog 完成 ===
+22:03:03 [expert-wd] === Expert Watchdog 开始 ===
+22:03:03 [expert-wd]   ✅ tracker: 最后运行: 2.1h前
+22:03:03 [expert-wd]   ✅ changes: 最后change: 2026-03-25
+22:03:03 [expert-wd]   ❌ tasks: 无learning任务
+22:03:03 [expert-wd]   ❌ memory: 24h内无memory更新
+22:03:03 [expert-wd] ⚠️  链断裂第 3 次
+22:03:03 [expert-wd] → 触发 expert_learner...
+22:03:03 [expert-wd] ❌ expert_learner 触发失败: 
+22:03:03 [expert-wd] === Watchdog 完成 ===

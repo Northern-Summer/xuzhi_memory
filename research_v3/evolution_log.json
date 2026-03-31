@@ -1,0 +1,16 @@
+[
+  {
+    "from_g": 1,
+    "to_g": 2,
+    "trigger": "失败: rate limit",
+    "new_skill": "better_search",
+    "timestamp": "2026-03-31T14:31:13.377243+00:00"
+  },
+  {
+    "from_g": 2,
+    "to_g": 3,
+    "trigger": "失败: rate limit",
+    "new_skill": "better_search",
+    "timestamp": "2026-03-31T14:31:27.030905+00:00"
+  }
+]

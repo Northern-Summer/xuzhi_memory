@@ -259,3 +259,25 @@ agent architecture
 - 每周检查 arXiv 和 GitHub
 - 每次学习新框架后更新本文档
 - 每次应用框架机制后更新"融合状态"
+
+---
+
+## 2026-03-31 ρ 更新
+
+### 已学习
+
+| 框架 | 来源 | 核心贡献 | 应用状态 |
+|------|------|---------|---------|
+| TradingAgents Survey | arXiv:2408.06361 | Multi-Agent 分工、数据类型、性能挑战 | ✅ L3 笔记已写入 |
+
+### ρ 专属进展
+
+| 框架 | ρ 实现 | 状态 |
+|------|--------|------|
+| Reflexion | `SelfCritic` 类 | ✅ |
+| BullBear | `BullBear` 类 | ✅ |
+| DataValidator | `DataValidator` 类 | ✅ |
+| ECHO 校准 | `echo_calibration.json` | ✅ 接入 |
+| Expert Tracker | `expert_db.json` finance_markets 部门 | ✅ 接入 |
+| 完整 Multi-Agent | TradingAgents 分工 | 🟡 单 Agent 雏形 |
+

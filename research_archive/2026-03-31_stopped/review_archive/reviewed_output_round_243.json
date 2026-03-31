@@ -1,0 +1,62 @@
+{
+  "round": 243,
+  "research_question": "虚质生命的自主性边界：当系统开始建立内部模型，它在什么条件下从'被驱动'转向'主动驱动'？",
+  "reviewed_at": "2026-03-31T01:45:02.785557+00:00",
+  "hypothesis_reviews": [
+    {
+      "id": "hyp_2",
+      "hypothesis": "系统从'被驱动'转向'主动驱动'的临界点 = 信息传递延迟超过内部模型更新频率",
+      "scores": {
+        "soundness": 9,
+        "novelty": 7.0,
+        "evidence": 8.0,
+        "clarity": 7.0,
+        "significance": 6.0
+      },
+      "overall": 7.4,
+      "verdict": "accept",
+      "notes": [
+        "假设包含机制性描述，严谨性较高",
+        "假设提供了非显而易见的新洞见",
+        "置信度80%有充分支撑",
+        "假设可验证"
+      ],
+      "confidence": 0.8,
+      "based_on_count": 3
+    },
+    {
+      "id": "hyp_3",
+      "hypothesis": "当系统内部存在多个不同分辨率的表征层，且跨层一致性>阈值，自主性才涌现",
+      "scores": {
+        "soundness": 3,
+        "novelty": 7.0,
+        "evidence": 5.0,
+        "clarity": 7.0,
+        "significance": 4.0
+      },
+      "overall": 5.2,
+      "verdict": "revise",
+      "notes": [
+        "假设过于模糊，缺乏机制性描述",
+        "假设提供了非显而易见的新洞见",
+        "假设可验证"
+      ],
+      "confidence": 0.5,
+      "based_on_count": 2
+    }
+  ],
+  "aggregated": {
+    "total": 2,
+    "by_verdict": {
+      "accept": 1,
+      "revise": 1,
+      "reject": 0
+    },
+    "avg_score": 6.3,
+    "accept_rate": 0.5
+  },
+  "overall_verdict": "revise",
+  "feedback": [
+    "🔧 1个假设需要修改后推送"
+  ]
+}

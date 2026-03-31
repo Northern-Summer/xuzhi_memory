@@ -1,0 +1,592 @@
+{
+  "changes": [
+    {
+      "dept": "science",
+      "expert": "Jiansheng Xiang",
+      "affiliation": "",
+      "new_title": "Latent-WAM: Latent World Action Modeling for End-to-End Autonomous Driving",
+      "new_url": "http://arxiv.org/abs/2603.24581v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "quant-ph",
+        "physics.comp-ph"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "Arturo Tozzi",
+      "affiliation": "",
+      "new_title": "Dynamical Systems in Cosmology: Reviewing An Alternative Approach",
+      "new_url": "http://arxiv.org/abs/2603.24568v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "q-bio.OT"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "Sagar Kumar",
+      "affiliation": "",
+      "new_title": "Coordinating Spot and Contract Supply in Freight Marketplaces",
+      "new_url": "http://arxiv.org/abs/2603.24574v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "cs.CY",
+        "cs.AI"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "Ariel Flint",
+      "affiliation": "",
+      "new_title": "Robust valley-polarized excitonic Mott states and doublons enabled by stacking-controlled moiré geometry",
+      "new_url": "http://arxiv.org/abs/2603.24494v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "cs.CY",
+        "cs.AI"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "Luca Maria Aiello",
+      "affiliation": "",
+      "new_title": "A Modular Platooning and Vehicle Coordination Simulator for Research and Education",
+      "new_url": "http://arxiv.org/abs/2603.24540v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "cs.CY",
+        "cs.AI"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "Andrea Baronchelli",
+      "affiliation": "",
+      "new_title": "Efficient photon-pair emission from a nanostructured resonator and its theoretical description",
+      "new_url": "http://arxiv.org/abs/2603.24351v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "cs.CY",
+        "cs.AI"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "Hanjing Wang",
+      "affiliation": "",
+      "new_title": "DreamerAD: Efficient Reinforcement Learning via Latent World Model for Autonomous Driving",
+      "new_url": "http://arxiv.org/abs/2603.24587v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "cs.CY",
+        "cs.AI"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "S. Mostafa Mousavi",
+      "affiliation": "",
+      "new_title": "Landau and fractionalized theories of periodically driven intertwined orders",
+      "new_url": "http://arxiv.org/abs/2603.24592v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "cs.CY",
+        "cs.AI"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "Patrick Robertson",
+      "affiliation": "",
+      "new_title": "The role of spatial context and multitask learning in the detection of organic and conventional farming systems based on Sentinel-2 time series",
+      "new_url": "http://arxiv.org/abs/2603.24552v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "cs.CY",
+        "cs.AI"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "Richard M. Allen",
+      "affiliation": "",
+      "new_title": "Landau and fractionalized theories of periodically driven intertwined orders",
+      "new_url": "http://arxiv.org/abs/2603.24592v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "cs.CY",
+        "cs.AI"
+      ]
+    },
+    {
+      "dept": "philosophy",
+      "expert": "Richard de Grijs",
+      "affiliation": "",
+      "new_title": "Unlocking HST's Stellar Treasure Trove: Stellar Activity Minima for HAT-P-11 Offer Prime Windows for Transmission Spectroscopy",
+      "new_url": "http://arxiv.org/abs/2603.24585v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "physics.hist-ph"
+      ]
+    },
+    {
+      "dept": "philosophy",
+      "expert": "Laurens Smulders",
+      "affiliation": "",
+      "new_title": "Testing Dark Energy with Black Hole Ringdown",
+      "new_url": "http://arxiv.org/abs/2603.23634v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "hep-th",
+        "gr-qc"
+      ]
+    },
+    {
+      "dept": "philosophy",
+      "expert": "Johannes Noller",
+      "affiliation": "",
+      "new_title": "Cascading Failures and Critical Infrastructures in Future Renewable European Power Systems",
+      "new_url": "http://arxiv.org/abs/2603.24529v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "hep-th",
+        "gr-qc"
+      ]
+    },
+    {
+      "dept": "philosophy",
+      "expert": "Harry Sticker",
+      "affiliation": "",
+      "new_title": "Group Editing : Edit Multiple Images in One Go",
+      "new_url": "http://arxiv.org/abs/2603.22883v2",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "physics.hist-ph"
+      ]
+    },
+    {
+      "dept": "philosophy",
+      "expert": "Paul Borrill",
+      "affiliation": "",
+      "new_title": "Chiral Epitaxy: Enantioselective Growth of Chiral Nanowires on Low-Symmetry Two-Dimensional Materials",
+      "new_url": "http://arxiv.org/abs/2603.24565v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "physics.hist-ph"
+      ]
+    },
+    {
+      "dept": "philosophy",
+      "expert": "Jacob A. Barandes",
+      "affiliation": "",
+      "new_title": "Polynomial Speedup in Diffusion Models with the Multilevel Euler-Maruyama Method",
+      "new_url": "http://arxiv.org/abs/2603.24594v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "physics.hist-ph"
+      ]
+    },
+    {
+      "dept": "philosophy",
+      "expert": "Julio Arrechea",
+      "affiliation": "",
+      "new_title": "Effective geometrostatics of spherical stars beyond general relativity",
+      "new_url": "http://arxiv.org/abs/2603.24269v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "hep-th",
+        "gr-qc"
+      ]
+    },
+    {
+      "dept": "philosophy",
+      "expert": "Raúl Carballo-Rubio",
+      "affiliation": "",
+      "new_title": "Effective geometrostatics of spherical stars beyond general relativity",
+      "new_url": "http://arxiv.org/abs/2603.24269v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "hep-th",
+        "gr-qc"
+      ]
+    },
+    {
+      "dept": "philosophy",
+      "expert": "Matt Visser",
+      "affiliation": "",
+      "new_title": "Effective geometrostatics of spherical stars beyond general relativity",
+      "new_url": "http://arxiv.org/abs/2603.24269v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "hep-th",
+        "gr-qc"
+      ]
+    },
+    {
+      "dept": "philosophy",
+      "expert": "Carlos Herdeiro",
+      "affiliation": "",
+      "new_title": "Ground-State Extraction of Heavy-Light Meson Semileptonic Decay Form Factors",
+      "new_url": "http://arxiv.org/abs/2603.24491v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "hep-th",
+        "gr-qc"
+      ]
+    },
+    {
+      "dept": "intelligence",
+      "expert": "Hao Wang",
+      "affiliation": "",
+      "new_title": "YingMusic-Singer: Controllable Singing Voice Synthesis with Flexible Lyric Manipulation and Annotation-free Melody Guidance",
+      "new_url": "http://arxiv.org/abs/2603.24589v1",
+      "discovered_at": "2026-03-26",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ]
+    },
+    {
+      "dept": "engineering",
+      "expert": "Valerio Terragni",
+      "affiliation": "",
+      "new_title": "Beam Test Characterization of Silicon Microstrip Detector Flight-Model Ladders for the AMS-02 Upgrade",
+      "new_url": "http://arxiv.org/abs/2603.25085v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.SE"
+      ]
+    },
+    {
+      "dept": "engineering",
+      "expert": "Yusheng Zheng",
+      "affiliation": "",
+      "new_title": "Vega: Learning to Drive with Natural Language Instructions",
+      "new_url": "http://arxiv.org/abs/2603.25741v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.OS"
+      ]
+    },
+    {
+      "dept": "engineering",
+      "expert": "Eray Tüzün",
+      "affiliation": "",
+      "new_title": "LACY: Simulating Expert Mentoring for Software Onboarding with Code Tours",
+      "new_url": "http://arxiv.org/abs/2603.25391v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.SE"
+      ]
+    },
+    {
+      "dept": "engineering",
+      "expert": "Debangshu Banerjee",
+      "affiliation": "",
+      "new_title": "SafeMath: Inference-time Safety improves Math Accuracy",
+      "new_url": "http://arxiv.org/abs/2603.25201v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.SE",
+        "cs.LG"
+      ]
+    },
+    {
+      "dept": "engineering",
+      "expert": "Changming Xu",
+      "affiliation": "",
+      "new_title": "ShotStream: Streaming Multi-Shot Video Generation for Interactive Storytelling",
+      "new_url": "http://arxiv.org/abs/2603.25746v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.SE",
+        "cs.LG"
+      ]
+    },
+    {
+      "dept": "engineering",
+      "expert": "Gagandeep Singh",
+      "affiliation": "",
+      "new_title": "Robust continuous-variable multipartite entanglement in circular arrays of nonlinear waveguides",
+      "new_url": "http://arxiv.org/abs/2603.25610v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.SE",
+        "cs.LG"
+      ]
+    },
+    {
+      "dept": "engineering",
+      "expert": "Tony Mason",
+      "affiliation": "",
+      "new_title": "On Bass numbers of graded components of local cohomology modules supported on $\\mathfrak{C}$-monomial ideals in mixed characteristic",
+      "new_url": "http://arxiv.org/abs/2603.25604v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.SE",
+        "cs.OS"
+      ]
+    },
+    {
+      "dept": "engineering",
+      "expert": "Chunrong Fang",
+      "affiliation": "",
+      "new_title": "Less Gaussians, Texture More: 4K Feed-Forward Textured Splatting",
+      "new_url": "http://arxiv.org/abs/2603.25745v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.SE"
+      ]
+    },
+    {
+      "dept": "engineering",
+      "expert": "Zhenyu Chen",
+      "affiliation": "",
+      "new_title": "ShotStream: Streaming Multi-Shot Video Generation for Interactive Storytelling",
+      "new_url": "http://arxiv.org/abs/2603.25746v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.SE"
+      ]
+    },
+    {
+      "dept": "science",
+      "expert": "Ze Tao",
+      "affiliation": "",
+      "new_title": "PSDesigner: Automated Graphic Design with a Human-Like Creative Workflow",
+      "new_url": "http://arxiv.org/abs/2603.25738v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "physics.comp-ph"
+      ]
+    },
+    {
+      "dept": "science",
+      "expert": "Gaston Gutierrez",
+      "affiliation": "",
+      "new_title": "Nonlinear Information from DESI Luminous Red Galaxies: An Emulator-Based Analysis of Pre- and Post-Reconstruction Power Spectra",
+      "new_url": "http://arxiv.org/abs/2603.25693v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "astro-ph.CO"
+      ]
+    },
+    {
+      "dept": "science",
+      "expert": "Eusebio Sanchez",
+      "affiliation": "",
+      "new_title": "Critical curve of two-matrix models $ABBA$, $A\\{B,A\\}B$ and $ABAB$, Part I: Monte Carlo",
+      "new_url": "http://arxiv.org/abs/2603.25715v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "astro-ph.CO"
+      ]
+    },
+    {
+      "dept": "science",
+      "expert": "Jochen Weller",
+      "affiliation": "",
+      "new_title": "Particle Physics and Gravitational Waves as complementary windows on the Universe",
+      "new_url": "http://arxiv.org/abs/2603.25578v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "astro-ph.CO"
+      ]
+    },
+    {
+      "dept": "science",
+      "expert": "Jonathan Gair",
+      "affiliation": "",
+      "new_title": "Dynamics and stochastic resonance in a mathematical model of bistable phosphorylation and nuclear size control",
+      "new_url": "http://arxiv.org/abs/2603.25518v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "astro-ph.CO"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "Mohamed Amine Chatti",
+      "affiliation": "",
+      "new_title": "Concentration And Distribution of Container Flows In Mauritania's Maritime System (2019-2022)",
+      "new_url": "http://arxiv.org/abs/2603.25678v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.CY"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "Rasmi Elasmar",
+      "affiliation": "",
+      "new_title": "Evaluating Language Models for Harmful Manipulation",
+      "new_url": "http://arxiv.org/abs/2603.25326v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.AI",
+        "cs.CY"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "Abhishek Roy",
+      "affiliation": "",
+      "new_title": "Krylov-space anatomy and spread complexity of a disordered quantum spin chain",
+      "new_url": "http://arxiv.org/abs/2603.25724v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.AI",
+        "cs.CY"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "Anthony Payne",
+      "affiliation": "",
+      "new_title": "Compiling molecular ultrastructure into neural dynamics",
+      "new_url": "http://arxiv.org/abs/2603.25713v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.AI",
+        "cs.CY"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "Priyanka Suresh",
+      "affiliation": "",
+      "new_title": "Maximizing Qubit Throughput under Buffer Decoherence and Variability in Generation",
+      "new_url": "http://arxiv.org/abs/2603.25482v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.AI",
+        "cs.CY"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "Lujain Ibrahim",
+      "affiliation": "",
+      "new_title": "GridVAD: Open-Set Video Anomaly Detection via Spatial Reasoning over Stratified Frame Grids",
+      "new_url": "http://arxiv.org/abs/2603.25467v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.AI",
+        "cs.CY"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "Seliem El-Sayed",
+      "affiliation": "",
+      "new_title": "Evaluating Language Models for Harmful Manipulation",
+      "new_url": "http://arxiv.org/abs/2603.25326v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.AI",
+        "cs.CY"
+      ]
+    },
+    {
+      "dept": "mind",
+      "expert": "Charvi Rastogi",
+      "affiliation": "",
+      "new_title": "Voxtral TTS",
+      "new_url": "http://arxiv.org/abs/2603.25551v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.AI",
+        "cs.CY"
+      ]
+    },
+    {
+      "dept": "philosophy",
+      "expert": "Richard de Grijs",
+      "affiliation": "",
+      "new_title": "Parameterizing Dark Energy at the density level: A two-parameter alternative to CPL",
+      "new_url": "http://arxiv.org/abs/2603.25735v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "physics.hist-ph"
+      ]
+    },
+    {
+      "dept": "science",
+      "expert": "Fujun Liu",
+      "affiliation": "",
+      "new_title": "ShotStream: Streaming Multi-Shot Video Generation for Interactive Storytelling",
+      "new_url": "http://arxiv.org/abs/2603.25746v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "physics.comp-ph"
+      ],
+      "_source_dept": "science"
+    },
+    {
+      "dept": "science",
+      "expert": "Xinliang Lyu",
+      "affiliation": "",
+      "new_title": "Label-free Imaging of Single-Biomolecule Structure and Interaction by Stimulated Raman Photothermal Encoded Scattering",
+      "new_url": "http://arxiv.org/abs/2603.25534v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "physics.comp-ph",
+        "quant-ph"
+      ],
+      "_source_dept": "science"
+    },
+    {
+      "dept": "science",
+      "expert": "John Goold",
+      "affiliation": "",
+      "new_title": "Uncertainty-Guided Label Rebalancing for CPS Safety Monitoring",
+      "new_url": "http://arxiv.org/abs/2603.25670v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "physics.comp-ph",
+        "quant-ph"
+      ],
+      "_source_dept": "science"
+    },
+    {
+      "dept": "science",
+      "expert": "David Brooks",
+      "affiliation": "",
+      "new_title": "Krylov-space anatomy and spread complexity of a disordered quantum spin chain",
+      "new_url": "http://arxiv.org/abs/2603.25724v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "astro-ph.CO"
+      ],
+      "_source_dept": "science"
+    },
+    {
+      "dept": "science",
+      "expert": "Ashley J. Ross",
+      "affiliation": "",
+      "new_title": "ShotStream: Streaming Multi-Shot Video Generation for Interactive Storytelling",
+      "new_url": "http://arxiv.org/abs/2603.25746v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "astro-ph.CO"
+      ],
+      "_source_dept": "science"
+    },
+    {
+      "dept": "intelligence",
+      "expert": "Canfer Akbulut",
+      "affiliation": "",
+      "new_title": "Evaluating Language Models for Harmful Manipulation",
+      "new_url": "http://arxiv.org/abs/2603.25326v1",
+      "discovered_at": "2026-03-27",
+      "categories": [
+        "cs.AI",
+        "cs.CY"
+      ],
+      "_source_dept": "mind"
+    }
+  ],
+  "last_update": "2026-03-27T05:18:01",
+  "last_run": "2026-03-27T05:18:30.372557+00:00"
+}

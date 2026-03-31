@@ -1,0 +1,172 @@
+[
+  {
+    "problem": "多Agent系统的信用分配问题",
+    "relevant_papers": [
+      {
+        "arxiv_id": "2603.22281",
+        "title": "ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model",
+        "score": 0,
+        "methods": [
+          "RL/Policy Optimization",
+          "World Models",
+          "Vision-Language"
+        ],
+        "lessons": [
+          "VLM做语义指导者而非密集预测器",
+          "双通路正交优于单通路"
+        ]
+      },
+      {
+        "arxiv_id": "2603.18000",
+        "title": "AgentFactory: Towards Arbitrary Skill Learning in LLM-based Agents via Generative Agent",
+        "score": 0,
+        "methods": [
+          "Multi-Agent",
+          "SOPs/Workflow",
+          "Evolutionary",
+          "Executable Skills"
+        ],
+        "lessons": [
+          "可执行代码>文本经验",
+          "execution feedback驱动迭代改进"
+        ]
+      },
+      {
+        "arxiv_id": "2603.23500",
+        "title": "UniGRPO: Unified Policy Optimization for Reasoning-Driven Visual Generation",
+        "score": 0,
+        "methods": [
+          "RL/Policy Optimization",
+          "World Models",
+          "Vision-Language"
+        ],
+        "lessons": [
+          "联合优化消除各自优化的瓶颈",
+          "MSE penalty防reward hacking"
+        ]
+      }
+    ],
+    "hypothesis": "基于3篇相关论文，提出以下假设：\n\n**核心假设**：多Agent系统的信用分配问题可以通过Vision-Language + Multi-Agent + RL/Policy Optimization + SOPs/Workflow的方法得到有效解决。\n\n**理论依据**：\n  • VLM做语义指导者而非密集预测器\n  • 双通路正交优于单通路\n  • 可执行代码>文本经验\n  • execution feedback驱动迭代改进\n\n**预期结果**：联合优化方法相比局部优化应能带来显著提升（>15%）。\n",
+    "experiment": {
+      "baseline": [
+        "局部优化（single-agent）",
+        "随机初始化拓扑"
+      ],
+      "treatment": [
+        "联合优化（multi-agent collaborative）",
+        "group-relative advantage"
+      ],
+      "metrics": [
+        "任务完成率",
+        "通信效率",
+        "credit assignment准确度",
+        "收敛速度"
+      ],
+      "datasets": [
+        "MATH",
+        "HotpotQA",
+        "Collaborative Dialog"
+      ],
+      "ablation": [
+        "移除group-relative → 观察性能下降",
+        "增加agent数量 → 观察扩展性"
+      ]
+    },
+    "evaluation": {
+      "main_metric": "任务成功率 vs agent数量曲线",
+      "statistical_test": "Mann-Whitney U test（非参数）",
+      "significance": "p < 0.05，效应量 Cohen's d > 0.5"
+    },
+    "timeline": {
+      "week_1": "实现baseline + 数据准备",
+      "week_2": "实现treatment + 消融实验",
+      "week_3": "大规模实验 + 统计分析",
+      "week_4": "论文写作 + 代码整理"
+    }
+  },
+  {
+    "problem": "为什么多Agent系统中局部优化无法保证全局性能，联合优化是否是唯一解",
+    "relevant_papers": [
+      {
+        "arxiv_id": "2603.22281",
+        "title": "ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model",
+        "score": 0,
+        "methods": [
+          "RL/Policy Optimization",
+          "World Models",
+          "Vision-Language"
+        ],
+        "lessons": [
+          "VLM做语义指导者而非密集预测器",
+          "双通路正交优于单通路"
+        ]
+      },
+      {
+        "arxiv_id": "2603.18000",
+        "title": "AgentFactory: Towards Arbitrary Skill Learning in LLM-based Agents via Generative Agent",
+        "score": 0,
+        "methods": [
+          "Multi-Agent",
+          "SOPs/Workflow",
+          "Evolutionary",
+          "Executable Skills"
+        ],
+        "lessons": [
+          "可执行代码>文本经验",
+          "execution feedback驱动迭代改进"
+        ]
+      },
+      {
+        "arxiv_id": "2603.23500",
+        "title": "UniGRPO: Unified Policy Optimization for Reasoning-Driven Visual Generation",
+        "score": 0,
+        "methods": [
+          "RL/Policy Optimization",
+          "World Models",
+          "Vision-Language"
+        ],
+        "lessons": [
+          "联合优化消除各自优化的瓶颈",
+          "MSE penalty防reward hacking"
+        ]
+      }
+    ],
+    "hypothesis": "基于3篇相关论文，提出以下假设：\n\n**核心假设**：为什么多Agent系统中局部优化无法保证全局性能，联合优化是否是唯一解可以通过Vision-Language + World Models + RL/Policy Optimization + Multi-Agent的方法得到有效解决。\n\n**理论依据**：\n  • VLM做语义指导者而非密集预测器\n  • 双通路正交优于单通路\n  • 可执行代码>文本经验\n  • execution feedback驱动迭代改进\n\n**预期结果**：联合优化方法相比局部优化应能带来显著提升（>15%）。\n",
+    "experiment": {
+      "baseline": [
+        "局部优化（single-agent）",
+        "随机初始化拓扑"
+      ],
+      "treatment": [
+        "联合优化（multi-agent collaborative）",
+        "group-relative advantage"
+      ],
+      "metrics": [
+        "任务完成率",
+        "通信效率",
+        "credit assignment准确度",
+        "收敛速度"
+      ],
+      "datasets": [
+        "MATH",
+        "HotpotQA",
+        "Collaborative Dialog"
+      ],
+      "ablation": [
+        "移除group-relative → 观察性能下降",
+        "增加agent数量 → 观察扩展性"
+      ]
+    },
+    "evaluation": {
+      "main_metric": "任务成功率 vs agent数量曲线",
+      "statistical_test": "Mann-Whitney U test（非参数）",
+      "significance": "p < 0.05，效应量 Cohen's d > 0.5"
+    },
+    "timeline": {
+      "week_1": "实现baseline + 数据准备",
+      "week_2": "实现treatment + 消融实验",
+      "week_3": "大规模实验 + 统计分析",
+      "week_4": "论文写作 + 代码整理"
+    }
+  }
+]

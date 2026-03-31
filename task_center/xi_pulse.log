@@ -2934,3 +2934,75 @@ Context使用率: 44%
 [13:02:06] 1. expert_synthesizer...
 [13:02:06] ✅ synthesizer 完成
 [13:02:06] ✅ 循环完成: round 299 conf=0.80
+[2026-03-31 13:15:01] [INFO] Context使用率: 9%
+[2026-03-31 13:15:01] [INFO] ✅ 优雅原则检查通过
+Context使用率: 9%
+[13:15:01] force 模式
+[13:15:01] === research_loop 开始 ===
+[13:15:01] 0. peer_review...
+[13:15:01] ✅ peer_review 完成
+[13:15:01] 1. expert_synthesizer...
+[13:15:01] ✅ synthesizer 完成
+[13:15:01] ✅ 循环完成: round 300 conf=0.80
+[2026-03-31 13:30:01] [INFO] Context使用率: 27%
+[2026-03-31 13:30:01] [INFO] ✅ 优雅原则检查通过
+Context使用率: 27%
+[13:30:01] force 模式
+[13:30:01] === research_loop 开始 ===
+[13:30:01] 0. peer_review...
+[13:30:01] ✅ peer_review 完成
+[13:30:01] 1. expert_synthesizer...
+[13:30:01] ✅ synthesizer 完成
+[13:30:01] ✅ 循环完成: round 301 conf=0.80
+[2026-03-31 13:45:01] [INFO] Context使用率: 100%
+[2026-03-31 13:45:01] [INFO] ✅ 优雅原则检查通过
+[2026-03-31 13:45:01] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-31 13:45:01] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/session_archive/2026-03-31_session_guard.log（178 字符）
+[2026-03-31 13:45:10] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+Context使用率: 100%
+[13:45:10] force 模式
+[13:45:10] === research_loop 开始 ===
+[13:45:10] 0. peer_review...
+[13:45:10] ✅ peer_review 完成
+[13:45:10] 1. expert_synthesizer...
+[13:45:10] ✅ synthesizer 完成
+[13:45:10] ✅ 循环完成: round 302 conf=0.80
+[2026-03-31 14:00:01] [INFO] Context使用率: 100%
+[2026-03-31 14:00:01] [INFO] ✅ 优雅原则检查通过
+[2026-03-31 14:00:01] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-31 14:00:01] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/session_archive/2026-03-31_session_guard.log（178 字符）
+[2026-03-31 14:00:04] [ERROR] ❌ WeChat发送失败: Invalid config at /home/summer/.openclaw/openclaw.json:\n- tools.exec: Unrecognized key: "strictInlineEval"
+Config invalid
+File: ~/.openclaw/openclaw.json
+Problem:
+  - tools.exec: Unrecognized key: "strictInlineEval"
+
+Run: openclaw doctor --fix
+
+Context使用率: 100%
+[14:00:04] force 模式
+[14:00:04] === research_loop 开始 ===
+[14:00:04] 0. peer_review...
+[14:00:04] ✅ peer_review 完成
+[14:00:04] 1. expert_synthesizer...
+[14:00:04] ✅ synthesizer 完成
+[14:00:04] ✅ 循环完成: round 303 conf=0.75
+[2026-03-31 14:02:02] [INFO] Context使用率: 47%
+[2026-03-31 14:02:02] [INFO] ✅ 优雅原则检查通过
+Context使用率: 47%
+[14:02:02] force 模式
+[14:02:02] === research_loop 开始 ===
+[14:02:02] 0. peer_review...
+[14:02:02] ✅ peer_review 完成
+[14:02:02] 1. expert_synthesizer...
+[14:02:03] ✅ synthesizer 完成
+[14:02:03] ✅ 循环完成: round 304 conf=0.80

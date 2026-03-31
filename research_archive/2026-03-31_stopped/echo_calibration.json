@@ -1,0 +1,42 @@
+{
+  "_comment": "ECHO 校准机制 — 决策预测→追踪→校准",
+  "created": "2026-03-31T08:30:00Z",
+  "predictions": [
+    {
+      "id": 1,
+      "code": "603228",
+      "name": "景旺电子",
+      "prediction": "观望（多空对抗共识）",
+      "trend": "震荡偏弱",
+      "confidence": 0.4,
+      "reasoning_quality": 0.4,
+      "data_validated": true,
+      "data_source": "baostock+sina",
+      "bullbear": {
+        "bull": "今日+2.14%收红，量比1.4x",
+        "bear": "均线空头排列，MA5<MA10<MA20",
+        "verdict": "观望"
+      },
+      "timestamp": "2026-03-31T21:58:08.113339",
+      "note": "自我批判：推理质量0.4，置信度低，MA5>MA10未确认"
+    },
+    {
+      "id": 2,
+      "code": "000",
+      "name": "大盘",
+      "prediction": "下跌中段，尚未企稳",
+      "confidence": 0.83,
+      "data_validated": true,
+      "source": "MiniMax M2.7 推理",
+      "timestamp": "2026-03-31T21:58:08.113381"
+    }
+  ],
+  "calibrations": [],
+  "confidence_history": [],
+  "rules": {
+    "trigger": "每次 session 做出预测时",
+    "record": "预测内容 + 预期结果 + 时间戳",
+    "validate": "下次 session 检查实际结果",
+    "calibrate": "对比偏差 → 更新 confidence"
+  }
+}

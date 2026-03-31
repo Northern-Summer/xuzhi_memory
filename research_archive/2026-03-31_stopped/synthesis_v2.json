@@ -1,0 +1,117 @@
+[
+  {
+    "arxiv_id": "2603.22281",
+    "title": "ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model",
+    "methods": [
+      "RL/Policy Optimization",
+      "World Models",
+      "Vision-Language"
+    ],
+    "lessons": [
+      "VLM做语义指导者而非密集预测器",
+      "双通路正交优于单通路"
+    ],
+    "abstract_length": 1601
+  },
+  {
+    "arxiv_id": "2603.18000",
+    "title": "AgentFactory: Towards Arbitrary Skill Learning in LLM-based Agents via Generative Agent",
+    "methods": [
+      "Multi-Agent",
+      "SOPs/Workflow",
+      "Evolutionary",
+      "Executable Skills"
+    ],
+    "lessons": [
+      "可执行代码>文本经验",
+      "execution feedback驱动迭代改进"
+    ],
+    "abstract_length": 1086
+  },
+  {
+    "arxiv_id": "2603.23500",
+    "title": "UniGRPO: Unified Policy Optimization for Reasoning-Driven Visual Generation",
+    "methods": [
+      "RL/Policy Optimization",
+      "World Models",
+      "Vision-Language"
+    ],
+    "lessons": [
+      "联合优化消除各自优化的瓶颈",
+      "MSE penalty防reward hacking"
+    ],
+    "abstract_length": 1690
+  },
+  {
+    "arxiv_id": "2603.12631",
+    "title": "CoMAM: Collaborative Multi-Agent Optimization for Personalized Memory System",
+    "methods": [
+      "RL/Policy Optimization",
+      "Multi-Agent",
+      "Information Theory",
+      "Memory Systems"
+    ],
+    "lessons": [
+      "局部优化无法保证全局性能",
+      "MDP建模跨agent依赖"
+    ],
+    "abstract_length": 1514
+  },
+  {
+    "arxiv_id": "2603.02701",
+    "title": "Graph-GRPO: Stabilizing Multi-Agent Topology Learning via Group Relative Policy Optimization",
+    "methods": [
+      "RL/Policy Optimization",
+      "Multi-Agent",
+      "Graph/Topology",
+      "Executable Skills"
+    ],
+    "lessons": [
+      "group-relative advantage>绝对奖励",
+      "细粒度credit assignment是关键"
+    ],
+    "abstract_length": 1419
+  },
+  {
+    "arxiv_id": "2601.03220",
+    "title": "From Entropy to Epiplexity: Rethinking Information for Computationally Bounded Intelligence",
+    "methods": [
+      "RL/Policy Optimization",
+      "Information Theory"
+    ],
+    "lessons": [
+      "信息=计算创造，不是存储",
+      "expert_tracker=数据选择问题"
+    ],
+    "abstract_length": 1857
+  },
+  {
+    "arxiv_id": "2509.00510",
+    "title": "SuperBrain: LLM-Assisted Iterative Evolution with Swarm Intelligence Toward SuperBrain",
+    "methods": [
+      "Multi-Agent",
+      "SOPs/Workflow",
+      "Evolutionary",
+      "Memory Systems"
+    ],
+    "lessons": [
+      "Subclass Brain→Swarm→SuperBrain进化",
+      "registry做跨dyad知识整合"
+    ],
+    "abstract_length": 1222
+  },
+  {
+    "arxiv_id": "2308.00352",
+    "title": "MetaGPT: Meta Programming for Multi-Agent Collaborative Framework",
+    "methods": [
+      "Multi-Agent",
+      "SOPs/Workflow",
+      "Executable Skills"
+    ],
+    "lessons": [
+      "SOPs减少幻觉和无效对话",
+      "装配线范式=角色分解"
+    ],
+    "abstract_length": 1108
+  }
+]

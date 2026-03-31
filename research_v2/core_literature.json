@@ -1,0 +1,91 @@
+{
+  "found": [],
+  "not_found": [
+    {
+      "id": "mccarthy_hayes_1969",
+      "title": "Some Philosophical Problems from the Standpoint of Artificial Intelligence",
+      "authors": [
+        "John McCarthy",
+        "Patrick J. Hayes"
+      ],
+      "year": 1969,
+      "venue": "Machine Intelligence 4",
+      "priority": "P0",
+      "relevance": "框架问题的原始定义",
+      "search_query": "McCarthy Hayes 1969 frame problem artificial intelligence"
+    },
+    {
+      "id": "pylyshyn_1987",
+      "title": "The Frame Problem in Artificial Intelligence",
+      "authors": [
+        "Zenon Pylyshyn"
+      ],
+      "year": 1987,
+      "venue": "The Robot's Dilemma",
+      "priority": "P0",
+      "relevance": "框架问题的经典表述",
+      "search_query": "Pylyshyn 1987 frame problem robot dilemma"
+    },
+    {
+      "id": "hayes_1971",
+      "title": "What's a Frame?",
+      "authors": [
+        "Patrick J. Hayes"
+      ],
+      "year": 1971,
+      "venue": " unpublished manuscript",
+      "priority": "P1",
+      "relevance": "框架的形式化定义",
+      "search_query": "Hayes 1971 frame knowledge representation"
+    },
+    {
+      "id": "brandom_1994",
+      "title": "Making It Explicit: Reasoning, Representing, and Discursive Commitment",
+      "authors": [
+        "Robert Brandom"
+      ],
+      "year": 1994,
+      "venue": "Harvard University Press",
+      "priority": "P0",
+      "relevance": "规范语义学的核心著作",
+      "search_query": "Brandom 1994 Making It Explicit reasoning representing"
+    },
+    {
+      "id": "brandom_2000",
+      "title": "Articulating Reasons: An Introduction to Inferentialism",
+      "authors": [
+        "Robert Brandom"
+      ],
+      "year": 2000,
+      "venue": "Harvard University Press",
+      "priority": "P1",
+      "relevance": "推断主义导论",
+      "search_query": "Brandom 2000 Articulating Reasons inferentialism"
+    },
+    {
+      "id": "wooldridge_2009",
+      "title": "An Introduction to MultiAgent Systems",
+      "authors": [
+        "Michael Wooldridge"
+      ],
+      "year": 2009,
+      "venue": "Wiley",
+      "priority": "P1",
+      "relevance": "多智能体系统教科书",
+      "search_query": "Wooldridge 2009 Introduction MultiAgent Systems"
+    },
+    {
+      "id": "newell_1982",
+      "title": "The Knowledge Level",
+      "authors": [
+        "Allen Newell"
+      ],
+      "year": 1982,
+      "venue": "Artificial Intelligence",
+      "priority": "P1",
+      "relevance": "知识层次的抽象",
+      "search_query": "Newell 1982 knowledge level artificial intelligence"
+    }
+  ],
+  "citation_network": {}
+}

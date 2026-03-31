@@ -1,0 +1,20 @@
+{
+  "title": "Some Philosophical Problems from the Standpoint of Artificial Intelligence",
+  "authors": [
+    "John McCarthy",
+    "Patrick J. Hayes"
+  ],
+  "year": 1969,
+  "source": "book",
+  "url": "https://www-formal.stanford.edu/jmc/mcchay69/mcchay69.html",
+  "doi": null,
+  "notes": [],
+  "quotes": [
+    {
+      "quote": "A system has representational adequacy when it can represent all relevant aspects of its domain.",
+      "page": 4,
+      "context": "框架问题的核心定义",
+      "timestamp": "2026-03-31T14:16:10.757551+00:00"
+    }
+  ]
+}
