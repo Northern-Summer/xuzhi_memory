@@ -2600,3 +2600,24 @@ Traceback (most recent call last):
   File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
     raise TimeoutExpired(
 subprocess.TimeoutExpired: Command '['openclaw', 'message', 'send', '--channel', 'openclaw-weixin', '--target', 'o9cq80z9eorqJasg6hB1W-Cc4-Po@im.wechat', '--message', "📊 Round 274 | 08:02\n置信度: 80%\n• 当内部模型的预测粒度足够细（压缩损失<阈值），系统从'被驱动'转变为'主动驱动'\n• 系统从'被驱动'转向'主动驱动'的临界点 = 信息传递延迟超过内部模型更新频率\n系统在线，运行正常"]' timed out after 15 seconds
+[2026-03-31 08:15:01] [INFO] Context使用率: 84%
+[2026-03-31 08:15:01] [INFO] ✅ 优雅原则检查通过
+[2026-03-31 08:15:01] [WARN] ⚠️ 预警：Context使用率 84% >= 70%
+[2026-03-31 08:15:13] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+Context使用率: 84%
+[08:15:13] force 模式
+[08:15:13] === research_loop 开始 ===
+[08:15:13] 0. peer_review...
+[08:15:13] ✅ peer_review 完成
+[08:15:13] 1. expert_synthesizer...
+[08:15:13] ✅ synthesizer 完成
+[08:15:13] ✅ 循环完成: round 275 conf=0.78
