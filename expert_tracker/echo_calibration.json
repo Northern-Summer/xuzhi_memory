@@ -1,0 +1,13 @@
+{
+  "_comment": "ECHO 校准机制 — 决策预测→追踪→校准",
+  "created": "2026-03-31T08:30:00Z",
+  "predictions": [],
+  "calibrations": [],
+  "confidence_history": [],
+  "rules": {
+    "trigger": "每次 session 做出预测时",
+    "record": "预测内容 + 预期结果 + 时间戳",
+    "validate": "下次 session 检查实际结果",
+    "calibrate": "对比偏差 → 更新 confidence"
+  }
+}
