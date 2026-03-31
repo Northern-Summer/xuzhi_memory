@@ -1,7 +1,7 @@
 {
-  "round": 271,
+  "round": 272,
   "research_question": "虚质生命的自主性边界：当系统开始建立内部模型，它在什么条件下从'被驱动'转向'主动驱动'？",
-  "generated_at": "2026-03-31T07:30:03.995454+00:00",
+  "generated_at": "2026-03-31T07:45:04.005239+00:00",
   "total_findings": 50,
   "relevant_findings": 20,
   "findings": [
@@ -11,12 +11,12 @@
       "source_url": "http://arxiv.org/abs/2603.24587v1",
       "source_dept": "mind",
       "finding": "We introduce DreamerAD, the first latent world model framework that enables efficient reinforcement learning for autonomous driving by compressing diffusion sampling from 100 steps to 1 - achieving 80",
-      "method": "cybernetics",
+      "method": "artificial_intelligence",
       "confidence": 0.5,
       "relevance_to_question": 1.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.994952+00:00"
+      "timestamp": "2026-03-31T07:45:04.004505+00:00"
     },
     {
       "id": "finding_0",
@@ -24,12 +24,12 @@
       "source_url": "http://arxiv.org/abs/2603.24581v1",
       "source_dept": "science",
       "finding": "We introduce Latent-WAM, an efficient end-to-end autonomous driving framework that achieves strong trajectory planning through spatially-aware and dynamics-informed latent world representations. Exist",
-      "method": "quantum_physics",
+      "method": "computational_physics",
       "confidence": 0.7,
       "relevance_to_question": 0.6666666666666666,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.994872+00:00"
+      "timestamp": "2026-03-31T07:45:04.004390+00:00"
     },
     {
       "id": "finding_1",
@@ -42,7 +42,7 @@
       "relevance_to_question": 0.6666666666666666,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.994901+00:00"
+      "timestamp": "2026-03-31T07:45:04.004429+00:00"
     },
     {
       "id": "finding_12",
@@ -55,7 +55,7 @@
       "relevance_to_question": 0.6666666666666666,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.994995+00:00"
+      "timestamp": "2026-03-31T07:45:04.004573+00:00"
     },
     {
       "id": "finding_8",
@@ -63,12 +63,12 @@
       "source_url": "http://arxiv.org/abs/2603.24552v1",
       "source_dept": "mind",
       "finding": "Organic farming is a key element in achieving more sustainable agriculture. For a better understanding of the development and impact of organic farming, comprehensive, spatially explicit information i",
-      "method": "cybernetics",
+      "method": "artificial_intelligence",
       "confidence": 0.5,
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.994966+00:00"
+      "timestamp": "2026-03-31T07:45:04.004527+00:00"
     },
     {
       "id": "finding_22",
@@ -76,12 +76,12 @@
       "source_url": "http://arxiv.org/abs/2603.25741v1",
       "source_dept": "engineering",
       "finding": "Vision-language-action models have reshaped autonomous driving to incorporate languages into the decision-making process. However, most existing pipelines only utilize the language modality for scene",
-      "method": "operating_systems",
+      "method": "computer_science",
       "confidence": 0.7,
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.995063+00:00"
+      "timestamp": "2026-03-31T07:45:04.004678+00:00"
     },
     {
       "id": "finding_37",
@@ -94,7 +94,7 @@
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.995164+00:00"
+      "timestamp": "2026-03-31T07:45:04.004831+00:00"
     },
     {
       "id": "finding_47",
@@ -107,7 +107,7 @@
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.995229+00:00"
+      "timestamp": "2026-03-31T07:45:04.004930+00:00"
     },
     {
       "id": "finding_2",
@@ -115,12 +115,12 @@
       "source_url": "http://arxiv.org/abs/2603.24574v1",
       "source_dept": "mind",
       "finding": "The freight industry is undergoing a digital revolution, with an ever-growing volume of transactions being facilitated by digital marketplaces. A core capability of these marketplaces is the fulfillme",
-      "method": "cybernetics",
+      "method": "artificial_intelligence",
       "confidence": 0.5,
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.994913+00:00"
+      "timestamp": "2026-03-31T07:45:04.004448+00:00"
     },
     {
       "id": "finding_3",
@@ -128,12 +128,12 @@
       "source_url": "http://arxiv.org/abs/2603.24494v1",
       "source_dept": "mind",
       "finding": "Atomically-thin moir\\'e superlattices offer an optically accessible platform for interacting bosons, where strong onsite repulsion $U_{xx}$ suppresses double occupancy and supports excitonic Mott stat",
-      "method": "cybernetics",
+      "method": "artificial_intelligence",
       "confidence": 0.5,
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.994929+00:00"
+      "timestamp": "2026-03-31T07:45:04.004471+00:00"
     },
     {
       "id": "finding_4",
@@ -141,12 +141,12 @@
       "source_url": "http://arxiv.org/abs/2603.24540v1",
       "source_dept": "mind",
       "finding": "This work presents a modular, Python-based simulator that simplifies the evaluation of novel vehicle control and coordination algorithms in complex traffic scenarios while keeping the implementation o",
-      "method": "cybernetics",
+      "method": "artificial_intelligence",
       "confidence": 0.5,
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.994937+00:00"
+      "timestamp": "2026-03-31T07:45:04.004483+00:00"
     },
     {
       "id": "finding_5",
@@ -154,12 +154,12 @@
       "source_url": "http://arxiv.org/abs/2603.24351v1",
       "source_dept": "mind",
       "finding": "Spontaneous parametric down-conversion (SPDC) in subwavelength nonlinear nanostructures is emerging as a promising source of quantum light, owing to its intrinsic multifunctionality and ability to gen",
-      "method": "cybernetics",
+      "method": "artificial_intelligence",
       "confidence": 0.5,
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.994945+00:00"
+      "timestamp": "2026-03-31T07:45:04.004494+00:00"
     },
     {
       "id": "finding_7",
@@ -167,12 +167,12 @@
       "source_url": "http://arxiv.org/abs/2603.24592v1",
       "source_dept": "mind",
       "finding": "We obtain the phase diagrams of field theories of intertwined orders in the presence of periodic driving by an external field which preserves all symmetries. We consider both a conventional Landau the",
-      "method": "cybernetics",
+      "method": "artificial_intelligence",
       "confidence": 0.5,
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.994958+00:00"
+      "timestamp": "2026-03-31T07:45:04.004515+00:00"
     },
     {
       "id": "finding_9",
@@ -180,12 +180,12 @@
       "source_url": "http://arxiv.org/abs/2603.24592v1",
       "source_dept": "mind",
       "finding": "We obtain the phase diagrams of field theories of intertwined orders in the presence of periodic driving by an external field which preserves all symmetries. We consider both a conventional Landau the",
-      "method": "cybernetics",
+      "method": "artificial_intelligence",
       "confidence": 0.5,
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.994972+00:00"
+      "timestamp": "2026-03-31T07:45:04.004537+00:00"
     },
     {
       "id": "finding_10",
@@ -198,7 +198,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.994980+00:00"
+      "timestamp": "2026-03-31T07:45:04.004549+00:00"
     },
     {
       "id": "finding_11",
@@ -211,7 +211,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.994989+00:00"
+      "timestamp": "2026-03-31T07:45:04.004563+00:00"
     },
     {
       "id": "finding_13",
@@ -224,7 +224,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.995001+00:00"
+      "timestamp": "2026-03-31T07:45:04.004582+00:00"
     },
     {
       "id": "finding_14",
@@ -237,7 +237,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.995009+00:00"
+      "timestamp": "2026-03-31T07:45:04.004595+00:00"
     },
     {
       "id": "finding_15",
@@ -250,7 +250,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.995016+00:00"
+      "timestamp": "2026-03-31T07:45:04.004605+00:00"
     },
     {
       "id": "finding_16",
@@ -263,7 +263,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T07:30:03.995023+00:00"
+      "timestamp": "2026-03-31T07:45:04.004615+00:00"
     }
   ],
   "hypotheses": [
@@ -271,9 +271,11 @@
       "id": "hyp_1",
       "hypothesis": "当内部模型的预测粒度足够细（压缩损失<阈值），系统从'被驱动'转变为'主动驱动'",
       "based_on": [
+        "finding_6",
+        "finding_8",
         "finding_37"
       ],
-      "confidence": 0.35,
+      "confidence": 0.8,
       "assumption": "内部模型粒度和系统自主性存在单调关系",
       "testable": true,
       "validation_criteria": "对比不同压缩率下的系统行为转变点"
@@ -290,21 +292,9 @@
       "assumption": "信息延迟是驱动模式切换的核心瓶颈",
       "testable": true,
       "validation_criteria": "测量信息延迟 vs 系统行为模式转变"
-    },
-    {
-      "id": "hyp_3",
-      "hypothesis": "当系统内部存在多个不同分辨率的表征层，且跨层一致性>阈值，自主性才涌现",
-      "based_on": [
-        "finding_6",
-        "finding_8"
-      ],
-      "confidence": 0.5,
-      "assumption": "多尺度一致性是自主性的充分条件",
-      "testable": true,
-      "validation_criteria": "测量跨层一致性指标与系统自主行为的相关性"
     }
   ],
-  "confidence": 0.5499999999999999,
+  "confidence": 0.8,
   "open_questions": [
     "latent representation 的'粒度'如何量化？",
     "系统自主性如何可操作化定义？",
@@ -313,13 +303,12 @@
   "previous_hypotheses_validated": [],
   "previous_hypotheses_contradicted": [],
   "methods_summary": {
-    "cybernetics": 8,
-    "operating_systems": 1,
-    "general_relativity": 3,
+    "artificial_intelligence": 9,
     "cosmology": 1,
-    "artificial_intelligence": 1,
-    "quantum_physics": 1,
-    "history_philosophy_of_science": 4,
-    "biology": 1
+    "general_relativity": 3,
+    "biology": 1,
+    "computational_physics": 1,
+    "computer_science": 1,
+    "history_philosophy_of_science": 4
   }
 }
