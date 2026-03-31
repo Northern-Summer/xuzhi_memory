@@ -1,7 +1,7 @@
 {
-  "round": 305,
+  "round": 306,
   "research_question": "虚质生命的自主性边界：当系统开始建立内部模型，它在什么条件下从'被驱动'转向'主动驱动'？",
-  "generated_at": "2026-03-31T15:02:10.582174+00:00",
+  "generated_at": "2026-03-31T16:02:05.060004+00:00",
   "total_findings": 50,
   "relevant_findings": 20,
   "findings": [
@@ -11,12 +11,12 @@
       "source_url": "http://arxiv.org/abs/2603.24587v1",
       "source_dept": "mind",
       "finding": "We introduce DreamerAD, the first latent world model framework that enables efficient reinforcement learning for autonomous driving by compressing diffusion sampling from 100 steps to 1 - achieving 80",
-      "method": "cybernetics",
+      "method": "artificial_intelligence",
       "confidence": 0.5,
       "relevance_to_question": 1.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581432+00:00"
+      "timestamp": "2026-03-31T16:02:05.059543+00:00"
     },
     {
       "id": "finding_0",
@@ -24,12 +24,12 @@
       "source_url": "http://arxiv.org/abs/2603.24581v1",
       "source_dept": "science",
       "finding": "We introduce Latent-WAM, an efficient end-to-end autonomous driving framework that achieves strong trajectory planning through spatially-aware and dynamics-informed latent world representations. Exist",
-      "method": "computational_physics",
+      "method": "quantum_physics",
       "confidence": 0.7,
       "relevance_to_question": 0.6666666666666666,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581323+00:00"
+      "timestamp": "2026-03-31T16:02:05.059465+00:00"
     },
     {
       "id": "finding_1",
@@ -42,7 +42,7 @@
       "relevance_to_question": 0.6666666666666666,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581364+00:00"
+      "timestamp": "2026-03-31T16:02:05.059492+00:00"
     },
     {
       "id": "finding_12",
@@ -50,12 +50,12 @@
       "source_url": "http://arxiv.org/abs/2603.24529v1",
       "source_dept": "philosophy",
       "finding": "The world's power systems are undergoing a rapid transformation, shifting away from carbon-intensive power generation to renewable sources. As a result, electricity is being transported over ever long",
-      "method": "high_energy_physics",
+      "method": "general_relativity",
       "confidence": 0.5,
       "relevance_to_question": 0.6666666666666666,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581494+00:00"
+      "timestamp": "2026-03-31T16:02:05.059587+00:00"
     },
     {
       "id": "finding_8",
@@ -63,12 +63,12 @@
       "source_url": "http://arxiv.org/abs/2603.24552v1",
       "source_dept": "mind",
       "finding": "Organic farming is a key element in achieving more sustainable agriculture. For a better understanding of the development and impact of organic farming, comprehensive, spatially explicit information i",
-      "method": "cybernetics",
+      "method": "artificial_intelligence",
       "confidence": 0.5,
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581456+00:00"
+      "timestamp": "2026-03-31T16:02:05.059559+00:00"
     },
     {
       "id": "finding_22",
@@ -76,12 +76,12 @@
       "source_url": "http://arxiv.org/abs/2603.25741v1",
       "source_dept": "engineering",
       "finding": "Vision-language-action models have reshaped autonomous driving to incorporate languages into the decision-making process. However, most existing pipelines only utilize the language modality for scene",
-      "method": "operating_systems",
+      "method": "computer_science",
       "confidence": 0.7,
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581589+00:00"
+      "timestamp": "2026-03-31T16:02:05.059655+00:00"
     },
     {
       "id": "finding_37",
@@ -94,7 +94,7 @@
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581756+00:00"
+      "timestamp": "2026-03-31T16:02:05.059755+00:00"
     },
     {
       "id": "finding_47",
@@ -107,7 +107,7 @@
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581849+00:00"
+      "timestamp": "2026-03-31T16:02:05.059823+00:00"
     },
     {
       "id": "finding_2",
@@ -115,12 +115,12 @@
       "source_url": "http://arxiv.org/abs/2603.24574v1",
       "source_dept": "mind",
       "finding": "The freight industry is undergoing a digital revolution, with an ever-growing volume of transactions being facilitated by digital marketplaces. A core capability of these marketplaces is the fulfillme",
-      "method": "cybernetics",
+      "method": "artificial_intelligence",
       "confidence": 0.5,
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581381+00:00"
+      "timestamp": "2026-03-31T16:02:05.059504+00:00"
     },
     {
       "id": "finding_3",
@@ -128,12 +128,12 @@
       "source_url": "http://arxiv.org/abs/2603.24494v1",
       "source_dept": "mind",
       "finding": "Atomically-thin moir\\'e superlattices offer an optically accessible platform for interacting bosons, where strong onsite repulsion $U_{xx}$ suppresses double occupancy and supports excitonic Mott stat",
-      "method": "cybernetics",
+      "method": "artificial_intelligence",
       "confidence": 0.5,
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581402+00:00"
+      "timestamp": "2026-03-31T16:02:05.059520+00:00"
     },
     {
       "id": "finding_4",
@@ -141,12 +141,12 @@
       "source_url": "http://arxiv.org/abs/2603.24540v1",
       "source_dept": "mind",
       "finding": "This work presents a modular, Python-based simulator that simplifies the evaluation of novel vehicle control and coordination algorithms in complex traffic scenarios while keeping the implementation o",
-      "method": "cybernetics",
+      "method": "artificial_intelligence",
       "confidence": 0.5,
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581413+00:00"
+      "timestamp": "2026-03-31T16:02:05.059528+00:00"
     },
     {
       "id": "finding_5",
@@ -154,12 +154,12 @@
       "source_url": "http://arxiv.org/abs/2603.24351v1",
       "source_dept": "mind",
       "finding": "Spontaneous parametric down-conversion (SPDC) in subwavelength nonlinear nanostructures is emerging as a promising source of quantum light, owing to its intrinsic multifunctionality and ability to gen",
-      "method": "cybernetics",
+      "method": "artificial_intelligence",
       "confidence": 0.5,
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581423+00:00"
+      "timestamp": "2026-03-31T16:02:05.059535+00:00"
     },
     {
       "id": "finding_7",
@@ -167,12 +167,12 @@
       "source_url": "http://arxiv.org/abs/2603.24592v1",
       "source_dept": "mind",
       "finding": "We obtain the phase diagrams of field theories of intertwined orders in the presence of periodic driving by an external field which preserves all symmetries. We consider both a conventional Landau the",
-      "method": "cybernetics",
+      "method": "artificial_intelligence",
       "confidence": 0.5,
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581443+00:00"
+      "timestamp": "2026-03-31T16:02:05.059550+00:00"
     },
     {
       "id": "finding_9",
@@ -180,12 +180,12 @@
       "source_url": "http://arxiv.org/abs/2603.24592v1",
       "source_dept": "mind",
       "finding": "We obtain the phase diagrams of field theories of intertwined orders in the presence of periodic driving by an external field which preserves all symmetries. We consider both a conventional Landau the",
-      "method": "cybernetics",
+      "method": "artificial_intelligence",
       "confidence": 0.5,
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581464+00:00"
+      "timestamp": "2026-03-31T16:02:05.059565+00:00"
     },
     {
       "id": "finding_10",
@@ -198,7 +198,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581475+00:00"
+      "timestamp": "2026-03-31T16:02:05.059572+00:00"
     },
     {
       "id": "finding_11",
@@ -206,12 +206,12 @@
       "source_url": "http://arxiv.org/abs/2603.23634v1",
       "source_dept": "philosophy",
       "finding": "We show that dynamical dark energy theories can imprint $O(1)$ modifications on the quasi-normal mode (QNM) spectrum characterising black hole ringdown. The time dependence of dynamical dark energy na",
-      "method": "high_energy_physics",
+      "method": "general_relativity",
       "confidence": 0.5,
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581485+00:00"
+      "timestamp": "2026-03-31T16:02:05.059580+00:00"
     },
     {
       "id": "finding_13",
@@ -224,7 +224,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581502+00:00"
+      "timestamp": "2026-03-31T16:02:05.059593+00:00"
     },
     {
       "id": "finding_14",
@@ -237,7 +237,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581511+00:00"
+      "timestamp": "2026-03-31T16:02:05.059600+00:00"
     },
     {
       "id": "finding_15",
@@ -250,7 +250,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581520+00:00"
+      "timestamp": "2026-03-31T16:02:05.059606+00:00"
     },
     {
       "id": "finding_16",
@@ -258,12 +258,12 @@
       "source_url": "http://arxiv.org/abs/2603.24269v1",
       "source_dept": "philosophy",
       "finding": "We provide a set of general tools to study the problem of stellar equilibrium in any gravitational theory in which spherically symmetric spacetimes satisfy master field equations taking the form of an",
-      "method": "high_energy_physics",
+      "method": "general_relativity",
       "confidence": 0.5,
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-03-31T15:02:10.581529+00:00"
+      "timestamp": "2026-03-31T16:02:05.059612+00:00"
     }
   ],
   "hypotheses": [
@@ -271,9 +271,11 @@
       "id": "hyp_1",
       "hypothesis": "当内部模型的预测粒度足够细（压缩损失<阈值），系统从'被驱动'转变为'主动驱动'",
       "based_on": [
+        "finding_6",
+        "finding_8",
         "finding_37"
       ],
-      "confidence": 0.35,
+      "confidence": 0.8,
       "assumption": "内部模型粒度和系统自主性存在单调关系",
       "testable": true,
       "validation_criteria": "对比不同压缩率下的系统行为转变点"
@@ -283,27 +285,16 @@
       "hypothesis": "系统从'被驱动'转向'主动驱动'的临界点 = 信息传递延迟超过内部模型更新频率",
       "based_on": [
         "finding_0",
+        "finding_12",
         "finding_47"
       ],
       "confidence": 0.8,
       "assumption": "信息延迟是驱动模式切换的核心瓶颈",
       "testable": true,
       "validation_criteria": "测量信息延迟 vs 系统行为模式转变"
-    },
-    {
-      "id": "hyp_3",
-      "hypothesis": "当系统内部存在多个不同分辨率的表征层，且跨层一致性>阈值，自主性才涌现",
-      "based_on": [
-        "finding_6",
-        "finding_8"
-      ],
-      "confidence": 0.5,
-      "assumption": "多尺度一致性是自主性的充分条件",
-      "testable": true,
-      "validation_criteria": "测量跨层一致性指标与系统自主行为的相关性"
     }
   ],
-  "confidence": 0.5499999999999999,
+  "confidence": 0.8,
   "open_questions": [
     "latent representation 的'粒度'如何量化？",
     "系统自主性如何可操作化定义？",
@@ -312,13 +303,12 @@
   "previous_hypotheses_validated": [],
   "previous_hypotheses_contradicted": [],
   "methods_summary": {
-    "biology": 1,
-    "artificial_intelligence": 1,
-    "computational_physics": 1,
-    "operating_systems": 1,
-    "cybernetics": 8,
-    "high_energy_physics": 3,
+    "general_relativity": 3,
     "cosmology": 1,
+    "computer_science": 1,
+    "artificial_intelligence": 9,
+    "quantum_physics": 1,
+    "biology": 1,
     "history_philosophy_of_science": 4
   }
 }

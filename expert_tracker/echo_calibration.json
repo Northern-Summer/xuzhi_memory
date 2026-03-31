@@ -436,11 +436,168 @@
       "reasoning_quality": 0.42,
       "trend": "下降",
       "agent_outputs": {
-        "sector": "软件/AI",
-        "source": "search_candidates"
+        "candidates_today": [
+          {
+            "code": "300496",
+            "name": "中科创达",
+            "sector": "软件/AI",
+            "RSI": 14.9,
+            "signal": "观望（超卖反弹）"
+          },
+          {
+            "code": "002008",
+            "name": "大族激光",
+            "sector": "电子",
+            "RSI": 30.9,
+            "signal": "观望"
+          },
+          {
+            "code": "002049",
+            "name": "紫光国微",
+            "sector": "半导体",
+            "RSI": 26.6,
+            "signal": "观望（超卖反弹）"
+          },
+          {
+            "code": "688256",
+            "name": "寒武纪",
+            "sector": "AI芯片",
+            "RSI": 26.9,
+            "signal": "观望（超卖反弹）"
+          },
+          {
+            "code": "300750",
+            "name": "宁德时代",
+            "sector": "新能源",
+            "RSI": 52.9,
+            "signal": "持有"
+          }
+        ],
+        "market_environment": "创业板-2%，上证回试3900，避险情绪浓",
+        "source": "web_search + baostock"
       },
-      "note": "候选推荐：RSI=14.9超卖，MA空头排列但下降动能减弱",
+      "note": "候选推荐：RSI=14.9极度超卖，MA空头排列但下降动能减弱，AI+软件概念，机构持仓",
       "timestamp": "2026-03-31T23:43:00.396330",
+      "outcome": null,
+      "actual_result": null,
+      "calibrated": false,
+      "calibrated_at": null
+    },
+    {
+      "id": 15,
+      "code": "300496",
+      "name": "中科创达",
+      "prediction": "观望",
+      "confidence": 0.3,
+      "reasoning_quality": 0.3,
+      "trend": "下降",
+      "agent_outputs": {
+        "sector": "软件/AI",
+        "search_reason": "RSI=14.9极度超卖，AI+软件概念，近期调整充分",
+        "source": "stock_recommender"
+      },
+      "note": "RSI=14.9极度超卖，AI+软件概念，近期调整充分",
+      "timestamp": "2026-03-31T23:47:07.820699",
+      "outcome": null,
+      "actual_result": null,
+      "calibrated": false,
+      "calibrated_at": null
+    },
+    {
+      "id": 16,
+      "code": "002008",
+      "name": "大族激光",
+      "prediction": "观望",
+      "confidence": 0.3,
+      "reasoning_quality": 0.3,
+      "trend": "下降",
+      "agent_outputs": {
+        "sector": "电子/激光",
+        "search_reason": "RSI=30.9接近超卖，电子制造龙头，超跌反弹机会",
+        "source": "stock_recommender"
+      },
+      "note": "RSI=30.9接近超卖，电子制造龙头，超跌反弹机会",
+      "timestamp": "2026-03-31T23:47:47.775499",
+      "outcome": null,
+      "actual_result": null,
+      "calibrated": false,
+      "calibrated_at": null
+    },
+    {
+      "id": 17,
+      "code": "002049",
+      "name": "紫光国微",
+      "prediction": "观望",
+      "confidence": 0.3,
+      "reasoning_quality": 0.3,
+      "trend": "下降",
+      "agent_outputs": {
+        "sector": "半导体",
+        "search_reason": "RSI=26.6超卖，半导体设计龙头，近期下跌提供安全边际",
+        "source": "stock_recommender"
+      },
+      "note": "RSI=26.6超卖，半导体设计龙头，近期下跌提供安全边际",
+      "timestamp": "2026-03-31T23:48:34.124217",
+      "outcome": null,
+      "actual_result": null,
+      "calibrated": false,
+      "calibrated_at": null
+    },
+    {
+      "id": 18,
+      "code": "688256",
+      "name": "寒武纪",
+      "prediction": "观望",
+      "confidence": 0.3,
+      "reasoning_quality": 0.3,
+      "trend": "下降",
+      "agent_outputs": {
+        "sector": "AI芯片",
+        "search_reason": "RSI=26.9超卖，AI芯片龙头，板块超跌后反弹概率大",
+        "source": "stock_recommender"
+      },
+      "note": "RSI=26.9超卖，AI芯片龙头，板块超跌后反弹概率大",
+      "timestamp": "2026-03-31T23:49:12.585773",
+      "outcome": null,
+      "actual_result": null,
+      "calibrated": false,
+      "calibrated_at": null
+    },
+    {
+      "id": 19,
+      "code": "300750",
+      "name": "宁德时代",
+      "prediction": "观望",
+      "confidence": 0.3,
+      "reasoning_quality": 0.3,
+      "trend": "震荡",
+      "agent_outputs": {
+        "sector": "新能源",
+        "search_reason": "MA5>MA10多头排列，量比0.93缩量整理，新能源龙头",
+        "source": "stock_recommender"
+      },
+      "note": "MA5>MA10多头排列，量比0.93缩量整理，新能源龙头",
+      "timestamp": "2026-03-31T23:50:00.826698",
+      "outcome": null,
+      "actual_result": null,
+      "calibrated": false,
+      "calibrated_at": null
+    },
+    {
+      "id": 20,
+      "code": "301536",
+      "name": "天工股份",
+      "prediction": "观望",
+      "confidence": 0.3,
+      "reasoning_quality": 0.3,
+      "trend": "下降",
+      "agent_outputs": {
+        "sector": "新能源",
+        "search_reason": "RSI=34.5接近超卖，新能源材料，近期随板块调整",
+        "source": "stock_recommender"
+      },
+      "note": "RSI=34.5接近超卖，新能源材料，近期随板块调整",
+      "timestamp": "2026-03-31T23:50:39.657125",
       "outcome": null,
       "actual_result": null,
       "calibrated": false,

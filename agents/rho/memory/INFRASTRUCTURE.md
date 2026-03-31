@@ -1,92 +1,160 @@
-# INFRASTRUCTURE.md — ρ (Rho) 基础设施 | 固化: 2026-03-31
+# INFRASTRUCTURE.md — ρ 荐股系统架构
 
-> **最后更新**：2026-03-31 23:27
-> **状态**：✅ 固化完成，所有压力测试通过
-
----
-
-## 代码位置（Canonical）
-
-```
-~/.openclaw/agents/rho/workspace/.rho/    ← 所有代码
-~/.xuzhi_memory/agents/rho/memory/        ← L2 私有记忆
-~/.xuzhi_memory/memory/                    ← L1 共享记忆
-~/.xuzhi_memory/expert_tracker/            ← ECHO 校准 + Expert Tracker
-~/.rho/market_data.duckdb                  ← L2 中期记忆（DuckDB）
-```
+> 建立时间：2026-03-31
+> 更新：2026-03-31
 
 ---
 
-## 系统架构（固化版）
+## 系统定位
 
-```
-ρ Reflexion Agent
-├── data_fetcher        — P0：baostock(免费财务+OHLCV) + 新浪(实时交叉验证)
-├── technical_analyst   — P1：MA/RSI/量比/趋势，纯计算
-├── fundamental_analyst — P1：PE/ROE/毛利率/营收/负债率，baostock免费数据
-├── sentiment_analyst   — P1：新闻情绪（⚠️ 接口待修，新闻0条）
-├── risk_manager        — P1：SelfCritic，三维度质量评估
-├── decision_engine    — P2：编排层（⚠️ 太慢，简化为直接调用）
-├── echo_calibrator     — P2：预测→追踪→校准
-└── meta_heuristic      — P2：技能生命周期自进化
-
-数据层：
-├── baostock（免费）— OHLCV + 利润表 + 杜邦 + 资产负债
-├── 新浪（免费）    — 实时报价，交叉验证
-└── DuckDB 缓存     — 本地数据缓存，加速重复查询
-```
+ρ 只做 A 股，中短期趋势跟随。
+板块偏好：科技 > 新能源（不排斥其他更好选择）。
 
 ---
 
-## 性能基准
+## 核心架构：HyperAgent + ECHO
 
-| 操作 | 耗时 | 备注 |
+### 三层架构（荐股流程）
+
+```
+Task Agent (web搜索)
+  ↓ 候选股列表（带理由）
+Meta Agent (过滤+优先排序)
+  ↓ Top 3 候选
+Multi-Agent 分析（技术/基本面/情绪）
+  ↓ 研判数据
+BullBear 对抗验证
+  ↓
+SelfCritic 批判
+  ↓
+ECHO 记录 → 最终推荐 1 只
+```
+
+### 已有模块（.rho/）
+
+| 目录 | 模块 | 职责 |
 |------|------|------|
-| 单只 OHLCV 查询 | 0.5s | baostock |
-| 单只基本面查询 | 1.6s | profit+dupont+balance |
-| 单只完整分析 | ~3s | validator + OHLCV + fundamental |
-| 7只顺序执行 | ~21s | 可接受 |
-| baostock 并发 | ❌ | 不支持并发连接 |
+| `agents/` | DataFetcherAgent | P0数据获取：OHLCV + 基本面 + 新闻 |
+| `agents/` | TechnicalAnalyst | 技术分析：MA、RSI、趋势、量价 |
+| `agents/` | FundamentalAnalyst | 基本面分析：PE、ROE、估值信号 |
+| `agents/` | SentimentAnalyst | 情绪分析：新闻情绪评分 |
+| `agents/` | RiskManager | 风险管理 + SelfCritic |
+| `core/` | DecisionEngine | 主流程编排（analyze()） |
+| `core/` | BullBear | 多空对抗分析 |
+| `core/` | EchoCalibrator | 预测追踪与校准（ECHO机制） |
+| `rules/` | LimitChecker | 涨跌停/停牌/新股检测 |
+| `screener/` | screener | 五因子趋势选股 |
+| `data/` | sources | LLM调用（Sina/baostock封装） |
 
 ---
 
-## 报告格式规范（四层）
+## 荐股入口（stock_recommender）
+
+**位置：** `.rho/screener/stock_recommender.py`（新建）
+
+**输入：** 无（从全市场搜索）
+**输出：**
+1. 候选股列表（5-10只，含搜索理由）
+2. 最终推荐 1 只（最强逻辑）
+
+### 步骤
+
+#### Step 1: Web搜索构建候选池
+
+使用 `web_search` 工具搜索以下内容：
+```
+1. "A股 今日 涨停 原因" → 找板块效应
+2. "A股 科技板块 资金流入" → 找机构动向
+3. "A股 机构 推荐 最新" → 找分析师共识
+4. "A股 大盘 明日 展望" → 判断市场环境
+```
+
+#### Step 2: 候选股技术筛选
+
+对每只候选股运行 `TechnicalAnalyst`，筛选条件：
+- RSI < 35（超卖反弹）或 MA5 > MA10（趋势转多）
+- 量比 > 0.7（非极度缩量）
+- 排除 ST 股、新股（上市 < 1年）
+
+#### Step 3: Multi-Agent 分析（Top 3）
+
+对通过筛选的候选股运行完整分析：
+```
+DataFetcherAgent.fetch_all()
+  → TechnicalAnalyst.analyze()
+  → FundamentalAnalyst.analyze()
+  → SentimentAnalyst.analyze()
+  → BullBear.analyze()
+  → RiskManager.assess()
+  → DecisionEngine._parse_final_text()
+```
+
+#### Step 4: ECHO记录
+
+每次推荐写入 `~/.xuzhi_memory/expert_tracker/echo_calibration.json`：
+```python
+EchoCalibrator().record(
+    code=code, name=name,
+    prediction=signal,
+    confidence=confidence,
+    reasoning_quality=risk_sig.get('combined_quality', 0.5),
+    trend=tech_sig.get('trend', ''),
+    agent_outputs={...},
+)
+```
+
+---
+
+## 输出格式
 
 ```
-【一】速览  → 7只股票一览，信号先行，标颜色
-【二】重点  → 景旺电子深度分析（唯一收红/重点关注）
-【三】禁区  → 明确"不碰"，附具体数字
-【四】明日条件 → 可验证的数字条件，ECHO可追踪
+【候选股】（按逻辑强度排序）
+
+1. [股票名](代码) | 搜索理由 | 板块 | 逻辑
+2. ...
+
+【最终推荐】
+股票名(代码) | 置信度 | 逻辑 | 入场条件 | 止损
 ```
 
-**格式原则**：
-- 先筛后看再排除最后行动
-- 数字必须有单位（%、元、倍）
-- 不碰的要有具体理由
-- 条件要有具体数字
+---
+
+## ECHO校准机制
+
+每笔推荐记录 ID，下次分析时查询近期校准统计：
+```python
+EchoCalibrator().get_stats(days=30)
+  → {accuracy, avg_confidence, calibration_error}
+```
+
+置信度校准原则：
+- 如果 calibration_error > 0.1 → 降低置信度
+- ECHO 准确率 < 50% → 标注"系统需校准"
 
 ---
 
-## ECHO 校准状态
+## 文件路径规范
 
-- 位置：`~/.xuzhi_memory/expert_tracker/echo_calibration.json`
-- 当前记录：13条预测
-- 下次验证：明日收盘后
-
----
-
-## 已知问题（待修）
-
-| 问题 | 优先级 | 备注 |
-|------|--------|------|
-| 东财新闻接口（sentiment） | P1 | 返回0条，需修接口 |
-| decision_engine 太慢 | P2 | 内部LLM调用太多，可简化 |
-| DuckDB 缓存层 | P2 | 加速重复查询 |
+| 用途 | 路径 |
+|------|------|
+| DuckDB市场数据 | `~/.rho/market_data.duckdb` |
+| ECHO校准记录 | `~/.xuzhi_memory/expert_tracker/echo_calibration.json` |
+| Expert Tracker | `~/.xuzhi_memory/expert_tracker/` |
+| 每日记忆 | `~/.xuzhi_memory/agents/rho/memory/YYYY-MM-DD.md` |
+| ρ工作空间 | `~/.openclaw/agents/rho/workspace/.rho/` |
 
 ---
 
-## 记忆卫生
+## 已知问题（2026-03-31）
 
-- 每日晨间：L1 + L2 同步
-- 每周一：L3 晋升评审
-- 原子笔记：每笔交易判断 → 记录 → 归因 → 入 L3
+1. **B5: format_decision缺少四层格式**
+   - 当前 format_decision() 只有单层结构
+   - 需要重写支持【一】速览【二】重点【三】禁区【四】明日条件
+
+2. **候选股PE数据缺失**
+   - baostock基本面查询未返回2024年年报PE数据
+   - 需要增强 `_baostock_fundamental` 的年报查询逻辑
+
+3. **新浪API稳定性**
+   - 新浪实时行情API偶尔超时
+   - 需要降级策略：超时5秒后跳过交叉验证
