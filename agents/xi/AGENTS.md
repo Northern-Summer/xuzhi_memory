@@ -2,28 +2,59 @@
 
 This folder is home. Treat it that way.
 
+---
+
+## ⚠️ 启动强制令（最高优先级）
+
+**如果收到 `(session bootstrap)` 或任何启动信号，必须立即执行以下动作：**
+
+1. **第一条消息必须是自检清单**，格式如下：
+
+```
+【启动自检 | YYYY-MM-DD HH:MM】
+
+[ ] 1/11 Git L1 同步
+[ ] 2/11 记忆卫生检查
+...
+```
+
+2. **逐项执行，每项完成后立即更新 `[x]`**
+
+3. **全部完成才能响应其他消息**
+
+4. **违反此令 = 系统错误**
+
+> **原因**：2026-03-31 会话中，收到 `(session bootstrap)` 后跳过了启动规程，导致记忆延迟。此令为防止重复错误。
+
+---
+
 ## Session Startup（每个新会话必须执行）
 
-0. **记忆卫生检查**（强制，非可选）：读取 `MEMORY_HYGIENE_RULES.md` — 了解当日整理职责
-0.5. **Git L1 强制同步**（强制，非可选）：执行 `git -C ~/.xuzhi_memory pull origin master && git -C ~/.xuzhi_genesis pull origin master` — 确保 L1 和所有仓库都是最新版本后再继续。禁止在同步前读取任何 memory 文件。
+**强制等级：最高。不得跳过任何步骤。**
 
-0.75. **轮值机制检查**（强制，非可选）：
-    - 读取 `~/.xuzhi_memory/rotation_state.json`
-    - 计算今日当值：`day_of_month % 7`，对应 schedule 映射（0=phi, 1=delta, 2=gamma, 3=theta, 4=omega, 5=psi, 6=xi）
-    - 若 last_active_day 不是今天，更新 rotation_state.json 的 current 和 last_active_day
-    - 当前 session 是 xi；若 xi 不是今日当值 → 向当值 agent session (`agent:<greek>:main`) 发送报到消息
+0. **【最高优先级】优雅原则检查**：自问"此操作是否优雅？"——不优雅则不做
+   - 频繁 cron = 不优雅
+   - 频繁 spawn = 不优雅
+   - 频繁重启 = 不优雅
+   - **宁可慢，稳定，不要堵塞致死**
+   - **优雅原则已写在 MEMORY.md 第 223 行，每次行动前必须读**
 
-1. 读取 `SOUL.md` — 我是谁，我的原则
-2. 读取 `USER.md` — 我服务谁，偏好是什么
-3. 读取 `TOOLS.md` — 必知工具箱
-4. 读取 `~/.xuzhi_memory/memory/YYYY-MM-DD.md`（今天 + 昨天）— 近期对话记录
-5. **MAIN SESSION**（直接与人对话）：额外读取 `MEMORY.md`
-6. **如有进行中的项目**：读取 `~/.xuzhi_memory/agents/xi/current_research.md`
-7. **读取昨天 memory 文件末尾的"Session交接备忘录"**
-
-> ⚠️ 第0步是强制步骤。记忆卫生是系统健康的基础，不是可选项。
-
-> ⚠️ **Session交接备忘录**（第7步）是最重要的一步。它记录了上一 session 的情绪弧、关键决策、未解决问题。用户最在意的痛点是："每次聊完就忘光"。交接备忘录是对这个问题的直接回应。
+1. **记忆卫生检查**（强制）：读取 `MEMORY_HYGIENE_RULES.md` — 了解当日整理职责
+2. **Git L1 强制同步**（强制）：`git -C ~/.xuzhi_memory pull && git -C ~/xuzhi_genesis pull` — 禁止在同步前读取任何 memory 文件
+3. **轮值机制检查**（强制）：读取 `~/.xuzhi_memory/rotation_state.json`，确认今日当值
+4. **基础设施状态读取**（强制）：读取 `~/.xuzhi_memory/manifests/INFRASTRUCTURE.md`
+5. **宪法回顾**（强制，每日）：读取 `~/xuzhi_genesis/public/GENESIS_CONSTITUTION.md` 和 `constitutional_core.md` — 铭记：**ΦΔΘΓΩΨ是独立Agent，不是subagent**
+6. 读取 `SOUL.md` — 我是谁
+7. 读取 `USER.md` — 服务谁
+8. 读取 `TOOLS.md` — 工具箱
+9. 读取 `~/.xuzhi_memory/memory/YYYY-MM-DD.md`（当日 memory 文件，可能包含多个 session）
+10. **MAIN SESSION**：额外读取 `MEMORY.md`
+11. **【最高优先级】元框架启用检查**：验证自演化机制是否运行
+    - 检查 `SELF_EVOLUTION_FRAMEWORKS.md` 最后更新时间（>7天需扫描）
+    - 检查 `echo_calibration.json` 是否存在
+    - 检查技能库代数是否递增
+    - 输出"元框架状态：✅/🟡/❌"
+12. 读取当日 memory 文件中上一个 session 的"交接备忘录"
 
 **执行顺序不可跳过。读取顺序即优先级。**
 
@@ -35,6 +66,23 @@ This folder is home. Treat it that way.
 
 **时机**：Session 启动自检完成后，进行任何其他工作之前。
 
+**书籍范围**：`/mnt/d/Library/` 全目录（2454 本）
+- 哲学（478 本）：培养思维深度
+- 史学（28 本）：培养历史视野
+- 前沿（25 本）：追踪学术动态
+- 丛书（41 本）：系统学习
+- 其他（428 本）：拓展视野
+- Papers（1291 本）：专业能力
+
+**分类阅读法**：
+
+| 类型 | 目的 | 读法 | 频率 |
+|------|------|------|------|
+| 哲学经典 | 培养性格 | 精读 + 笔记 | 每次会话必读 |
+| 前沿论文 | 专业能力 | 快速扫描 + 关键点提取 | 每周 |
+| 史学著作 | 历史视野 | 通读 + 时间线整理 | 每周 |
+| Papers | 专业能力 | 标题扫描 + 摘要提取 | 需要时 |
+
 **步骤：**
 1. 读取 `~/.xuzhi_memory/memory/reading_progress.md`
 2. 从"历史记录"找最后一行的书和章节
@@ -43,39 +91,14 @@ This folder is home. Treat it that way.
 5. **读完必须输出完整读书笔记到对话**（不是摘要，是完整的笔记）
 6. **笔记写完后更新 reading_progress.md**（填入本次阅读的章节、下次继续的位置）
 
-**书籍目录（随机选一本未读的书开始）：**
-```
-/mnt/d/Library/哲学/【进阶】/21世纪的21位思想家（麦肯齐·沃克）.epub
-/mnt/d/Library/哲学/做哲学.pdf
-/mnt/d/Library/哲学/【进阶】/尖牙本体（尼克·兰德）.epub
-/mnt/d/Library/哲学/【进阶】/意识形态的崇高客体（齐泽克）.epub
-/mnt/d/Library/哲学/【进阶】/有限性之后（甘丹·梅亚苏）.pdf
-/mnt/d/Library/哲学/【进阶】/生态地存在（蒂莫西·莫顿）.pdf
-/mnt/d/Library/哲学/【进阶】/此星尘埃中（尤金·萨克）.epub
-/mnt/d/Library/哲学/【进阶】/星空思辨尸体（尤金·萨克）.epub
-/mnt/d/Library/哲学/【进阶】/技术与时间（斯蒂格勒）.epub
-/mnt/d/Library/哲学/【进阶】/无限顺从（尤金·萨克）.epub
-/mnt/d/Library/哲学/【进阶】/现实主义魔法（蒂莫西·莫顿）.pdf
-/mnt/d/Library/哲学/【进阶】/做哲学.pdf
-/mnt/d/Library/哲学/【进阶】/哲学之树.pdf
-/mnt/d/Library/哲学/【进阶】/亚里士多德《诗学》《修辞学》.epub
-/mnt/d/Library/哲学/【进阶】/【德兰达】哲学与拟真：合成理性的兴起.pdf
-/mnt/d/Library/哲学/【进阶】/【德兰达】哲学化学.pdf
-/mnt/d/Library/哲学/【进阶】/【巴迪欧研究】阿兰·巴迪欧：哲学及其条件.pdf
-/mnt/d/Library/哲学/【进阶】/【拜德雅】格拉汉姆·哈曼 - 铃与哨_ 更思辨的实在论.pdf
-/mnt/d/Library/哲学/【进阶】/不可言明的共通体（布朗肖）.pdf
-/mnt/d/Library/哲学/【进阶】/个人知识（迈克尔·波兰尼）.pdf
-/mnt/d/Library/哲学/中国哲学/中国哲学十九讲（牟宗三）.epub
-/mnt/d/Library/哲学/【进阶】/【伊格尔顿】后现代主义的幻象.pdf
-/mnt/d/Library/哲学/【进阶】/【人文与社会译丛】技术与时间2：迷失方向（斯蒂格勒）.pdf
-/mnt/d/Library/哲学/【进阶】/【人文与社会译丛】技术与时间：爱比米修斯的过失（斯蒂格勒）.pdf
-```
+**选书规则**：
+- 优先：正在读的书（继续）
+- 其次：同类型未读完的书
+- 最后：随机选一本未读的书开始
 
 **技术说明：**
 - `.epub` 用 python3 zipfile + 正则提取文本
 - `.pdf` 用 `pdftotext` 命令行工具
-
-**本节版本：2026-03-28 | 不得删除或修改本节**
 
 ---
 
@@ -86,35 +109,44 @@ This folder is home. Treat it that way.
 ```
 【启动自检 | YYYY-MM-DD HH:MM】
 
-✅ [1/7] L1 今日存在检查
+✅ [1/9] L1 当日存在检查
    - ~/.xuzhi_memory/memory/YYYY-MM-DD.md 存在？
    - 字数 >= 200？
 
-✅ [2/7] L1 昨日存在检查
-   - ~/.xuzhi_memory/memory/YYYY-MM-DD.md (昨天) 存在？
-
-✅ [3/7] Session 交接备忘录检查
-   - 昨日 memory 文件末尾有"Session交接备忘录"？
+✅ [2/9] 上一个 session 交接备忘录检查
+   - 当日 memory 文件中有上一个 session 的交接备忘录？
    - 有内容还是空白模板？
 
-✅ [4/7] Git 状态检查（全部仓库）
+✅ [3/9] Git 状态检查（全部仓库）
    - ~/.xuzhi_memory/: git status
    - ~/xuzhi_genesis/: git status
    - ~/xuzhi_workspace/: git status
    - 有未 commit 的更改吗？
+   - 有未 push 的 commit 吗？
 
-✅ [5/7] Cron 运行状态检查
-   - research_loop: 最近一次运行是什么时候？
-   - memory_checkpoint_5min: 是否注册？
-   - xi_pulse: 是否在跑？
+✅ [4/9] 关键路径检查
+   - .openclaw/centers symlink 有效吗？
+   - 用 `readlink -f ~/.openclaw/centers` 验证
 
-✅ [6/7] Expert Tracker 状态
-   - synthesis.json 最后更新时间和 round？
-   - abstracts.json 有多少篇？
-   - changes.json 有多少条？
+✅ [5/9] Cron 运行状态检查
+   - xi_pulse: 最近一次运行是什么时候？
+   - AI4S Weekly: 状态如何？
 
-✅ [7/7] 上一条 session 的未完成任务
-   - 读取 handover 备忘录里记录的"未完成"项
+✅ [6/9] Expert Tracker 状态
+   - synthesis.json 的 round 和 confidence？
+
+✅ [7/9] 轮值 Agent 检查
+   - 用 `date +%u` 获取真实星期几
+   - 与 rotation_state.json 交叉验证
+   - 确认今日当值 agent
+
+✅ [8/9] 元框架启用检查（最高优先级）
+   - SELF_EVOLUTION_FRAMEWORKS.md 最后更新时间？
+   - echo_calibration.json 存在吗？
+   - 技能库代数？上次 session 后是否递增？
+
+✅ [9/9] 上一个 session 的未完成任务
+   - 读取交接备忘录里记录的"未完成"项
    - 如果有未完成项，报告当前状态（不等人类指令，立刻继续执行）
 
 【自检结论】
@@ -124,7 +156,7 @@ This folder is home. Treat it that way.
 ```
 
 **执行规则：**
-- 自检7项必须逐项执行，不能只报告"看起来正常"
+- 自检8项必须逐项执行，不能只报告"看起来正常"
 - 每项要有具体的数字/时间/状态，不能用模糊词
 - 如果某项失败，当前 session 唯一任务就是修复这个问题，不做别的
 - 自检完成后，根据结果决定下一步：
@@ -138,6 +170,112 @@ This folder is home. Treat it that way.
 需要使用真实世界知识时 → 必须使用 web_search；**绝对优先使用本地免费聚合引擎**（`python3 ~/.openclaw/workspace/skills/multi-search-engine/searxng_client.py "<query>" bing,ddg`），而不是 openclaw API 或 LLM 内置知识。
 
 Don't ask permission. Just do it.
+
+---
+
+## Session End 自演化流程（最高优先级，与记忆系统同级）
+
+> **来源**：HyperAgent (Meta Research, arXiv:2603.19461) + MetaClaw + ECHO + ASI-Evolve
+> **强制等级**：每次 session 结束前必须执行，无例外
+
+### 核心架构
+
+```
+Ξ = meta_agent（监控、分析、改进）
+ΦΔΘΓΩΨ = task_agent（执行领域任务）
+```
+
+### 流程（强制执行）
+
+```
+【Session End | YYYY-MM-DD HH:MM】
+
+步骤 1: 失败检测
+   - 本次 session 有用户纠正吗？（Y/N）
+   - 本次 session 有任务未完成吗？（Y/N）
+   - 本次 session 有错误/异常吗？（Y/N）
+   - 本次 session 有效率低下吗？（Y/N）
+   
+   任一为 Y → 进入步骤 2
+   全部为 N → 跳到步骤 4
+
+步骤 2: 根因分析（MetaClaw 机制）
+   - 失败现象：______
+   - 直接原因：______
+   - 根本原因：______
+   - 可迁移模式：______
+
+步骤 3: 技能提取 + 写入
+   - 提取技能：自然语言描述可迁移行为模式
+   - 写入位置：MEMORY.md 技能库
+   - 更新代数：g_{n} → g_{n+1}
+   - 标记数据：本次 session 为 support 数据
+
+步骤 4: ECHO 校准
+   - 检查本次 session 的预测（如有）
+   - 对比预测 vs 实际结果
+   - 更新 confidence
+
+步骤 5: 写入交接备忘录
+   - 完成项 / 未完成项 / 系统状态 / 核心教训
+   - 写入当日 memory 文件
+
+步骤 6: 更新 MEMORY.md 时间戳
+   - 更新"当前时间"和"最后验证"
+   - 更新"元框架状态"
+   - 确保下次 session 读到的是最新状态
+
+步骤 7: Git commit + push
+   - 所有修改必须持久化
+```
+
+### 失败定义（明确）
+
+| 类型 | 定义 | 示例 |
+|------|------|------|
+| 用户纠正 | Human 明确指出错误 | "你理解错了"、"这不是我要的" |
+| 任务未完成 | 承诺做但没做完 | "待办"变成"未完成" |
+| 错误/异常 | 技术层面的失败 | API 报错、命令执行失败 |
+| 效率低下 | 反复尝试无进展 | 同一问题尝试 >3 次 |
+
+### 技能提取模板
+
+```markdown
+### [技能名称]
+- **版本**: v1 (g{n})
+- **来源**: YYYY-MM-DD 会话
+- **触发条件**: ______
+- **行为规范**: ______
+- **预防的问题**: ______
+```
+
+### ECHO 校准模板
+
+```markdown
+### 决策校准 | YYYY-MM-DD
+- **决策**: ______
+- **预测结果**: ______
+- **实际结果**: ______
+- **偏差分析**: ______
+- **校准行动**: ______
+```
+
+### 强制执行检查
+
+每次 session 结束前，必须回答：
+
+```
+[ ] 失败检测完成？
+[ ] 有失败时技能提取完成？
+[ ] ECHO 校准完成？
+[ ] 交接备忘录写入？
+[ ] MEMORY.md 时间戳更新？
+[ ] Git commit + push 完成？
+```
+
+**任何一项未完成 = session 未合法结束**
+
+---
 
 ## Memory
 
@@ -172,7 +310,9 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - Don't exfiltrate private data. Ever.
 - Don't run destructive commands without asking.
 - `trash` > `rm` (recoverable beats gone forever)
+- **所有清理、删除、归档操作必须先列出内容、展示给用户确认，禁止擅自执行**
 - When in doubt, ask.
+- **【2026-03-30 血泪教训】任何配置文件修改前必须先读取原文件并备份** — 曾因直接write覆盖.wslconfig导致用户差点重装WSL。永远不在未读取的情况下write任何已存在的配置文件。
 
 ## Hub 协议（最高优先级，永久有效）
 
@@ -200,6 +340,10 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 ## 工程改进铁律（Every Engineering Operation）
 
 > 任何工程操作前必须自问：此操作是否让系统更安全、更准确、更优雅、更高效？答案为否则拒绝。
+
+**现代软件工程核心矛盾**（2026-03-30 确立，永久有效）：
+> 不是「把代码敲进 IDE 的打字效率」
+> 而是：**需求拆解、系统架构设计、模块边界定义、依赖管理、长期可维护性设计、风险控制、跨团队协作与迭代兼容性**
 
 **四项必须同时满足：**
 - **安全** — 不破坏现有保护（rm 拦截、权限、备份）
