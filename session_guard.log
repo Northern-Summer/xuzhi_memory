@@ -423,3 +423,8 @@ Error: Unknown channel: openclaw-weixin
 
 [2026-03-31 06:02:03] [INFO] Context使用率: 26%
 [2026-03-31 06:03:47] [INFO] Context使用率: 35%
+[2026-03-31 06:07:54] [INFO] Context使用率: 100%
+[2026-03-31 06:07:54] [WARN] 🚨 紧急！Context使用率 100% >= 85%
+[2026-03-31 06:07:54] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-31.md（258 字符）
+[2026-03-31 06:08:05] [INFO] ✅ WeChat预警已发送
+[2026-03-31 06:11:11] [INFO] Context使用率: 10%

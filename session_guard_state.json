@@ -1,20 +1,10 @@
 {
-  "last_check": "2026-03-31T06:03:47.345084+00:00",
-  "last_usage": 0.347,
+  "last_check": "2026-03-31T06:11:11.304174+00:00",
+  "last_usage": 0.103,
   "last_action": "normal",
-  "check_count": 114,
+  "check_count": 116,
   "details": {},
   "history": [
-    {
-      "time": "2026-03-31T03:25:00.785958+00:00",
-      "usage": 0.918,
-      "action": "urgent_save"
-    },
-    {
-      "time": "2026-03-31T03:30:16.572027+00:00",
-      "usage": 0.943,
-      "action": "urgent_save"
-    },
     {
       "time": "2026-03-31T03:45:02.880612+00:00",
       "usage": 0.08,
@@ -103,6 +93,16 @@
     {
       "time": "2026-03-31T06:03:47.345084+00:00",
       "usage": 0.347,
+      "action": "normal"
+    },
+    {
+      "time": "2026-03-31T06:08:05.381063+00:00",
+      "usage": 1.0,
+      "action": "urgent_save"
+    },
+    {
+      "time": "2026-03-31T06:11:11.304174+00:00",
+      "usage": 0.103,
       "action": "normal"
     }
   ]
