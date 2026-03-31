@@ -432,3 +432,5 @@ Error: Unknown channel: openclaw-weixin
 [2026-03-31 06:15:03] [INFO] Context使用率: 16%
 [2026-03-31 06:17:57] [INFO] Context使用率: 17%
 [2026-03-31 06:17:57] [INFO] ✅ 优雅原则检查通过
+[2026-03-31 06:30:04] [INFO] Context使用率: 41%
+[2026-03-31 06:30:04] [INFO] ✅ 优雅原则检查通过

@@ -2484,3 +2484,13 @@ Context使用率: 16%
 [06:15:03] 1. expert_synthesizer...
 [06:15:03] ✅ synthesizer 完成
 [06:15:03] ✅ 循环完成: round 266 conf=0.65
+[2026-03-31 06:30:04] [INFO] Context使用率: 41%
+[2026-03-31 06:30:04] [INFO] ✅ 优雅原则检查通过
+Context使用率: 41%
+[06:30:04] force 模式
+[06:30:04] === research_loop 开始 ===
+[06:30:04] 0. peer_review...
+[06:30:04] ✅ peer_review 完成
+[06:30:04] 1. expert_synthesizer...
+[06:30:04] ✅ synthesizer 完成
+[06:30:04] ✅ 循环完成: round 267 conf=0.78

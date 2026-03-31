@@ -1,7 +1,7 @@
 {
-  "round": 265,
+  "round": 266,
   "research_question": "虚质生命的自主性边界：当系统开始建立内部模型，它在什么条件下从'被驱动'转向'主动驱动'？",
-  "reviewed_at": "2026-03-31T06:15:03.306904+00:00",
+  "reviewed_at": "2026-03-31T06:30:04.585896+00:00",
   "hypothesis_reviews": [
     {
       "id": "hyp_2",
@@ -22,7 +22,7 @@
         "假设可验证"
       ],
       "confidence": 0.8,
-      "based_on_count": 3
+      "based_on_count": 2
     },
     {
       "id": "hyp_3",
@@ -30,20 +30,19 @@
       "scores": {
         "soundness": 3,
         "novelty": 7.0,
-        "evidence": 7.5,
+        "evidence": 5.0,
         "clarity": 7.0,
         "significance": 4.0
       },
-      "overall": 5.7,
+      "overall": 5.2,
       "verdict": "revise",
       "notes": [
         "假设过于模糊，缺乏机制性描述",
         "假设提供了非显而易见的新洞见",
-        "置信度75%有充分支撑",
         "假设可验证"
       ],
-      "confidence": 0.75,
-      "based_on_count": 3
+      "confidence": 0.5,
+      "based_on_count": 2
     }
   ],
   "aggregated": {
@@ -53,7 +52,7 @@
       "revise": 1,
       "reject": 0
     },
-    "avg_score": 6.55,
+    "avg_score": 6.3,
     "accept_rate": 0.5
   },
   "overall_verdict": "revise",

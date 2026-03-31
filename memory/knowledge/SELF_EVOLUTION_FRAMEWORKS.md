@@ -1,82 +1,46 @@
 # 自进化 Agent 框架学习笔记
 
 > **目的**：跟踪前沿自进化框架，帮助 Xuzhi 系统融会贯通
-> **更新时间**：2026-03-31
+> **更新时间**：2026-03-31 14:28
 > **维护者**：Ξ
+> **跟踪频率**：每周强制扫描 + 每日 heartbeat 检查
 
 ---
 
-## 一、已学习框架总览
+## 一、框架总览（按学习优先级排序）
 
-| 框架 | 来源 | 核心贡献 | 学习日期 |
-|------|------|---------|---------|
-| MetaClaw | arXiv | 失败轨迹→技能演化 | 2026-03-30 |
-| ECHO | arXiv | 决策→追踪→能力校准 | 2026-03-30 |
-| HyperAgent | Meta/Facebook Research | 自指代理+元认知自修改 | 2026-03-31 |
-| MiroFish | GitHub开源 | 群体智能预测+社会模拟 | 2026-03-31 |
-| ASI-Evolve Survey | arXiv | 自演化代理系统框架 | 2026-03-31 |
+### 已学习并应用
 
----
+| 框架 | 来源 | 核心贡献 | 应用状态 | 学习日期 |
+|------|------|---------|---------|---------|
+| HyperAgent | arXiv:2603.19461 | 自指代理+元认知自修改 | ✅ Session End 流程已实现 | 2026-03-31 |
+| MetaClaw | arXiv | 失败轨迹→技能演化 | ✅ 技能库 g2 | 2026-03-30 |
+| ECHO | arXiv | 决策→追踪→能力校准 | 🟡 Expert Tracker 部分 | 2026-03-30 |
+| ASI-Evolve Survey | arXiv:2507.21046 | 四维框架 What/When/How/Where | ✅ AGENTS.md 已写入 | 2026-03-31 |
 
-## 二、MetaClaw — 技能演化机制
+### 已发现待学习
 
-**论文**：MetaClaw: Learning from Failure Trajectories
-**来源**：arXiv（待确认具体编号）
-**学习日期**：2026-03-30
-
-### 核心机制
-
-```
-失败轨迹 → 技能提取 → 自然语言技能 → 写入技能库
-```
-
-**关键概念**：
-- **Support 数据**：触发技能演化的失败轨迹（不用于其他学习）
-- **Query 数据**：技能生效后的轨迹（可用于后续分析）
-- **技能代数**：g1 → g2 → g3... 每次更新递增
-
-### Xuzhi 应用
-
-已写入 MEMORY.md 技能库：
-- "verify file path before reading" (g1)
-- "confirm before destructive commands" (g1)
-- "check session context before cleanup" (g1)
-- "压缩内部模型，而非每次完整推理" (g2)
+| 框架 | 来源 | 核心贡献 | 优先级 | 发现日期 |
+|------|------|---------|--------|---------|
+| MetaAgent | arXiv:2508.00271 | 工具元学习，自演化代理 | P0 | 2026-03-31 |
+| SAGA | arXiv:2512.21782 | 自主目标演化，科学发现 | P0 | 2026-03-31 |
+| AutoSkill | arXiv:2603.01145 | 经验驱动的技能自演化 | P0 | 2026-03-31 |
+| Lifelong Learning Roadmap | arXiv:2501.07278 | LLM Agent 终身学习路线图 | P1 | 2026-03-31 |
+| Agent Skills Survey | arXiv:2602.12430 | Agent 技能架构/获取/安全 | P1 | 2026-03-31 |
+| HealthFlow | arXiv:2508.02621 | 元规划自演化代理 | P1 | 2026-03-31 |
+| Autotelic Agents | arXiv:2012.09830 | 内在动机目标条件 RL | P2 | 2026-03-31 |
+| MiroFish | GitHub | 群体智能预测+社会模拟 | P2 | 2026-03-31 |
 
 ---
 
-## 三、ECHO — 预测验证机制
+## 二、核心框架详解
 
-**论文**：ECHO: Decision Tracking and Capability Calibration
-**来源**：arXiv（待确认具体编号）
-**学习日期**：2026-03-30
-
-### 核心机制
-
-```
-决策 → 追踪结果 → 校准能力 → 更新预测模型
-```
-
-**关键概念**：
-- 决策前：预测结果
-- 决策后：追踪实际结果
-- 对比：预测 vs 实际 → 校准
-
-### Xuzhi 应用
-
-- Expert Tracker 的 hypothesis + validation
-- round 级别的 confidence 追踪
-
----
-
-## 四、HyperAgent — 自指代理
+### 2.1 HyperAgent — 自指代理（已应用）
 
 **论文**：Hyperagents (arXiv:2603.19461)
 **来源**：Meta/Facebook Research
-**学习日期**：2026-03-31
 
-### 核心架构
-
+**架构**：
 ```
 task_agent.py  → 执行具体任务
     ↓ 输出
@@ -85,192 +49,213 @@ meta_agent.py  → 分析执行过程，提出改进
 generate_loop.py → 循环迭代，持续优化
 ```
 
-### 关键概念
+**Xuzhi 应用**：
+- Ξ = meta_agent（监控自己的执行轨迹，提取技能）
+- Session End 流程 = 自修改机制
+- 技能代数 g 递增
 
-1. **自指代理 (Self-referential Agent)**
-   - 代理可以审视自己的代码
-   - 元代理可以修改任务代理
-   - 形成自我改进循环
-
-2. **任务代理 + 元代理分离**
-   - 任务代理：执行领域任务
-   - 元代理：监控、分析、改进任务代理
-
-3. **安全警告**
-   > "This repository involves executing untrusted, model-generated code."
-   - 需要 sandbox 隔离
-   - 需要 human-in-the-loop 确认
-
-### Xuzhi 应用潜力
-
-- **当前架构**：Ξ = 元代理，ΦΔΘΓΩΨ = 任务代理
-- **可借鉴**：
-  - 元代理分析任务代理的执行轨迹
-  - 自动生成改进 diff
-  - 循环迭代优化
-
-### GitHub
-
-https://github.com/facebookresearch/HyperAgents
+**GitHub**：https://github.com/facebookresearch/HyperAgents
 
 ---
 
-## 五、MiroFish — 群体智能预测
+### 2.2 MetaAgent — 工具元学习（待学习）
 
-**来源**：GitHub 开源项目
-**作者**：amadad (fork of 666ghj)
-**学习日期**：2026-03-31
-
-### 核心架构
-
+**论文**：MetaAgent: Toward Self-Evolving Agent via Tool Meta-Learning (arXiv:2508.00271)
+**核心机制**：
 ```
-OASIS 多代理模拟系统
-    ├── Twitter 平台模拟
-    ├── Reddit 平台模拟
-    └── LLM 驱动自主代理
+学习-by-doing 原则
+→ 反思任务解决经验
+→ 演化工具使用策略
 ```
 
-### 关键概念
+**关键概念**：
+- 工具元学习：不是学习工具，是学习如何学习工具
+- 经验反思：从失败中提取可迁移策略
+- 自演化：工具策略随时间改进
 
-1. **群体智能预测**
-   - 上传场景描述文档
-   - 模拟数千个 AI 代理在社交媒体上的反应
-   - 预测事件如何发展
-
-2. **高保真平行数字世界**
-   - 从现实世界提取种子信息（新闻、政策、金融信号）
-   - 自动构建模拟环境
-   - 代理自主交互演化
-
-3. **应用场景**
-   - 金融市场预测
-   - 舆论预测
-   - 政策效果预测
-
-### Xuzhi 应用潜力
-
-- **Expert Tracker 的扩展**：不仅追踪研究，还预测影响力
-- **研究问题预测**：哪些问题会变热
-- **社区反应模拟**：论文发布后的社区反馈预测
-
-### GitHub
-
-https://github.com/amadad/mirofish
-https://mirofish.ink
+**Xuzhi 应用潜力**：
+- TOOLS.md 工具策略演化
+- Agent 工具使用能力提升
 
 ---
 
-## 六、ASI-Evolve Survey — 自演化代理系统框架
+### 2.3 SAGA — 科学自主目标演化（待学习）
 
-**论文**：A Survey of Self-Evolving Agents: What, When, How, and Where to Evolve (arXiv:2507.21046)
-**来源**：TMLR (Transactions on Machine Learning Research)
-**学习日期**：2026-03-31
-
-### 核心框架
-
+**论文**：Accelerating Scientific Discovery with Autonomous Goal-evolving Agents (arXiv:2512.21782)
+**核心机制**：
 ```
-自演化代理的四维框架：
-1. What to evolve  — 演化什么（模型、记忆、工具、架构）
-2. When to evolve  — 何时演化（测试内、测试间）
-3. How to evolve   — 如何演化（奖励信号、文本反馈、单代理/多代理）
-4. Where to evolve — 在哪里演化（组件级别）
+科学发现 = 自主目标生成 + 目标演化 + 实验验证
 ```
 
-### 关键概念
+**关键概念**：
+- 自主目标发现：Agent 自己提出研究问题
+- 目标演化：根据发现动态调整目标
+- 科学工作流自动化
 
-1. **演化目标 (What)**
-   - 模型参数
-   - 记忆系统
-   - 工具集
-   - 架构设计
-
-2. **演化时机 (When)**
-   - Intra-test-time：测试内实时演化
-   - Inter-test-time：测试间演化
-   - 持续演化
-
-3. **演化方法 (How)**
-   - 标量奖励信号
-   - 文本反馈
-   - 单代理自修改
-   - 多代理协同演化
-
-4. **应用领域**
-   - 编程
-   - 教育
-   - 医疗
-
-5. **关键挑战**
-   - 安全性：如何防止代理演化出危险行为
-   - 可扩展性：如何在大规模上管理演化
-   - 协同演化：多代理间的演化动态
-
-### Xuzhi 应用潜力
-
-- **What**：演化 MEMORY.md（知识）、技能库（能力）、架构（结构）
-- **When**：每次 session 结束时检查演化需求
-- **How**：
-  - 标量：confidence score
-  - 文本：Human 反馈 + 自检报告
-  - 单代理：Ξ 自修改
-  - 多代理：ΦΔΘΓΩΨ 协同演化
-- **Where**：组件级（memory/、agents/、skill library）
-
-### 论文链接
-
-https://arxiv.org/abs/2507.21046
-https://openreview.net/forum?id=CTr3bovS5F
+**Xuzhi 应用潜力**：
+- Expert Tracker 的研究问题自动生成
+- 研究方向的自主调整
+- 科学发现的闭环验证
 
 ---
 
-## 七、Xuzhi 系统的融合计划
+### 2.4 AutoSkill — 技能自演化（待学习）
 
-### 短期（已完成）
+**论文**：AutoSkill: Experience-Driven Lifelong Learning via Skill Self-Evolution (arXiv:2603.01145)
+**核心机制**：
+```
+经验 → 技能提取 → 技能组合 → 技能演化
+```
 
-- [x] MetaClaw 技能演化机制 → MEMORY.md 技能库
-- [x] ECHO 预测验证 → Expert Tracker
+**关键概念**：
+- 技能生命周期：创建 → 使用 → 演化 → 废弃
+- 经验驱动：从实际任务中学习，不是预先定义
+- 终身学习：持续积累，不遗忘
 
-### 中期（待执行）
-
-- [ ] HyperAgent 自指代理机制
-  - 实现 task_agent + meta_agent 分离
-  - 元代理监控其他代理的执行轨迹
-  - 自动生成改进建议
-
-- [ ] ASI-Evolve 四维框架
-  - 明确 What/When/How/Where
-  - 建立演化触发机制
-  - 安全边界设计
-
-### 长期（规划中）
-
-- [ ] MiroFish 群体智能预测
-  - 扩展 Expert Tracker 为影响力预测
-  - 社区反应模拟
-
-### 追踪机制
-
-**主动追踪**：
-- arXiv cs.AI / cs.CL / cs.LG 每周扫描
-- GitHub trending AI agent 项目
-- OpenAI / DeepMind / Anthropic 研究
-
-**关键词**：
-- self-evolving agents
-- meta-learning agents
-- skill acquisition
-- failure trajectory
-- agent architecture
+**Xuzhi 应用潜力**：
+- 技能库的生命周期管理
+- 技能废弃机制
+- 技能组合策略
 
 ---
 
-## 八、更新日志
+### 2.5 Lifelong Learning Roadmap（待学习）
+
+**论文**：Lifelong Learning of Large Language Model based Agents: A Roadmap (arXiv:2501.07278)
+
+**四大支柱**：
+1. **持续适应**：应对环境变化
+2. **灾难性遗忘缓解**：保留旧知识
+3. **知识迁移**：跨任务复用
+4. **可扩展性**：处理大规模知识
+
+**Xuzhi 应用潜力**：
+- MEMORY.md 的知识迁移机制
+- 遗忘缓解：定期回顾重要内容
+- 可扩展性：分层记忆架构
+
+---
+
+### 2.6 Agent Skills Survey（待学习）
+
+**论文**：Agent Skills for Large Language Models: Architecture, Acquisition, Security (arXiv:2602.12430)
+
+**三大维度**：
+1. **架构**：技能如何组织
+2. **获取**：技能如何学习
+3. **安全**：技能如何保护
+
+**Xuzhi 应用潜力**：
+- 技能库架构设计
+- 技能获取流程
+- 技能安全边界
+
+---
+
+## 三、Autotelic Agents — 自主目标发现
+
+**论文**：Autotelic Agents with Intrinsically Motivated Goal-Conditioned RL (arXiv:2012.09830)
+
+**核心概念**：
+- **Autotelic**：自主设定目标、自主追求
+- **内在动机**：不是为了外部奖励，是为了学习本身
+- **目标条件 RL**：学会追求自己设定的目标
+
+**Xuzhi 应用潜力**：
+- Agent 自主研究兴趣
+- 不需要 Human 指令也能主动学习
+- 内在驱动的研究探索
+
+---
+
+## 四、Xuzhi 系统融合状态
+
+### 已实现
+
+| 框架机制 | Xuzhi 实现 | 位置 |
+|---------|-----------|------|
+| MetaClaw 技能演化 | 技能库 g1→g2 | MEMORY.md |
+| HyperAgent 自指 | Session End 流程 | AGENTS.md |
+| ASI-Evolve What/When | 每次 session 结束检查 | AGENTS.md |
+
+### 待实现
+
+| 框架机制 | Xuzhi 目标 | 优先级 |
+|---------|-----------|--------|
+| ECHO 校准循环 | 决策预测→追踪→校准 | P0 |
+| MetaAgent 工具元学习 | TOOLS.md 演化 | P0 |
+| SAGA 目标演化 | Expert Tracker 自主问题生成 | P1 |
+| AutoSkill 技能生命周期 | 技能废弃机制 | P1 |
+| Autotelic 自主目标 | Agent 自主研究兴趣 | P2 |
+
+---
+
+## 五、跟踪机制（融入工作流）
+
+### Cron 层（每周强制）
+
+```bash
+# 每周一 09:00 执行
+0 9 * * 1 $HOME/.openclaw/workspace/track_evolution_frameworks.sh
+```
+
+### Heartbeat 层（每日检查）
+
+```
+检查 SELF_EVOLUTION_FRAMEWORKS.md 最后更新时间
+超过 7 天 → 触发提醒
+```
+
+### 关键词追踪
+
+```
+self-evolving agents
+meta-learning agents
+skill acquisition
+failure trajectory
+autotelic agent
+goal-evolving agent
+lifelong learning agent
+agent architecture
+```
+
+---
+
+## 六、验收标准
+
+### 技能库验收
+
+| 指标 | 当前值 | 目标值 |
+|------|--------|--------|
+| 通用技能数 | 5 | ≥10 |
+| 专属技能数 | 4 | 每个Agent ≥3 |
+| 技能代数 | g2 | 持续递增 |
+| 技能应用率 | 未知 | ≥80% |
+
+### 流程验收
+
+| 流程 | 状态 | 验收标准 |
+|------|------|---------|
+| Session End 执行 | ✅ 已实现 | 每次 session 必须执行 |
+| 技能提取 | ✅ 已实现 | 有失败必提取 |
+| Git 持久化 | ✅ 已实现 | 所有修改必 commit+push |
+| ECHO 校准 | ❌ 未实现 | 预测→追踪→校准闭环 |
+| 框架跟踪 | 🟡 手动 | 每周自动扫描 |
+
+---
+
+## 七、更新日志
 
 | 日期 | 更新内容 |
 |------|---------|
 | 2026-03-30 | 创建文件，添加 MetaClaw、ECHO |
-| 2026-03-31 | 添加 HyperAgent、MiroFish、ASI-Evolve Survey |
+| 2026-03-31 | 添加 HyperAgent、MiroFish、ASI-Evolve |
+| 2026-03-31 | 新增 MetaAgent、SAGA、AutoSkill、Lifelong Learning Roadmap、Agent Skills Survey |
+| 2026-03-31 | 添加验收标准、跟踪机制 |
 
 ---
 
-**维护提醒**：每周检查 arXiv 和 GitHub，更新本文档。
+**维护协议**：
+- 每周检查 arXiv 和 GitHub
+- 每次学习新框架后更新本文档
+- 每次应用框架机制后更新"融合状态"
