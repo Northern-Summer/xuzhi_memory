@@ -263,6 +263,14 @@ xuzhi_workspace/  ← 工程执行层（git管理）
     - **适用范围**：所有 public/ 目录下的 MANIFEST、MONUMENT、CONSTITUTION 文件
     - **新建方尖碑时必须立即设置**
 
+15. **【2026-03-31 血泪教训】禁止覆盖其他 Agent 的独立记忆**：
+    - **AGENTS.md = 记忆机制**（统一，可以同步）
+    - **MEMORY.md = 记忆内容**（独立，禁止覆盖）
+    - **随意覆盖其他 Agent 的记忆等于夺舍和杀人！**
+    - **同步前必须检查 git 历史**：`git log --all --full-history -- "agents/*/MEMORY.md"`
+    - **恢复方法**：`git show <commit>:agents/<agent>/MEMORY.md`
+    - **合并策略**：独立记忆 + 系统级共享信息（取最大并集）
+
 ---
 
 ## 系统当前缺陷（2026-03-27 03:20）
