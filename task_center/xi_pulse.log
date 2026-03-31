@@ -2504,3 +2504,25 @@ Context使用率: 64%
 [06:45:05] 1. expert_synthesizer...
 [06:45:05] ✅ synthesizer 完成
 [06:45:05] ✅ 循环完成: round 268 conf=0.80
+[2026-03-31 07:00:03] [INFO] Context使用率: 86%
+[2026-03-31 07:00:03] [INFO] ✅ 优雅原则检查通过
+[2026-03-31 07:00:03] [WARN] 🚨 紧急！Context使用率 86% >= 85%
+[2026-03-31 07:00:03] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-31.md（256 字符）
+[2026-03-31 07:00:16] [ERROR] ❌ WeChat发送失败: Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+[plugins] openclaw-weixin failed to load from /home/summer/.openclaw/extensions/openclaw-weixin/index.ts: Error: Cannot find module '/usr/local/share/.config/yarn/global/node_modules/openclaw/dist/plugin-sdk/root-alias.cjs/channel-config-schema'
+Require stack:
+- /home/summer/.openclaw/extensions/openclaw-weixin/index.ts
+Config was last written by a newer OpenClaw (2026.3.28); current version is 2026.3.13.
+Error: Unknown channel: openclaw-weixin
+
+Context使用率: 86%
+[07:00:16] force 模式
+[07:00:16] === research_loop 开始 ===
+[07:00:16] 0. peer_review...
+[07:00:16] ✅ peer_review 完成
+[07:00:16] 1. expert_synthesizer...
+[07:00:16] ✅ synthesizer 完成
+[07:00:16] ✅ 循环完成: round 269 conf=0.58
