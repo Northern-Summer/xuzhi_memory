@@ -428,3 +428,7 @@ Error: Unknown channel: openclaw-weixin
 [2026-03-31 06:07:54] [INFO] ✅ 会话总结已写入 /home/summer/.xuzhi_memory/memory/2026-03-31.md（258 字符）
 [2026-03-31 06:08:05] [INFO] ✅ WeChat预警已发送
 [2026-03-31 06:11:11] [INFO] Context使用率: 10%
+[2026-03-31 06:13:44] [INFO] Context使用率: 16%
+[2026-03-31 06:15:03] [INFO] Context使用率: 16%
+[2026-03-31 06:17:57] [INFO] Context使用率: 17%
+[2026-03-31 06:17:57] [INFO] ✅ 优雅原则检查通过
