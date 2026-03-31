@@ -5,6 +5,10 @@
 .hygiene.lock
 .hygiene_sha256.json
 session_guard_state.json
+session_guard.log
+session_evolution.log
+framework_tracking.log
+task_center/*.log
 
 # Expert tracker 运行时
 expert_tracker/reviewed_output.json
