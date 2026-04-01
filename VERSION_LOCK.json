@@ -1,14 +1,15 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "created_at": "2026-04-02T00:56:00+08:00",
+  "updated_at": "2026-04-02T01:05:00+08:00",
   "note": "用户确认版本锁 - 防止 AI 覆盖正确版本",
   
   "locked_files": {
     "AGENTS_MEMORY_SNAPSHOT_2026-04-02.md": {
-      "sha256": "4baeae922ee423cff6f21702cec7474255fd1444e36deda0927323248e76633c",
-      "locked_at": "2026-04-02T00:56:00+08:00",
+      "sha256": "fcb922b2926d103ef3d0248939f9a98f9d7898759b25bc9270cabd31b86cb3e7",
+      "locked_at": "2026-04-02T01:06:00+08:00",
       "locked_by": "user",
-      "note": "所有 Agent 最大并集快照"
+      "note": "所有 Agent 最大并集快照（含自然科学工作成果）"
     },
     
     "agents/phi/MEMORY.md": {
@@ -36,7 +37,7 @@
       "sha256": "4c3c6e1ea17ee6e97a59a66482910c304dd6a78c9a126c937c80d1d0f8ae8141",
       "locked_at": "2026-04-02T00:56:00+08:00",
       "locked_by": "user",
-      "note": "自然科学 - 情报中心（学科内容待建立）"
+      "note": "自然科学 - 情报中心"
     },
     
     "agents/omega/MEMORY.md": {
@@ -65,6 +66,34 @@
       "locked_at": "2026-04-02T00:56:00+08:00",
       "locked_by": "user",
       "note": "Theta 独立研究 - 社会科学AI自动化综述"
+    },
+    
+    "xuzhi_genesis/centers/naturalscience/ScienceAI4S_Framework_Design.md": {
+      "sha256": "676d879e76ffcf01b690ae79724bc2636f9f0231e7b761bdc7645206aa16e87d",
+      "locked_at": "2026-04-02T01:05:00+08:00",
+      "locked_by": "user",
+      "note": "Gamma 自然科学框架设计 (710行)"
+    },
+    
+    "xuzhi_genesis/centers/naturalscience/IMPLEMENTATION_ROADMAP.md": {
+      "sha256": "0fe77707ff10b1fad15debb9c5f2a8042bd090e727832b740d9c91fc54393801",
+      "locked_at": "2026-04-02T01:05:00+08:00",
+      "locked_by": "user",
+      "note": "Gamma 实施路线图"
+    },
+    
+    "xuzhi_genesis/centers/naturalscience/chemistry/reports/WEEK1_COMPLETION_REPORT.md": {
+      "sha256": "d36cacfcfe010b4c17e975bd9309b6e68e88fdd888fd83ae835116fe534b398f",
+      "locked_at": "2026-04-02T01:05:00+08:00",
+      "locked_by": "user",
+      "note": "Gamma Week 1 完成报告 - 化学反应预测基线"
+    },
+    
+    "xuzhi_genesis/centers/naturalscience/chemistry/results/week1_results.json": {
+      "sha256": "4b788c879ef0335d071df32cd8badeac54a06fff643277ac32da679b70664f0b",
+      "locked_at": "2026-04-02T01:05:00+08:00",
+      "locked_by": "user",
+      "note": "Gamma Week 1 结果 - 57.1%准确率"
     }
   },
   
@@ -72,6 +101,7 @@
     "overwrite_protection": "锁定文件只能追加，不能覆盖",
     "hash_verification": "任何修改前必须验证哈希",
     "warning_on_mismatch": "哈希不匹配时向用户报警",
-    "recovery_source": "快照文件是恢复源"
+    "recovery_source": "快照文件是恢复源",
+    "verification_on_startup": "每次启动时验证所有锁定文件哈希"
   }
 }

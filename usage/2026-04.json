@@ -1,39 +1,39 @@
 {
   "2026-04-01": {
     "agent:main:openclaw-weixin:direct:o9cq80z9eorqjasg6hb1w-cc4-po@im.wechat": {
-      "messages": 134,
-      "estimated_tokens": 3438,
-      "input_tokens": 2344,
+      "messages": 144,
+      "estimated_tokens": 3728,
+      "input_tokens": 2634,
       "output_tokens": 1094,
-      "cost_usd": 0.0219
+      "cost_usd": 0.0227
     },
     "agent:main:cron:014d1fe3-151a-4ae6-9e69-83ed8ee52337": {
-      "messages": 10,
-      "estimated_tokens": 759,
+      "messages": 11,
+      "estimated_tokens": 810,
       "input_tokens": 0,
-      "output_tokens": 759,
-      "cost_usd": 0.0114
+      "output_tokens": 810,
+      "cost_usd": 0.0122
     },
     "agent:main:xi-pulse-main": {
-      "messages": 4,
-      "estimated_tokens": 379,
+      "messages": 5,
+      "estimated_tokens": 496,
       "input_tokens": 0,
-      "output_tokens": 379,
-      "cost_usd": 0.0057
+      "output_tokens": 496,
+      "cost_usd": 0.0075
     },
     "agent:main:cron:6f8eef3f-9b09-4c8f-8468-82daae4bb4fe": {
-      "messages": 19,
-      "estimated_tokens": 1775,
+      "messages": 21,
+      "estimated_tokens": 1934,
       "input_tokens": 0,
-      "output_tokens": 1775,
-      "cost_usd": 0.0268
+      "output_tokens": 1934,
+      "cost_usd": 0.0292
     },
     "agent:main:cron:293cafc2-cf08-4b91-92dd-98d036dbb4a7": {
-      "messages": 18,
-      "estimated_tokens": 1447,
+      "messages": 20,
+      "estimated_tokens": 1580,
       "input_tokens": 0,
-      "output_tokens": 1447,
-      "cost_usd": 0.0216
+      "output_tokens": 1580,
+      "cost_usd": 0.0236
     },
     "agent:main:cron:8119530e-a503-45e9-8138-3cf8166e261c": {
       "messages": 1,
@@ -43,11 +43,11 @@
       "cost_usd": 0.0006
     },
     "agent:main:main": {
-      "messages": 5,
-      "estimated_tokens": 1508,
-      "input_tokens": 1508,
+      "messages": 13,
+      "estimated_tokens": 1605,
+      "input_tokens": 1605,
       "output_tokens": 0,
-      "cost_usd": 0.0045
+      "cost_usd": 0.0048
     }
   }
 }
