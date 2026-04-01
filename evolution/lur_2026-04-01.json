@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-04-01T18:07:52.836225",
+  "timestamp": "2026-04-01T18:11:30.553431",
   "idl_seconds": 0.3,
   "session_count_today": 5,
-  "imuf_per_day": 7,
-  "imuf_hz": 8.101851851851852e-05,
-  "lur": 3702.8571428571427,
+  "imuf_per_day": 11,
+  "imuf_hz": 0.0001273148148148148,
+  "lur": 2356.3636363636365,
   "pattern": "\u88ab\u52a8\u54cd\u5e94",
   "risk": "\u4e2d\u9ad8"
 }

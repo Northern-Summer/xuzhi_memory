@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-04-01T18:11:22.218328",
+  "type": "event_triggered",
+  "event": "optimization",
+  "details": {
+    "metric": "LUR",
+    "from": 5184,
+    "to": 2880
+  }
+}

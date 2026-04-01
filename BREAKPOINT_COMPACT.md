@@ -1,6 +1,6 @@
-# Compact 断点 | 2026-04-01 18:00
+# Compact 断点 | 2026-04-01 18:08
 session_id: "agent:main:openclaw-weixin"
-ended_at: "2026-04-01 18:00"
+ended_at: "2026-04-01 18:08"
 status: "active"
 context_usage: "41%"
 

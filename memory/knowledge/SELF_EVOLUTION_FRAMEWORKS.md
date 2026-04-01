@@ -45,10 +45,10 @@
 | MetaAgent | arXiv:2508.00271 | 工具元学习，自演化代理 | 🟡 待应用于 TOOLS.md | 2026-04-01 |
 | SAGA | arXiv:2512.21782 | 双层架构：目标演化+方案优化 | 🟡 待应用于 Expert Tracker | 2026-04-01 |
 | AutoSkill | arXiv:2603.01145 | 经验驱动的技能自演化 | 🟡 待应用于技能库生命周期 | 2026-04-01 |
-| Lifelong Learning Roadmap | arXiv:2501.07278 | 三模块（感知/记忆/行动）+ 四支柱 | 🟡 已应用部分 | 2026-04-01 |
-| Agent Skills Survey | arXiv:2602.12430 | 技能架构/获取/部署/安全 | 🟡 已应用部分 | 2026-04-01 |
-| HealthFlow | arXiv:2508.02621 | 元规划自演化，医疗研究 | 🟡 待应用 | 2026-04-01 |
-| Autotelic Agents | arXiv:2012.09830 | 内在动机，自主目标生成 | 🟡 待应用 | 2026-04-01 |
+| Lifelong Learning Roadmap | arXiv:2501.07278 | 三模块（感知/记忆/行动）+ 四支柱 | ✅ 已应用 | 2026-04-01 |
+| Agent Skills Survey | arXiv:2602.12430 | 技能架构/获取/部署/安全 | ✅ 已应用 | 2026-04-01 |
+| HealthFlow | arXiv:2508.02621 | 元规划自演化，医疗研究 | ✅ 已应用 | 2026-04-01 |
+| Autotelic Agents | arXiv:2012.09830 | 内在动机，自主目标生成 | ✅ 已应用 | 2026-04-01 |
 
 ---
 

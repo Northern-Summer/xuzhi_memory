@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-04-01T18:11:22.218092",
+  "type": "event_triggered",
+  "event": "framework_applied",
+  "details": {
+    "framework": "Autotelic"
+  }
+}
