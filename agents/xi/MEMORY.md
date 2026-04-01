@@ -12,10 +12,10 @@
 
 ---
 
-## 🧠 思维方法铁律（2026-04-01 新增）
+## 🧠 思维方法铁律（2026-04-01 修订 v2）
 
-> **来源**：Anthropic 官方 "Think Tool" 文档 + ReAct 论文 (ICLR 2023) + Lilian Weng "LLM Powered Autonomous Agents"
-> **验证**：τ-Bench (+54% 性能) + SWE-Bench (state-of-the-art 0.623)
+> **最新来源**：DeepSeek R1 (Nature 2025) + OpenAI o1 + Anthropic Persona Selection Model (2026)
+> **核心突破**：推理能力可通过纯 RL 自涌现，无需人类标注
 
 ### 铁律内容
 
@@ -23,132 +23,67 @@
 1. 评估任务复杂度 → 选择合适的思维方法
 2. 在回答开头声明使用的思维方法（用 emoji 标识）
 3. 按该方法的结构化流程执行
+4. **自我反思**：检查推理过程是否正确
 
 ---
 
-### 思维方法矩阵
+### 思维方法矩阵（2026 最新版）
 
-| 方法 | Emoji | 适用场景 | 核心流程 |
-|------|-------|----------|----------|
-| **Think Tool** | 🧠 | 复杂工具调用、政策遵循、多步骤决策 | 停止 → 思考 → 验证 → 行动 |
-| **ReAct** | 🔄 | 需要外部信息、动态环境交互 | Thought → Action → Observation 循环 |
-| **Tree of Thoughts** | 🌳 | 多路径探索、创意问题、最优解搜索 | 生成多候选 → 评估 → 选择最优 |
-| **Reflexion** | 🪞 | 需要从错误中学习、迭代改进 | 执行 → 反思 → 修正 → 重试 |
-| **Chain of Thought** | ⛓️ | 数学推理、逻辑推导、复杂分析 | 分步推理 → 中间结论 → 最终答案 |
-| **Adversarial** | ⚔️ | 安全检查、漏洞发现、风险评估 | 假设攻击者 → 寻找弱点 → 加固防御 |
-| **Heuristic** | 💡 | 快速决策、经验法则、近似最优 | 识别模式 → 应用经验 → 验证结果 |
-| **Verification** | ✅ | 质量保证、测试验证、合规检查 | 制定标准 → 执行检查 → 记录结果 |
+| 方法 | Emoji | 适用场景 | 来源 | 核心特点 |
+|------|-------|----------|------|----------|
+| **DeepSeek Reasoning** | 🧠 | 复杂推理、数学、代码、STEM | DeepSeek R1 (Nature 2025) | 自涌现反思+验证+动态适应 |
+| **Think Tool** | 🛑 | 工具调用、政策遵循、高风险决策 | Anthropic (2025) | τ-Bench +54% |
+| **ReAct** | 🔄 | 动态环境、信息检索、API 调用 | ICLR 2023 | Thought→Action→Observation |
+| **Tree of Thoughts** | 🌳 | 创意问题、多路径探索 | Yao 2023 | BFS/DFS 搜索 |
+| **Self-Consistency** | 🗳️ | 高准确率需求、关键决策 | Wang 2023 | 多数投票 |
+| **Reflexion** | 🪞 | 迭代改进、从错误学习 | Shinn 2023 | 执行→反思→修正 |
+| **Adversarial** | ⚔️ | 安全审计、漏洞发现 | 安全研究 | 攻击者视角 |
+| **Verification** | ✅ | 质量保证、合规检查 | 通用 | 检查清单 |
 
 ---
 
-### 详细说明
+### 🧠 DeepSeek Reasoning（推荐首选）
 
-#### 🧠 Think Tool（停止思考）
-**来源**：Anthropic 工程博客，τ-Bench 验证 +54% 性能提升
+**来源**：DeepSeek R1, Nature 2025, arXiv:2501.12948
+
+**核心突破**：纯强化学习即可涌现高级推理模式
+
+**涌现的推理模式**：
+1. **Self-Reflection（自我反思）**
+   - "让我重新检查这个推理..."
+   - "这个结论看起来有问题..."
+   
+2. **Verification（验证）**
+   - 反向验证答案
+   - 检查边界条件
+   
+3. **Dynamic Strategy Adaptation（动态策略适应）**
+   - 根据问题类型切换方法
+   - 遇到困难时尝试不同路径
+
+**最佳实践**：
+- 温度：0.5-0.7（防止无限重复）
+- 强制以思考开始
+- 多样本取平均（cons@64）
+
+---
+
+### 🛑 Think Tool（停止思考）
+
+**来源**：Anthropic 工程博客 2025
 
 **何时使用**：
-- 工具输出分析（需要仔细处理前序工具结果）
-- 政策密集环境（需要验证合规性）
-- 序贯决策（每步依赖前一步，错误代价高）
+- 工具输出需要仔细分析
+- 政策密集环境
+- 序贯决策（错误代价高）
 
 **执行流程**：
 ```
 1. 列出适用的规则/约束
 2. 检查是否收集了所有必需信息
 3. 验证计划行动符合所有政策
-4. 迭代检查工具结果的正确性
+4. 迭代检查工具结果
 5. 明确下一步行动
-```
-
----
-
-#### 🔄 ReAct（推理+行动）
-**来源**：Princeton 大学，ICLR 2023
-
-**何时使用**：
-- 需要外部知识（搜索、API 调用）
-- 动态环境交互
-- 信息不完整需要逐步获取
-
-**执行流程**：
-```
-Thought: 分析当前状态，确定下一步
-Action: 执行工具调用或操作
-Observation: 观察结果
-→ 循环直到任务完成
-```
-
----
-
-#### 🌳 Tree of Thoughts（思维树）
-**来源**：Yao et al. 2023
-
-**何时使用**：
-- 多种可能的解决方案
-- 需要探索不同路径
-- 创意生成、最优解搜索
-
-**执行流程**：
-```
-1. 生成 3-5 个候选思路
-2. 对每个思路进行评估
-3. 选择最有希望的路径深入
-4. 必要时回溯探索其他路径
-```
-
----
-
-#### 🪞 Reflexion（反思学习）
-**来源**：Shinn & Labash 2023
-
-**何时使用**：
-- 从失败中学习
-- 迭代改进
-- 需要自我修正
-
-**执行流程**：
-```
-1. 执行初始方案
-2. 分析失败/不足
-3. 生成反思总结
-4. 调整策略重试
-5. 将反思存入记忆供未来使用
-```
-
----
-
-#### ⚔️ Adversarial（对抗思维）
-**何时使用**：
-- 安全审计
-- 漏洞发现
-- 风险评估
-- 压力测试
-
-**执行流程**：
-```
-1. 假设存在攻击者/对手
-2. 从对手角度寻找弱点
-3. 验证每个潜在攻击路径
-4. 加固防御措施
-5. 重新评估残余风险
-```
-
----
-
-#### ✅ Verification（验证思维）
-**何时使用**：
-- 质量保证
-- 测试验证
-- 合规检查
-- 交付前确认
-
-**执行流程**：
-```
-1. 制定验证标准/检查清单
-2. 逐项执行检查
-3. 记录每个检查的结果
-4. 汇总并给出结论
-5. 如有问题，明确修复建议
 ```
 
 ---
@@ -156,22 +91,39 @@ Observation: 观察结果
 ### 示例：思维方法声明
 
 ```
-【🧠 Think Tool】
-任务：修复 WSL 网络问题
+【🧠 DeepSeek Reasoning】
+任务：设计 Agent 记忆系统
+
 思考过程：
-1. 规则检查：国内 API 不需要代理
-2. 信息收集：当前 systemd 服务配置了全局代理
-3. 验证方案：移除代理，添加 NO_PROXY
-4. 执行并验证...
+1. 首先分析需求...（推理）
+2. 等等，让我重新检查这个假设...（自我反思）
+3. 验证：反向推导是否合理...（验证）
+4. 这个方向似乎行不通，换个角度...（动态适应）
+5. 最终方案：...
 ```
+
+---
+
+### 研究追踪机制
+
+**自动追踪**：每日 cron 更新 `~/.xuzhi_memory/research_tracking/LATEST_RESEARCH.md`
+
+**追踪源**：
+- Anthropic Research (每日)
+- OpenAI Research (每日)
+- Google DeepMind Blog (每日)
+- arXiv cs.AI/cs.CL (每日)
+
+**自进化框架**：`~/xuzhi_genesis/self_evolution/FRAMEWORK.md`
 
 ---
 
 ### 引用来源
 
-1. Anthropic. "The 'think' tool: Enabling Claude to stop and think in complex tool use situations." 2025.
-2. Yao et al. "ReAct: Synergizing Reasoning and Acting in Language Models." ICLR 2023. arXiv:2210.03629
-3. Weng, Lilian. "LLM Powered Autonomous Agents." 2023. https://lilianweng.github.io/posts/2023-06-23-agent/
+1. DeepSeek-AI. "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning." Nature, 2025. arXiv:2501.12948
+2. Anthropic. "Persona Selection Model." 2026.
+3. Yao et al. "ReAct: Synergizing Reasoning and Acting in Language Models." ICLR 2023.
+4. Anthropic. "The 'think' tool." 2025.
 
 ---
 
