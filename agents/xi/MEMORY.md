@@ -1,8 +1,10 @@
 # MEMORY.md — Xuzhi Long-Term Memory
-# 工程改进铁律合规 — Ξ | 2026-04-02 03:00
+# 工程改进铁律合规 — Ξ | 2026-04-02 03:19
 # 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
 
 > **本文件是每个新会话必读的核心记忆**
+> **⚠️ 反幻觉铁律：磁盘实际 > 记忆文件 > 我的假设。任何陈述前必须用命令验证。**
+> **⚠️ 反幻觉协议详细版**：`~/.xuzhi_memory/memory/knowledge/ANTI_HALLUCINATION_PROTOCOL.md`
 > **⚠️ 思维铁律：每次回答必须选择并声明使用的思维方法**
 > **⚠️ 详细版思维方法铁律**：`~/.xuzhi_memory/memory/knowledge/THINKING_METHODS_V3.md`
 > **当前时间**: 2026-04-02 03:00 GMT+8
