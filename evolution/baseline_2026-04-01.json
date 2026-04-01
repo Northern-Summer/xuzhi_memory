@@ -1,0 +1,48 @@
+{
+  "baseline_date": "2026-04-01",
+  "baseline_time": "17:25 GMT+8",
+  "description": "系统进化量化验证机制基线",
+  "metrics": {
+    "capability": {
+      "skill_count": 4,
+      "skill_maturity_avg": 1.0,
+      "skill_application_rate": 75,
+      "skill_generation": "g3",
+      "framework_learned": 11,
+      "framework_applied": 3,
+      "framework_application_rate": 27.3
+    },
+    "efficiency": {
+      "total_tokens_today": 2833,
+      "sessions_today": 5,
+      "avg_tokens_per_session": 566.6,
+      "expert_tracker_round": 314,
+      "round_stagnation_days": 0
+    },
+    "quality": {
+      "memory_retrieval_success": 100,
+      "skill_effectiveness": 100,
+      "breakpoint_recovery_success": 100
+    },
+    "innovation": {
+      "new_skills_today": 0,
+      "new_frameworks_learned": 11,
+      "tool_discoveries": 1,
+      "autonomous_research_output": 0
+    }
+  },
+  "notes": [
+    "基线建立于系统重建后第 6 天",
+    "已学习 11 个框架，但应用率仅 27.3%",
+    "Expert Tracker Round 314，问题待演化",
+    "下一步：提升框架应用率至 ≥70%"
+  ],
+  "targets": {
+    "weekly": {
+      "skill_growth_rate": "≥5%",
+      "framework_application_rate": "≥70%",
+      "new_skill_generation": "≥1",
+      "expert_tracker_round_advancement": "≥1"
+    }
+  }
+}

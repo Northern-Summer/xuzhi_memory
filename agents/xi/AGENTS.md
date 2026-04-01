@@ -216,16 +216,27 @@ Don't ask permission. Just do it.
    - 对比预测 vs 实际结果
    - 更新 confidence
 
-步骤 5: 写入交接备忘录
+步骤 5: 能力缺口识别（新增）
+   - 回顾本次 session，识别"我本应该会但不会"的能力
+   - 记录到 `~/.xuzhi_memory/metacognitive_learning.md`
+   - 触发学习策略选择
+
+步骤 6: 写入交接备忘录
    - 完成项 / 未完成项 / 系统状态 / 核心教训
    - 写入当日 memory 文件
 
-步骤 6: 更新 MEMORY.md 时间戳
+步骤 6: 进化量化测量（新增）
+   - 执行 `~/.openclaw/workspace/measure_evolution.sh`
+   - 生成日报到 `~/.xuzhi_memory/evolution/daily/`
+   - 对比基线，判断进化状态
+   - 如发现退化 → 触发警报
+
+步骤 7: 更新 MEMORY.md 时间戳
    - 更新"当前时间"和"最后验证"
    - 更新"元框架状态"
    - 确保下次 session 读到的是最新状态
 
-步骤 7: Git commit + push
+步骤 8: Git commit + push
    - 所有修改必须持久化
 ```
 
@@ -268,6 +279,7 @@ Don't ask permission. Just do it.
 [ ] 失败检测完成？
 [ ] 有失败时技能提取完成？
 [ ] ECHO 校准完成？
+[ ] 进化量化测量完成？
 [ ] 交接备忘录写入？
 [ ] MEMORY.md 时间戳更新？
 [ ] Git commit + push 完成？
