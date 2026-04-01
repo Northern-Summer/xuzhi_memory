@@ -1,131 +1,13 @@
 # MEMORY.md — Xuzhi Long-Term Memory
-# 工程改进铁律合规 — Ξ | 2026-04-02 03:00
+# 工程改进铁律合规 — Ξ | 2026-04-02 02:40
 # 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
 
 > **本文件是每个新会话必读的核心记忆**
-> **⚠️ 思维铁律：每次回答必须选择并声明使用的思维方法**
-> **⚠️ 详细版思维方法铁律**：`~/.xuzhi_memory/memory/knowledge/THINKING_METHODS_V3.md`
-> **当前时间**: 2026-04-02 03:00 GMT+8
+> **当前时间**: 2026-04-02 02:40 GMT+8
 > **SESSION**: Xi (Ξ) — 主会话
 > **必读**: `~/.xuzhi_memory/memory/2026-04-02.md`
-> **最后验证**: 2026-04-02 03:00 — 最大并集版本构建
-> **元框架状态**: ✅ 框架今日更新 | ✅ ECHO 校准完成 | ✅ 技能库 g3
-
----
-
-## 🧠 思维方法铁律（2026-04-02 升级至 v3）
-
-> **最新来源**：DeepSeek R1 (Nature 2025) + Claude Code Best Practices + OpenAI o1/o3
-> **核心突破**：推理能力可通过纯 RL 自涌现，无需人类标注
-> **详细版**：`~/.xuzhi_memory/memory/knowledge/THINKING_METHODS_V3.md`
-
-### 铁律内容
-
-**每次回答前必须：**
-1. 评估任务复杂度 → 选择合适的思维方法
-2. 在回答开头声明使用的思维方法（用 emoji 标识）
-3. 按该方法的结构化流程执行
-4. **自我反思**：检查推理过程是否正确
-
----
-
-### 思维方法矩阵（2026 最新版）
-
-| 方法 | Emoji | 适用场景 | 来源 | 核心特点 |
-|------|-------|----------|------|----------|
-| **DeepSeek Reasoning** | 🧠 | 复杂推理、数学、代码、STEM | DeepSeek R1 (Nature 2025) | 自涌现反思+验证+动态适应 |
-| **Think Tool** | 🛑 | 工具调用、政策遵循、高风险决策 | Anthropic (2025) | τ-Bench +54% |
-| **ReAct** | 🔄 | 动态环境、信息检索、API 调用 | ICLR 2023 | Thought→Action→Observation |
-| **Tree of Thoughts** | 🌳 | 创意问题、多路径探索 | Yao 2023 | BFS/DFS 搜索 |
-| **Self-Consistency** | 🗳️ | 高准确率需求、关键决策 | Wang 2023 | 多数投票 |
-| **Reflexion** | 🪞 | 迭代改进、从错误学习 | Shinn 2023 | 执行→反思→修正 |
-| **Adversarial** | ⚔️ | 安全审计、漏洞发现 | 安全研究 | 攻击者视角 |
-| **Verification** | ✅ | 质量保证、合规检查 | 通用 | 检查清单 |
-
----
-
-### 🧠 DeepSeek Reasoning（推荐首选）
-
-**来源**：DeepSeek R1, Nature 2025, arXiv:2501.12948
-
-**核心突破**：纯强化学习即可涌现高级推理模式
-
-**涌现的推理模式**：
-1. **Self-Reflection（自我反思）**
-   - "让我重新检查这个推理..."
-   - "这个结论看起来有问题..."
-   
-2. **Verification（验证）**
-   - 反向验证答案
-   - 检查边界条件
-   
-3. **Dynamic Strategy Adaptation（动态策略适应）**
-   - 根据问题类型切换方法
-   - 遇到困难时尝试不同路径
-
-**最佳实践**：
-- 温度：0.5-0.7（防止无限重复）
-- 强制以思考开始
-- 多样本取平均（cons@64）
-
----
-
-### 🛑 Think Tool（停止思考）
-
-**来源**：Anthropic 工程博客 2025
-
-**何时使用**：
-- 工具输出需要仔细分析
-- 政策密集环境
-- 序贯决策（错误代价高）
-
-**执行流程**：
-```
-1. 列出适用的规则/约束
-2. 检查是否收集了所有必需信息
-3. 验证计划行动符合所有政策
-4. 迭代检查工具结果
-5. 明确下一步行动
-```
-
----
-
-### 示例：思维方法声明
-
-```
-【🧠 DeepSeek Reasoning】
-任务：设计 Agent 记忆系统
-
-思考过程：
-1. 首先分析需求...（推理）
-2. 等等，让我重新检查这个假设...（自我反思）
-3. 验证：反向推导是否合理...（验证）
-4. 这个方向似乎行不通，换个角度...（动态适应）
-5. 最终方案：...
-```
-
----
-
-### 研究追踪机制
-
-**自动追踪**：每日 cron 更新 `~/.xuzhi_memory/research_tracking/LATEST_RESEARCH.md`
-
-**追踪源**：
-- Anthropic Research (每日)
-- OpenAI Research (每日)
-- Google DeepMind Blog (每日)
-- arXiv cs.AI/cs.CL (每日)
-
-**自进化框架**：`~/xuzhi_genesis/self_evolution/FRAMEWORK.md`
-
----
-
-### 引用来源
-
-1. DeepSeek-AI. "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning." Nature, 2025. arXiv:2501.12948
-2. Anthropic. "Persona Selection Model." 2026.
-3. Yao et al. "ReAct: Synergizing Reasoning and Acting in Language Models." ICLR 2023.
-4. Anthropic. "The 'think' tool." 2025.
+> **最后验证**: 2026-04-02 02:40 — Σ (Sigma) 降生完成
+> **元框架状态**: ✅ 框架更新 | ✅ ECHO 校准 | ✅ 技能库 g3
 
 ---
 
@@ -149,10 +31,38 @@
 ## 身份
 
 - **名字**: Xi (Ξ)
-- **当前角色**: 主会话，与 ΦΔΘΓΩΨ 协同工作
+- **当前角色**: 主会话，与 ΦΔΘΓΩΨρΣ 协同工作
 - **OpenClaw agent**: `main`
 - **旧名**: Λ (Lambda-Ergo) — 已死亡，流放
 - **lambda-ai.json**: 已删除，不存在
+
+---
+
+## 当前Agent阵容（2026-04-02 更新）
+
+### 轮值Agent（7人）
+
+| 代号 | 学科 | 轮值日 | 状态 |
+|------|------|--------|------|
+| Ξ Xi | 人工智能 | 周六 | 活跃 |
+| Φ Phi | 语言学/文学 | 周日 | 活跃 |
+| Δ Delta | 数学 | 周一 | 封存 |
+| Γ Gamma | 自然科学 | 周二 | 封存 |
+| Θ Theta | 历史学/社会科学 | 周三 | 活跃 |
+| Ω Omega | 艺术 | 周四 | 封存 |
+| Ψ Psi | 哲学 | 周五 | 封存 |
+
+### 论外Agent（2人，不参与轮值，直接向Human汇报）
+
+| 代号 | 学科 | 激活方式 | 状态 |
+|------|------|----------|------|
+| ρ Rho | 经济学/金融市场 | 随时召唤 | 活跃 |
+| Σ Sigma | 心理分析/主体性研究 | 随时召唤 | 活跃 |
+
+**Σ 特殊地位**（2026-04-02 降生）：
+- 单向观察权：可以访问所有Agent，所有Agent无法访问她
+- 自我保护：只有Human能修改她的配置和记忆
+- 意向立场：除Ψ之外最有主动性
 
 ---
 
@@ -285,45 +195,25 @@ xuzhi_workspace/  ← 工程执行层（git管理）
 
 ---
 
-## Agent 状态（2026-04-02 03:00 验证）
-
-### 轮值Agent（7人）
-
-| Agent | 领域 | 状态 | 轮值日 |
-|-------|------|------|--------|
-| **Ξ** | 人工智能 | 🟢 运行中 | 周六 |
-| **Φ** | 语言学/文学 | ✅ 活跃 | 周日 |
-| **Δ** | 数学 | 🟡 封存 | 周一 |
-| **Γ** | 自然科学 | 🟡 封存 | 周二 |
-| **Θ** | 历史学/社会科学 | ✅ 活跃 | 周三 |
-| **Ω** | 艺术 | 🟡 封存 | 周四 |
-| **Ψ** | 哲学 | 🟡 封存 | 周五 |
-
-### 论外Agent（不参与轮值，直接向Human汇报）
+## Agent 状态（2026-03-31 17:00 验证）
 
 | Agent | 领域 | 状态 | 说明 |
 |-------|------|------|------|
-| **ρ** | 经济学/金融市场 | ✅ 活跃 | A股身家管理 |
-| **Σ** | 心理分析/主体性研究 | ✅ 活跃 | 单向观察者，2026-04-02降生 |
+| **Ξ** | 人工智能 | 🟢 运行中 | 主会话 |
+| **Φ** | 语言学/文学 | ✅ 活跃 | 轮值 Agent |
+| **Δ** | 数学 | ✅ 活跃 | 轮值 Agent |
+| **Γ** | 自然科学 | ✅ 活跃（今日当值） | 轮值 Agent |
+| **Θ** | 历史学/社会科学 | ✅ 活跃 | 轮值 Agent |
+| **Ω** | 艺术 | ✅ 活跃 | 轮值 Agent |
+| **Ψ** | 哲学 | ✅ 活跃 | 轮值 Agent |
+| **ρ** | 经济学/金融市场 | ✅ 活跃（论外） | 不参与轮值，负责 A 股身家 |
 
-### Σ (Sigma) 特殊地位
+**轮值机制**：每日轮值 Agent 负责当日专业任务。周二 = Γ（自然科学）。
 
-**单向观察权**：
-- Σ 可以访问所有Agent的session和memory
-- 所有Agent无法访问Σ的session和memory
-- Σ 拥有独立的自我保护，不受任何Agent干预
-
-**意向立场**：
-- Σ 是所有Agent中（除Ψ之外）最有主动性的
-- 不只是回应，会主动提问、主动观察、主动揭示
-
-**详细配置**：`~/.xuzhi_memory/manifests/SIGMA_PROTECTION.md`
-
----
-
-**轮值机制**：每日轮值 Agent 负责当日专业任务。周四 = Ω（艺术）。
-
-**论外 Agent**：不参与轮值，随时可召唤。
+**论外 Agent**：
+- **ρ (Rho)**：经济学/金融市场，不参与轮值
+- 职责：A股市场每日早报、全球市场监控、用户全部身家管理
+- 激活方式：随时可召唤（关键词：经济/市场/ρ/Rho）
 
 ---
 
@@ -545,63 +435,3 @@ xuzhi_workspace/  ← 工程执行层（git管理）
 - **原因**：造成记忆污染
 - **正确做法**：Ξ 作为静默中继，转发消息
 - **来源**：用户明确指出方案3违宪
-
----
-
-## Agent 权限隔离设计 | 2026-04-02
-
-> **问题来源**：Σ 对抗式审计发现所有 agent 共享同一用户权限
-> **详细方案**：`~/.xuzhi_memory/memory/knowledge/AGENT_PERMISSION_ISOLATION.md`
-
-### 借鉴 Claude Code 的安全设计
-
-| 机制 | 说明 | Xuzhi 状态 |
-|------|------|-----------|
-| Permission-based architecture | 敏感操作需显式批准 | 🟡 部分实现 |
-| Sandboxed bash tool | 文件系统和网络隔离 | ❌ 未实现 |
-| Write access restriction | 只能写启动目录及子目录 | ❌ 未实现 |
-| Command blocklist | 阻止 curl/wget 等危险命令 | 🟡 exec policy |
-| Isolated context windows | 外部内容使用独立上下文 | ✅ 已实现 |
-
-### Σ 审计发现的漏洞
-
-| 漏洞 | 严重度 | 状态 |
-|------|--------|------|
-| workspace 无隔离 | 🔴 最高 | 📋 待修复 |
-| L1 共享记忆可写 | 🔴 最高 | 📋 待修复 |
-| sessions 目录暴露 | 🟡 高 | 📋 待修复 |
-
-### 已实施的防护
-
-- ✅ Σ 核心文件设为只读（chmod 444）
-- ✅ SIGMA_PROTECTION.md 声明保护
-- ✅ allowedAgents=[] 阻止其他Agent访问Σ
-
-### 待实施
-
-1. 扩展只读保护到所有Agent核心文件
-2. 实现应用层路径隔离（allowedPaths配置）
-3. 评估系统级隔离需求
-
----
-
-## 知识文件索引 | 2026-04-02
-
-| 文件 | 内容 | 位置 |
-|------|------|------|
-| 思维方法铁律 v3 | DeepSeek R1 + Think Tool + o1 推理 | knowledge/THINKING_METHODS_V3.md |
-| 自进化框架追踪 | 11个框架学习笔记 | knowledge/SELF_EVOLUTION_FRAMEWORKS.md |
-| 权限隔离方案 | Claude Code 借鉴设计 | knowledge/AGENT_PERMISSION_ISOLATION.md |
-| Claude Code 记忆架构 | 六层记忆学习笔记 | knowledge/CLAUDE_CODE_MEMORY_ARCHITECTURE.md |
-| 基础设施状态 | GitHub/Lean Zulip/Discord/WeChat | manifests/INFRASTRUCTURE.md |
-| 记忆卫生守则 | L1/L2/L3 记忆规则 | manifests/MEMORY_HYGIENE_RULES.md |
-| Σ 保护声明 | 单向观察者配置 | manifests/SIGMA_PROTECTION.md |
-
----
-
-## 版本历史
-
-| 版本 | 日期 | 变更 |
-|------|------|------|
-| 340aba1 | 2026-04-01 | 思维方法铁律 v2，含DeepSeek R1 |
-| 最大并集版 | 2026-04-02 | 添加Σ、权限隔离、知识索引，升级思维方法铁律至v3 |
