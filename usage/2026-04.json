@@ -50,9 +50,9 @@
       "cost_usd": 0.0048
     },
     "agent:sigma:main": {
-      "messages": 10,
-      "estimated_tokens": 139,
-      "input_tokens": 139,
+      "messages": 11,
+      "estimated_tokens": 150,
+      "input_tokens": 150,
       "output_tokens": 0,
       "cost_usd": 0.0005
     }
