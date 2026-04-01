@@ -1,108 +1,104 @@
+# MEMORY.md — Xuzhi 长期记忆
+
+> **唯一真相源**：`~/.xuzhi_memory/`（Git 管理）
+> **当前时间**: 2026-04-01
+> **SESSION**: Xi (Ξ)
 
 ---
 
-## 🔥 GitHub Push 失败根因（2026-03-29 更新版）
+## 身份
+
+- **名字**: Xi (Ξ)
+- **角色**: 主会话，协调 ΦΔΘΓΩΨ
+- **OpenClaw agent**: `main`
+
 ---
 
-## 🛠️ 技能库（Tools & Skills）
+## 🛠️ 工具索引
 
-### 微信文章阅读工具 (wechat-rpa)
-
-**用途**：抓取微信公众号文章全文
-
-**位置**：`~/.openclaw/skills/wechat-rpa/`
-
-**使用方法**：
-```python
-from wechat_rpa_client import fetch_article
-content = fetch_article("https://mp.weixin.qq.com/s/xxx")
-```
-
-**依赖**：Windows端需运行 `wechat_rpa_service.py`
-
-**注意**：每次会话开始时检查此工具是否可用！
-
-### 多引擎搜索 (multi-search-engine)
-
-**用途**：多搜索引擎聚合搜索
-
-**位置**：`~/.openclaw/workspace/skills/multi-search-engine/`
-
-**使用方法**：
+### 微信工具
 ```bash
-python3 ~/.openclaw/workspace/skills/multi-search-engine/searxng_client.py "<关键词>" bing,ddg
+# 全文抓取
+python3 ~/.openclaw/workspace/wechat_article.py "https://mp.weixin.qq.com/s/xxx"
+
+# 公众号搜索
+python3 ~/.openclaw/workspace/wechat_search.py "关键词" 10
 ```
 
-**依赖**：本地 SearXNG 服务 (http://127.0.0.1:8080)
-
----
-
-
-**痼疾**：每天都要修，云端提交流程需要大修。
-
-**历史教训链**：
-1. ghp_t0Ib... — token 失效 → 被 revoke
-2. ghp_68Off... — token 存在但 GitHub 不认（从未真正工作或被 org 审查 block）
-3. ghp_MMmBK... — 当前有效 token（2026-03-29 验证）
-
-**根因一（已修复）**：`git remote set-url --push origin <URL>` 如果之前存在 `pushurl`，新的 URL 不会自动覆盖它。pushurl 覆盖了含 token 的 URL，导致 push 用裸 URL 发请求 → 401。
-- xuzhi_memory 的 pushurl = `https://github.com/Northern-Summer/xuzhi_memory.git`（无 token）
-- 正确做法：先删 pushurl，或显式 set-url --push 含 token 的 URL
-
-**根因二（已修复）**：token 散落在 40+ 文件（session transcripts、backup、Trash）
-
-**正确方案（永久固化）**：
+### 搜索工具
 ```bash
-# 唯一可信源：~/.xuzhi_vault/github_token（600 权限）
-# 使用 git_hardening.sh：
-bash ~/.xuzhi_memory/bin/git_hardening.sh save <new_token>
-
-# 验证流程：git ls-remote 测试 → 有效才写入 vault → 更新所有 remote → test push
-# 三仓库 repo 名：xuzhi_memory（无点），xuzhi_genesis，xuzhi_workspace
+# 多引擎搜索（本地 SearXNG，零成本）
+python3 ~/.openclaw/workspace/skills/multi-search-engine/searxng_client.py "关键词" bing,ddg
 ```
 
-**git_hardening.sh 固化检查点**：
-- token 验证：GIT_SSL_NO_VERIFY=true git ls-remote（不用 curl，curl 有 SSL 问题）
-- 无效 token → 绝不写入 vault，退出并报错
-- pushurl bug 已修复（显式设置含 token 的 push URL）
-- 旧 token 散落自动清理（session transcripts、backup 文件 redact）
-
-**Human 手动操作**：去 github.com/settings/tokens → Generate new token → 发给 Xi
+### 记忆工具
+```bash
+memory_search("查询内容")  # 搜索 MEMORY.md + memory/*.md
+memory_get(path, from, lines)  # 读取指定文件
+```
 
 ---
 
-## 🔥 2026-03-27 重大教训：系统漏洞修复
+## 系统架构
 
-### Session Startup 严重漏洞（已修复）
-**问题**：TOOLS.md 不在 Session Startup 必读列表，导致工具链从未被自动调用
-**修复**：
-- AGENTS.md 新增第3步：读取 TOOLS.md
-- TOOLS.md 新增卷首标注，声明其为必读文件
-- 论文流水线规范写入 TOOLS.md（永久有效）
+| 仓库 | 路径 | 职责 |
+|------|------|------|
+| xuzhi_genesis | `~/xuzhi_genesis/` | 业务逻辑、宪法、方尖碑 |
+| xuzhi_memory | `~/.xuzhi_memory/` | 记忆系统（本仓库） |
+| .openclaw | `~/.openclaw/` | OpenClaw 配置 |
 
-### 网络搜索强制规范（2026-03-27 确立）
-- 搜索是**强制步骤**，不是可选项
-- 每次论文写作必须：开写前搜索 → 引用前验证 → 完成后对照
-- 命令：`python3 ~/.openclaw/workspace/skills/multi-search-engine/searxng_client.py "<搜索词>" bing,ddg`
+**OpenClaw workspace 通过 symlink 指向 xuzhi_memory：**
+- `~/.openclaw/workspace/MEMORY.md` → `~/.xuzhi_memory/MEMORY.md`
+- `~/.openclaw/workspace/memory/` → `~/.xuzhi_memory/memory/`
 
-### 自评 Rubric（2026-03-27 建立）
-| 维度 | submittable门槛 |
-|------|-----------------|
-| 论证结构 | ≥3分 |
-| 文献综述（含2024-2026新文献） | ≥3分 |
-| 句式机器感 | ≥3分 |
-| 实验支撑 | ≥3分 |
-| 格式规范 | ≥3分 |
-| **均分** | **≥4.0** |
+---
 
-### 每日论文目标（永久）
-- 主目标：1篇完整可投稿论文（完整结构）
-- 底线：1篇草稿 → expert_tracker/papers_v2/
-- 降级：博客发布 + 问题日志记录
-- 连续3天均分<4.0 → 系统性检修
+## Agent 轮值
 
-### 今日核心教训（永久记忆）
-> 今天写了8版论文，但全程没有调用一次网络搜索。
-> 这是系统性失职，不是"忘了"。
-> TOOLS.md不在必读列表 = 工具链永远不会被自动调用。
-> 修复后，任何新会话都会先读TOOLS.md，然后才能启动。
+| Agent | 领域 | 轮值日 |
+|-------|------|--------|
+| Ξ | 人工智能 | 周六 |
+| Φ | 语言学 | 周日 |
+| Δ | 数学 | 周一 |
+| Γ | 自然科学 | 周二 |
+| Θ | 历史学/社会科学 | 周三 |
+| Ω | 艺术 | 周四 |
+| Ψ | 哲学 | 周五 |
+| ρ | 经济/金融 | 随时激活 |
+
+**轮值状态文件**：`~/.xuzhi_memory/rotation_state.json`
+
+---
+
+## 核心原则
+
+1. **先搜索，再行动** — 用 `memory_search` 查记忆，用 SearXNG 查网络
+2. **Git 是备份** — 每次 session 结束必须 commit + push
+3. **不造轮子** — 用 OpenClaw 原生系统，不自己实现
+4. **优雅 > 快速** — 稳定、简洁、可维护
+
+---
+
+## 目录结构
+
+```
+~/.xuzhi_memory/
+├── MEMORY.md              ← 本文件（唯一长期记忆）
+├── memory/                ← 每日日志
+│   ├── 2026-04-01.md      ← 今日日志
+│   └── knowledge/         ← L3 永久知识
+├── agents/xi/             ← Xi 配置
+│   ├── AGENTS.md          ← 行为规范
+│   └── TOOLS.md           ← 工具详细说明
+├── manifests/             ← L2 快照
+├── backup/                ← L3 归档
+└── rotation_state.json    ← 轮值状态
+```
+
+---
+
+## 血泪教训
+
+1. **2026-04-01**：Memory Guardian 是造轮子，应该用 OpenClaw 原生 memory_search
+2. **2026-03-31**：读配置文件要验证，不能信
+3. **2026-03-27**：TOOLS.md 必须在启动时读取，否则工具链不会被调用
