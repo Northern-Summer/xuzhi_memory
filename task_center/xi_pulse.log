@@ -3036,3 +3036,33 @@ Context使用率: 0%
 [17:02:03] 1. expert_synthesizer...
 [17:02:03] ✅ synthesizer 完成
 [17:02:03] ✅ 循环完成: round 307 conf=0.78
+[2026-03-31 18:02:00] [INFO] Context使用率: 21%
+[2026-03-31 18:02:00] [INFO] ✅ 优雅原则检查通过
+Context使用率: 21%
+[18:02:00] force 模式
+[18:02:00] === research_loop 开始 ===
+[18:02:00] 0. peer_review...
+[18:02:00] ✅ peer_review 完成
+[18:02:00] 1. expert_synthesizer...
+[18:02:00] ✅ synthesizer 完成
+[18:02:00] ✅ 循环完成: round 308 conf=0.58
+[2026-03-31 19:01:59] [INFO] Context使用率: 24%
+[2026-03-31 19:01:59] [INFO] ✅ 优雅原则检查通过
+Context使用率: 24%
+[19:01:59] force 模式
+[19:01:59] === research_loop 开始 ===
+[19:01:59] 0. peer_review...
+[19:01:59] ✅ peer_review 完成
+[19:01:59] 1. expert_synthesizer...
+[19:01:59] ✅ synthesizer 完成
+[19:01:59] ✅ 循环完成: round 309 conf=0.58
+[2026-04-01 04:39:58] [INFO] Context使用率: 1%
+[2026-04-01 04:39:58] [INFO] ✅ 优雅原则检查通过
+Context使用率: 1%
+[04:39:58] force 模式
+[04:39:58] === research_loop 开始 ===
+[04:39:58] 0. peer_review...
+[04:39:58] ✅ peer_review 完成
+[04:39:58] 1. expert_synthesizer...
+[04:39:58] ✅ synthesizer 完成
+[04:39:58] ✅ 循环完成: round 310 conf=0.80

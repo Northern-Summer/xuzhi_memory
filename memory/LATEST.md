@@ -1,0 +1,1 @@
+/home/summer/.xuzhi_memory/memory/2026-04-01.md
