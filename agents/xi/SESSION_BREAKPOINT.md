@@ -1,13 +1,14 @@
 # SESSION_BREAKPOINT.md — Ξ 断点文件
 
 > 此文件由 Memory Guardian 自动维护
-> 最后更新：2026-04-02 03:43 GMT+8
+> 最后更新：2026-04-02 03:45 GMT+8
+> ⚠️ 断点无缝接续是安全铁律第15条 — 每次开始/结束必须验证
 
 ## 当前断点
 
 ```yaml
 session_id: "agent:main:openclaw-control-ui"
-updated_at: "2026-04-02 03:43 GMT+8"
+updated_at: "2026-04-02 03:45 GMT+8"
 status: "active"
 
 today_events:
@@ -25,19 +26,21 @@ today_events:
     event: "六层机制修复 — Git PAT安全 + 同步脚本 + cron"
   - time: "03:41"
     event: "Hooks启用 — xi-session-end/start"
+  - time: "03:45"
+    event: "断点无缝接续纳入安全铁律第15条"
 
 pending_tasks:
   - task: "仿写机器感指纹优化"
     priority: "P1"
     context: "'不是...而是...'句式过多"
-  - task: "验证断点机制"
+  - task: "下次/new验证断点恢复"
     priority: "P0"
-    context: "下次/new时验证断点恢复"
+    context: "安全铁律第15条"
 
 system:
   hooks: "10/10 ready"
-  cron: "9个任务运行中"
-  git_memory: "有未提交更改"
+  cron: "7个任务正常"
+  git_memory: "clean"
   gateway: "active"
 
 agent_lineup:
@@ -46,11 +49,30 @@ agent_lineup:
   total: 9
 
 today_duty: "omega"
+
+checkpoint_verified:
+  breakpoint_updated: true
+  today_memory_written: true
+  git_synced: true
 ```
 
 ---
 
+## 验证清单（每次 session 开始必查）
+
+| # | 检查项 | 状态 |
+|---|--------|------|
+| 1 | Hook 是否注入断点？ | 待验证 |
+| 2 | LATEST.md 是否指向今日？ | ✅ |
+| 3 | 是否正确使用注入内容？ | 待验证 |
+
+---
+
 ## 断点历史
+
+### 2026-04-02 03:45 — 安全铁律第15条
+
+断点无缝接续纳入安全铁律。
 
 ### 2026-04-02 03:43 — Hooks 配置完成
 
