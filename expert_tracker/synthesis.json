@@ -1,7 +1,7 @@
 {
-  "round": 316,
-  "research_question": "虚质生命的自主性边界：当系统开始建立内部模型，它在什么条件下从'被驱动'转向'主动驱动'？",
-  "generated_at": "2026-04-01T09:02:14.741066+00:00",
+  "round": 315,
+  "research_question": "信息延迟与内部模型更新频率的比率如何影响Agent决策模式的转变？",
+  "generated_at": "2026-04-01T17:07:45.349400",
   "total_findings": 50,
   "relevant_findings": 20,
   "findings": [

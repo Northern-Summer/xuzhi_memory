@@ -1,7 +1,7 @@
 # 自进化 Agent 框架学习笔记
 
 > **目的**：跟踪前沿自进化框架，帮助 Xuzhi 系统融会贯通
-> **更新时间**：2026-04-01 16:23
+> **更新时间**：2026-04-01 17:10
 > **维护者**：Ξ
 > **跟踪频率**：每周强制扫描 + 每日 heartbeat 检查
 
@@ -28,6 +28,9 @@
 | 框架 | 来源 | 核心贡献 | 优先级 | 发现日期 |
 |------|------|---------|--------|---------|
 | MiroFish | GitHub | 群体智能预测+社会模拟 | P2 | 2026-03-31 |
+| Intrinsic Metacognition | arXiv:2506.05109 | 内在元认知学习，自改进代理 | P0 | 2026-04-01 |
+| MARS | EmergentMind | 元认知代理反思自改进 | P1 | 2026-04-01 |
+| Cognitive Mirror | Frontiers 2025 | AI元认知框架，自我调节学习 | P1 | 2026-04-01 |
 
 ### 已学习并应用
 
@@ -420,6 +423,7 @@ agent architecture
 | 2026-04-01 | 学习 Lifelong Learning Roadmap、Agent Skills Survey 两个 P1 框架，更新详解 |
 | 2026-04-01 | 学习 HealthFlow，更新详解 |
 | 2026-04-01 | 学习 Autotelic Agents，更新详解 |
+| 2026-04-01 | 发现 Intrinsic Metacognition、MARS、Cognitive Mirror 框架 |
 
 ---
 
