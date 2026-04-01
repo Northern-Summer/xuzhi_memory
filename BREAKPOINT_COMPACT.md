@@ -1,6 +1,6 @@
-# Compact 断点 | 2026-04-01 18:08
+# Compact 断点 | 2026-04-01 18:15
 session_id: "agent:main:openclaw-weixin"
-ended_at: "2026-04-01 18:08"
+ended_at: "2026-04-01 18:15"
 status: "active"
 context_usage: "41%"
 
@@ -26,8 +26,8 @@ key_changes:
 
 metrics:
   framework_count: 13
-  framework_application_rate: "72.7%"
+  framework_application_rate: "100%"
   expert_tracker_round: 315
-  lur: 5184
+  lur: 1994
 
 next_action: "实现上下文压缩，优化 Token 效率"
