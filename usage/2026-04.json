@@ -22,11 +22,11 @@
       "cost_usd": 0.0057
     },
     "agent:main:cron:6f8eef3f-9b09-4c8f-8468-82daae4bb4fe": {
-      "messages": 9,
-      "estimated_tokens": 984,
+      "messages": 10,
+      "estimated_tokens": 1087,
       "input_tokens": 0,
-      "output_tokens": 984,
-      "cost_usd": 0.0148
+      "output_tokens": 1087,
+      "cost_usd": 0.0163
     },
     "agent:main:cron:293cafc2-cf08-4b91-92dd-98d036dbb4a7": {
       "messages": 9,
