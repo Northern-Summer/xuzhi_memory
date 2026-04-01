@@ -10,7 +10,7 @@
   - 检查 MEMORY.md 是否包含"优雅原则"
   - 异常则记录日志到 ~/.xuzhi_memory/session_guard.log
 - **元启发式框架跟踪检查**（最高优先级）
-  - 检查 SELF_EVOLUTION_FRAMEWORKS.md 最后更新时间
+  - 检查 `~/.xuzhi_memory/memory/knowledge/SELF_EVOLUTION_FRAMEWORKS.md` 最后更新时间
   - 超过 7 天 → 触发提醒"需要扫描新框架"
   - 每周一 cron 自动执行 `track_evolution_frameworks.sh`
 - **Expert Tracker 检查**（每小时一次）

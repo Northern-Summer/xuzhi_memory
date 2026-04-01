@@ -2,6 +2,41 @@
 ---
 
 ## 🔥 GitHub Push 失败根因（2026-03-29 更新版）
+---
+
+## 🛠️ 技能库（Tools & Skills）
+
+### 微信文章阅读工具 (wechat-rpa)
+
+**用途**：抓取微信公众号文章全文
+
+**位置**：`~/.openclaw/skills/wechat-rpa/`
+
+**使用方法**：
+```python
+from wechat_rpa_client import fetch_article
+content = fetch_article("https://mp.weixin.qq.com/s/xxx")
+```
+
+**依赖**：Windows端需运行 `wechat_rpa_service.py`
+
+**注意**：每次会话开始时检查此工具是否可用！
+
+### 多引擎搜索 (multi-search-engine)
+
+**用途**：多搜索引擎聚合搜索
+
+**位置**：`~/.openclaw/workspace/skills/multi-search-engine/`
+
+**使用方法**：
+```bash
+python3 ~/.openclaw/workspace/skills/multi-search-engine/searxng_client.py "<关键词>" bing,ddg
+```
+
+**依赖**：本地 SearXNG 服务 (http://127.0.0.1:8080)
+
+---
+
 
 **痼疾**：每天都要修，云端提交流程需要大修。
 
