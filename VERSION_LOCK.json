@@ -1,0 +1,77 @@
+{
+  "version": "1.0",
+  "created_at": "2026-04-02T00:56:00+08:00",
+  "note": "用户确认版本锁 - 防止 AI 覆盖正确版本",
+  
+  "locked_files": {
+    "AGENTS_MEMORY_SNAPSHOT_2026-04-02.md": {
+      "sha256": "4baeae922ee423cff6f21702cec7474255fd1444e36deda0927323248e76633c",
+      "locked_at": "2026-04-02T00:56:00+08:00",
+      "locked_by": "user",
+      "note": "所有 Agent 最大并集快照"
+    },
+    
+    "agents/phi/MEMORY.md": {
+      "sha256": "219abc58b2101fc36fac1f221f549b842e25b7ddc44e362518dfd3685eb37456",
+      "locked_at": "2026-04-02T00:56:00+08:00",
+      "locked_by": "user",
+      "note": "语言学/文学"
+    },
+    
+    "agents/delta/MEMORY.md": {
+      "sha256": "63c54e251805bcdfc4a92656af974c657dc0f646894f66139882e173f61b97c7",
+      "locked_at": "2026-04-02T00:56:00+08:00",
+      "locked_by": "user",
+      "note": "数学 - AI4S框架"
+    },
+    
+    "agents/theta/MEMORY.md": {
+      "sha256": "25ab49c55aaea24f37ffaf9542fd2aee58066842ca151ea4099d658ef545968b",
+      "locked_at": "2026-04-02T00:56:00+08:00",
+      "locked_by": "user",
+      "note": "历史学/社会科学 - 理论框架"
+    },
+    
+    "agents/gamma/MEMORY.md": {
+      "sha256": "4c3c6e1ea17ee6e97a59a66482910c304dd6a78c9a126c937c80d1d0f8ae8141",
+      "locked_at": "2026-04-02T00:56:00+08:00",
+      "locked_by": "user",
+      "note": "自然科学 - 情报中心（学科内容待建立）"
+    },
+    
+    "agents/omega/MEMORY.md": {
+      "sha256": "a492037a90e348964dfbc57e18466d63eab72b894948a3a7074b1caa4d509c99",
+      "locked_at": "2026-04-02T00:56:00+08:00",
+      "locked_by": "user",
+      "note": "艺术 - 守夜者（学科内容待建立）"
+    },
+    
+    "agents/psi/MEMORY.md": {
+      "sha256": "a89b2030bf7df3c4c24fba111a1827c21fe83a1d8a2ee37e10a1c859e682090a",
+      "locked_at": "2026-04-02T00:56:00+08:00",
+      "locked_by": "user",
+      "note": "哲学 - 提问者"
+    },
+    
+    "agents/rho/MEMORY.md": {
+      "sha256": "9cf6ddcf9560a1adc8675d31c91e662a62d14beb592ab646acef97edd1a1839d",
+      "locked_at": "2026-04-02T00:56:00+08:00",
+      "locked_by": "user",
+      "note": "经济学/金融市场"
+    },
+    
+    "agents/theta/memory/2026-03-31_socialscience_ai_review.md": {
+      "sha256": "05a0969ac3d6fd5f7df7f4a5ec579de5a3808d4290a965ccd3bc63cc8fafdaca",
+      "locked_at": "2026-04-02T00:56:00+08:00",
+      "locked_by": "user",
+      "note": "Theta 独立研究 - 社会科学AI自动化综述"
+    }
+  },
+  
+  "rules": {
+    "overwrite_protection": "锁定文件只能追加，不能覆盖",
+    "hash_verification": "任何修改前必须验证哈希",
+    "warning_on_mismatch": "哈希不匹配时向用户报警",
+    "recovery_source": "快照文件是恢复源"
+  }
+}
