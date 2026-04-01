@@ -1,11 +1,11 @@
 {
   "2026-04-01": {
     "agent:main:openclaw-weixin:direct:o9cq80z9eorqjasg6hb1w-cc4-po@im.wechat": {
-      "messages": 151,
-      "estimated_tokens": 3921,
-      "input_tokens": 2697,
+      "messages": 152,
+      "estimated_tokens": 3946,
+      "input_tokens": 2722,
       "output_tokens": 1224,
-      "cost_usd": 0.0249
+      "cost_usd": 0.025
     },
     "agent:main:cron:014d1fe3-151a-4ae6-9e69-83ed8ee52337": {
       "messages": 12,
