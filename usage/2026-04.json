@@ -8,11 +8,11 @@
       "cost_usd": 0.0004
     },
     "agent:main:cron:014d1fe3-151a-4ae6-9e69-83ed8ee52337": {
-      "messages": 2,
-      "estimated_tokens": 147,
+      "messages": 3,
+      "estimated_tokens": 214,
       "input_tokens": 0,
-      "output_tokens": 147,
-      "cost_usd": 0.0022
+      "output_tokens": 214,
+      "cost_usd": 0.0032
     },
     "agent:main:xi-pulse-main": {
       "messages": 2,
@@ -29,11 +29,11 @@
       "cost_usd": 0.0061
     },
     "agent:main:cron:293cafc2-cf08-4b91-92dd-98d036dbb4a7": {
-      "messages": 3,
-      "estimated_tokens": 517,
+      "messages": 4,
+      "estimated_tokens": 584,
       "input_tokens": 0,
-      "output_tokens": 517,
-      "cost_usd": 0.0077
+      "output_tokens": 584,
+      "cost_usd": 0.0087
     }
   }
 }
