@@ -1,9 +1,9 @@
 {
   "2026-04-01": {
     "agent:main:openclaw-weixin:direct:o9cq80z9eorqjasg6hb1w-cc4-po@im.wechat": {
-      "messages": 176,
-      "estimated_tokens": 4477,
-      "input_tokens": 3253,
+      "messages": 179,
+      "estimated_tokens": 4489,
+      "input_tokens": 3265,
       "output_tokens": 1224,
       "cost_usd": 0.0266
     },
@@ -50,11 +50,11 @@
       "cost_usd": 0.0048
     },
     "agent:sigma:main": {
-      "messages": 18,
-      "estimated_tokens": 195,
-      "input_tokens": 195,
+      "messages": 19,
+      "estimated_tokens": 227,
+      "input_tokens": 227,
       "output_tokens": 0,
-      "cost_usd": 0.0006
+      "cost_usd": 0.0007
     }
   }
 }
