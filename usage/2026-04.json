@@ -15,11 +15,11 @@
       "cost_usd": 0.0032
     },
     "agent:main:xi-pulse-main": {
-      "messages": 2,
-      "estimated_tokens": 190,
+      "messages": 3,
+      "estimated_tokens": 287,
       "input_tokens": 0,
-      "output_tokens": 190,
-      "cost_usd": 0.0028
+      "output_tokens": 287,
+      "cost_usd": 0.0043
     },
     "agent:main:cron:6f8eef3f-9b09-4c8f-8468-82daae4bb4fe": {
       "messages": 4,

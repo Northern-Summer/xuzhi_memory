@@ -106,6 +106,12 @@ def score_question(question, findings):
 - 已有测试方法（测量信息延迟 vs 系统行为模式转变）
 - 可应用于实际系统优化
 
+**最新文献支持**：
+- "Decision Latency is Killing Your Cloud Budget" (HackerNoon, 2026) — 决策延迟对系统效率的影响
+- "How Latency Shapes Product Decisions in 2026" (AI-Infra-Link) — 延迟与决策的关系
+- Salesforce Data Cloud High-Throughput Service (2026) — 低延迟服务设计
+- "Decision Latency Is the Hidden Bottleneck" (Medium, 2026) — 组织决策延迟分析
+
 ---
 
 ## 问题历史
