@@ -27,8 +27,9 @@
 
 | 框架 | 来源 | 核心贡献 | 优先级 | 发现日期 |
 |------|------|---------|--------|---------|
+| Comprehensive Survey | arXiv:2508.07407 | 统一框架：Inputs/Agent/Environment/Optimisers | P0 | 2026-04-01 |
+| Dr. Zero | arXiv:2601.07055 | 无训练数据自演化，proposer-solver 循环 | P0 | 2026-04-01 |
 | MiroFish | GitHub | 群体智能预测+社会模拟 | P2 | 2026-03-31 |
-| Intrinsic Metacognition | arXiv:2506.05109 | 内在元认知学习，自改进代理 | P0 | 2026-04-01 |
 | MARS | EmergentMind | 元认知代理反思自改进 | P1 | 2026-04-01 |
 | Cognitive Mirror | Frontiers 2025 | AI元认知框架，自我调节学习 | P1 | 2026-04-01 |
 | MemoryCD | arXiv:2603.25973 | 长期记忆基准测试，跨领域个性化 | P1 | 2026-04-01 |
