@@ -31,6 +31,7 @@
 | Intrinsic Metacognition | arXiv:2506.05109 | 内在元认知学习，自改进代理 | P0 | 2026-04-01 |
 | MARS | EmergentMind | 元认知代理反思自改进 | P1 | 2026-04-01 |
 | Cognitive Mirror | Frontiers 2025 | AI元认知框架，自我调节学习 | P1 | 2026-04-01 |
+| MemoryCD | arXiv:2603.25973 | 长期记忆基准测试，跨领域个性化 | P1 | 2026-04-01 |
 
 ### 已学习并应用
 
