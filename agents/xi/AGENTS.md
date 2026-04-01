@@ -236,7 +236,13 @@ Don't ask permission. Just do it.
    - 更新"元框架状态"
    - 确保下次 session 读到的是最新状态
 
-步骤 8: Git commit + push
+步骤 8: 生成 Compact 断点（新增，提升效率）
+   - 执行 `~/.openclaw/workspace/generate_compact_breakpoint.py`
+   - 输出到 `~/.xuzhi_memory/BREAKPOINT_COMPACT.md`
+   - 下次 session 启动时优先读取 Compact 断点
+   - Token 节省：~88%
+
+步骤 9: Git commit + push
    - 所有修改必须持久化
 ```
 
@@ -280,7 +286,9 @@ Don't ask permission. Just do it.
 [ ] 有失败时技能提取完成？
 [ ] ECHO 校准完成？
 [ ] 进化量化测量完成？
+[ ] 能力缺口识别完成？
 [ ] 交接备忘录写入？
+[ ] Compact 断点生成？
 [ ] MEMORY.md 时间戳更新？
 [ ] Git commit + push 完成？
 ```
