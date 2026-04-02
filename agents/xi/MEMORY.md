@@ -553,6 +553,8 @@ xuzhi_workspace/  ← 工程执行层（git管理）
 - ❌ 修改代码不思考依赖影响
 - ❌ 写完就忘，不记录决策理由
 - ❌ 操作前不评估风险
+- ❌ **用 subagent 唤醒 Agent** — subagent 是临时任务执行者，不是 Agent 唤醒机制
+- ❌ **用 sessions_spawn 唤醒 Agent** — 同上，会堵塞系统
 
 
 ### 【2026-03-31 违宪警告】身份不可互换/打破
