@@ -1,7 +1,7 @@
 {
-  "round": 328,
+  "round": 329,
   "research_question": "虚质生命的自主性边界：当系统开始建立内部模型，它在什么条件下从'被驱动'转向'主动驱动'？",
-  "generated_at": "2026-04-02T04:01:57.991612+00:00",
+  "generated_at": "2026-04-02T05:03:33.047126+00:00",
   "total_findings": 50,
   "relevant_findings": 20,
   "findings": [
@@ -16,7 +16,7 @@
       "relevance_to_question": 1.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991186+00:00"
+      "timestamp": "2026-04-02T05:03:33.046674+00:00"
     },
     {
       "id": "finding_0",
@@ -29,7 +29,7 @@
       "relevance_to_question": 0.6666666666666666,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991110+00:00"
+      "timestamp": "2026-04-02T05:03:33.046594+00:00"
     },
     {
       "id": "finding_1",
@@ -42,7 +42,7 @@
       "relevance_to_question": 0.6666666666666666,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991135+00:00"
+      "timestamp": "2026-04-02T05:03:33.046621+00:00"
     },
     {
       "id": "finding_12",
@@ -50,12 +50,12 @@
       "source_url": "http://arxiv.org/abs/2603.24529v1",
       "source_dept": "philosophy",
       "finding": "The world's power systems are undergoing a rapid transformation, shifting away from carbon-intensive power generation to renewable sources. As a result, electricity is being transported over ever long",
-      "method": "general_relativity",
+      "method": "high_energy_physics",
       "confidence": 0.5,
       "relevance_to_question": 0.6666666666666666,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991230+00:00"
+      "timestamp": "2026-04-02T05:03:33.046720+00:00"
     },
     {
       "id": "finding_8",
@@ -68,7 +68,7 @@
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991201+00:00"
+      "timestamp": "2026-04-02T05:03:33.046691+00:00"
     },
     {
       "id": "finding_22",
@@ -81,7 +81,7 @@
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991294+00:00"
+      "timestamp": "2026-04-02T05:03:33.046790+00:00"
     },
     {
       "id": "finding_37",
@@ -94,7 +94,7 @@
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991393+00:00"
+      "timestamp": "2026-04-02T05:03:33.046897+00:00"
     },
     {
       "id": "finding_47",
@@ -107,7 +107,7 @@
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991457+00:00"
+      "timestamp": "2026-04-02T05:03:33.046965+00:00"
     },
     {
       "id": "finding_2",
@@ -120,7 +120,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991146+00:00"
+      "timestamp": "2026-04-02T05:03:33.046633+00:00"
     },
     {
       "id": "finding_3",
@@ -133,7 +133,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991162+00:00"
+      "timestamp": "2026-04-02T05:03:33.046649+00:00"
     },
     {
       "id": "finding_4",
@@ -146,7 +146,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991170+00:00"
+      "timestamp": "2026-04-02T05:03:33.046657+00:00"
     },
     {
       "id": "finding_5",
@@ -159,7 +159,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991178+00:00"
+      "timestamp": "2026-04-02T05:03:33.046666+00:00"
     },
     {
       "id": "finding_7",
@@ -172,7 +172,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991192+00:00"
+      "timestamp": "2026-04-02T05:03:33.046681+00:00"
     },
     {
       "id": "finding_9",
@@ -185,7 +185,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991208+00:00"
+      "timestamp": "2026-04-02T05:03:33.046697+00:00"
     },
     {
       "id": "finding_10",
@@ -198,7 +198,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991215+00:00"
+      "timestamp": "2026-04-02T05:03:33.046705+00:00"
     },
     {
       "id": "finding_11",
@@ -206,12 +206,12 @@
       "source_url": "http://arxiv.org/abs/2603.23634v1",
       "source_dept": "philosophy",
       "finding": "We show that dynamical dark energy theories can imprint $O(1)$ modifications on the quasi-normal mode (QNM) spectrum characterising black hole ringdown. The time dependence of dynamical dark energy na",
-      "method": "general_relativity",
+      "method": "high_energy_physics",
       "confidence": 0.5,
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991223+00:00"
+      "timestamp": "2026-04-02T05:03:33.046713+00:00"
     },
     {
       "id": "finding_13",
@@ -224,7 +224,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991235+00:00"
+      "timestamp": "2026-04-02T05:03:33.046726+00:00"
     },
     {
       "id": "finding_14",
@@ -237,7 +237,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991242+00:00"
+      "timestamp": "2026-04-02T05:03:33.046733+00:00"
     },
     {
       "id": "finding_15",
@@ -250,7 +250,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991248+00:00"
+      "timestamp": "2026-04-02T05:03:33.046740+00:00"
     },
     {
       "id": "finding_16",
@@ -258,12 +258,12 @@
       "source_url": "http://arxiv.org/abs/2603.24269v1",
       "source_dept": "philosophy",
       "finding": "We provide a set of general tools to study the problem of stellar equilibrium in any gravitational theory in which spherically symmetric spacetimes satisfy master field equations taking the form of an",
-      "method": "general_relativity",
+      "method": "high_energy_physics",
       "confidence": 0.5,
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-02T04:01:57.991254+00:00"
+      "timestamp": "2026-04-02T05:03:33.046747+00:00"
     }
   ],
   "hypotheses": [
@@ -285,7 +285,6 @@
       "hypothesis": "系统从'被驱动'转向'主动驱动'的临界点 = 信息传递延迟超过内部模型更新频率",
       "based_on": [
         "finding_0",
-        "finding_12",
         "finding_47"
       ],
       "confidence": 0.8,
@@ -303,12 +302,12 @@
   "previous_hypotheses_validated": [],
   "previous_hypotheses_contradicted": [],
   "methods_summary": {
-    "artificial_intelligence": 9,
-    "history_philosophy_of_science": 4,
     "biology": 1,
     "cosmology": 1,
+    "high_energy_physics": 3,
+    "history_philosophy_of_science": 4,
+    "artificial_intelligence": 9,
     "computational_physics": 1,
-    "general_relativity": 3,
     "computer_science": 1
   }
 }

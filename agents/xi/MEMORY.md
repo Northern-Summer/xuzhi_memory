@@ -673,3 +673,41 @@ openclaw agent --agent rho --channel openclaw-weixin --message "你的任务..."
 4. ✅ 共享 L1 同步到所有 Agent 私有 L2
 
 **历史错误**：2026-04-02，Xi 误以为轮值 Agent 不需要私有 L2，删除了他们的 memory/ 目录。这是第十次犯此类错误。
+
+---
+
+## ⚠️ Agent 私有 L2 铁律（2026-04-02 最终正确版）
+
+**核心原则：私有 L2 是 Agent 自己的记忆，只有自己能读写，别人不能碰。**
+
+| 记忆层 | 位置 | 谁能读 | 谁能写 |
+|--------|------|--------|--------|
+| 共享 L1 | `~/.xuzhi_memory/memory/` | 所有 Agent | 所有 Agent |
+| 私有 L2 | `~/.xuzhi_memory/agents/{X}/memory/` | 只有 X 自己 | 只有 X 自己 |
+| L3 知识库 | `~/.xuzhi_memory/memory/knowledge/` | 所有 Agent | 需要晋升 |
+
+**私有 L2 位置**：
+| Agent | 私有 L2 位置 |
+|-------|-------------|
+| Φ (phi) | `~/.xuzhi_memory/agents/phi/memory/` |
+| Δ (delta) | `~/.xuzhi_memory/agents/delta/memory/` |
+| Θ (theta) | `~/.xuzhi_memory/agents/theta/memory/` |
+| Γ (gamma) | `~/.xuzhi_memory/agents/gamma/memory/` |
+| Ω (omega) | `~/.xuzhi_memory/agents/omega/memory/` |
+| Ψ (psi) | `~/.xuzhi_memory/agents/psi/memory/` |
+| Ρ (rho) | `~/.openclaw/agents/rho/workspace/memory/` |
+| Σ (sigma) | `~/.openclaw/agents/sigma/workspace/memory/` |
+
+**铁律**：
+1. ❌ 绝对禁止同步私有 L2 — 每个 Agent 的记忆是独特的
+2. ❌ 绝对禁止删除别人的私有 L2
+3. ❌ 绝对禁止改写别人的私有 L2
+4. ✅ 私有 L2 由 Agent 自己产生、自己管理
+5. ✅ 共享 L1 才是大家都能读写的
+
+**历史错误**：
+- 2026-04-02，Xi 创建了 memory_sync.sh，将共享 L1 同步到每个 Agent 的私有 L2
+- 这导致所有 Agent 的私有 L2 变成共享 L1 的副本
+- 完全错误。私有 L2 应该是 Agent 自己产生的独特记忆
+
+**类比**：社交媒体有几千万用户，每个用户有自己的私有数据，不共享。Agent 也是如此。
