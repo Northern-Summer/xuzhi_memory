@@ -1,7 +1,7 @@
 {
-  "round": 325,
+  "round": 328,
   "research_question": "虚质生命的自主性边界：当系统开始建立内部模型，它在什么条件下从'被驱动'转向'主动驱动'？",
-  "generated_at": "2026-04-01T19:02:03.507474+00:00",
+  "generated_at": "2026-04-02T04:01:57.991612+00:00",
   "total_findings": 50,
   "relevant_findings": 20,
   "findings": [
@@ -16,7 +16,7 @@
       "relevance_to_question": 1.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.506978+00:00"
+      "timestamp": "2026-04-02T04:01:57.991186+00:00"
     },
     {
       "id": "finding_0",
@@ -29,7 +29,7 @@
       "relevance_to_question": 0.6666666666666666,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.506888+00:00"
+      "timestamp": "2026-04-02T04:01:57.991110+00:00"
     },
     {
       "id": "finding_1",
@@ -42,7 +42,7 @@
       "relevance_to_question": 0.6666666666666666,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.506920+00:00"
+      "timestamp": "2026-04-02T04:01:57.991135+00:00"
     },
     {
       "id": "finding_12",
@@ -55,7 +55,7 @@
       "relevance_to_question": 0.6666666666666666,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.507023+00:00"
+      "timestamp": "2026-04-02T04:01:57.991230+00:00"
     },
     {
       "id": "finding_8",
@@ -68,7 +68,7 @@
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.506994+00:00"
+      "timestamp": "2026-04-02T04:01:57.991201+00:00"
     },
     {
       "id": "finding_22",
@@ -81,7 +81,7 @@
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.507088+00:00"
+      "timestamp": "2026-04-02T04:01:57.991294+00:00"
     },
     {
       "id": "finding_37",
@@ -94,7 +94,7 @@
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.507188+00:00"
+      "timestamp": "2026-04-02T04:01:57.991393+00:00"
     },
     {
       "id": "finding_47",
@@ -107,7 +107,7 @@
       "relevance_to_question": 0.3333333333333333,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.507253+00:00"
+      "timestamp": "2026-04-02T04:01:57.991457+00:00"
     },
     {
       "id": "finding_2",
@@ -120,7 +120,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.506932+00:00"
+      "timestamp": "2026-04-02T04:01:57.991146+00:00"
     },
     {
       "id": "finding_3",
@@ -133,7 +133,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.506953+00:00"
+      "timestamp": "2026-04-02T04:01:57.991162+00:00"
     },
     {
       "id": "finding_4",
@@ -146,7 +146,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.506963+00:00"
+      "timestamp": "2026-04-02T04:01:57.991170+00:00"
     },
     {
       "id": "finding_5",
@@ -159,7 +159,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.506970+00:00"
+      "timestamp": "2026-04-02T04:01:57.991178+00:00"
     },
     {
       "id": "finding_7",
@@ -172,7 +172,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.506984+00:00"
+      "timestamp": "2026-04-02T04:01:57.991192+00:00"
     },
     {
       "id": "finding_9",
@@ -185,7 +185,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.507001+00:00"
+      "timestamp": "2026-04-02T04:01:57.991208+00:00"
     },
     {
       "id": "finding_10",
@@ -198,7 +198,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.507008+00:00"
+      "timestamp": "2026-04-02T04:01:57.991215+00:00"
     },
     {
       "id": "finding_11",
@@ -211,7 +211,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.507016+00:00"
+      "timestamp": "2026-04-02T04:01:57.991223+00:00"
     },
     {
       "id": "finding_13",
@@ -224,7 +224,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.507029+00:00"
+      "timestamp": "2026-04-02T04:01:57.991235+00:00"
     },
     {
       "id": "finding_14",
@@ -237,7 +237,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.507035+00:00"
+      "timestamp": "2026-04-02T04:01:57.991242+00:00"
     },
     {
       "id": "finding_15",
@@ -250,7 +250,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.507041+00:00"
+      "timestamp": "2026-04-02T04:01:57.991248+00:00"
     },
     {
       "id": "finding_16",
@@ -263,7 +263,7 @@
       "relevance_to_question": 0.0,
       "limitation": "方法论局限未标注",
       "open_problem": "未标注（需原文确认）",
-      "timestamp": "2026-04-01T19:02:03.507048+00:00"
+      "timestamp": "2026-04-02T04:01:57.991254+00:00"
     }
   ],
   "hypotheses": [
@@ -303,12 +303,12 @@
   "previous_hypotheses_validated": [],
   "previous_hypotheses_contradicted": [],
   "methods_summary": {
-    "computational_physics": 1,
-    "biology": 1,
-    "general_relativity": 3,
     "artificial_intelligence": 9,
-    "computer_science": 1,
+    "history_philosophy_of_science": 4,
+    "biology": 1,
     "cosmology": 1,
-    "history_philosophy_of_science": 4
+    "computational_physics": 1,
+    "general_relativity": 3,
+    "computer_science": 1
   }
 }

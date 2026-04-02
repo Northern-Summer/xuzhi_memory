@@ -254,3 +254,48 @@ systemctl --user restart openclaw-gateway
 - xuzhi_memory/centers/不存在（无需清理）✅
 - GitHub remote大小写 ✅
 - Git HEAD已更新 ✅
+
+---
+
+## OCR 能力（2026-04-02 集成）
+
+### 概述
+
+集成 **EasyOCR** 作为本地 OCR 引擎，支持从图片和 PDF 中提取文本。
+
+**Skill 路径**：`~/.openclaw/skills/ocr/SKILL.md`
+
+### 环境
+
+- 虚拟环境：`~/.local/venvs/paddleocr`
+- 后端：EasyOCR (PyTorch)
+- 语言支持：80+ 语言（中英日韩等）
+
+### 使用
+
+```bash
+source ~/.local/venvs/paddleocr/bin/activate
+python3 -c "
+import easyocr
+reader = easyocr.Reader(['ch_sim', 'en'], gpu=False)
+result = reader.readtext('image.png')
+for _, text, conf in result:
+    print(f'{text} ({conf:.2f})')
+"
+```
+
+### Library PDF 处理
+
+用户的 PDF 库位于 `/mnt/d/Library`，约 2241 个 PDF 文件。
+
+分类：Papers、Books、Textbooks 等。
+
+### 模型缓存
+
+`~/.EasyOCR/model/`
+
+### 注意
+
+- PaddleOCR 3.x 在当前 CPU 环境有兼容性问题（OneDNN/SIGILL）
+- EasyOCR 是替代方案，PyTorch 后端兼容性更好
+- CPU 模式较慢，GPU 模式快 10-50 倍
