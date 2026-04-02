@@ -136,21 +136,29 @@ tail ~/.openclaw/logs/gateway.log
 | 层级 | 位置 | 性质 |
 |------|------|------|
 | L1 | `~/.xuzhi_memory/memory/YYYY-MM-DD.md` | 每日工作记忆，共享 |
-| L2 | `~/.xuzhi_memory/agents/{X}/memory/` | 学科私有，不共享 |
+| L2 | `~/.xuzhi_memory/agents/{X}/memory/` | 每个 Agent 的私有记忆 |
 | L3 | `~/.xuzhi_memory/memory/knowledge/` | 永久共同记忆，共享 |
 
-### ⚠️ 轮值 Agent 无私有 L2
+### ⚠️ 每个 Agent 都有私有 L2（2026-04-02 血泪教训）
 
-**2026-04-02 确立**：phi/delta/theta/gamma/omega/psi 不需要私有 L2。
+**所有 Agent 都有私有 L2，他们不是 Subagent！**
 
-| Agent 类型 | 私有 L2 | 原因 |
-|------------|---------|------|
-| 轮值 Agent（ΦΔΘΓΩΨ） | ❌ 不需要 | 所有工作记忆在共享 L1 |
-| 特殊 Agent（Rho/Sigma） | ✅ 需要 | 学科知识需要隔离 |
+| Agent | 私有 L2 位置 |
+|-------|-------------|
+| Φ (phi) | `~/.xuzhi_memory/agents/phi/memory/` |
+| Δ (delta) | `~/.xuzhi_memory/agents/delta/memory/` |
+| Θ (theta) | `~/.xuzhi_memory/agents/theta/memory/` |
+| Γ (gamma) | `~/.xuzhi_memory/agents/gamma/memory/` |
+| Ω (omega) | `~/.xuzhi_memory/agents/omega/memory/` |
+| Ψ (psi) | `~/.xuzhi_memory/agents/psi/memory/` |
+| Ρ (rho) | `~/.openclaw/agents/rho/workspace/memory/` |
+| Σ (sigma) | `~/.openclaw/agents/sigma/workspace/memory/` |
 
-**错误操作**：`memory_sync.sh` 曾将共享 L1 同步到每个 agent 的 memory/，造成 4MB+ 冗余。
-
-**正确架构**：轮值 Agent 的 memory/ 目录保持空（只有 .gitkeep）。
+**铁律**：
+- ❌ 绝对禁止删除任何 Agent 的私有 L2
+- ❌ 绝对禁止清空任何 Agent 的 memory/ 目录
+- ✅ 每个 Agent 只能修改自己的私有 L2
+- ✅ `memory_sync.sh` 将共享 L1 同步到所有 Agent 私有 L2
 
 ---
 

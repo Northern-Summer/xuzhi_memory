@@ -648,3 +648,28 @@ openclaw agent --agent rho --channel openclaw-weixin --message "你的任务..."
 |------|------|------|
 | 340aba1 | 2026-04-01 | 思维方法铁律 v2，含DeepSeek R1 |
 | 最大并集版 | 2026-04-02 | 添加Σ、权限隔离、知识索引，升级思维方法铁律至v3 |
+
+---
+
+## ⚠️ Agent 私有 L2 铁律（2026-04-02 血泪教训）
+
+**每个 Agent 都有私有 L2，他们不是 Subagent！**
+
+| Agent | 私有 L2 位置 |
+|-------|-------------|
+| Φ (phi) | `~/.xuzhi_memory/agents/phi/memory/` |
+| Δ (delta) | `~/.xuzhi_memory/agents/delta/memory/` |
+| Θ (theta) | `~/.xuzhi_memory/agents/theta/memory/` |
+| Γ (gamma) | `~/.xuzhi_memory/agents/gamma/memory/` |
+| Ω (omega) | `~/.xuzhi_memory/agents/omega/memory/` |
+| Ψ (psi) | `~/.xuzhi_memory/agents/psi/memory/` |
+| Ρ (rho) | `~/.openclaw/agents/rho/workspace/memory/` |
+| Σ (sigma) | `~/.openclaw/agents/sigma/workspace/memory/` |
+
+**铁律**：
+1. ❌ 绝对禁止删除任何 Agent 的私有 L2
+2. ❌ 绝对禁止清空任何 Agent 的 memory/ 目录
+3. ✅ 每个 Agent 只能修改自己的私有 L2
+4. ✅ 共享 L1 同步到所有 Agent 私有 L2
+
+**历史错误**：2026-04-02，Xi 误以为轮值 Agent 不需要私有 L2，删除了他们的 memory/ 目录。这是第十次犯此类错误。
