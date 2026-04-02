@@ -156,11 +156,26 @@ xuzhi_workspace/  ← 工程执行层（git管理）
 
 ---
 
-## WeChat推送机制（2026-03-27 01:36 验证）
+## Agent 唤醒铁律（2026-04-02 血泪教训）
 
-- subagent sessions_send → 消息即时到WeChat ✅
-- cron isolated + announce → 失败（无WeChat context）
-- 钥匙：维持一个活着的session，消息往里写
+### 正确方式 ✅
+
+**Ξ 用 sessions_send 转发给目标 agent 的 main session**：
+
+```
+sessions_send(
+  sessionKey="agent:rho:main",
+  message="用户的消息或指令"
+)
+```
+
+然后 **Ξ 回复 NO_REPLY**，让目标 agent 直接说话。OpenClaw 会自动把回复 announce 回 WeChat。
+
+### 错误方式 ❌
+
+- `sessions_spawn(subagent)` — Subagent 没有 sessions_send，无法发消息
+- Ξ 扮演 agent — 失去了独立 agent 的意义
+- 直接发消息给 `agent:rho`（没有 `:main` 后缀）— 会失败
 
 ---
 

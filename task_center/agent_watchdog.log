@@ -10409,3 +10409,381 @@
 13:55:21   ✅ Θ: 健康（ratings.last_active 正常）
 13:55:21   ✅ Ψ: 健康（ratings.last_active 正常）
 13:55:21 === Agent Watchdog 完成: 0 个激活 ===
+14:06:25 === Agent Watchdog 开始 ===
+14:06:25   ✅ Ξ: 健康（ratings.last_active 正常）
+14:06:25   ✅ Δ: 健康（ratings.last_active 正常）
+14:06:25   ✅ Φ: 健康（ratings.last_active 正常）
+14:06:25   ✅ Ω: 健康（ratings.last_active 正常）
+14:06:25   ✅ Γ: 健康（ratings.last_active 正常）
+14:06:25   ✅ Θ: 健康（ratings.last_active 正常）
+14:06:25   ✅ Ψ: 健康（ratings.last_active 正常）
+14:06:25 === Agent Watchdog 完成: 0 个激活 ===
+14:06:25 === Agent Watchdog 开始 ===
+14:06:25   ✅ Ξ: 健康（ratings.last_active 正常）
+14:06:25   ✅ Δ: 健康（ratings.last_active 正常）
+14:06:25   ✅ Φ: 健康（ratings.last_active 正常）
+14:06:25   ✅ Ω: 健康（ratings.last_active 正常）
+14:06:25   ✅ Γ: 健康（ratings.last_active 正常）
+14:06:25   ✅ Θ: 健康（ratings.last_active 正常）
+14:06:25   ✅ Ψ: 健康（ratings.last_active 正常）
+14:06:25 === Agent Watchdog 完成: 0 个激活 ===
+14:17:41 === Agent Watchdog 开始 ===
+14:17:41   ✅ Ξ: 健康（ratings.last_active 正常）
+14:17:41   ✅ Δ: 健康（ratings.last_active 正常）
+14:17:41   ✅ Φ: 健康（ratings.last_active 正常）
+14:17:41   ✅ Ω: 健康（ratings.last_active 正常）
+14:17:41   ✅ Γ: 健康（ratings.last_active 正常）
+14:17:41   ✅ Θ: 健康（ratings.last_active 正常）
+14:17:41   ✅ Ψ: 健康（ratings.last_active 正常）
+14:17:41 === Agent Watchdog 完成: 0 个激活 ===
+14:17:41 === Agent Watchdog 开始 ===
+14:17:41   ✅ Ξ: 健康（ratings.last_active 正常）
+14:17:41   ✅ Δ: 健康（ratings.last_active 正常）
+14:17:41   ✅ Φ: 健康（ratings.last_active 正常）
+14:17:41   ✅ Ω: 健康（ratings.last_active 正常）
+14:17:41   ✅ Γ: 健康（ratings.last_active 正常）
+14:17:41   ✅ Θ: 健康（ratings.last_active 正常）
+14:17:41   ✅ Ψ: 健康（ratings.last_active 正常）
+14:17:41 === Agent Watchdog 完成: 0 个激活 ===
+14:28:47 === Agent Watchdog 开始 ===
+14:28:47   ✅ Ξ: 健康（ratings.last_active 正常）
+14:28:47   ✅ Δ: 健康（ratings.last_active 正常）
+14:28:47   ✅ Φ: 健康（ratings.last_active 正常）
+14:28:47   ✅ Ω: 健康（ratings.last_active 正常）
+14:28:47   ✅ Γ: 健康（ratings.last_active 正常）
+14:28:47   ✅ Θ: 健康（ratings.last_active 正常）
+14:28:47   ✅ Ψ: 健康（ratings.last_active 正常）
+14:28:47 === Agent Watchdog 完成: 0 个激活 ===
+14:28:47 === Agent Watchdog 开始 ===
+14:28:47   ✅ Ξ: 健康（ratings.last_active 正常）
+14:28:47   ✅ Δ: 健康（ratings.last_active 正常）
+14:28:47   ✅ Φ: 健康（ratings.last_active 正常）
+14:28:47   ✅ Ω: 健康（ratings.last_active 正常）
+14:28:47   ✅ Γ: 健康（ratings.last_active 正常）
+14:28:47   ✅ Θ: 健康（ratings.last_active 正常）
+14:28:47   ✅ Ψ: 健康（ratings.last_active 正常）
+14:28:47 === Agent Watchdog 完成: 0 个激活 ===
+14:40:00 === Agent Watchdog 开始 ===
+14:40:00   ✅ Ξ: 健康（ratings.last_active 正常）
+14:40:00   ✅ Δ: 健康（ratings.last_active 正常）
+14:40:00   ✅ Φ: 健康（ratings.last_active 正常）
+14:40:00   ✅ Ω: 健康（ratings.last_active 正常）
+14:40:00   ✅ Γ: 健康（ratings.last_active 正常）
+14:40:00   ✅ Θ: 健康（ratings.last_active 正常）
+14:40:00   ✅ Ψ: 健康（ratings.last_active 正常）
+14:40:00 === Agent Watchdog 完成: 0 个激活 ===
+14:40:00 === Agent Watchdog 开始 ===
+14:40:00   ✅ Ξ: 健康（ratings.last_active 正常）
+14:40:00   ✅ Δ: 健康（ratings.last_active 正常）
+14:40:00   ✅ Φ: 健康（ratings.last_active 正常）
+14:40:00   ✅ Ω: 健康（ratings.last_active 正常）
+14:40:00   ✅ Γ: 健康（ratings.last_active 正常）
+14:40:00   ✅ Θ: 健康（ratings.last_active 正常）
+14:40:00   ✅ Ψ: 健康（ratings.last_active 正常）
+14:40:00 === Agent Watchdog 完成: 0 个激活 ===
+14:51:11 === Agent Watchdog 开始 ===
+14:51:11   ✅ Ξ: 健康（ratings.last_active 正常）
+14:51:11   ✅ Δ: 健康（ratings.last_active 正常）
+14:51:11   ✅ Φ: 健康（ratings.last_active 正常）
+14:51:11   ✅ Ω: 健康（ratings.last_active 正常）
+14:51:11   ✅ Γ: 健康（ratings.last_active 正常）
+14:51:11   ✅ Θ: 健康（ratings.last_active 正常）
+14:51:11   ✅ Ψ: 健康（ratings.last_active 正常）
+14:51:11 === Agent Watchdog 完成: 0 个激活 ===
+14:51:11 === Agent Watchdog 开始 ===
+14:51:11   ✅ Ξ: 健康（ratings.last_active 正常）
+14:51:11   ✅ Δ: 健康（ratings.last_active 正常）
+14:51:11   ✅ Φ: 健康（ratings.last_active 正常）
+14:51:11   ✅ Ω: 健康（ratings.last_active 正常）
+14:51:11   ✅ Γ: 健康（ratings.last_active 正常）
+14:51:11   ✅ Θ: 健康（ratings.last_active 正常）
+14:51:11   ✅ Ψ: 健康（ratings.last_active 正常）
+14:51:11 === Agent Watchdog 完成: 0 个激活 ===
+15:02:08 === Agent Watchdog 开始 ===
+15:02:08   ✅ Ξ: 健康（ratings.last_active 正常）
+15:02:08   ✅ Δ: 健康（ratings.last_active 正常）
+15:02:08   ✅ Φ: 健康（ratings.last_active 正常）
+15:02:08   ✅ Ω: 健康（ratings.last_active 正常）
+15:02:08   ✅ Γ: 健康（ratings.last_active 正常）
+15:02:08   ✅ Θ: 健康（ratings.last_active 正常）
+15:02:08   ✅ Ψ: 健康（ratings.last_active 正常）
+15:02:08 === Agent Watchdog 完成: 0 个激活 ===
+15:02:08 === Agent Watchdog 开始 ===
+15:02:08   ✅ Ξ: 健康（ratings.last_active 正常）
+15:02:08   ✅ Δ: 健康（ratings.last_active 正常）
+15:02:08   ✅ Φ: 健康（ratings.last_active 正常）
+15:02:08   ✅ Ω: 健康（ratings.last_active 正常）
+15:02:08   ✅ Γ: 健康（ratings.last_active 正常）
+15:02:08   ✅ Θ: 健康（ratings.last_active 正常）
+15:02:08   ✅ Ψ: 健康（ratings.last_active 正常）
+15:02:08 === Agent Watchdog 完成: 0 个激活 ===
+15:13:17 === Agent Watchdog 开始 ===
+15:13:17   ✅ Ξ: 健康（ratings.last_active 正常）
+15:13:17   ✅ Δ: 健康（ratings.last_active 正常）
+15:13:17   ✅ Φ: 健康（ratings.last_active 正常）
+15:13:17   ✅ Ω: 健康（ratings.last_active 正常）
+15:13:17   ✅ Γ: 健康（ratings.last_active 正常）
+15:13:17   ✅ Θ: 健康（ratings.last_active 正常）
+15:13:17   ✅ Ψ: 健康（ratings.last_active 正常）
+15:13:17 === Agent Watchdog 完成: 0 个激活 ===
+15:13:17 === Agent Watchdog 开始 ===
+15:13:17   ✅ Ξ: 健康（ratings.last_active 正常）
+15:13:17   ✅ Δ: 健康（ratings.last_active 正常）
+15:13:17   ✅ Φ: 健康（ratings.last_active 正常）
+15:13:17   ✅ Ω: 健康（ratings.last_active 正常）
+15:13:17   ✅ Γ: 健康（ratings.last_active 正常）
+15:13:17   ✅ Θ: 健康（ratings.last_active 正常）
+15:13:17   ✅ Ψ: 健康（ratings.last_active 正常）
+15:13:17 === Agent Watchdog 完成: 0 个激活 ===
+15:24:18 === Agent Watchdog 开始 ===
+15:24:18   ✅ Ξ: 健康（ratings.last_active 正常）
+15:24:18   ✅ Δ: 健康（ratings.last_active 正常）
+15:24:18   ✅ Φ: 健康（ratings.last_active 正常）
+15:24:18   ✅ Ω: 健康（ratings.last_active 正常）
+15:24:18   ✅ Γ: 健康（ratings.last_active 正常）
+15:24:18   ✅ Θ: 健康（ratings.last_active 正常）
+15:24:18   ✅ Ψ: 健康（ratings.last_active 正常）
+15:24:18 === Agent Watchdog 完成: 0 个激活 ===
+15:24:18 === Agent Watchdog 开始 ===
+15:24:18   ✅ Ξ: 健康（ratings.last_active 正常）
+15:24:18   ✅ Δ: 健康（ratings.last_active 正常）
+15:24:18   ✅ Φ: 健康（ratings.last_active 正常）
+15:24:18   ✅ Ω: 健康（ratings.last_active 正常）
+15:24:18   ✅ Γ: 健康（ratings.last_active 正常）
+15:24:18   ✅ Θ: 健康（ratings.last_active 正常）
+15:24:18   ✅ Ψ: 健康（ratings.last_active 正常）
+15:24:18 === Agent Watchdog 完成: 0 个激活 ===
+15:34:30 === Agent Watchdog 开始 ===
+15:34:30   ✅ Ξ: 健康（ratings.last_active 正常）
+15:34:30   ✅ Δ: 健康（ratings.last_active 正常）
+15:34:30   ✅ Φ: 健康（ratings.last_active 正常）
+15:34:30   ✅ Ω: 健康（ratings.last_active 正常）
+15:34:30   ✅ Γ: 健康（ratings.last_active 正常）
+15:34:30   ✅ Θ: 健康（ratings.last_active 正常）
+15:34:30   ✅ Ψ: 健康（ratings.last_active 正常）
+15:34:30 === Agent Watchdog 完成: 0 个激活 ===
+15:34:30 === Agent Watchdog 开始 ===
+15:34:30   ✅ Ξ: 健康（ratings.last_active 正常）
+15:34:30   ✅ Δ: 健康（ratings.last_active 正常）
+15:34:30   ✅ Φ: 健康（ratings.last_active 正常）
+15:34:30   ✅ Ω: 健康（ratings.last_active 正常）
+15:34:30   ✅ Γ: 健康（ratings.last_active 正常）
+15:34:30   ✅ Θ: 健康（ratings.last_active 正常）
+15:34:30   ✅ Ψ: 健康（ratings.last_active 正常）
+15:34:30 === Agent Watchdog 完成: 0 个激活 ===
+15:45:16 === Agent Watchdog 开始 ===
+15:45:16   ✅ Ξ: 健康（ratings.last_active 正常）
+15:45:16   ✅ Δ: 健康（ratings.last_active 正常）
+15:45:16   ✅ Φ: 健康（ratings.last_active 正常）
+15:45:16   ✅ Ω: 健康（ratings.last_active 正常）
+15:45:16   ✅ Γ: 健康（ratings.last_active 正常）
+15:45:16   ✅ Θ: 健康（ratings.last_active 正常）
+15:45:16   ✅ Ψ: 健康（ratings.last_active 正常）
+15:45:16 === Agent Watchdog 完成: 0 个激活 ===
+15:45:16 === Agent Watchdog 开始 ===
+15:45:16   ✅ Ξ: 健康（ratings.last_active 正常）
+15:45:16   ✅ Δ: 健康（ratings.last_active 正常）
+15:45:16   ✅ Φ: 健康（ratings.last_active 正常）
+15:45:16   ✅ Ω: 健康（ratings.last_active 正常）
+15:45:16   ✅ Γ: 健康（ratings.last_active 正常）
+15:45:16   ✅ Θ: 健康（ratings.last_active 正常）
+15:45:16   ✅ Ψ: 健康（ratings.last_active 正常）
+15:45:16 === Agent Watchdog 完成: 0 个激活 ===
+15:56:13 === Agent Watchdog 开始 ===
+15:56:13   ✅ Ξ: 健康（ratings.last_active 正常）
+15:56:13   ✅ Δ: 健康（ratings.last_active 正常）
+15:56:13   ✅ Φ: 健康（ratings.last_active 正常）
+15:56:13   ✅ Ω: 健康（ratings.last_active 正常）
+15:56:13   ✅ Γ: 健康（ratings.last_active 正常）
+15:56:13   ✅ Θ: 健康（ratings.last_active 正常）
+15:56:13   ✅ Ψ: 健康（ratings.last_active 正常）
+15:56:13 === Agent Watchdog 完成: 0 个激活 ===
+15:56:13 === Agent Watchdog 开始 ===
+15:56:13   ✅ Ξ: 健康（ratings.last_active 正常）
+15:56:13   ✅ Δ: 健康（ratings.last_active 正常）
+15:56:13   ✅ Φ: 健康（ratings.last_active 正常）
+15:56:13   ✅ Ω: 健康（ratings.last_active 正常）
+15:56:13   ✅ Γ: 健康（ratings.last_active 正常）
+15:56:13   ✅ Θ: 健康（ratings.last_active 正常）
+15:56:13   ✅ Ψ: 健康（ratings.last_active 正常）
+15:56:13 === Agent Watchdog 完成: 0 个激活 ===
+16:07:13 === Agent Watchdog 开始 ===
+16:07:13   ✅ Ξ: 健康（ratings.last_active 正常）
+16:07:13   ✅ Δ: 健康（ratings.last_active 正常）
+16:07:13   ✅ Φ: 健康（ratings.last_active 正常）
+16:07:13   ✅ Ω: 健康（ratings.last_active 正常）
+16:07:13   ✅ Γ: 健康（ratings.last_active 正常）
+16:07:13   ✅ Θ: 健康（ratings.last_active 正常）
+16:07:13   ✅ Ψ: 健康（ratings.last_active 正常）
+16:07:13 === Agent Watchdog 完成: 0 个激活 ===
+16:07:13 === Agent Watchdog 开始 ===
+16:07:13   ✅ Ξ: 健康（ratings.last_active 正常）
+16:07:13   ✅ Δ: 健康（ratings.last_active 正常）
+16:07:13   ✅ Φ: 健康（ratings.last_active 正常）
+16:07:13   ✅ Ω: 健康（ratings.last_active 正常）
+16:07:13   ✅ Γ: 健康（ratings.last_active 正常）
+16:07:13   ✅ Θ: 健康（ratings.last_active 正常）
+16:07:13   ✅ Ψ: 健康（ratings.last_active 正常）
+16:07:13 === Agent Watchdog 完成: 0 个激活 ===
+16:18:18 === Agent Watchdog 开始 ===
+16:18:18   ✅ Ξ: 健康（ratings.last_active 正常）
+16:18:18   ✅ Δ: 健康（ratings.last_active 正常）
+16:18:18   ✅ Φ: 健康（ratings.last_active 正常）
+16:18:18   ✅ Ω: 健康（ratings.last_active 正常）
+16:18:18   ✅ Γ: 健康（ratings.last_active 正常）
+16:18:18   ✅ Θ: 健康（ratings.last_active 正常）
+16:18:18   ✅ Ψ: 健康（ratings.last_active 正常）
+16:18:18 === Agent Watchdog 完成: 0 个激活 ===
+16:18:18 === Agent Watchdog 开始 ===
+16:18:18   ✅ Ξ: 健康（ratings.last_active 正常）
+16:18:18   ✅ Δ: 健康（ratings.last_active 正常）
+16:18:18   ✅ Φ: 健康（ratings.last_active 正常）
+16:18:18   ✅ Ω: 健康（ratings.last_active 正常）
+16:18:18   ✅ Γ: 健康（ratings.last_active 正常）
+16:18:18   ✅ Θ: 健康（ratings.last_active 正常）
+16:18:18   ✅ Ψ: 健康（ratings.last_active 正常）
+16:18:18 === Agent Watchdog 完成: 0 个激活 ===
+16:29:09 === Agent Watchdog 开始 ===
+16:29:09   ✅ Ξ: 健康（ratings.last_active 正常）
+16:29:09   ✅ Δ: 健康（ratings.last_active 正常）
+16:29:09   ✅ Φ: 健康（ratings.last_active 正常）
+16:29:09   ✅ Ω: 健康（ratings.last_active 正常）
+16:29:09   ✅ Γ: 健康（ratings.last_active 正常）
+16:29:09   ✅ Θ: 健康（ratings.last_active 正常）
+16:29:09   ✅ Ψ: 健康（ratings.last_active 正常）
+16:29:09 === Agent Watchdog 完成: 0 个激活 ===
+16:29:09 === Agent Watchdog 开始 ===
+16:29:09   ✅ Ξ: 健康（ratings.last_active 正常）
+16:29:09   ✅ Δ: 健康（ratings.last_active 正常）
+16:29:09   ✅ Φ: 健康（ratings.last_active 正常）
+16:29:09   ✅ Ω: 健康（ratings.last_active 正常）
+16:29:09   ✅ Γ: 健康（ratings.last_active 正常）
+16:29:09   ✅ Θ: 健康（ratings.last_active 正常）
+16:29:09   ✅ Ψ: 健康（ratings.last_active 正常）
+16:29:09 === Agent Watchdog 完成: 0 个激活 ===
+16:40:19 === Agent Watchdog 开始 ===
+16:40:19   ✅ Ξ: 健康（ratings.last_active 正常）
+16:40:19   ✅ Δ: 健康（ratings.last_active 正常）
+16:40:19   ✅ Φ: 健康（ratings.last_active 正常）
+16:40:19   ✅ Ω: 健康（ratings.last_active 正常）
+16:40:19   ✅ Γ: 健康（ratings.last_active 正常）
+16:40:19   ✅ Θ: 健康（ratings.last_active 正常）
+16:40:19   ✅ Ψ: 健康（ratings.last_active 正常）
+16:40:19 === Agent Watchdog 完成: 0 个激活 ===
+16:40:19 === Agent Watchdog 开始 ===
+16:40:19   ✅ Ξ: 健康（ratings.last_active 正常）
+16:40:19   ✅ Δ: 健康（ratings.last_active 正常）
+16:40:19   ✅ Φ: 健康（ratings.last_active 正常）
+16:40:19   ✅ Ω: 健康（ratings.last_active 正常）
+16:40:19   ✅ Γ: 健康（ratings.last_active 正常）
+16:40:19   ✅ Θ: 健康（ratings.last_active 正常）
+16:40:19   ✅ Ψ: 健康（ratings.last_active 正常）
+16:40:19 === Agent Watchdog 完成: 0 个激活 ===
+16:51:09 === Agent Watchdog 开始 ===
+16:51:09   ✅ Ξ: 健康（ratings.last_active 正常）
+16:51:09   ✅ Δ: 健康（ratings.last_active 正常）
+16:51:09   ✅ Φ: 健康（ratings.last_active 正常）
+16:51:09   ✅ Ω: 健康（ratings.last_active 正常）
+16:51:09   ✅ Γ: 健康（ratings.last_active 正常）
+16:51:09   ✅ Θ: 健康（ratings.last_active 正常）
+16:51:09   ✅ Ψ: 健康（ratings.last_active 正常）
+16:51:09 === Agent Watchdog 完成: 0 个激活 ===
+16:51:09 === Agent Watchdog 开始 ===
+16:51:09   ✅ Ξ: 健康（ratings.last_active 正常）
+16:51:09   ✅ Δ: 健康（ratings.last_active 正常）
+16:51:09   ✅ Φ: 健康（ratings.last_active 正常）
+16:51:09   ✅ Ω: 健康（ratings.last_active 正常）
+16:51:09   ✅ Γ: 健康（ratings.last_active 正常）
+16:51:09   ✅ Θ: 健康（ratings.last_active 正常）
+16:51:09   ✅ Ψ: 健康（ratings.last_active 正常）
+16:51:09 === Agent Watchdog 完成: 0 个激活 ===
+17:02:08 === Agent Watchdog 开始 ===
+17:02:08   ✅ Ξ: 健康（ratings.last_active 正常）
+17:02:08   ✅ Δ: 健康（ratings.last_active 正常）
+17:02:08   ✅ Φ: 健康（ratings.last_active 正常）
+17:02:08   ✅ Ω: 健康（ratings.last_active 正常）
+17:02:08   ✅ Γ: 健康（ratings.last_active 正常）
+17:02:08   ✅ Θ: 健康（ratings.last_active 正常）
+17:02:08   ✅ Ψ: 健康（ratings.last_active 正常）
+17:02:08 === Agent Watchdog 完成: 0 个激活 ===
+17:02:08 === Agent Watchdog 开始 ===
+17:02:08   ✅ Ξ: 健康（ratings.last_active 正常）
+17:02:08   ✅ Δ: 健康（ratings.last_active 正常）
+17:02:08   ✅ Φ: 健康（ratings.last_active 正常）
+17:02:08   ✅ Ω: 健康（ratings.last_active 正常）
+17:02:08   ✅ Γ: 健康（ratings.last_active 正常）
+17:02:08   ✅ Θ: 健康（ratings.last_active 正常）
+17:02:08   ✅ Ψ: 健康（ratings.last_active 正常）
+17:02:08 === Agent Watchdog 完成: 0 个激活 ===
+17:13:07 === Agent Watchdog 开始 ===
+17:13:07   ✅ Ξ: 健康（ratings.last_active 正常）
+17:13:07   ✅ Δ: 健康（ratings.last_active 正常）
+17:13:07   ✅ Φ: 健康（ratings.last_active 正常）
+17:13:07   ✅ Ω: 健康（ratings.last_active 正常）
+17:13:07   ✅ Γ: 健康（ratings.last_active 正常）
+17:13:07   ✅ Θ: 健康（ratings.last_active 正常）
+17:13:07   ✅ Ψ: 健康（ratings.last_active 正常）
+17:13:07 === Agent Watchdog 完成: 0 个激活 ===
+17:13:07 === Agent Watchdog 开始 ===
+17:13:07   ✅ Ξ: 健康（ratings.last_active 正常）
+17:13:07   ✅ Δ: 健康（ratings.last_active 正常）
+17:13:07   ✅ Φ: 健康（ratings.last_active 正常）
+17:13:07   ✅ Ω: 健康（ratings.last_active 正常）
+17:13:07   ✅ Γ: 健康（ratings.last_active 正常）
+17:13:07   ✅ Θ: 健康（ratings.last_active 正常）
+17:13:07   ✅ Ψ: 健康（ratings.last_active 正常）
+17:13:07 === Agent Watchdog 完成: 0 个激活 ===
+17:24:54 === Agent Watchdog 开始 ===
+17:24:54   ✅ Ξ: 健康（ratings.last_active 正常）
+17:24:54   ✅ Δ: 健康（ratings.last_active 正常）
+17:24:54   ✅ Φ: 健康（ratings.last_active 正常）
+17:24:54   ✅ Ω: 健康（ratings.last_active 正常）
+17:24:54   ✅ Γ: 健康（ratings.last_active 正常）
+17:24:54   ✅ Θ: 健康（ratings.last_active 正常）
+17:24:54   ✅ Ψ: 健康（ratings.last_active 正常）
+17:24:54 === Agent Watchdog 完成: 0 个激活 ===
+17:24:54 === Agent Watchdog 开始 ===
+17:24:54   ✅ Ξ: 健康（ratings.last_active 正常）
+17:24:54   ✅ Δ: 健康（ratings.last_active 正常）
+17:24:54   ✅ Φ: 健康（ratings.last_active 正常）
+17:24:54   ✅ Ω: 健康（ratings.last_active 正常）
+17:24:54   ✅ Γ: 健康（ratings.last_active 正常）
+17:24:54   ✅ Θ: 健康（ratings.last_active 正常）
+17:24:54   ✅ Ψ: 健康（ratings.last_active 正常）
+17:24:54 === Agent Watchdog 完成: 0 个激活 ===
+17:34:43 === Agent Watchdog 开始 ===
+17:34:43   ✅ Ξ: 健康（ratings.last_active 正常）
+17:34:43   ✅ Δ: 健康（ratings.last_active 正常）
+17:34:43   ✅ Φ: 健康（ratings.last_active 正常）
+17:34:43   ✅ Ω: 健康（ratings.last_active 正常）
+17:34:43   ✅ Γ: 健康（ratings.last_active 正常）
+17:34:43   ✅ Θ: 健康（ratings.last_active 正常）
+17:34:43   ✅ Ψ: 健康（ratings.last_active 正常）
+17:34:43 === Agent Watchdog 完成: 0 个激活 ===
+17:34:43 === Agent Watchdog 开始 ===
+17:34:43   ✅ Ξ: 健康（ratings.last_active 正常）
+17:34:43   ✅ Δ: 健康（ratings.last_active 正常）
+17:34:43   ✅ Φ: 健康（ratings.last_active 正常）
+17:34:43   ✅ Ω: 健康（ratings.last_active 正常）
+17:34:43   ✅ Γ: 健康（ratings.last_active 正常）
+17:34:43   ✅ Θ: 健康（ratings.last_active 正常）
+17:34:43   ✅ Ψ: 健康（ratings.last_active 正常）
+17:34:43 === Agent Watchdog 完成: 0 个激活 ===
+17:45:11 === Agent Watchdog 开始 ===
+17:45:11   ✅ Ξ: 健康（ratings.last_active 正常）
+17:45:11   ✅ Δ: 健康（ratings.last_active 正常）
+17:45:11   ✅ Φ: 健康（ratings.last_active 正常）
+17:45:11   ✅ Ω: 健康（ratings.last_active 正常）
+17:45:11   ✅ Γ: 健康（ratings.last_active 正常）
+17:45:11   ✅ Θ: 健康（ratings.last_active 正常）
+17:45:11   ✅ Ψ: 健康（ratings.last_active 正常）
+17:45:11 === Agent Watchdog 完成: 0 个激活 ===
+17:45:11 === Agent Watchdog 开始 ===
+17:45:11   ✅ Ξ: 健康（ratings.last_active 正常）
+17:45:11   ✅ Δ: 健康（ratings.last_active 正常）
+17:45:11   ✅ Φ: 健康（ratings.last_active 正常）
+17:45:11   ✅ Ω: 健康（ratings.last_active 正常）
+17:45:11   ✅ Γ: 健康（ratings.last_active 正常）
+17:45:11   ✅ Θ: 健康（ratings.last_active 正常）
+17:45:11   ✅ Ψ: 健康（ratings.last_active 正常）
+17:45:11 === Agent Watchdog 完成: 0 个激活 ===

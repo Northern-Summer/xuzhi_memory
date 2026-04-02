@@ -3279,3 +3279,43 @@ Traceback (most recent call last):
   File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
     raise TimeoutExpired(
 subprocess.TimeoutExpired: Command '['openclaw', 'message', 'send', '--channel', 'openclaw-weixin', '--target', 'o9cq80z9eorqJasg6hB1W-Cc4-Po@im.wechat', '--message', "📊 Round 329 | 05:03\n置信度: 80%\n• 当内部模型的预测粒度足够细（压缩损失<阈值），系统从'被驱动'转变为'主动驱动'\n• 系统从'被驱动'转向'主动驱动'的临界点 = 信息传递延迟超过内部模型更新频率\n系统在线，运行正常"]' timed out after 15 seconds
+[2026-04-02 06:02:02] [INFO] Context使用率: 7%
+[2026-04-02 06:02:02] [INFO] ✅ 优雅原则检查通过
+Context使用率: 7%
+[06:02:02] force 模式
+[06:02:02] === research_loop 开始 ===
+[06:02:02] 0. peer_review...
+[06:02:02] ✅ peer_review 完成
+[06:02:02] 1. expert_synthesizer...
+[06:02:02] ✅ synthesizer 完成
+[06:02:02] ✅ 循环完成: round 330 conf=0.80
+[2026-04-02 07:02:01] [INFO] Context使用率: 9%
+[2026-04-02 07:02:01] [INFO] ✅ 优雅原则检查通过
+Context使用率: 9%
+[07:02:01] force 模式
+[07:02:01] === research_loop 开始 ===
+[07:02:01] 0. peer_review...
+[07:02:01] ✅ peer_review 完成
+[07:02:01] 1. expert_synthesizer...
+[07:02:01] ✅ synthesizer 完成
+[07:02:01] ✅ 循环完成: round 331 conf=0.80
+[2026-04-02 08:01:58] [INFO] Context使用率: 10%
+[2026-04-02 08:01:58] [INFO] ✅ 优雅原则检查通过
+Context使用率: 10%
+[08:01:58] force 模式
+[08:01:58] === research_loop 开始 ===
+[08:01:58] 0. peer_review...
+[08:01:58] ✅ peer_review 完成
+[08:01:58] 1. expert_synthesizer...
+[08:01:58] ✅ synthesizer 完成
+[08:01:58] ✅ 循环完成: round 332 conf=0.78
+[2026-04-02 09:02:02] [INFO] Context使用率: 11%
+[2026-04-02 09:02:02] [INFO] ✅ 优雅原则检查通过
+Context使用率: 11%
+[09:02:02] force 模式
+[09:02:02] === research_loop 开始 ===
+[09:02:02] 0. peer_review...
+[09:02:03] ✅ peer_review 完成
+[09:02:03] 1. expert_synthesizer...
+[09:02:03] ✅ synthesizer 完成
+[09:02:03] ✅ 循环完成: round 333 conf=0.78
