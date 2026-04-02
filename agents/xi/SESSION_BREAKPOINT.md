@@ -1,87 +1,47 @@
 # SESSION_BREAKPOINT.md — Ξ 断点文件
 
 > 此文件由 Memory Guardian 自动维护
-> 最后更新：2026-04-02 03:45 GMT+8
-> ⚠️ 断点无缝接续是安全铁律第15条 — 每次开始/结束必须验证
+> 最后更新：2026-04-02 16:54 GMT+8
 
 ## 当前断点
 
 ```yaml
-session_id: "agent:main:openclaw-control-ui"
-updated_at: "2026-04-02 03:45 GMT+8"
-status: "active"
-
-today_events:
-  - time: "00:06"
-    event: "仿写任务启动（每天21:00，D/library书籍）"
-  - time: "00:20"
-    event: "普罗提诺导读仿写完成（3500字）"
-  - time: "00:30"
-    event: "用户反馈：59分，机器感指纹问题"
-  - time: "02:15"
-    event: "Σ (Sigma) 降生 — 心理分析Agent"
-  - time: "03:17-03:20"
-    event: "幻觉事件 — 断言备份目录不存在，实际存在"
-  - time: "03:24-03:26"
-    event: "六层机制修复 — Git PAT安全 + 同步脚本 + cron"
-  - time: "03:41"
-    event: "Hooks启用 — xi-session-end/start"
-  - time: "03:45"
-    event: "断点无缝接续纳入安全铁律第15条"
+session_id: "agent:main:openclaw-weixin"
+updated_at: "2026-04-02 16:54 GMT+8"
+status: "context_96%"
 
 pending_tasks:
-  - task: "仿写机器感指纹优化"
-    priority: "P1"
-    context: "'不是...而是...'句式过多"
-  - task: "下次/new验证断点恢复"
+  - task: "用炒股框架重新分析 002297 博云新材"
     priority: "P0"
-    context: "安全铁律第15条"
+    note: "用户批评我用投资框架，需要技术面+资金+情绪"
+  - task: "用炒股框架重新分析 601218 吉鑫科技"
+    priority: "P0"
+    note: "用户说是历史低位，需验证技术位置"
+
+critical_insight: |
+  用户要的是"炒股成功"，不是"投资成功"。
+  投资 = 价值发现（ROE、PE、基本面）
+  炒股 = 趋势跟随（K线、量价、资金流向、情绪）
+  
+  我刚才用错了框架。
+
+today_events:
+  - time: "14:22"
+    event: "DNS 永久修复"
+  - time: "14:48"
+    event: "Σ 心跳机制上线"
+  - time: "16:10-16:50"
+    event: "股票分析（用错框架）"
+  - time: "16:54"
+    event: "用户批评：投资≠炒股"
 
 system:
-  hooks: "10/10 ready"
-  cron: "7个任务正常"
-  git_memory: "clean"
-  gateway: "active"
-
-agent_lineup:
-  rotating: ["xi", "phi", "delta", "gamma", "theta", "omega", "psi"]
-  special: ["rho", "sigma"]
-  total: 9
-
-today_duty: "omega"
-
-checkpoint_verified:
-  breakpoint_updated: true
-  today_memory_written: true
-  git_synced: true
+  context_usage: "96%"
+  recommendation: "用户 /new 后继续"
 ```
 
----
+## 关键记忆路径
 
-## 验证清单（每次 session 开始必查）
-
-| # | 检查项 | 状态 |
-|---|--------|------|
-| 1 | Hook 是否注入断点？ | 待验证 |
-| 2 | LATEST.md 是否指向今日？ | ✅ |
-| 3 | 是否正确使用注入内容？ | 待验证 |
-
----
-
-## 断点历史
-
-### 2026-04-02 03:45 — 安全铁律第15条
-
-断点无缝接续纳入安全铁律。
-
-### 2026-04-02 03:43 — Hooks 配置完成
-
-所有 10 个 hooks 就绪，xi-session-end/start 已启用。
-
-### 2026-04-02 03:26 — 六层机制修复
-
-Git PAT 安全修复，同步脚本修复，memory-sync cron 添加。
-
-### 2026-04-02 02:15 — Σ 降生
-
-第9个Agent降生，心理分析/主体性研究。
+- 今日记忆: `~/.xuzhi_memory/memory/2026-04-02.md`
+- 炒股框架: `~/.xuzhi_memory/memory/A_STOCK_FRAMEWORK.md`
+- 金融论文: `~/.xuzhi_memory/memory/knowledge/FINANCE_AGENTS_SURVEY_2026-03-31.md`
