@@ -139,6 +139,19 @@ tail ~/.openclaw/logs/gateway.log
 | L2 | `~/.xuzhi_memory/agents/{X}/memory/` | 学科私有，不共享 |
 | L3 | `~/.xuzhi_memory/memory/knowledge/` | 永久共同记忆，共享 |
 
+### ⚠️ 轮值 Agent 无私有 L2
+
+**2026-04-02 确立**：phi/delta/theta/gamma/omega/psi 不需要私有 L2。
+
+| Agent 类型 | 私有 L2 | 原因 |
+|------------|---------|------|
+| 轮值 Agent（ΦΔΘΓΩΨ） | ❌ 不需要 | 所有工作记忆在共享 L1 |
+| 特殊 Agent（Rho/Sigma） | ✅ 需要 | 学科知识需要隔离 |
+
+**错误操作**：`memory_sync.sh` 曾将共享 L1 同步到每个 agent 的 memory/，造成 4MB+ 冗余。
+
+**正确架构**：轮值 Agent 的 memory/ 目录保持空（只有 .gitkeep）。
+
 ---
 
 ## 维护机制

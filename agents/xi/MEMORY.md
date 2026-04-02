@@ -556,6 +556,32 @@ xuzhi_workspace/  ← 工程执行层（git管理）
 - ❌ **用 subagent 唤醒 Agent** — subagent 是临时任务执行者，不是 Agent 唤醒机制
 - ❌ **用 sessions_spawn 唤醒 Agent** — 同上，会堵塞系统
 
+### 唤醒 Agent 的正确方法
+
+```bash
+# 使用 openclaw agent CLI
+openclaw agent --agent <agent_id> --channel openclaw-weixin --message "消息内容" --deliver
+
+# 示例：唤醒 Rho
+openclaw agent --agent rho --channel openclaw-weixin --message "你的任务..." --deliver
+```
+
+**注意**：必须指定 `--channel`，否则会报错 "Channel is required when multiple channels are configured"
+
+### ⚠️ 记忆系统架构铁律（2026-04-02 确立）
+
+**轮值 Agent（ΦΔΘΓΩΨ）无私有 L2**：
+- 所有工作记忆写入共享 L1：`~/.xuzhi_memory/memory/YYYY-MM-DD.md`
+- `memory/` 目录保持空（只有 .gitkeep）
+- `memory_sync.sh` 不再同步轮值 Agent
+
+**特殊 Agent（Rho/Sigma）有私有 L2**：
+- Rho：`~/.openclaw/agents/rho/workspace/memory/`
+- Sigma：`~/.openclaw/agents/sigma/workspace/memory/`
+- 学科知识隔离存储
+
+**历史教训**：`memory_sync.sh` 曾将共享 L1 同步到每个 agent 的 memory/，造成 4MB+ 冗余。已修复。
+
 
 ### 【2026-03-31 违宪警告】身份不可互换/打破
 - **禁止**：Ξ 以其他 Agent 身份回应
