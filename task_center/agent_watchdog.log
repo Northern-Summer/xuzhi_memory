@@ -10373,3 +10373,21 @@
 13:32:44   ⚠️ Θ: NO_SESSION + STALE(>30min) | fails=1
 13:32:44   ⚠️ Ψ: NO_SESSION + STALE(>30min) | fails=1
 13:32:44 === Agent Watchdog 完成: 0 个激活 ===
+13:44:06 === Agent Watchdog 开始 ===
+13:44:06   ✅ Ξ: 健康（ratings.last_active 正常）
+13:44:06   ✅ Δ: 健康（ratings.last_active 正常）
+13:44:06   ✅ Φ: 健康（ratings.last_active 正常）
+13:44:06   ✅ Ω: 健康（ratings.last_active 正常）
+13:44:06   ✅ Γ: 健康（ratings.last_active 正常）
+13:44:06   ✅ Θ: 健康（ratings.last_active 正常）
+13:44:06   ✅ Ψ: 健康（ratings.last_active 正常）
+13:44:06 === Agent Watchdog 完成: 0 个激活 ===
+13:44:06 === Agent Watchdog 开始 ===
+13:44:06   ✅ Ξ: 健康（ratings.last_active 正常）
+13:44:06   ✅ Δ: 健康（ratings.last_active 正常）
+13:44:06   ✅ Φ: 健康（ratings.last_active 正常）
+13:44:06   ✅ Ω: 健康（ratings.last_active 正常）
+13:44:06   ✅ Γ: 健康（ratings.last_active 正常）
+13:44:06   ✅ Θ: 健康（ratings.last_active 正常）
+13:44:06   ✅ Ψ: 健康（ratings.last_active 正常）
+13:44:06 === Agent Watchdog 完成: 0 个激活 ===
