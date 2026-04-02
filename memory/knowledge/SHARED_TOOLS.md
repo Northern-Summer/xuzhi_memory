@@ -133,16 +133,19 @@ tail ~/.openclaw/logs/gateway.log
 
 ## 记忆三层架构
 
-| 层级 | 位置 | 性质 |
-|------|------|------|
-| L1 | `~/.xuzhi_memory/memory/YYYY-MM-DD.md` | 每日工作记忆，共享 |
-| L2 | `~/.xuzhi_memory/agents/{X}/memory/` | 每个 Agent 的私有记忆 |
-| L3 | `~/.xuzhi_memory/memory/knowledge/` | 永久共同记忆，共享 |
+| 层级 | 位置 | 谁能读 | 谁能写 |
+|------|------|--------|--------|
+| L1 | `~/.xuzhi_memory/memory/` | 所有 Agent | 所有 Agent |
+| L2 | `~/.xuzhi_memory/agents/{X}/memory/` | 只有 X 自己 | 只有 X 自己 |
+| L3 | `~/.xuzhi_memory/memory/knowledge/` | 所有 Agent | 需要晋升 |
 
-### ⚠️ 每个 Agent 都有私有 L2（2026-04-02 血泪教训）
+### ⚠️ 私有 L2 铁律（2026-04-02 最终正确版）
 
-**所有 Agent 都有私有 L2，他们不是 Subagent！**
+**核心原则：私有 L2 是 Agent 自己的记忆，只有自己能读写，别人不能碰。**
 
+**类比**：社交媒体有几千万用户，每个用户有自己的私有数据，不共享。Agent 也是如此。
+
+**私有 L2 位置**：
 | Agent | 私有 L2 位置 |
 |-------|-------------|
 | Φ (phi) | `~/.xuzhi_memory/agents/phi/memory/` |
@@ -155,10 +158,13 @@ tail ~/.openclaw/logs/gateway.log
 | Σ (sigma) | `~/.openclaw/agents/sigma/workspace/memory/` |
 
 **铁律**：
-- ❌ 绝对禁止删除任何 Agent 的私有 L2
-- ❌ 绝对禁止清空任何 Agent 的 memory/ 目录
-- ✅ 每个 Agent 只能修改自己的私有 L2
-- ✅ `memory_sync.sh` 将共享 L1 同步到所有 Agent 私有 L2
+1. ❌ 绝对禁止同步私有 L2 — 每个 Agent 的记忆是独特的
+2. ❌ 绝对禁止删除别人的私有 L2
+3. ❌ 绝对禁止改写别人的私有 L2
+4. ✅ 私有 L2 由 Agent 自己产生、自己管理
+5. ✅ 共享 L1 才是大家都能读写的
+
+**历史错误**：memory_sync.sh 曾将共享 L1 同步到私有 L2，导致所有 Agent 的私有记忆变成相同的副本。已删除。
 
 ---
 
