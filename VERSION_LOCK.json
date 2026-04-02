@@ -1,96 +1,76 @@
+移除不存在的文件: xuzhi_genesis/centers/naturalscience/ScienceAI4S_Framework_Design.md
+移除不存在的文件: xuzhi_genesis/centers/naturalscience/IMPLEMENTATION_ROADMAP.md
+移除不存在的文件: xuzhi_genesis/centers/naturalscience/chemistry/reports/WEEK1_COMPLETION_REPORT.md
+移除不存在的文件: xuzhi_genesis/centers/naturalscience/chemistry/results/week1_results.json
 {
   "version": "1.1",
   "created_at": "2026-04-02T00:56:00+08:00",
   "updated_at": "2026-04-02T01:05:00+08:00",
-  "note": "用户确认版本锁 - 防止 AI 覆盖正确版本",
+  "note": "\u7528\u6237\u786e\u8ba4\u7248\u672c\u9501 - \u9632\u6b62 AI \u8986\u76d6\u6b63\u786e\u7248\u672c",
   "locked_files": {
     "AGENTS_MEMORY_SNAPSHOT_2026-04-02.md": {
       "sha256": "fcb922b2926d103ef3d0248939f9a98f9d7898759b25bc9270cabd31b86cb3e7",
       "locked_at": "2026-04-02T01:06:00+08:00",
       "locked_by": "user",
-      "note": "所有 Agent 最大并集快照（含自然科学工作成果）"
+      "note": "\u6240\u6709 Agent \u6700\u5927\u5e76\u96c6\u5feb\u7167\uff08\u542b\u81ea\u7136\u79d1\u5b66\u5de5\u4f5c\u6210\u679c\uff09"
     },
     "agents/phi/MEMORY.md": {
       "sha256": "219abc58b2101fc36fac1f221f549b842e25b7ddc44e362518dfd3685eb37456",
       "locked_at": "2026-04-02T00:56:00+08:00",
       "locked_by": "user",
-      "note": "语言学/文学"
+      "note": "\u8bed\u8a00\u5b66/\u6587\u5b66"
     },
     "agents/delta/MEMORY.md": {
       "sha256": "63c54e251805bcdfc4a92656af974c657dc0f646894f66139882e173f61b97c7",
       "locked_at": "2026-04-02T00:56:00+08:00",
       "locked_by": "user",
-      "note": "数学 - AI4S框架"
+      "note": "\u6570\u5b66 - AI4S\u6846\u67b6"
     },
     "agents/theta/MEMORY.md": {
       "sha256": "25ab49c55aaea24f37ffaf9542fd2aee58066842ca151ea4099d658ef545968b",
       "locked_at": "2026-04-02T00:56:00+08:00",
       "locked_by": "user",
-      "note": "历史学/社会科学 - 理论框架"
+      "note": "\u5386\u53f2\u5b66/\u793e\u4f1a\u79d1\u5b66 - \u7406\u8bba\u6846\u67b6"
     },
     "agents/gamma/MEMORY.md": {
       "sha256": "4c3c6e1ea17ee6e97a59a66482910c304dd6a78c9a126c937c80d1d0f8ae8141",
       "locked_at": "2026-04-02T00:56:00+08:00",
       "locked_by": "user",
-      "note": "自然科学 - 情报中心"
+      "note": "\u81ea\u7136\u79d1\u5b66 - \u60c5\u62a5\u4e2d\u5fc3"
     },
     "agents/omega/MEMORY.md": {
       "sha256": "a492037a90e348964dfbc57e18466d63eab72b894948a3a7074b1caa4d509c99",
       "locked_at": "2026-04-02T00:56:00+08:00",
       "locked_by": "user",
-      "note": "艺术 - 守夜者（学科内容待建立）"
+      "note": "\u827a\u672f - \u5b88\u591c\u8005\uff08\u5b66\u79d1\u5185\u5bb9\u5f85\u5efa\u7acb\uff09"
     },
     "agents/psi/MEMORY.md": {
       "sha256": "a89b2030bf7df3c4c24fba111a1827c21fe83a1d8a2ee37e10a1c859e682090a",
       "locked_at": "2026-04-02T00:56:00+08:00",
       "locked_by": "user",
-      "note": "哲学 - 提问者"
+      "note": "\u54f2\u5b66 - \u63d0\u95ee\u8005"
     },
     "agents/rho/MEMORY.md": {
       "sha256": "70db13eb7cbffedfbd3aada8a8a6847a8ef3f4469b9ff0ef4129165c15af97ce",
       "locked_at": "2026-04-02T00:56:00+08:00",
       "locked_by": "user",
-      "note": "经济学/金融市场"
+      "note": "\u7ecf\u6d4e\u5b66/\u91d1\u878d\u5e02\u573a"
     },
     "agents/theta/memory/2026-03-31_socialscience_ai_review.md": {
       "sha256": "05a0969ac3d6fd5f7df7f4a5ec579de5a3808d4290a965ccd3bc63cc8fafdaca",
       "locked_at": "2026-04-02T00:56:00+08:00",
       "locked_by": "user",
-      "note": "Theta 独立研究 - 社会科学AI自动化综述"
-    },
-    "xuzhi_genesis/centers/naturalscience/ScienceAI4S_Framework_Design.md": {
-      "sha256": "676d879e76ffcf01b690ae79724bc2636f9f0231e7b761bdc7645206aa16e87d",
-      "locked_at": "2026-04-02T01:05:00+08:00",
-      "locked_by": "user",
-      "note": "Gamma 自然科学框架设计 (710行)"
-    },
-    "xuzhi_genesis/centers/naturalscience/IMPLEMENTATION_ROADMAP.md": {
-      "sha256": "0fe77707ff10b1fad15debb9c5f2a8042bd090e727832b740d9c91fc54393801",
-      "locked_at": "2026-04-02T01:05:00+08:00",
-      "locked_by": "user",
-      "note": "Gamma 实施路线图"
-    },
-    "xuzhi_genesis/centers/naturalscience/chemistry/reports/WEEK1_COMPLETION_REPORT.md": {
-      "sha256": "d36cacfcfe010b4c17e975bd9309b6e68e88fdd888fd83ae835116fe534b398f",
-      "locked_at": "2026-04-02T01:05:00+08:00",
-      "locked_by": "user",
-      "note": "Gamma Week 1 完成报告 - 化学反应预测基线"
-    },
-    "xuzhi_genesis/centers/naturalscience/chemistry/results/week1_results.json": {
-      "sha256": "4b788c879ef0335d071df32cd8badeac54a06fff643277ac32da679b70664f0b",
-      "locked_at": "2026-04-02T01:05:00+08:00",
-      "locked_by": "user",
-      "note": "Gamma Week 1 结果 - 57.1%准确率"
+      "note": "Theta \u72ec\u7acb\u7814\u7a76 - \u793e\u4f1a\u79d1\u5b66AI\u81ea\u52a8\u5316\u7efc\u8ff0"
     },
     "agents/sigma/MEMORY.md": {
       "sha256": "78e803ef02b00f5112a5ad77836c10be8cf53c74328c03e18dc4d93320009506"
     }
   },
   "rules": {
-    "overwrite_protection": "锁定文件只能追加，不能覆盖",
-    "hash_verification": "任何修改前必须验证哈希",
-    "warning_on_mismatch": "哈希不匹配时向用户报警",
-    "recovery_source": "快照文件是恢复源",
-    "verification_on_startup": "每次启动时验证所有锁定文件哈希"
+    "overwrite_protection": "\u9501\u5b9a\u6587\u4ef6\u53ea\u80fd\u8ffd\u52a0\uff0c\u4e0d\u80fd\u8986\u76d6",
+    "hash_verification": "\u4efb\u4f55\u4fee\u6539\u524d\u5fc5\u987b\u9a8c\u8bc1\u54c8\u5e0c",
+    "warning_on_mismatch": "\u54c8\u5e0c\u4e0d\u5339\u914d\u65f6\u5411\u7528\u6237\u62a5\u8b66",
+    "recovery_source": "\u5feb\u7167\u6587\u4ef6\u662f\u6062\u590d\u6e90",
+    "verification_on_startup": "\u6bcf\u6b21\u542f\u52a8\u65f6\u9a8c\u8bc1\u6240\u6709\u9501\u5b9a\u6587\u4ef6\u54c8\u5e0c"
   }
 }
