@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+"""
+MathOverflow Monitor - StackExchange API
+Track [lean] and [formalization] tagged questions
+"""
+
+import urllib.request
+import json
+from datetime import datetime
+from pathlib import Path
+
+DATA_DIR = Path.home() / ".xuzhi_memory" / "agents" / "delta" / "community_observations"
+
+API_BASE = "https://api.stackexchange.com/2.3"
+
+def get_today_file():
+    today = datetime.now().strftime("%Y-%m-%d")
+    return DATA_DIR / f"mathoverflow_{today}.jsonl"
+
+def fetch_questions(tagged="lean", pagesize=30):
+    """Fetch recent questions from MathOverflow"""
+    params = {
+        "order": "desc",
+        "sort": "creation",
+        "tagged": tagged,
+        "site": "mathoverflow",
+        "pagesize": pagesize,
+        "filter": "withbody"
+    }
+    
+    query = "&".join(f"{k}={v}" for k, v in params.items())
+    url = f"{API_BASE}/questions?{query}"
+    
+    req = urllib.request.Request(url, headers={"Accept-Encoding": "gzip"})
+    
+    try:
+        with urllib.request.urlopen(req) as response:
+            # Handle gzip compression
+            import gzip
+            if response.headers.get('Content-Encoding') == 'gzip':
+                data = gzip.decompress(response.read())
+            else:
+                data = response.read()
+            
+            return json.loads(data.decode())
+    except Exception as e:
+        print(f"  ❌ Error: {e}")
+        return {"items": []}
+
+def monitor_mathoverflow():
+    """Monitor MathOverflow for relevant questions"""
+    tags = ["lean", "formalization", "proof-assistants"]
+    total = 0
+    
+    for tag in tags:
+        try:
+            result = fetch_questions(tagged=tag, pagesize=20)
+            items = result.get('items', [])
+            
+            print(f"  📊 Tag [{tag}]: {len(items)} questions")
+            
+            for item in items:
+                entry = {
+                    "timestamp": datetime.fromtimestamp(item.get('creation_date', 0)).isoformat(),
+                    "source": "mathoverflow",
+                    "tag": tag,
+                    "question_id": item.get('question_id'),
+                    "title": item.get('title'),
+                    "author": item.get('owner', {}).get('display_name'),
+                    "score": item.get('score'),
+                    "view_count": item.get('view_count'),
+                    "answer_count": item.get('answer_count'),
+                    "tags": item.get('tags', []),
+                    "body": item.get('body', '')[:1000],
+                    "link": item.get('link'),
+                    "collected_at": datetime.now().isoformat()
+                }
+                
+                with open(get_today_file(), "a", encoding="utf-8") as f:
+                    f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+            
+            total += len(items)
+        except Exception as e:
+            print(f"  ❌ Error with tag {tag}: {e}")
+    
+    return total
+
+if __name__ == "__main__":
+    print("🔍 Monitoring MathOverflow...")
+    count = monitor_mathoverflow()
+    print(f"✅ Saved {count} questions to {get_today_file()}")

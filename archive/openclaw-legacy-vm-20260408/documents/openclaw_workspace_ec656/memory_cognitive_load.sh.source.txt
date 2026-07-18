@@ -1,0 +1,70 @@
+#!/bin/bash
+# memory_cognitive_load.sh — 认知负载管理
+# 检查记忆大小，防止 context 爆炸
+
+set -euo pipefail
+
+BASE="$HOME/.xuzhi_memory"
+L1_DIR="$BASE/memory"
+AGENTS="delta gamma omega phi psi theta xi"
+
+# 阈值（字节）
+MAX_SINGLE_FILE=1048576  # 1MB
+MAX_TOTAL_L1=10485760    # 10MB
+MAX_FILES_PER_AGENT=30
+
+log() { echo "[$(date +%H:%M:%S)] $1"; }
+
+ISSUES=()
+
+# 检查 1：单个文件大小
+log "检查单个文件大小..."
+large_files=$(find "$L1_DIR" -name "*.md" -size +1M 2>/dev/null || true)
+if [ -n "$large_files" ]; then
+  ISSUES+=("🟡 发现大文件 (>1MB): $(echo "$large_files" | head -3)")
+fi
+log "✓ 单文件大小检查完成"
+
+# 检查 2：L1 总大小
+log "检查 L1 总大小..."
+l1_size=$(du -sb "$L1_DIR" 2>/dev/null | cut -f1)
+if [ "$l1_size" -gt "$MAX_TOTAL_L1" ]; then
+  ISSUES+=("🟡 L1 总大小超过 10MB: $((l1_size / 1048576)) MB")
+fi
+log "✓ L1 总大小: $((l1_size / 1024)) KB"
+
+# 检查 3：各 agent 文件数量
+log "检查各 agent 文件数量..."
+for agent in $AGENTS; do
+  count=$(ls "$BASE/agents/$agent/memory/"[0-9]*.md 2>/dev/null | wc -l || echo 0)
+  if [ "$count" -gt "$MAX_FILES_PER_AGENT" ]; then
+    ISSUES+=("🟡 $agent 文件数过多: $count")
+  fi
+done
+log "✓ 文件数量检查完成"
+
+# 检查 4：expert_tracker 大小
+log "检查 expert_tracker 大小..."
+tracker_size=$(du -sb "$BASE/expert_tracker" 2>/dev/null | cut -f1 || echo 0)
+if [ "$tracker_size" -gt 52428800 ]; then  # 50MB
+  ISSUES+=("🟡 expert_tracker 超过 50MB: $((tracker_size / 1048576)) MB")
+fi
+log "✓ expert_tracker 大小: $((tracker_size / 1048576)) MB"
+
+# 检查 5：建议清理
+log "生成清理建议..."
+old_files=$(find "$L1_DIR" -name "*.md" -mtime +30 2>/dev/null | wc -l || echo 0)
+if [ "$old_files" -gt 0 ]; then
+  log "💡 建议: 有 $old_files 个文件超过 30 天，可运行 memory_aging.sh"
+fi
+
+# 输出结果
+echo ""
+if [ ${#ISSUES[@]} -eq 0 ]; then
+  echo "✅ 认知负载正常"
+  exit 0
+else
+  echo "⚠️ 认知负载问题："
+  printf '%s\n' "${ISSUES[@]}"
+  exit 1
+fi

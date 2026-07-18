@@ -1,0 +1,49 @@
+#!/bin/bash
+# 记忆同步引擎 v2 — 保护私有独特内容
+# 原则：只同步共享 → 私有，不覆盖更大的私有文件
+
+set -euo pipefail
+
+BASE="$HOME/.xuzhi_memory"
+SHARED="$BASE/memory"
+AGENTS="delta gamma omega phi psi theta xi"
+LOG="$BASE/.sync.log"
+
+log() { echo "[$(date +%H:%M:%S)] $1" >> "$LOG"; }
+
+sync_count=0
+skip_count=0
+
+for f in "$SHARED"/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md; do
+  [ -f "$f" ] || continue
+  file=$(basename "$f")
+  shared_size=$(wc -c < "$f")
+  
+  for agent in $AGENTS; do
+    dir="$BASE/agents/$agent/memory"
+    dst="$dir/$file"
+    
+    mkdir -p "$dir"
+    
+    # 私有文件不存在 → 同步
+    if [ ! -f "$dst" ]; then
+      cp "$f" "$dst.tmp" && mv "$dst.tmp" "$dst"
+      log "✓ $file → $agent (新建)"
+      ((sync_count++))
+      continue
+    fi
+    
+    # 私有文件存在但更小 → 同步（共享更新）
+    private_size=$(wc -c < "$dst")
+    if [ "$private_size" -lt "$shared_size" ]; then
+      cp "$f" "$dst.tmp" && mv "$dst.tmp" "$dst"
+      log "✓ $file → $agent (更新)"
+      ((sync_count++))
+    else
+      # 私有文件更大或相等 → 跳过（保护私有内容）
+      ((skip_count++))
+    fi
+  done
+done
+
+log "同步完成: $sync_count 同步, $skip_count 跳过（保护私有）"

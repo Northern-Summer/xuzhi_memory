@@ -1,0 +1,76 @@
+#!/bin/bash
+# memory_semantic_check.sh — 语义一致性检查
+# 检查引用完整性、时区一致性、实体歧义
+
+set -euo pipefail
+
+BASE="$HOME/.xuzhi_memory"
+L1_DIR="$BASE/memory"
+ISSUES=()
+
+log() { echo "[$(date +%H:%M:%S)] $1"; }
+
+# 检查 1：引用完整性
+log "检查引用完整性..."
+for f in "$L1_DIR"/[0-9]*.md; do
+  [ -f "$f" ] || continue
+  
+  # 检查 [[xxx]] 格式的引用
+  refs=$(grep -oE '\[\[[^]]+\]\]' "$f" 2>/dev/null || true)
+  if [ -n "$refs" ]; then
+    while IFS= read -r ref; do
+      # 提取引用的文件名
+      ref_file=$(echo "$ref" | sed 's/\[\[\(.*\)\]\]/\1/')
+      # 检查引用的文件是否存在
+      if [ ! -f "$BASE/$ref_file" ] && [ ! -f "$L1_DIR/$ref_file" ]; then
+        ISSUES+=("🟡 断裂引用: $ref 在 $(basename $f)")
+      fi
+    done <<< "$refs"
+  fi
+done
+log "✓ 引用检查完成"
+
+# 检查 2：时区一致性
+log "检查时区一致性..."
+tz_count=$(grep -r "GMT\|UTC\|CST\|时区" "$L1_DIR" 2>/dev/null | grep -oE "(GMT[+-][0-9]|UTC[+-]?[0-9]?|CST)" | sort | uniq -c | wc -l)
+if [ "$tz_count" -gt 1 ]; then
+  ISSUES+=("🟡 时区标记不统一（发现 $tz_count 种）")
+fi
+log "✓ 时区检查完成"
+
+# 检查 3：实体歧义（Δ = Delta vs 微分）
+log "检查实体歧义..."
+for f in "$L1_DIR"/[0-9]*.md; do
+  [ -f "$f" ] || continue
+  
+  # 检查 Δ 是否有上下文说明
+  if grep -q "Δ" "$f"; then
+    if ! grep -B2 -A2 "Δ" "$f" | grep -qE "(Delta|delta|希腊|agent|微分|变化量)"; then
+      # 可能的歧义，但不确定，只记录
+      :
+    fi
+  fi
+done
+log "✓ 实体检查完成"
+
+# 检查 4：时间戳格式一致性
+log "检查时间戳格式..."
+ts_formats=$(grep -rhoE "[0-9]{4}-[0-9]{2}-[0-9]{2}[ T][0-9]{2}:[0-9]{2}(:[0-9]{2})?" "$L1_DIR" 2>/dev/null | head -10 || true)
+if [ -n "$ts_formats" ]; then
+  format_count=$(echo "$ts_formats" | sed 's/[0-9]/N/g' | sort -u | wc -l)
+  if [ "$format_count" -gt 1 ]; then
+    ISSUES+=("🟡 时间戳格式不统一")
+  fi
+fi
+log "✓ 时间戳检查完成"
+
+# 输出结果
+echo ""
+if [ ${#ISSUES[@]} -eq 0 ]; then
+  echo "✅ 语义一致性检查通过"
+  exit 0
+else
+  echo "⚠️ 语义问题："
+  printf '%s\n' "${ISSUES[@]}"
+  exit 1
+fi

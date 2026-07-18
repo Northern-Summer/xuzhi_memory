@@ -1,0 +1,45 @@
+#!/bin/bash
+# memory_aging.sh — 记忆老化处理
+# 原则：L1 超过 7 天 → 归档；超过 30 天 → 压缩
+
+set -euo pipefail
+
+BASE="$HOME/.xuzhi_memory"
+L1_DIR="$BASE/memory"
+ARCHIVE_DIR="$BASE/archive"
+COMPRESS_DIR="$BASE/compressed"
+
+mkdir -p "$ARCHIVE_DIR" "$COMPRESS_DIR"
+
+TODAY=$(date +%Y-%m-%d)
+SEVEN_DAYS_AGO=$(date -d "$TODAY -7 days" +%Y-%m-%d 2>/dev/null || date -v-7d +%Y-%m-%d)
+THIRTY_DAYS_AGO=$(date -d "$TODAY -30 days" +%Y-%m-%d 2>/dev/null || date -v-30d +%Y-%m-%d)
+
+log() { echo "[$(date +%H:%M:%S)] $1"; }
+
+archived=0
+compressed=0
+
+for f in "$L1_DIR"/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md; do
+  [ -f "$f" ] || continue
+  file=$(basename "$f")
+  file_date="${file%.md}"
+  
+  # 超过 30 天 → 压缩
+  if [[ "$file_date" < "$THIRTY_DAYS_AGO" ]]; then
+    if [ ! -f "$COMPRESS_DIR/$file.gz" ]; then
+      gzip -c "$f" > "$COMPRESS_DIR/$file.gz"
+      log "📦 压缩: $file (30+ 天)"
+      ((compressed++))
+    fi
+  # 超过 7 天 → 归档
+  elif [[ "$file_date" < "$SEVEN_DAYS_AGO" ]]; then
+    if [ ! -f "$ARCHIVE_DIR/$file" ]; then
+      cp "$f" "$ARCHIVE_DIR/$file"
+      log "📁 归档: $file (7+ 天)"
+      ((archived++))
+    fi
+  fi
+done
+
+log "老化完成: $archived 归档, $compressed 压缩"

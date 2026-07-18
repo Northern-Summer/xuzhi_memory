@@ -1,0 +1,1 @@
+/home/summer/.xuzhi_memory/reports/daily_report_2026-04-08.md

@@ -1,0 +1,32 @@
+#!/bin/bash
+# memory_monitor.sh — 记忆系统监控告警
+# 每小时运行，发现问题推送到 WeChat
+
+set -euo pipefail
+
+BASE="$HOME/.xuzhi_memory"
+WECHAT_TARGET="o9cq80z9eOrqJasg6hB1W-Cc4-Po@im.wechat"
+
+send_alert() {
+  local msg="$1"
+  openclaw message send --channel openclaw-weixin --target "$WECHAT_TARGET" --message "⚠️ 记忆系统告警: $msg"
+}
+
+# 运行健康检查
+if ! ~/.openclaw/workspace/memory_health_check.sh &>/dev/null; then
+  issues=$(~/.openclaw/workspace/memory_health_check.sh 2>&1)
+  send_alert "$issues"
+fi
+
+# 检查磁盘空间
+disk_usage=$(df -h "$BASE" | awk 'NR==2 {print $5}' | tr -d '%')
+if [ "$disk_usage" -gt 90 ]; then
+  send_alert "磁盘使用率 ${disk_usage}%"
+fi
+
+# 检查同步脚本是否存在
+if [ ! -f ~/.openclaw/workspace/memory_sync.sh ]; then
+  send_alert "同步脚本丢失"
+fi
+
+echo "✓ 监控检查完成"

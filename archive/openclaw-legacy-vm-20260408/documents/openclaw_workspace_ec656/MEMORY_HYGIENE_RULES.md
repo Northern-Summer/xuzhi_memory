@@ -1,0 +1,1 @@
+/home/summer/.xuzhi_memory/MEMORY_HYGIENE_RULES.md

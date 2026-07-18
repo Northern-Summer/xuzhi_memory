@@ -1,0 +1,154 @@
+#!/usr/bin/env python3
+# dreaming_direct.py — Xi协调做梦（不依赖exec，通过sessions_send到rho）
+# 流程：sessions_send到rho → rho执行exec写notepad
+
+import json
+import random
+from datetime import datetime
+from pathlib import Path
+
+STATE_FILE = Path.home() / ".xuzhi_memory" / "rotation_state.json"
+NOTEPAD = Path.home() / ".xuzhi_memory" / "memory" / "inter_agent_notepad.md"
+DREAMING_STATE = Path.home() / ".xuzhi_memory" / ".dreaming_state.json"
+
+AGENTS = ['phi', 'delta', 'gamma', 'theta', 'omega', 'psi', 'rho']
+DISCIPLINE = {
+    'phi': '语言学/文学', 'delta': '数学', 'gamma': '自然科学',
+    'theta': '历史学/社科', 'omega': '艺术', 'psi': '哲学', 'rho': '经济学',
+}
+THEMES = {
+    'phi': ["语言塑造思维，还是思维塑造语言？", "翻译过程中，什么一定会丢失？", "沉默为什么有时候比说出来更有力？"],
+    'delta': ["数学里的「优雅」是客观的美，还是人类的投射？", "有没有一个数学问题，是不可能有答案的？"],
+    'gamma': ["意识是进化的产物，还是进化的目的？", "暗物质是观测的局限，还是自然的真实？"],
+    'theta': ["历史有规律，还是只有偶然？", "「进步」这个概念本身是不是一种偏见？"],
+    'omega': ["AI生成的艺术有没有「真实性」？", "如果没有人看，一件艺术作品还存在吗？"],
+    'psi': ["自由意志是一个语言陷阱吗？", "「意义」是发现的，还是发明的？"],
+    'rho': ["A股散户亏损的根因是信息不对称，还是情绪驱动？", "如果所有人都用AI做投资决策，市场会更稳定还是更动荡？"],
+}
+
+
+def ensure_notepad():
+    if not NOTEPAD.exists():
+        NOTEPAD.write_text("# inter_agent_notepad.md\n\n---\n\n")
+
+
+def get_current_duty():
+    try:
+        return json.loads(STATE_FILE.read_text()).get('current')
+    except Exception:
+        return None
+
+
+def get_recent_snippets():
+    if NOTEPAD.exists():
+        content = NOTEPAD.read_text()
+        entries = content.split('## [TS:')
+        if len(entries) >= 3:
+            lines = []
+            for entry in entries[-2:]:
+                for ln in entry.split('\n'):
+                    if '**主题**' in ln:
+                        lines.append(ln.strip())
+                        break
+            if lines:
+                return '\n'.join(lines[:2])
+    return None
+
+
+def select_next():
+    try:
+        last = json.loads(DREAMING_STATE.read_text()).get('last_agent')
+    except Exception:
+        last = None
+    duty = get_current_duty()
+    candidates = [a for a in AGENTS if a != duty]
+    if last in candidates:
+        selected = candidates[(candidates.index(last) + 1) % len(candidates)]
+    else:
+        selected = random.choice(candidates)
+    DREAMING_STATE.parent.mkdir(parents=True, exist_ok=True)
+    DREAMING_STATE.write_text(json.dumps({'last_agent': selected}))
+    return selected
+
+
+def build_rho_task(agent, theme, snippets):
+    """给rho的任务：生成梦境内容并写notepad"""
+    context = f"相关片段：\n{snippets}" if snippets else "暂无前文，这是一个新话题的开始。"
+
+    # rho 收到任务后，以目标agent的身份生成梦境
+    task = f"""请以 {agent}（{DISCIPLINE.get(agent, '')}）的视角，围绕「{theme}」写一段梦境片段。
+
+要求：
+- 允许跳跃、矛盾、没说完
+- 不要有结论
+- 有开放性
+
+完成后用Python追加写入 ~/.xuzhi_memory/memory/inter_agent_notepad.md（append模式）：
+
+## [TS: {datetime.now().strftime('%Y-%m-%dT%H:%M:%S+08:00')}] {agent} → 世界
+
+**主题**: {theme}
+
+**梦境片段**:
+
+[你的梦境内容]
+
+---
+
+回复"done"即可。"""
+
+    return task
+
+
+def write_to_notepad_directly(agent, theme, content):
+    """Xi直接写notepad（不依赖sessions_send）"""
+    import subprocess
+    ts = datetime.now().strftime('%Y-%m-%dT%H:%M:%S+08:00')
+    entry = f"""
+
+## [TS: {ts}] {agent} → 世界
+
+**主题**: {theme}
+
+**梦境片段**:
+
+{content}
+
+---
+"""
+    ensure_notepad()
+    current = NOTEPAD.read_text()
+    NOTEPAD.write_text(current + '\n' + entry + '\n')
+    return entry
+
+
+def main():
+    ensure_notepad()
+
+    agent = select_next()
+    theme = random.choice(THEMES.get(agent, ["今天有什么值得想的？"]))
+    snippets = get_recent_snippets()
+
+    # rho是最稳定的执行器
+    task = build_rho_task(agent, theme, snippets)
+
+    # sessions_send通过subprocess调用（isolated session有这个工具）
+    import subprocess
+    cmd = [
+        'openclaw', 'sessions', 'send',
+        '--sessionKey', 'agent:rho:main',
+        '--message', task,
+        '--timeoutSeconds', '90'
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+    ts = datetime.now().strftime('%H:%M:%S')
+    print(f"[{ts}] 🧠 {agent}（{DISCIPLINE.get(agent, '')}）做梦任务已发给rho")
+    print(f"主题: {theme}")
+    if result.returncode != 0:
+        print(f"⚠️ sessions_send failed: {result.stderr[:200]}")
+    else:
+        print("✅ rho已收到任务，思考并写入notepad")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,124 @@
+#!/bin/bash
+# upgrade-protection.sh — 升级保护脚本
+# 在 npm update -g openclaw 前后执行
+# 工程改进铁律合规 — Ξ | 2026-04-01
+
+set -e
+
+HOME="${HOME:-$HOME}"
+CUSTOM_DIR="$HOME/.xuzhi_custom"
+MEMORY_DIR="$HOME/.xuzhi_memory"
+BACKUP_DIR="$CUSTOM_DIR/backups"
+
+action="${1:-backup}"
+
+case "$action" in
+  backup)
+    echo "=== 升级前备份 ==="
+    
+    # 创建备份目录
+    mkdir -p "$BACKUP_DIR"
+    timestamp=$(date +%Y%m%d_%H%M%S)
+    
+    # 备份关键配置
+    tar -czf "$BACKUP_DIR/openclaw_config_$timestamp.tar.gz" \
+      -C "$HOME" ".openclaw/openclaw.json" \
+      -C "$HOME" ".openclaw/hooks" \
+      2>/dev/null || true
+    
+    # 备份记忆系统
+    tar -czf "$BACKUP_DIR/memory_$timestamp.tar.gz" \
+      -C "$HOME" ".xuzhi_memory" \
+      2>/dev/null || true
+    
+    echo "✅ 备份完成: $BACKUP_DIR"
+    echo "   - openclaw_config_$timestamp.tar.gz"
+    echo "   - memory_$timestamp.tar.gz"
+    ;;
+    
+  restore)
+    echo "=== 升级后恢复 ==="
+    
+    # 找到最新备份
+    latest_config=$(ls -t "$BACKUP_DIR"/openclaw_config_*.tar.gz 2>/dev/null | head -1)
+    latest_memory=$(ls -t "$BACKUP_DIR"/memory_*.tar.gz 2>/dev/null | head -1)
+    
+    if [ -n "$latest_config" ]; then
+      tar -xzf "$latest_config" -C "$HOME"
+      echo "✅ 配置已恢复: $latest_config"
+    fi
+    
+    # 注意：不自动恢复 memory，避免覆盖新数据
+    echo "⚠️ 记忆备份位于: $latest_memory"
+    echo "   如需恢复，手动执行: tar -xzf $latest_memory -C \$HOME"
+    ;;
+    
+  verify)
+    echo "=== 系统完整性验证 ==="
+    
+    errors=0
+    
+    # 检查 Gateway
+    if openclaw gateway status 2>&1 | grep -q "running"; then
+      echo "✅ Gateway 运行正常"
+    else
+      echo "❌ Gateway 异常"
+      errors=$((errors + 1))
+    fi
+    
+    # 检查 Hooks
+    hook_count=$(openclaw hooks list 2>&1 | grep -c "ready" || true)
+    if [ "$hook_count" -ge 9 ]; then
+      echo "✅ Hooks 正常 ($hook_count 个)"
+    else
+      echo "⚠️ Hooks 可能缺失 ($hook_count 个)"
+    fi
+    
+    # 检查 Symlinks
+    broken_links=$(find ~/.openclaw/workspace -xtype l 2>/dev/null | wc -l)
+    if [ "$broken_links" -eq 0 ]; then
+      echo "✅ Symlinks 完整"
+    else
+      echo "❌ 发现 $broken_links 个断裂的 symlink"
+      errors=$((errors + 1))
+    fi
+    
+    # 检查今日 memory 文件
+    today=$(date +%Y-%m-%d)
+    if [ -f "$MEMORY_DIR/memory/$today.md" ]; then
+      echo "✅ 今日 memory 文件存在"
+    else
+      echo "⚠️ 今日 memory 文件不存在"
+    fi
+    
+    # 检查断点文件
+    if [ -f "$MEMORY_DIR/agents/xi/SESSION_BREAKPOINT.md" ]; then
+      echo "✅ 断点文件存在"
+    else
+      echo "⚠️ 断点文件不存在"
+    fi
+    
+    if [ "$errors" -eq 0 ]; then
+      echo ""
+      echo "═══════════════════════════════════════════════════════════════"
+      echo "【系统完整性验证通过】"
+      echo "═══════════════════════════════════════════════════════════════"
+      exit 0
+    else
+      echo ""
+      echo "═══════════════════════════════════════════════════════════════"
+      echo "【发现 $errors 个问题，需要修复】"
+      echo "═══════════════════════════════════════════════════════════════"
+      exit 1
+    fi
+    ;;
+    
+  *)
+    echo "用法: $0 {backup|restore|verify}"
+    echo ""
+    echo "  backup  — 升级前备份"
+    echo "  restore — 升级后恢复配置"
+    echo "  verify  — 验证系统完整性"
+    exit 1
+    ;;
+esac

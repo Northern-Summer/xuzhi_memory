@@ -1,0 +1,297 @@
+# literature_search.py — 自动化文献筛选系统
+"""
+设计原则（学习系统文献综述最佳实践）:
+1. 多源搜索 — Semantic Scholar, arXiv, Google Scholar
+2. 相关性评分 — 标题/摘要与研究问题的语义匹配
+3. 质量评分 — 引用数、期刊/会议等级、作者权威性
+4. 可重复性 — 记录搜索策略和筛选理由
+
+流程:
+研究问题 → 关键词提取 → 多源搜索 → 相关性筛选 → 质量排序 → 输出文献库
+"""
+import json
+import urllib.request
+import urllib.parse
+from pathlib import Path
+from datetime import datetime, timezone
+from typing import Optional
+import time
+
+HOME = Path.home()
+RESEARCH_DIR = HOME / ".xuzhi_memory" / "research_v2"
+LITERATURE_DIR = RESEARCH_DIR / "literature"
+SEARCH_LOG = RESEARCH_DIR / "search_log.json"
+
+
+class LiteratureSearcher:
+    """自动化文献搜索与筛选"""
+    
+    def __init__(self, research_question: str):
+        self.research_question = research_question
+        self.keywords = self._extract_keywords()
+        self.results = []
+        self.search_log = []
+    
+    def _extract_keywords(self) -> list[str]:
+        """从研究问题提取关键词"""
+        # 简单的关键词提取（可以后续用 NLP 改进）
+        question = self.research_question.lower()
+        
+        # 定义领域关键词映射
+        keyword_map = {
+            "框架问题": ["frame problem", "McCarthy", "Hayes", "AI philosophy"],
+            "粒度": ["granularity", "representation", "abstraction"],
+            "多智能体": ["multi-agent", "multi agent", "MAS", "agent system"],
+            "失败": ["failure", "problem", "challenge", "limitation"],
+            "认识论": ["epistemology", "knowledge representation", "reasoning"],
+            "规范": ["norm", "normative", "Brandom", "inferentialism"],
+        }
+        
+        keywords = []
+        for cn, en_list in keyword_map.items():
+            if cn in question:
+                keywords.extend(en_list)
+        
+        # 添加通用关键词
+        keywords.extend(["artificial intelligence", "cognitive architecture"])
+        
+        return list(set(keywords))
+    
+    def search_semantic_scholar(self, query: str, limit: int = 20) -> list[dict]:
+        """搜索 Semantic Scholar API"""
+        url = f"https://api.semanticscholar.org/graph/v1/paper/search"
+        params = {
+            "query": query,
+            "limit": limit,
+            "fields": "title,authors,year,abstract,citationCount,venue,openAccessPdf,url"
+        }
+        
+        full_url = f"{url}?{urllib.parse.urlencode(params)}"
+        
+        try:
+            with urllib.request.urlopen(full_url, timeout=30) as response:
+                data = json.loads(response.read().decode())
+                return data.get("data", [])
+        except Exception as e:
+            print(f"Semantic Scholar 搜索失败: {e}")
+            return []
+    
+    def search_arxiv(self, query: str, max_results: int = 20) -> list[dict]:
+        """搜索 arXiv API"""
+        base_url = "http://export.arxiv.org/api/query?"
+        params = {
+            "search_query": f"all:{query}",
+            "max_results": max_results,
+            "sortBy": "relevance"
+        }
+        
+        full_url = f"{base_url}{urllib.parse.urlencode(params)}"
+        
+        try:
+            with urllib.request.urlopen(full_url, timeout=30) as response:
+                # arXiv 返回 XML，简单解析
+                xml_content = response.read().decode()
+                # 这里简化处理，实际需要 XML 解析
+                return self._parse_arxiv_xml(xml_content)
+        except Exception as e:
+            print(f"arXiv 搜索失败: {e}")
+            return []
+    
+    def _parse_arxiv_xml(self, xml: str) -> list[dict]:
+        """解析 arXiv XML 响应"""
+        # 简化的 XML 解析
+        results = []
+        entries = xml.split("<entry>")[1:]  # 跳过第一个（标题部分）
+        
+        for entry in entries[:20]:
+            try:
+                title = entry.split("<title>")[1].split("</title>")[0].strip()
+                abstract = entry.split("<summary>")[1].split("</summary>")[0].strip()
+                year = entry.split("<published>")[1].split("-")[0]
+                
+                results.append({
+                    "title": title,
+                    "abstract": abstract,
+                    "year": int(year),
+                    "source": "arxiv",
+                    "citationCount": 0  # arXiv 不提供引用数
+                })
+            except:
+                continue
+        
+        return results
+    
+    def calculate_relevance_score(self, paper: dict) -> float:
+        """计算相关性评分（0-1）"""
+        title = paper.get("title", "").lower()
+        abstract = paper.get("abstract", "").lower()
+        text = title + " " + abstract
+        
+        score = 0.0
+        for keyword in self.keywords:
+            kw_lower = keyword.lower()
+            if kw_lower in title:
+                score += 0.3  # 标题匹配权重更高
+            if kw_lower in abstract:
+                score += 0.1
+        
+        # 归一化到 0-1
+        return min(score, 1.0)
+    
+    def calculate_quality_score(self, paper: dict) -> float:
+        """计算质量评分（0-1）"""
+        score = 0.0
+        
+        # 引用数（对数尺度）
+        citations = paper.get("citationCount", 0)
+        if citations > 0:
+            import math
+            score += min(math.log10(citations + 1) / 4, 0.4)  # 最多 0.4
+        
+        # 期刊/会议质量
+        venue = paper.get("venue", "").lower()
+        top_venues = ["nature", "science", "neurips", "icml", "iclr", "aaai", "ijcai"]
+        for tv in top_venues:
+            if tv in venue:
+                score += 0.3
+                break
+        
+        # 年份（越新越好，但有经典文献例外）
+        year = paper.get("year", 2000)
+        if year >= 2023:
+            score += 0.2
+        elif year >= 2020:
+            score += 0.15
+        elif year >= 2015:
+            score += 0.1
+        
+        # 有开放获取 PDF
+        if paper.get("openAccessPdf"):
+            score += 0.1
+        
+        return min(score, 1.0)
+    
+    def search_all_sources(self) -> list[dict]:
+        """搜索所有来源"""
+        all_results = []
+        
+        # 为每个关键词组合构建查询
+        queries = []
+        if len(self.keywords) >= 2:
+            # 组合关键词
+            queries.append(" ".join(self.keywords[:3]))
+        queries.extend(self.keywords[:5])  # 单独关键词
+        
+        for query in queries[:5]:  # 限制查询次数
+            print(f"搜索: {query}")
+            
+            # Semantic Scholar
+            ss_results = self.search_semantic_scholar(query, limit=15)
+            for r in ss_results:
+                r["source"] = "semantic_scholar"
+            all_results.extend(ss_results)
+            
+            time.sleep(1)  # 避免 rate limit
+        
+        # 去重（按标题）
+        seen_titles = set()
+        unique_results = []
+        for r in all_results:
+            title_key = r.get("title", "").lower()[:50]
+            if title_key not in seen_titles:
+                seen_titles.add(title_key)
+                unique_results.append(r)
+        
+        return unique_results
+    
+    def filter_and_rank(self, papers: list[dict], 
+                        min_relevance: float = 0.3,
+                        min_quality: float = 0.2) -> list[dict]:
+        """筛选和排序"""
+        
+        # 计算评分
+        scored_papers = []
+        for paper in papers:
+            relevance = self.calculate_relevance_score(paper)
+            quality = self.calculate_quality_score(paper)
+            
+            paper["relevance_score"] = relevance
+            paper["quality_score"] = quality
+            paper["combined_score"] = relevance * 0.6 + quality * 0.4
+            
+            if relevance >= min_relevance or quality >= 0.5:  # 高质量文献保留
+                scored_papers.append(paper)
+        
+        # 按综合评分排序
+        scored_papers.sort(key=lambda x: x["combined_score"], reverse=True)
+        
+        return scored_papers
+    
+    def run_search(self, top_n: int = 30) -> list[dict]:
+        """执行完整搜索流程"""
+        print(f"研究问题: {self.research_question}")
+        print(f"关键词: {self.keywords}")
+        print("=" * 50)
+        
+        # 搜索
+        papers = self.search_all_sources()
+        print(f"找到 {len(papers)} 篇文献")
+        
+        # 筛选和排序
+        ranked_papers = self.filter_and_rank(papers)
+        print(f"筛选后 {len(ranked_papers)} 篇相关文献")
+        
+        # 返回 top N
+        top_papers = ranked_papers[:top_n]
+        
+        # 记录搜索日志
+        self._log_search(top_papers)
+        
+        return top_papers
+    
+    def _log_search(self, papers: list[dict]):
+        """记录搜索日志"""
+        log_entry = {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "research_question": self.research_question,
+            "keywords": self.keywords,
+            "total_found": len(papers),
+            "papers": [
+                {
+                    "title": p.get("title"),
+                    "year": p.get("year"),
+                    "relevance": round(p.get("relevance_score", 0), 2),
+                    "quality": round(p.get("quality_score", 0), 2),
+                    "combined": round(p.get("combined_score", 0), 2)
+                }
+                for p in papers[:10]
+            ]
+        }
+        
+        # 追加到日志
+        logs = []
+        if SEARCH_LOG.exists():
+            with open(SEARCH_LOG) as f:
+                logs = json.load(f)
+        logs.append(log_entry)
+        
+        with open(SEARCH_LOG, "w") as f:
+            json.dump(logs, f, indent=2, ensure_ascii=False)
+
+
+# 使用示例
+if __name__ == "__main__":
+    searcher = LiteratureSearcher(
+        research_question="当系统用错误的粒度描述世界时，失败是否必然？框架问题与多智能体系统的认识论根源"
+    )
+    
+    top_papers = searcher.run_search(top_n=30)
+    
+    print("\n" + "=" * 50)
+    print("Top 10 文献:")
+    for i, p in enumerate(top_papers[:10], 1):
+        print(f"\n{i}. {p.get('title', 'N/A')}")
+        print(f"   年份: {p.get('year', 'N/A')}")
+        print(f"   相关性: {p.get('relevance_score', 0):.2f}")
+        print(f"   质量: {p.get('quality_score', 0):.2f}")
+        print(f"   来源: {p.get('source', 'N/A')}")

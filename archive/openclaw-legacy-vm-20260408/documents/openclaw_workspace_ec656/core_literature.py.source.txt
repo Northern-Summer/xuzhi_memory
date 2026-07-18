@@ -1,0 +1,261 @@
+# core_literature.py — 核心文献定位系统
+"""
+针对已知核心文献的精确搜索：
+1. 经典文献直接定位（作者 + 年份 + 标题关键词）
+2. 引用网络分析（前向引用：谁引用了它）
+3. 相关文献推荐（Semantic Scholar 相关论文 API）
+
+这些是哲学论文的基础，不能用一般关键词搜索。
+"""
+import json
+import urllib.request
+import urllib.parse
+import time
+from pathlib import Path
+from datetime import datetime, timezone
+from typing import Optional
+
+HOME = Path.home()
+RESEARCH_DIR = HOME / ".xuzhi_memory" / "research_v2"
+LITERATURE_DIR = RESEARCH_DIR / "literature"
+CORE_LIT_FILE = RESEARCH_DIR / "core_literature.json"
+
+
+# 核心文献清单（研究问题相关）
+CORE_LITERATURE = [
+    # 框架问题
+    {
+        "id": "mccarthy_hayes_1969",
+        "title": "Some Philosophical Problems from the Standpoint of Artificial Intelligence",
+        "authors": ["John McCarthy", "Patrick J. Hayes"],
+        "year": 1969,
+        "venue": "Machine Intelligence 4",
+        "priority": "P0",
+        "relevance": "框架问题的原始定义",
+        "search_query": "McCarthy Hayes 1969 frame problem artificial intelligence"
+    },
+    {
+        "id": "pylyshyn_1987",
+        "title": "The Frame Problem in Artificial Intelligence",
+        "authors": ["Zenon Pylyshyn"],
+        "year": 1987,
+        "venue": "The Robot's Dilemma",
+        "priority": "P0",
+        "relevance": "框架问题的经典表述",
+        "search_query": "Pylyshyn 1987 frame problem robot dilemma"
+    },
+    {
+        "id": "hayes_1971",
+        "title": "What's a Frame?",
+        "authors": ["Patrick J. Hayes"],
+        "year": 1971,
+        "venue": " unpublished manuscript",
+        "priority": "P1",
+        "relevance": "框架的形式化定义",
+        "search_query": "Hayes 1971 frame knowledge representation"
+    },
+    
+    # 规范语义学
+    {
+        "id": "brandom_1994",
+        "title": "Making It Explicit: Reasoning, Representing, and Discursive Commitment",
+        "authors": ["Robert Brandom"],
+        "year": 1994,
+        "venue": "Harvard University Press",
+        "priority": "P0",
+        "relevance": "规范语义学的核心著作",
+        "search_query": "Brandom 1994 Making It Explicit reasoning representing"
+    },
+    {
+        "id": "brandom_2000",
+        "title": "Articulating Reasons: An Introduction to Inferentialism",
+        "authors": ["Robert Brandom"],
+        "year": 2000,
+        "venue": "Harvard University Press",
+        "priority": "P1",
+        "relevance": "推断主义导论",
+        "search_query": "Brandom 2000 Articulating Reasons inferentialism"
+    },
+    
+    # 多智能体系统
+    {
+        "id": "wooldridge_2009",
+        "title": "An Introduction to MultiAgent Systems",
+        "authors": ["Michael Wooldridge"],
+        "year": 2009,
+        "venue": "Wiley",
+        "priority": "P1",
+        "relevance": "多智能体系统教科书",
+        "search_query": "Wooldridge 2009 Introduction MultiAgent Systems"
+    },
+    
+    # 知识表示
+    {
+        "id": "newell_1982",
+        "title": "The Knowledge Level",
+        "authors": ["Allen Newell"],
+        "year": 1982,
+        "venue": "Artificial Intelligence",
+        "priority": "P1",
+        "relevance": "知识层次的抽象",
+        "search_query": "Newell 1982 knowledge level artificial intelligence"
+    }
+]
+
+
+class CoreLiteratureSearcher:
+    """核心文献定位器"""
+    
+    def __init__(self):
+        self.found_papers = []
+        self.citation_network = {}
+    
+    def search_paper(self, paper_info: dict) -> Optional[dict]:
+        """搜索单篇核心文献"""
+        query = paper_info["search_query"]
+        
+        # 使用 Semantic Scholar API
+        url = "https://api.semanticscholar.org/graph/v1/paper/search"
+        params = {
+            "query": query,
+            "limit": 5,
+            "fields": "title,authors,year,abstract,citationCount,venue,openAccessPdf,url,externalIds"
+        }
+        
+        full_url = f"{url}?{urllib.parse.urlencode(params)}"
+        
+        try:
+            with urllib.request.urlopen(full_url, timeout=30) as response:
+                data = json.loads(response.read().decode())
+                results = data.get("data", [])
+                
+                if results:
+                    # 找最匹配的
+                    best_match = self._find_best_match(results, paper_info)
+                    if best_match:
+                        best_match["priority"] = paper_info["priority"]
+                        best_match["relevance_note"] = paper_info["relevance"]
+                        best_match["core_id"] = paper_info["id"]
+                        return best_match
+        except Exception as e:
+            print(f"搜索失败: {paper_info['id']} - {e}")
+        
+        return None
+    
+    def _find_best_match(self, results: list[dict], target: dict) -> Optional[dict]:
+        """找到最匹配的结果"""
+        target_year = target["year"]
+        target_authors = [a.lower() for a in target["authors"]]
+        
+        for r in results:
+            # 检查年份
+            if r.get("year") != target_year:
+                continue
+            
+            # 检查作者
+            paper_authors = [a.get("name", "").lower() for a in r.get("authors", [])]
+            author_match = any(
+                any(ta in pa or pa in ta for pa in paper_authors)
+                for ta in target_authors
+            )
+            
+            if author_match:
+                return r
+        
+        # 如果精确匹配失败，返回第一个结果
+        return results[0] if results else None
+    
+    def get_citations(self, paper_id: str, limit: int = 20) -> list[dict]:
+        """获取引用这篇论文的文献（前向引用）"""
+        url = f"https://api.semanticscholar.org/graph/v1/paper/{paper_id}/citations"
+        params = {
+            "limit": limit,
+            "fields": "title,authors,year,abstract,citationCount,venue"
+        }
+        
+        full_url = f"{url}?{urllib.parse.urlencode(params)}"
+        
+        try:
+            with urllib.request.urlopen(full_url, timeout=30) as response:
+                data = json.loads(response.read().decode())
+                return data.get("data", [])
+        except Exception as e:
+            print(f"获取引用失败: {e}")
+            return []
+    
+    def get_related_papers(self, paper_id: str, limit: int = 20) -> list[dict]:
+        """获取相关论文"""
+        url = f"https://api.semanticscholar.org/recommendations/v1/papers/forpaper/{paper_id}"
+        params = {
+            "limit": limit,
+            "fields": "title,authors,year,abstract,citationCount,venue"
+        }
+        
+        full_url = f"{url}?{urllib.parse.urlencode(params)}"
+        
+        try:
+            with urllib.request.urlopen(full_url, timeout=30) as response:
+                data = json.loads(response.read().decode())
+                return data.get("recommendedPapers", [])
+        except Exception as e:
+            print(f"获取相关论文失败: {e}")
+            return []
+    
+    def search_all_core(self) -> dict:
+        """搜索所有核心文献"""
+        results = {
+            "found": [],
+            "not_found": [],
+            "citation_network": {}
+        }
+        
+        for paper_info in CORE_LITERATURE:
+            print(f"搜索: {paper_info['id']}")
+            
+            found = self.search_paper(paper_info)
+            if found:
+                results["found"].append(found)
+                print(f"  ✓ 找到: {found.get('title', 'N/A')}")
+                
+                # 获取引用网络
+                if found.get("paperId"):
+                    time.sleep(0.5)  # rate limit
+                    citations = self.get_citations(found["paperId"], limit=10)
+                    results["citation_network"][paper_info["id"]] = {
+                        "citations": citations[:10],
+                        "citation_count": len(citations)
+                    }
+            else:
+                results["not_found"].append(paper_info)
+                print(f"  ✗ 未找到")
+            
+            time.sleep(1)  # rate limit
+        
+        # 保存结果
+        with open(CORE_LIT_FILE, "w") as f:
+            json.dump(results, f, indent=2, ensure_ascii=False)
+        
+        return results
+
+
+def time_sleep(seconds):
+    """避免在 module 层面 import time"""
+    import time
+    time.sleep(seconds)
+
+
+# 使用示例
+if __name__ == "__main__":
+    import time
+    
+    searcher = CoreLiteratureSearcher()
+    results = searcher.search_all_core()
+    
+    print("\n" + "=" * 50)
+    print(f"找到 {len(results['found'])} / {len(CORE_LITERATURE)} 篇核心文献")
+    
+    for p in results["found"]:
+        print(f"\n- [{p.get('priority')}] {p.get('title')}")
+        print(f"  年份: {p.get('year')}")
+        print(f"  引用数: {p.get('citationCount', 0)}")
+        print(f"  相关性: {p.get('relevance_note')}")

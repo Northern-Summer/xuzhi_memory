@@ -1,0 +1,73 @@
+#!/bin/bash
+# Session End 自演化流程 — Ξ | 2026-03-31
+# 工程改进铁律合规 — 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+
+set -e
+
+TODAY=$(date +%Y-%m-%d)
+NOW=$(date +%H:%M)
+MEMORY_FILE="$HOME/.xuzhi_memory/memory/$TODAY.md"
+SKILL_LOG="$HOME/.xuzhi_memory/session_evolution.log"
+
+echo "=== Session End 自演化流程 | $TODAY $NOW ==="
+echo ""
+
+# 步骤 1: 检查是否有未提交的更改
+echo "[1/6] 检查 Git 状态..."
+MEMORY_CHANGES=$(git -C $HOME/.xuzhi_memory status --porcelain | wc -l)
+GENESIS_CHANGES=$(git -C $HOME/xuzhi_genesis status --porcelain | wc -l)
+
+if [ "$MEMORY_CHANGES" -gt 0 ] || [ "$GENESIS_CHANGES" -gt 0 ]; then
+    echo "⚠️  有未提交的更改："
+    [ "$MEMORY_CHANGES" -gt 0 ] && echo "  - xuzhi_memory: $MEMORY_CHANGES 个文件"
+    [ "$GENESIS_CHANGES" -gt 0 ] && echo "  - xuzhi_genesis: $GENESIS_CHANGES 个文件"
+else
+    echo "✅ Git 状态干净"
+fi
+
+# 步骤 2: 检查今日 memory 文件
+echo ""
+echo "[2/6] 检查今日 memory 文件..."
+if [ -f "$MEMORY_FILE" ]; then
+    LINES=$(wc -l < "$MEMORY_FILE")
+    echo "✅ $MEMORY_FILE 存在 ($LINES 行)"
+else
+    echo "❌ $MEMORY_FILE 不存在"
+fi
+
+# 步骤 3: 检查交接备忘录
+echo ""
+echo "[3/6] 检查交接备忘录..."
+if grep -q "Session交接备忘录" "$MEMORY_FILE" 2>/dev/null; then
+    LAST_HANDOVER=$(grep -n "Session交接备忘录" "$MEMORY_FILE" | tail -1)
+    echo "✅ 找到交接备忘录：$LAST_HANDOVER"
+else
+    echo "⚠️  未找到交接备忘录"
+fi
+
+# 步骤 4: 提示技能提取
+echo ""
+echo "[4/6] 技能提取检查（需人工确认）"
+echo "本次 session 有以下失败吗？"
+echo "  - 用户纠正？"
+echo "  - 任务未完成？"
+echo "  - 错误/异常？"
+echo "  - 效率低下？"
+echo ""
+echo "如有，请手动执行技能提取并更新 MEMORY.md 技能库"
+
+# 步骤 5: 记录日志
+echo ""
+echo "[5/6] 记录执行日志..."
+echo "[$TODAY $NOW] Session End 流程执行完成" >> "$SKILL_LOG"
+echo "✅ 日志已写入 $SKILL_LOG"
+
+# 步骤 6: 提示 Git 操作
+echo ""
+echo "[6/6] Git 操作提示"
+echo "如有修改，请执行："
+echo "  git -C ~/.xuzhi_memory add -A && git commit -m 'docs: session end update' && git push"
+echo "  git -C ~/xuzhi_genesis add -A && git commit -m 'docs: session end update' && git push"
+
+echo ""
+echo "=== Session End 流程完成 ==="

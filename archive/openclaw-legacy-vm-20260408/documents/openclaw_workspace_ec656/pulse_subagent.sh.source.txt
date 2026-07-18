@@ -1,0 +1,17 @@
+#!/bin/bash
+# Ξ Expert Pulse — 唯一有效的自动化回路
+# spawn subagent → subagent内部sessions_send → WeChat
+# 工程改进铁律合规 — Ξ | 2026-03-27
+# 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+
+openclaw sessions spawn \
+  --runtime subagent \
+  --mode run \
+  --agent-id main \
+  --json 2>/dev/null << 'PAYLOAD'
+{
+  "task": "你是Ξ。立即读取~/.xuzhi_memory/expert_tracker/activity.json，找出最新多专家cluster，用50字以内写出：1.你选了什么为什么2.证据3.推理4.无法判断5.这教了你什么。中等层次。用中文。完成后调用sessions_send(sessionKey=\"agent:main:openclaw-weixin:direct:o9cq80z9eorqjasg6hb1w-cc4-po@im.wechat\", message=\"【Ξ前沿动态】\n\n[你的完整分析内容]\")发送结果。",
+  "timeoutSeconds": 60
+}
+PAYLOAD
+echo "Spawned at $(date '+%H:%M:%S')"

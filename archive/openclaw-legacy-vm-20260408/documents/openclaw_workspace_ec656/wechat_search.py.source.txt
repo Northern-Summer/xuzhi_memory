@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+# 工程改进铁律合规 — Ξ | 2026-03-27
+# 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+#
+# 微信公众号搜索 — 集成到 multi-search-engine 体系
+# 使用 curl_cffi 反反爬，直接加为第三个引擎
+#
+# 用法:
+#   python3 wechat_search.py "<关键词>"             # 搜索文章
+#   python3 wechat_search.py "<关键词>" --account  # 搜索公众号
+
+from wechat_scraper import WeChatScraper
+import sys
+import json
+
+def search(query, max_results=8, as_json=False):
+    scraper = WeChatScraper()
+    articles = scraper.search(query, max_results=max_results)
+
+    if as_json:
+        print(json.dumps(articles, ensure_ascii=False, indent=2))
+        return
+
+    if not articles:
+        print(f"未找到: {query}")
+        return
+
+    print(f"\n{'='*60}")
+    print(f"📰 微信公众号搜索: {query}")
+    print(f"{'='*60}\n")
+    for i, a in enumerate(articles, 1):
+        account = (a.get('account') or '未知')[:12]
+        date = (a.get('date') or '未知日期')[:10]
+        title = a['title'][:60]
+        print(f"  {i:>2}. [{date}] @{account}")
+        print(f"      {title}")
+        if a.get('url'):
+            print(f"      → {a['url'][:70]}")
+        print()
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("用法: python3 wechat_search.py <关键词> [max] [--json]")
+        sys.exit(1)
+
+    kwargs = {}
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    flags = [a for a in sys.argv[1:] if a.startswith('--')]
+
+    query = args[0] if args else ""
+    max_results = int(args[1]) if len(args) > 1 else 8
+
+    search(query, max_results=max_results, as_json='--json' in flags)

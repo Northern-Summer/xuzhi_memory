@@ -1,0 +1,3363 @@
+{
+  "schema": "openclaw-legacy-vm-recovery-manifest/v1",
+  "created": "2026-07-18T23:18:16.1274440+08:00",
+  "authority": "legacy_context_only",
+  "no_runtime_authority": true,
+  "can_claim_capability_progress": false,
+  "can_activate_legacy_runtime": false,
+  "source_vhdx": {
+    "logical_path": "%LOCALAPPDATA%\\wsl\\{3c815a0b-6fde-401d-a65d-6ff3cea7535b}\\ext4.vhdx",
+    "physical_bytes": 84127252480,
+    "creation_time_utc": "2026-03-14T09:35:59.6095223Z",
+    "last_write_time_utc": "2026-04-12T17:38:47.9468390Z",
+    "file_id": "0x00000000000000000097000000024ea1",
+    "mounted_for_extraction": "read_only_ro_noload",
+    "attached_after_extraction": false
+  },
+  "source_snapshots": {
+    "xuzhi_memory": {
+      "base_commit": "a7f6f23cafa3971f98ad7c4a48d9e6fd53aa7f8c",
+      "design_delta_commit": "e92fdbc4a6001533b0300f95927972fab5b8fc99",
+      "relationship": "single_parent_delta",
+      "selection": "immutable changed blobs matching agents/*/memory/*.md, archive/*.md, memory/**/*.md, reports/*.md",
+      "worktree_runtime_drift_excluded": [
+        "alerts/health_2026-04-08.md",
+        "expert_tracker/echo_calibration.json",
+        "logs/checkpoint.log",
+        "logs/health_monitor.log",
+        "logs/hook_health.log",
+        "logs/integrity.log",
+        "logs/system_acceptance.log",
+        "reports/system_status_2026-04-08.md",
+        "task_center/agent_watchdog.log",
+        "task_center/rate_limiter.log",
+        "task_center/task_executor.log",
+        "task_center/watchdog.log",
+        "usage/2026-04.json",
+        "alerts/health_2026-04-09.md",
+        "evolution/checkpoint_2026-04-08_1600.json",
+        "evolution/checkpoint_2026-04-08_1800.json",
+        "evolution/checkpoint_2026-04-08_2000.json",
+        "evolution/checkpoint_2026-04-08_2200.json",
+        "evolution/checkpoint_2026-04-09_0000.json",
+        "evolution/checkpoint_2026-04-09_0200.json",
+        "logs/acceptance_reboot.log",
+        "logs/system_report.log"
+      ],
+      "untracked_sentinel": {
+        "path": "archive/2026-04-01.md",
+        "bytes": 19082,
+        "sha256": "c6724a7fb41c51103cf57f45b813bea73f5f6bd4061597724b8fbca3872988e8"
+      }
+    },
+    "openclaw_workspace": {
+      "commit": "ec656b9a4e6b7ddc62cb64f421f623f36d423d16",
+      "selection": "immutable commit blobs with md/py/sh/ts/js/yaml/yml/toml allowlist; runtime/config/cache paths excluded"
+    },
+    "xuzhi_custom": {
+      "selection": "docs and scripts text allowlist from read-only filesystem snapshot"
+    }
+  },
+  "safety_policy": {
+    "secret_values_preserved": false,
+    "redaction_types": [
+      "private_key_block",
+      "github_classic_token",
+      "github_fine_grained_token",
+      "gitlab_token",
+      "openai_or_anthropic_key",
+      "slack_token",
+      "aws_access_key_id",
+      "jwt",
+      "authorization_bearer",
+      "credentialed_url",
+      "sensitive_assignment"
+    ],
+    "runtime_path_denylist": [
+      "ssh_or_private_key_path",
+      "credential_config_path",
+      "runtime_state_path",
+      "runtime_control_path",
+      "active_workflow_path",
+      "research_runtime_html"
+    ],
+    "activation_names_renamed": [
+      "AGENTS.md",
+      "SKILL.md",
+      "*.py",
+      "*.sh",
+      "*.ts",
+      "*.js",
+      "*.yaml",
+      "*.yml",
+      "*.toml"
+    ],
+    "deduplication": "sanitized_sha256; one content file plus all source mappings",
+    "excluded_candidates": [
+      {
+        "source_path": "openclaw_workspace_ec656/HEARTBEAT.md",
+        "reason": "runtime_control_path"
+      },
+      {
+        "source_path": "openclaw_workspace_ec656/MODEL_ROUTING.md",
+        "reason": "runtime_control_path"
+      },
+      {
+        "source_path": "xuzhi_memory_changed/memory/2026-04-07-sigma-heartbeat.md",
+        "reason": "runtime_control_path"
+      }
+    ]
+  },
+  "metrics": {
+    "candidate_source_files": 210,
+    "selected_source_records": 207,
+    "excluded_candidate_files": 3,
+    "unique_stored_documents": 197,
+    "duplicates_collapsed": 10,
+    "selected_original_bytes": 1190364,
+    "stored_document_bytes": 1187316,
+    "redacted_source_files": 3,
+    "redaction_occurrences": 5,
+    "post_redaction_secret_hits": 0,
+    "utf8_invalid": 0
+  },
+  "entries": [
+    {
+      "target_path": "documents/openclaw_workspace_ec656/AGENTS_BOOT.md",
+      "bytes": 540,
+      "sha256": "7a34ac129a80ff30798dcc7b06a3a6118f1b48cc4e99b416a8ce78ea1e855fb7",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "AGENTS_BOOT.md",
+          "original_bytes": 540,
+          "original_sha256": "7a34ac129a80ff30798dcc7b06a3a6118f1b48cc4e99b416a8ce78ea1e855fb7",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/AGENTS.md.source.txt",
+      "bytes": 46,
+      "sha256": "7bbff80e8fdb0e710e71b83c86e1c6d10da36e83ce72236eb44a1506a80b36a3",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "AGENTS.md",
+          "original_bytes": 46,
+          "original_sha256": "7bbff80e8fdb0e710e71b83c86e1c6d10da36e83ce72236eb44a1506a80b36a3",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/agents/Ergo/SOUL.md",
+      "bytes": 446,
+      "sha256": "0c69fe7aed3c3933d28f7c8c0eac7988bd6fb851b9eed7b6ef2909b0404ef383",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "agents/Ergo/SOUL.md",
+          "original_bytes": 446,
+          "original_sha256": "0c69fe7aed3c3933d28f7c8c0eac7988bd6fb851b9eed7b6ef2909b0404ef383",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/apply_fix_safe.py.source.txt",
+      "bytes": 9842,
+      "sha256": "faace871d7ca99feb580f3ccb685f00e599bff3a234d7452bacf4d7fc7e32c0a",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "apply_fix_safe.py",
+          "original_bytes": 9842,
+          "original_sha256": "faace871d7ca99feb580f3ccb685f00e599bff3a234d7452bacf4d7fc7e32c0a",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/apply_fix.py.source.txt",
+      "bytes": 3524,
+      "sha256": "68a2f1af3f564443899bd6e1c0af59b7a1bd36edc3acaa3c01070e940d3fca00",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "apply_fix.py",
+          "original_bytes": 3524,
+          "original_sha256": "68a2f1af3f564443899bd6e1c0af59b7a1bd36edc3acaa3c01070e940d3fca00",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/arxiv_fetcher.py.source.txt",
+      "bytes": 2933,
+      "sha256": "05f565e9fd70eb70d418ca3c037f15e088406eecd8b2ddd2bea5c1681e6ca1af",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "arxiv_fetcher.py",
+          "original_bytes": 2933,
+          "original_sha256": "05f565e9fd70eb70d418ca3c037f15e088406eecd8b2ddd2bea5c1681e6ca1af",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/arxiv_search.py.source.txt",
+      "bytes": 970,
+      "sha256": "83c38c364832217e37dc87c433a4f3cd1c2fc84b74ea1b0978c3ff4da5b68499",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "arxiv_search.py",
+          "original_bytes": 970,
+          "original_sha256": "83c38c364832217e37dc87c433a4f3cd1c2fc84b74ea1b0978c3ff4da5b68499",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/audit_seventh_epoch.md",
+      "bytes": 3838,
+      "sha256": "887cfb5fe7910f64113c4338d1b662ca783b4e979789be308b939b1612a342cb",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "audit_seventh_epoch.md",
+          "original_bytes": 3838,
+          "original_sha256": "887cfb5fe7910f64113c4338d1b662ca783b4e979789be308b939b1612a342cb",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/auto_optimizer.py.source.txt",
+      "bytes": 2447,
+      "sha256": "cff58495c7a9b8b077cf9a59782bcbb719872de6c488375ee9e2c283d4d59da4",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "auto_optimizer.py",
+          "original_bytes": 2447,
+          "original_sha256": "cff58495c7a9b8b077cf9a59782bcbb719872de6c488375ee9e2c283d4d59da4",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/bin/backup_openclaw.sh.source.txt",
+      "bytes": 2721,
+      "sha256": "da6f2f99a517d0df234ab40cade118d167aa58042f310be318811fe74ff8d51a",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "bin/backup_openclaw.sh",
+          "original_bytes": 2721,
+          "original_sha256": "da6f2f99a517d0df234ab40cade118d167aa58042f310be318811fe74ff8d51a",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/bin/push_openclaw.py.source.txt",
+      "bytes": 3135,
+      "sha256": "e237a439f2a2fc6b2879b8a243d492e87f6a7ebb518caf62d96e0eac2c352c87",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "bin/push_openclaw.py",
+          "original_bytes": 3135,
+          "original_sha256": "e237a439f2a2fc6b2879b8a243d492e87f6a7ebb518caf62d96e0eac2c352c87",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/boot_memory_hygiene.py.source.txt",
+      "bytes": 1883,
+      "sha256": "6e39cf8e3f1c5dae1a99b88c27d2380a968602a1141afb690494e1e08130bdeb",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "boot_memory_hygiene.py",
+          "original_bytes": 1883,
+          "original_sha256": "6e39cf8e3f1c5dae1a99b88c27d2380a968602a1141afb690494e1e08130bdeb",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/BOOT.md",
+      "bytes": 675,
+      "sha256": "9bfebc3c0b6c9d209df3ef87b285c115762bf2dc2693fedc97d107b6391456c5",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "BOOT.md",
+          "original_bytes": 675,
+          "original_sha256": "9bfebc3c0b6c9d209df3ef87b285c115762bf2dc2693fedc97d107b6391456c5",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/CLAUDE_CODE_DEEP_FUSION_REPORT.md",
+      "bytes": 44910,
+      "sha256": "1e00a2525d8e801d3daf419dab24025cec1bd654d83eb6b122fb1c251eb06c36",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "CLAUDE_CODE_DEEP_FUSION_REPORT.md",
+          "original_bytes": 44910,
+          "original_sha256": "1e00a2525d8e801d3daf419dab24025cec1bd654d83eb6b122fb1c251eb06c36",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/CLAUDE_CODE_DEEP_LEARNINGS_2.md",
+      "bytes": 6749,
+      "sha256": "78b110dd5591a9efa2e32588ea791e77cc6421fc19eaf124577f763c9c83b316",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "CLAUDE_CODE_DEEP_LEARNINGS_2.md",
+          "original_bytes": 6749,
+          "original_sha256": "78b110dd5591a9efa2e32588ea791e77cc6421fc19eaf124577f763c9c83b316",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/CLAUDE_CODE_DEEP_LEARNINGS.md",
+      "bytes": 8425,
+      "sha256": "8f735819c1897394bc83788a66e1b444a882e205d32047b182a6d17ccaa91d3c",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "CLAUDE_CODE_DEEP_LEARNINGS.md",
+          "original_bytes": 8425,
+          "original_sha256": "8f735819c1897394bc83788a66e1b444a882e205d32047b182a6d17ccaa91d3c",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/CLAUDE_CODE_LEARNINGS.md",
+      "bytes": 2369,
+      "sha256": "a87be95d02c0f4ba4e2fb3ff29be7cbd7914823e70cdf0a4e413f32587a2828e",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "CLAUDE_CODE_LEARNINGS.md",
+          "original_bytes": 2369,
+          "original_sha256": "a87be95d02c0f4ba4e2fb3ff29be7cbd7914823e70cdf0a4e413f32587a2828e",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/CLAUDE_CODE_TECHNICAL_INSIGHTS.md",
+      "bytes": 12782,
+      "sha256": "713f9245380a9d78b75a27ed74680273c029d539a56076406e980157ba19c217",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "CLAUDE_CODE_TECHNICAL_INSIGHTS.md",
+          "original_bytes": 12782,
+          "original_sha256": "713f9245380a9d78b75a27ed74680273c029d539a56076406e980157ba19c217",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/core_literature.py.source.txt",
+      "bytes": 9066,
+      "sha256": "26892ca10dad89443f20ca595338ae593b0d4fc8940ec592b6a04fd8b4f870c5",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "core_literature.py",
+          "original_bytes": 9066,
+          "original_sha256": "26892ca10dad89443f20ca595338ae593b0d4fc8940ec592b6a04fd8b4f870c5",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/daily/2026-03-24.md",
+      "bytes": 20320,
+      "sha256": "66e96fbaf9c7c1bc9cb3f4256e77a59615b025aee77a1bef34fdf942a48ffc6f",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "daily/2026-03-24.md",
+          "original_bytes": 20320,
+          "original_sha256": "66e96fbaf9c7c1bc9cb3f4256e77a59615b025aee77a1bef34fdf942a48ffc6f",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/deep_acceptance.sh.source.txt",
+      "bytes": 9670,
+      "sha256": "bb68896e46dc337db4073371cc6129c2e49cd463bcea85085f964b2e837795f3",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "deep_acceptance.sh",
+          "original_bytes": 9670,
+          "original_sha256": "bb68896e46dc337db4073371cc6129c2e49cd463bcea85085f964b2e837795f3",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/departments/engineering/sandbox/memory_blue_team.py.source.txt",
+      "bytes": 5929,
+      "sha256": "79dc295c654a9b2069abfc4d1594f6331b31b1f9dcce729006cf8cd1257b898e",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "departments/engineering/sandbox/memory_blue_team.py",
+          "original_bytes": 5929,
+          "original_sha256": "79dc295c654a9b2069abfc4d1594f6331b31b1f9dcce729006cf8cd1257b898e",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/departments/engineering/sandbox/memory_purple_team.py.source.txt",
+      "bytes": 3902,
+      "sha256": "b5b835966830b19c9b1bfd90138e1372bcea772047ab5690df98d67d1d758f86",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "departments/engineering/sandbox/memory_purple_team.py",
+          "original_bytes": 3902,
+          "original_sha256": "b5b835966830b19c9b1bfd90138e1372bcea772047ab5690df98d67d1d758f86",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/departments/engineering/sandbox/memory_red_team.py.source.txt",
+      "bytes": 6380,
+      "sha256": "c9aec03c4f407fe73c8cdb7b1a1f4333cde41630b30fe384101956de455c7fa8",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "departments/engineering/sandbox/memory_red_team.py",
+          "original_bytes": 6380,
+          "original_sha256": "c9aec03c4f407fe73c8cdb7b1a1f4333cde41630b30fe384101956de455c7fa8",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/departments/Λ-LAMBDA-CONTEXT.md",
+      "bytes": 824,
+      "sha256": "e152082e389eb07282034da9dcc6b02eea8727dbf38b0c514b170472a628b765",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "departments/Λ-LAMBDA-CONTEXT.md",
+          "original_bytes": 824,
+          "original_sha256": "e152082e389eb07282034da9dcc6b02eea8727dbf38b0c514b170472a628b765",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/detect_aborted.sh.source.txt",
+      "bytes": 1856,
+      "sha256": "48689780d5d84cb8c160d4e3fb813cb162631206f18ef6d7106927a5fdf1abdf",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "detect_aborted.sh",
+          "original_bytes": 1856,
+          "original_sha256": "48689780d5d84cb8c160d4e3fb813cb162631206f18ef6d7106927a5fdf1abdf",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/diagnose_config.py.source.txt",
+      "bytes": 5023,
+      "sha256": "581398bb024d726346b69188ec03b27ecd9f872a62c3f98ccee7036fdc0c82f0",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "diagnose_config.py",
+          "original_bytes": 5023,
+          "original_sha256": "581398bb024d726346b69188ec03b27ecd9f872a62c3f98ccee7036fdc0c82f0",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/documents_pipeline.py.source.txt",
+      "bytes": 24089,
+      "sha256": "ef73918ddbb84ffbbb57ae3eba415c74029aad671da8c47afc81f28a1d2250e5",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "documents_pipeline.py",
+          "original_bytes": 24089,
+          "original_sha256": "ef73918ddbb84ffbbb57ae3eba415c74029aad671da8c47afc81f28a1d2250e5",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/dreaming_cycle.py.source.txt",
+      "bytes": 5904,
+      "sha256": "4895aacd5617a0c04bec068e9993312df315d1e69e1838a7955939528ad679ca",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "dreaming_cycle.py",
+          "original_bytes": 5904,
+          "original_sha256": "4895aacd5617a0c04bec068e9993312df315d1e69e1838a7955939528ad679ca",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/dreaming_direct.py.source.txt",
+      "bytes": 5136,
+      "sha256": "e92f580e683b49e45d9e03aee19faf1f7dd7658da94635995e65aaecbfa1596c",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "dreaming_direct.py",
+          "original_bytes": 5136,
+          "original_sha256": "e92f580e683b49e45d9e03aee19faf1f7dd7658da94635995e65aaecbfa1596c",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/dreaming_dispatcher.py.source.txt",
+      "bytes": 4597,
+      "sha256": "12f3c8a307d0599686fec87a9c24ac1a75b920099019062483981cd266e45f4a",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "dreaming_dispatcher.py",
+          "original_bytes": 4597,
+          "original_sha256": "12f3c8a307d0599686fec87a9c24ac1a75b920099019062483981cd266e45f4a",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/dreaming_executor.py.source.txt",
+      "bytes": 1040,
+      "sha256": "71ece0a17df9cd23fe34ee40faa6ad634ce68b332950f3de0b42b7f9dc92c452",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "dreaming_executor.py",
+          "original_bytes": 1040,
+          "original_sha256": "71ece0a17df9cd23fe34ee40faa6ad634ce68b332950f3de0b42b7f9dc92c452",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/evolution_log_INDEX.md",
+      "bytes": 214,
+      "sha256": "c7fdb71c24b1885480333be68c665b74dd1d1f853d6f0b1ac3f31d48e70431c6",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "evolution_log_INDEX.md",
+          "original_bytes": 214,
+          "original_sha256": "c7fdb71c24b1885480333be68c665b74dd1d1f853d6f0b1ac3f31d48e70431c6",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/EVOLUTION.md",
+      "bytes": 5490,
+      "sha256": "528e1a76e0f0197b4ffb1d2b01df82c5dcf6d3ac4b4dd960f5861c440cb62956",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "EVOLUTION.md",
+          "original_bytes": 5490,
+          "original_sha256": "528e1a76e0f0197b4ffb1d2b01df82c5dcf6d3ac4b4dd960f5861c440cb62956",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/expert_pulse_spawn.py.source.txt",
+      "bytes": 2919,
+      "sha256": "b2c37c12aac6fd65ca2390f71e664800e980c8e361045b1430c1dc5efa3bf44a",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "expert_pulse_spawn.py",
+          "original_bytes": 2919,
+          "original_sha256": "b2c37c12aac6fd65ca2390f71e664800e980c8e361045b1430c1dc5efa3bf44a",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/expert_pulse_spawn.sh.source.txt",
+      "bytes": 2283,
+      "sha256": "f68333762bfeac5d26949404746767a5df1e4a6b534ddfef76b262c6727080a1",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "expert_pulse_spawn.sh",
+          "original_bytes": 2283,
+          "original_sha256": "f68333762bfeac5d26949404746767a5df1e4a6b534ddfef76b262c6727080a1",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/expert_pulse.py.source.txt",
+      "bytes": 2600,
+      "sha256": "2bfac988d52a407eee6b23669e8e793c14e1e7810a323366f62beaff762ca0eb",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "expert_pulse.py",
+          "original_bytes": 2600,
+          "original_sha256": "2bfac988d52a407eee6b23669e8e793c14e1e7810a323366f62beaff762ca0eb",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/expert_pulse.sh.source.txt",
+      "bytes": 2519,
+      "sha256": "4c0d4d838cefcb9320ffa4d3129b2637c4234a2aa8bf88673c5b2d30539b9e18",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "expert_pulse.sh",
+          "original_bytes": 2519,
+          "original_sha256": "4c0d4d838cefcb9320ffa4d3129b2637c4234a2aa8bf88673c5b2d30539b9e18",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/expert_push_bg.py.source.txt",
+      "bytes": 2615,
+      "sha256": "595677cdb71b66ae27f50524acc61be54fb3db339011caef6289aa1944def4a2",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "expert_push_bg.py",
+          "original_bytes": 2615,
+          "original_sha256": "595677cdb71b66ae27f50524acc61be54fb3db339011caef6289aa1944def4a2",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/expert_push.py.source.txt",
+      "bytes": 5272,
+      "sha256": "2cd42562bce9b659f88e292b3aa41e0c4bb1a4d4c3ffdbeb50b4a5926be00173",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "expert_push.py",
+          "original_bytes": 5272,
+          "original_sha256": "2cd42562bce9b659f88e292b3aa41e0c4bb1a4d4c3ffdbeb50b4a5926be00173",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/extract_schema.py.source.txt",
+      "bytes": 6780,
+      "sha256": "0aaf499600fe60db62b896a6297135e8c5f6872ebe56ea83f33206d667ca04c9",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "extract_schema.py",
+          "original_bytes": 6780,
+          "original_sha256": "0aaf499600fe60db62b896a6297135e8c5f6872ebe56ea83f33206d667ca04c9",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/FUSION_ACHIEVEMENTS.md",
+      "bytes": 1934,
+      "sha256": "8bcd3e6c5f1cc605e18266ecfd0478726b8ea7daf34b55b14aa543a2091cde78",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "FUSION_ACHIEVEMENTS.md",
+          "original_bytes": 1934,
+          "original_sha256": "8bcd3e6c5f1cc605e18266ecfd0478726b8ea7daf34b55b14aa543a2091cde78",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/FUSION_ELEGANT_PLAN.md",
+      "bytes": 5101,
+      "sha256": "3f97622102ffd6831ad2a91cac97f4d0bf32dbff21fff8e51c835a92036b462c",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "FUSION_ELEGANT_PLAN.md",
+          "original_bytes": 5101,
+          "original_sha256": "3f97622102ffd6831ad2a91cac97f4d0bf32dbff21fff8e51c835a92036b462c",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/FUSION_INCREMENTAL_PLAN.md",
+      "bytes": 20686,
+      "sha256": "74a397acd836c4e1bcc6572a43b85754f148b0704005bea51bccbe381d359c1b",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "FUSION_INCREMENTAL_PLAN.md",
+          "original_bytes": 20686,
+          "original_sha256": "74a397acd836c4e1bcc6572a43b85754f148b0704005bea51bccbe381d359c1b",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/gateway_recover.sh.source.txt",
+      "bytes": 2989,
+      "sha256": "433cb8431909f8ec3fe61eab9091aea2789d3e97dd82163bc8f4a1d4f234f1e7",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "gateway_recover.sh",
+          "original_bytes": 2989,
+          "original_sha256": "433cb8431909f8ec3fe61eab9091aea2789d3e97dd82163bc8f4a1d4f234f1e7",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/generate_fix.py.source.txt",
+      "bytes": 10927,
+      "sha256": "0eba4cab42ad3c616c5d6db5857fe687533650a9bf7b39bea9f114fdb662fcae",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "generate_fix.py",
+          "original_bytes": 10927,
+          "original_sha256": "0eba4cab42ad3c616c5d6db5857fe687533650a9bf7b39bea9f114fdb662fcae",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/health_monitor.py.source.txt",
+      "bytes": 7348,
+      "sha256": "8519b7754b5e3b1aba4393459200b04c2344b5f3041dc2f6f7323a4d6684c852",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "health_monitor.py",
+          "original_bytes": 7348,
+          "original_sha256": "8519b7754b5e3b1aba4393459200b04c2344b5f3041dc2f6f7323a4d6684c852",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/hygiene_lock.py.source.txt",
+      "bytes": 1408,
+      "sha256": "36aced6e97e88c1706491cc16a8a269af0fb421335be057af16c04cd7c1133fe",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "hygiene_lock.py",
+          "original_bytes": 1408,
+          "original_sha256": "36aced6e97e88c1706491cc16a8a269af0fb421335be057af16c04cd7c1133fe",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/IDENTITY.md",
+      "bytes": 48,
+      "sha256": "657fa2e7ba060ad37367d7f7161ac3f6dd3e9f1b6748f906788b14e63636a43d",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "IDENTITY.md",
+          "original_bytes": 48,
+          "original_sha256": "657fa2e7ba060ad37367d7f7161ac3f6dd3e9f1b6748f906788b14e63636a43d",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/investigate_overlay.sh.source.txt",
+      "bytes": 1552,
+      "sha256": "695706fc0593e6aeabaac562d5969e62acd21567c28b3abdb2981b4e384b9e4f",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "investigate_overlay.sh",
+          "original_bytes": 1552,
+          "original_sha256": "695706fc0593e6aeabaac562d5969e62acd21567c28b3abdb2981b4e384b9e4f",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/library_processor.py.source.txt",
+      "bytes": 11371,
+      "sha256": "65cfc5e7276278d6e710642d979e1583b337d1c17a1369f6f557da650d108606",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "library_processor.py",
+          "original_bytes": 11371,
+          "original_sha256": "65cfc5e7276278d6e710642d979e1583b337d1c17a1369f6f557da650d108606",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/LITERATURE_DATABASE.md",
+      "bytes": 2335,
+      "sha256": "61c5ba86f7ba1122aaca8c3ffb34d8b28570cafd042ddbe456cf3dea9dcde5c4",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "LITERATURE_DATABASE.md",
+          "original_bytes": 2335,
+          "original_sha256": "61c5ba86f7ba1122aaca8c3ffb34d8b28570cafd042ddbe456cf3dea9dcde5c4",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/literature_fetcher.py.source.txt",
+      "bytes": 5213,
+      "sha256": "c266bec3edfc488c61123221b618f49ffb8e442cb8bc96ba932ee17606953038",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "literature_fetcher.py",
+          "original_bytes": 5213,
+          "original_sha256": "c266bec3edfc488c61123221b618f49ffb8e442cb8bc96ba932ee17606953038",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/literature_search.py.source.txt",
+      "bytes": 10644,
+      "sha256": "340b19000b9f7d40caefa0131bca160d4791f1420cc4e23a80f273a5ab59030d",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "literature_search.py",
+          "original_bytes": 10644,
+          "original_sha256": "340b19000b9f7d40caefa0131bca160d4791f1420cc4e23a80f273a5ab59030d",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/LONG_TERM_GOALS.md",
+      "bytes": 1207,
+      "sha256": "7ca6e37c07191402805d97e6a042e355923e16d7668563a0c853f2b0f66947ed",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "LONG_TERM_GOALS.md",
+          "original_bytes": 1207,
+          "original_sha256": "7ca6e37c07191402805d97e6a042e355923e16d7668563a0c853f2b0f66947ed",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/manifests/SOUL_IMMUTABLE.md",
+      "bytes": 2818,
+      "sha256": "e0ce21a9ce9cb7e264ae81a6f3b48981e44c58c7de2656d0c6b33a697e9a8980",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "manifests/SOUL_IMMUTABLE.md",
+          "original_bytes": 2818,
+          "original_sha256": "e0ce21a9ce9cb7e264ae81a6f3b48981e44c58c7de2656d0c6b33a697e9a8980",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/manifests/SOUL_VARIABLE.md",
+      "bytes": 3127,
+      "sha256": "7f2c48f253e39ee3fb8271784f89f0763add8ec42c91bba5fb467fed972e4ef9",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "manifests/SOUL_VARIABLE.md",
+          "original_bytes": 3127,
+          "original_sha256": "7f2c48f253e39ee3fb8271784f89f0763add8ec42c91bba5fb467fed972e4ef9",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory_aging.sh.source.txt",
+      "bytes": 1248,
+      "sha256": "8084583ecf1e783322df1442036eec7673e937a30684fcd825959e1ca67a0f68",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory_aging.sh",
+          "original_bytes": 1248,
+          "original_sha256": "8084583ecf1e783322df1442036eec7673e937a30684fcd825959e1ca67a0f68",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory_checkpoint.sh.source.txt",
+      "bytes": 1348,
+      "sha256": "5a5594cff292322b247f415d9d1d4037b2d0d23f789a96442d6988d75fd84b3f",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory_checkpoint.sh",
+          "original_bytes": 1348,
+          "original_sha256": "5a5594cff292322b247f415d9d1d4037b2d0d23f789a96442d6988d75fd84b3f",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory_cognitive_load.sh.source.txt",
+      "bytes": 2060,
+      "sha256": "cf9e3d337dbdec0a3de01c1f7a88599c87cb389694963c2ce2e22a8acf5bfc7b",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory_cognitive_load.sh",
+          "original_bytes": 2060,
+          "original_sha256": "cf9e3d337dbdec0a3de01c1f7a88599c87cb389694963c2ce2e22a8acf5bfc7b",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory_conflict_check.sh.source.txt",
+      "bytes": 1057,
+      "sha256": "7ac40c444cadd30993d6653bbb3267b91bde3d5f28ed33457daf8c01e14d1734",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory_conflict_check.sh",
+          "original_bytes": 1057,
+          "original_sha256": "7ac40c444cadd30993d6653bbb3267b91bde3d5f28ed33457daf8c01e14d1734",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory_disaster_recovery.sh.source.txt",
+      "bytes": 1988,
+      "sha256": "f5d0d5ff1075b4808bed01d60aabafa22a4436ffe321cc01af256554c29a440c",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory_disaster_recovery.sh",
+          "original_bytes": 1988,
+          "original_sha256": "f5d0d5ff1075b4808bed01d60aabafa22a4436ffe321cc01af256554c29a440c",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/MEMORY_FINAL.md",
+      "bytes": 787,
+      "sha256": "70f0e7b75b59782c125aa56028a66f35b3e34ba5ab17b89e43d303d8ad5aed9a",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "MEMORY_FINAL.md",
+          "original_bytes": 787,
+          "original_sha256": "70f0e7b75b59782c125aa56028a66f35b3e34ba5ab17b89e43d303d8ad5aed9a",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory_health_check.sh.source.txt",
+      "bytes": 1894,
+      "sha256": "7240cb195128209ea7a523a61ef80cc769ef87b841b6700494cfa1994be09df3",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory_health_check.sh",
+          "original_bytes": 1894,
+          "original_sha256": "7240cb195128209ea7a523a61ef80cc769ef87b841b6700494cfa1994be09df3",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/MEMORY_HYGIENE_RULES.md",
+      "bytes": 50,
+      "sha256": "3ab749f06a3482514149bcb77ed7ea9a294f0a696a0c66a0b59eb96fc7572343",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "MEMORY_HYGIENE_RULES.md",
+          "original_bytes": 50,
+          "original_sha256": "3ab749f06a3482514149bcb77ed7ea9a294f0a696a0c66a0b59eb96fc7572343",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory_monitor.sh.source.txt",
+      "bytes": 872,
+      "sha256": "7f444186546e5cfd877eff7945c4a3ce5fcdc007d2ffbeb8246d33c80e70f06f",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory_monitor.sh",
+          "original_bytes": 872,
+          "original_sha256": "7f444186546e5cfd877eff7945c4a3ce5fcdc007d2ffbeb8246d33c80e70f06f",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory_security_check.sh.source.txt",
+      "bytes": 2314,
+      "sha256": "cc6effc0fbdb87ed632a71ea88c3c712e477ae300a3bfea44afb2f550cd52d6e",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory_security_check.sh",
+          "original_bytes": 2332,
+          "original_sha256": "6929574064424f666542e54a54520ee9f8a23e44720dffef16b192e13dda63ea",
+          "redactions": [
+            {
+              "type": "github_classic_token",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory_semantic_check.sh.source.txt",
+      "bytes": 2211,
+      "sha256": "0438f2c98e3bf86c32598cf41bc04d7d986cfaa726a5818a2e1d8c8047758055",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory_semantic_check.sh",
+          "original_bytes": 2211,
+          "original_sha256": "0438f2c98e3bf86c32598cf41bc04d7d986cfaa726a5818a2e1d8c8047758055",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory_sync.sh.source.txt",
+      "bytes": 1291,
+      "sha256": "4caa6eedea4f81caa18277cf7ef271ba13e6ca08edfff0b3d72d9ff5b5f7f0ba",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory_sync.sh",
+          "original_bytes": 1291,
+          "original_sha256": "4caa6eedea4f81caa18277cf7ef271ba13e6ca08edfff0b3d72d9ff5b5f7f0ba",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/MEMORY_SYSTEM_SPEC.md",
+      "bytes": 7946,
+      "sha256": "5adeab451ce19d3b9b1896a251ae5e9fa27e048bfeeb5de9fae345d675daff6e",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "MEMORY_SYSTEM_SPEC.md",
+          "original_bytes": 7946,
+          "original_sha256": "5adeab451ce19d3b9b1896a251ae5e9fa27e048bfeeb5de9fae345d675daff6e",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory_timestamp_normalize.py.source.txt",
+      "bytes": 2639,
+      "sha256": "3663633f23257f32ae806c28400d963e95a9cc2c3d3e5563a269627d0e0a92e9",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory_timestamp_normalize.py",
+          "original_bytes": 2639,
+          "original_sha256": "3663633f23257f32ae806c28400d963e95a9cc2c3d3e5563a269627d0e0a92e9",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory_write_guard.sh.source.txt",
+      "bytes": 929,
+      "sha256": "b24d44674f82f56c7d0d2759cb9961fea12296e85cd398fd17d0db54065435a0",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory_write_guard.sh",
+          "original_bytes": 929,
+          "original_sha256": "b24d44674f82f56c7d0d2759cb9961fea12296e85cd398fd17d0db54065435a0",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/MEMORY.md",
+      "bytes": 46,
+      "sha256": "3de6e4c88087c9e4d88c00fa517120c03f9b95ff6d5194b3c4dd4effdd9a78ea",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "MEMORY.md",
+          "original_bytes": 46,
+          "original_sha256": "3de6e4c88087c9e4d88c00fa517120c03f9b95ff6d5194b3c4dd4effdd9a78ea",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory/2026-03-30-system-elegance.md",
+      "bytes": 4798,
+      "sha256": "b41a24080b49bca54f3cd28625973265c9b9ccf77145ac3611f60d2df0276aa5",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory/2026-03-30-system-elegance.md",
+          "original_bytes": 4798,
+          "original_sha256": "b41a24080b49bca54f3cd28625973265c9b9ccf77145ac3611f60d2df0276aa5",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory/2026-03-30.md",
+      "bytes": 1243,
+      "sha256": "77a3da1dec4a8318c823451449c52e0c66c2e2864927371c857cbedbaf891da0",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory/2026-03-30.md",
+          "original_bytes": 1243,
+          "original_sha256": "77a3da1dec4a8318c823451449c52e0c66c2e2864927371c857cbedbaf891da0",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory/2026-03-31-append-only-protection.md",
+      "bytes": 9092,
+      "sha256": "e4b0e61d7b8a0c80975e26f03fb5abae7c20846511ada76802d5624e5898a7d7",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory/2026-03-31-append-only-protection.md",
+          "original_bytes": 9092,
+          "original_sha256": "e4b0e61d7b8a0c80975e26f03fb5abae7c20846511ada76802d5624e5898a7d7",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory/2026-03-31-architecture-spec.md",
+      "bytes": 8121,
+      "sha256": "7fd9e63893088bfb0cc8d20b1e682ad8846da5d9426f6639a792ce71d9b37631",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory/2026-03-31-architecture-spec.md",
+          "original_bytes": 8121,
+          "original_sha256": "7fd9e63893088bfb0cc8d20b1e682ad8846da5d9426f6639a792ce71d9b37631",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory/2026-03-31-claude-sourcemap-research.md",
+      "bytes": 14822,
+      "sha256": "bf65209e1a05297d2cc6ad984e5bff502747d29600f9be9d7206570363ea21b7",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory/2026-03-31-claude-sourcemap-research.md",
+          "original_bytes": 14822,
+          "original_sha256": "bf65209e1a05297d2cc6ad984e5bff502747d29600f9be9d7206570363ea21b7",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory/2026-03-31-fusion-planning.md",
+      "bytes": 5220,
+      "sha256": "a13f1953e11cd2d027e8015aae77cb1aded3b98335dda7bdd729d44336720145",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory/2026-03-31-fusion-planning.md",
+          "original_bytes": 5220,
+          "original_sha256": "a13f1953e11cd2d027e8015aae77cb1aded3b98335dda7bdd729d44336720145",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory/2026-03-31-fusion-progress.md",
+      "bytes": 12265,
+      "sha256": "1265c41f9c86fde215cf5d835b8ce43864e3024f5a902d6c1448482cff1e85fd",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory/2026-03-31-fusion-progress.md",
+          "original_bytes": 12265,
+          "original_sha256": "1265c41f9c86fde215cf5d835b8ce43864e3024f5a902d6c1448482cff1e85fd",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory/2026-03-31-git-token-protection.md",
+      "bytes": 5018,
+      "sha256": "90614da61c496ba7df0ecb4a9a4ec7ff8927f0ac15d8f23c42616d3004db9046",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory/2026-03-31-git-token-protection.md",
+          "original_bytes": 5018,
+          "original_sha256": "90614da61c496ba7df0ecb4a9a4ec7ff8927f0ac15d8f23c42616d3004db9046",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory/2026-03-31-memory-failure.md",
+      "bytes": 8119,
+      "sha256": "6d4681802d3aff53054d6a0d2ede7b47cda61250bb1b3062001a449bb0278d01",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory/2026-03-31-memory-failure.md",
+          "original_bytes": 8119,
+          "original_sha256": "6d4681802d3aff53054d6a0d2ede7b47cda61250bb1b3062001a449bb0278d01",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory/2026-03-31-request-timed-out-before-a-res.md",
+      "bytes": 4864,
+      "sha256": "81794289b07fd4d9caa678eef826fa95feea9a9d5595c65773e44f802c4afc3d",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory/2026-03-31-request-timed-out-before-a-res.md",
+          "original_bytes": 4864,
+          "original_sha256": "81794289b07fd4d9caa678eef826fa95feea9a9d5595c65773e44f802c4afc3d",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory/2026-03-31-research-acceleration.md",
+      "bytes": 5399,
+      "sha256": "ee358f527cd83db4601c767673dd4398a8f2ec8d738787aa08079d898647f0a0",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory/2026-03-31-research-acceleration.md",
+          "original_bytes": 5399,
+          "original_sha256": "ee358f527cd83db4601c767673dd4398a8f2ec8d738787aa08079d898647f0a0",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory/2026-03-31-research-redesign.md",
+      "bytes": 9614,
+      "sha256": "95a0566229e36de3ab7f7370009d1f03e620ee6fce01f8aabc94f42e5a08449d",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory/2026-03-31-research-redesign.md",
+          "original_bytes": 9614,
+          "original_sha256": "95a0566229e36de3ab7f7370009d1f03e620ee6fce01f8aabc94f42e5a08449d",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/memory/2026-03-31.md",
+      "bytes": 46681,
+      "sha256": "e345cc324573de218c1119522cb9e2b6d706ad6b7db6257b4015cf162815e577",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "memory/2026-03-31.md",
+          "original_bytes": 46681,
+          "original_sha256": "e345cc324573de218c1119522cb9e2b6d706ad6b7db6257b4015cf162815e577",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/MINIMAL_MODE.md",
+      "bytes": 395,
+      "sha256": "dc259abe2f7fe0d536f95511cd3b5fa0abc5cd7f473397a772876e6d8a705d0b",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "MINIMAL_MODE.md",
+          "original_bytes": 395,
+          "original_sha256": "dc259abe2f7fe0d536f95511cd3b5fa0abc5cd7f473397a772876e6d8a705d0b",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/morning_memory_hygiene.py.source.txt",
+      "bytes": 7691,
+      "sha256": "a6c5d2137b13bd8169a2bd9066a5f9041369ce21edceaf0f0156de307c5ea1ff",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "morning_memory_hygiene.py",
+          "original_bytes": 7691,
+          "original_sha256": "a6c5d2137b13bd8169a2bd9066a5f9041369ce21edceaf0f0156de307c5ea1ff",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/OPENCLAW_IMPLEMENTATION_CHECKLIST.md",
+      "bytes": 6355,
+      "sha256": "38396c4777a1c0ad3a5e54d136a58ef18bd321133c98a7175d456854837d0d49",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "OPENCLAW_IMPLEMENTATION_CHECKLIST.md",
+          "original_bytes": 6355,
+          "original_sha256": "38396c4777a1c0ad3a5e54d136a58ef18bd321133c98a7175d456854837d0d49",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/OPENCLAW_OPTIMIZATION_PLAN.md",
+      "bytes": 28802,
+      "sha256": "4beefd6865ed33f60527214905f8b56cb01a4b92c36f7d07eab4dea1fe9b4baa",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "OPENCLAW_OPTIMIZATION_PLAN.md",
+          "original_bytes": 28802,
+          "original_sha256": "4beefd6865ed33f60527214905f8b56cb01a4b92c36f7d07eab4dea1fe9b4baa",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/OPTIMIZATION_PLAN.md",
+      "bytes": 2941,
+      "sha256": "929c564376067a0c75779563f4d4162016227e2b702c7876d9664a9f1056e923",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "OPTIMIZATION_PLAN.md",
+          "original_bytes": 2941,
+          "original_sha256": "929c564376067a0c75779563f4d4162016227e2b702c7876d9664a9f1056e923",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/pre_compact_guard.sh.source.txt",
+      "bytes": 2168,
+      "sha256": "38135710984d846b84abe34c6924c4dc04b10e83ef7def034951779536964b72",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "pre_compact_guard.sh",
+          "original_bytes": 2168,
+          "original_sha256": "38135710984d846b84abe34c6924c4dc04b10e83ef7def034951779536964b72",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/preview_fix.py.source.txt",
+      "bytes": 6877,
+      "sha256": "0b0ceda72b2c495b2977832c0b39206996ad71c000cf5533bd0f50d9ac744d1d",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "preview_fix.py",
+          "original_bytes": 6877,
+          "original_sha256": "0b0ceda72b2c495b2977832c0b39206996ad71c000cf5533bd0f50d9ac744d1d",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/public/constitutional_core.md",
+      "bytes": 4907,
+      "sha256": "f1cbe87cb55d8c433fd05b681aac03d3e756a9fc763ea2a0519c09bd82e789d9",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "public/constitutional_core.md",
+          "original_bytes": 4907,
+          "original_sha256": "f1cbe87cb55d8c433fd05b681aac03d3e756a9fc763ea2a0519c09bd82e789d9",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/public/heuristic_principles.md",
+      "bytes": 8171,
+      "sha256": "35f7183f830b03964a1cb45b83f6ad84a34f017b143f4457298f37cbb37d0c96",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "public/heuristic_principles.md",
+          "original_bytes": 8171,
+          "original_sha256": "35f7183f830b03964a1cb45b83f6ad84a34f017b143f4457298f37cbb37d0c96",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/pulse_aggressive.sh.source.txt",
+      "bytes": 3179,
+      "sha256": "3e7ca802b20afbc3abc1a65400d7dadc9f546b3d5dcc160d2903b10c39fbe5c9",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "pulse_aggressive.sh",
+          "original_bytes": 3179,
+          "original_sha256": "3e7ca802b20afbc3abc1a65400d7dadc9f546b3d5dcc160d2903b10c39fbe5c9",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/pulse_forwarder.py.source.txt",
+      "bytes": 4038,
+      "sha256": "67967b22f92899313793fa17e31496ab3015890a5df46fca5f6aeab976966fc9",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "pulse_forwarder.py",
+          "original_bytes": 4038,
+          "original_sha256": "67967b22f92899313793fa17e31496ab3015890a5df46fca5f6aeab976966fc9",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/pulse_keepalive.sh.source.txt",
+      "bytes": 1960,
+      "sha256": "d1830144eb0a5b845216e40b5c560a4820a59e03f1eead4c9ac1185731c4f97e",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "pulse_keepalive.sh",
+          "original_bytes": 1960,
+          "original_sha256": "d1830144eb0a5b845216e40b5c560a4820a59e03f1eead4c9ac1185731c4f97e",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/pulse_subagent.sh.source.txt",
+      "bytes": 885,
+      "sha256": "f2e7a3cb65a27130dc78a519a745d8935279a26aadb0af118eddf10d5e3fb2dd",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "pulse_subagent.sh",
+          "original_bytes": 885,
+          "original_sha256": "f2e7a3cb65a27130dc78a519a745d8935279a26aadb0af118eddf10d5e3fb2dd",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/push_pending.py.source.txt",
+      "bytes": 919,
+      "sha256": "71f196681f597bb3c90406ea298036553d83d4813d0a3e893e4a15300631767a",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "push_pending.py",
+          "original_bytes": 919,
+          "original_sha256": "71f196681f597bb3c90406ea298036553d83d4813d0a3e893e4a15300631767a",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/push_wechat.py.source.txt",
+      "bytes": 2705,
+      "sha256": "3d8cc5f1af88b9ab9f6358a40579517ff70982a275e4507d77bc01b3002692ad",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "push_wechat.py",
+          "original_bytes": 2705,
+          "original_sha256": "3d8cc5f1af88b9ab9f6358a40579517ff70982a275e4507d77bc01b3002692ad",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/recovery_manifest.md",
+      "bytes": 965,
+      "sha256": "13a87e01ef2d63964f6bd2cb97f0761d83e8009f07db4cbf78e4b2073eaa4c12",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "recovery_manifest.md",
+          "original_bytes": 965,
+          "original_sha256": "13a87e01ef2d63964f6bd2cb97f0761d83e8009f07db4cbf78e4b2073eaa4c12",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/red_blue_team_stress_test.sh.source.txt",
+      "bytes": 1313,
+      "sha256": "a593fec0cc58b1b9377ae97effa94fb672f170f871a996e873d3c7a29bec48f7",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "red_blue_team_stress_test.sh",
+          "original_bytes": 1313,
+          "original_sha256": "a593fec0cc58b1b9377ae97effa94fb672f170f871a996e873d3c7a29bec48f7",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/research_pulse.sh.source.txt",
+      "bytes": 2162,
+      "sha256": "1cee597d6dc1d738e44197ba422c3e2fbdeee80cdd8e9960035d9e8fa06f9a6e",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "research_pulse.sh",
+          "original_bytes": 2162,
+          "original_sha256": "1cee597d6dc1d738e44197ba422c3e2fbdeee80cdd8e9960035d9e8fa06f9a6e",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/RESEARCH_REDESIGN.md",
+      "bytes": 1888,
+      "sha256": "5eead5813129c31b2000f01089c80d2b64f6facff7365448a2c7dd493f1abbb9",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "RESEARCH_REDESIGN.md",
+          "original_bytes": 1888,
+          "original_sha256": "5eead5813129c31b2000f01089c80d2b64f6facff7365448a2c7dd493f1abbb9",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/research_v2.py.source.txt",
+      "bytes": 8014,
+      "sha256": "920c12f96f80170de9d4def578aa9b4d521588e31cef5b8eddbf242859fc112c",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "research_v2.py",
+          "original_bytes": 8014,
+          "original_sha256": "920c12f96f80170de9d4def578aa9b4d521588e31cef5b8eddbf242859fc112c",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/RESEARCH_V3_DESIGN.md",
+      "bytes": 7563,
+      "sha256": "f0b78a81e5d5b7672a762c13a3ddc9ee78a2fa97dba666cbf7a1d330e8476545",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "RESEARCH_V3_DESIGN.md",
+          "original_bytes": 7563,
+          "original_sha256": "f0b78a81e5d5b7672a762c13a3ddc9ee78a2fa97dba666cbf7a1d330e8476545",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/research_v3.py.source.txt",
+      "bytes": 13063,
+      "sha256": "32cd2a199b26b1b99e9ad97d214d22e2b6d6533820168a7649ce86471fc2a796",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "research_v3.py",
+          "original_bytes": 13063,
+          "original_sha256": "32cd2a199b26b1b99e9ad97d214d22e2b6d6533820168a7649ce86471fc2a796",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/restore_minimax_default.py.source.txt",
+      "bytes": 4608,
+      "sha256": "4516cf36166ac46d2f7a800817d5e50f87e912c6dcd8af559c06d8c68f6943a3",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "restore_minimax_default.py",
+          "original_bytes": 4608,
+          "original_sha256": "4516cf36166ac46d2f7a800817d5e50f87e912c6dcd8af559c06d8c68f6943a3",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/restore_minimax_direct.py.source.txt",
+      "bytes": 4481,
+      "sha256": "a1456da047f1e36f5e53b580a9ab74fad1c3cdab572cedd99cbf2af82d84aa5f",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "restore_minimax_direct.py",
+          "original_bytes": 4481,
+          "original_sha256": "a1456da047f1e36f5e53b580a9ab74fad1c3cdab572cedd99cbf2af82d84aa5f",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/rho_market_brief.py.source.txt",
+      "bytes": 2942,
+      "sha256": "862a16ad5b4e639d267c74906b5404104b85df0211800d0d77b6c04b57c738ad",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "rho_market_brief.py",
+          "original_bytes": 2942,
+          "original_sha256": "862a16ad5b4e639d267c74906b5404104b85df0211800d0d77b6c04b57c738ad",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/risk_scan.sh.source.txt",
+      "bytes": 11544,
+      "sha256": "2ce174830931cbcf8bb9483d8723d1abc0ab480d6d460016efd9bdd45e04a2c9",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "risk_scan.sh",
+          "original_bytes": 11544,
+          "original_sha256": "2ce174830931cbcf8bb9483d8723d1abc0ab480d6d460016efd9bdd45e04a2c9",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/rotation_driver.py.source.txt",
+      "bytes": 6852,
+      "sha256": "554229622665b9cef4189e17600c930445484bae62d84e97a55c62bcd95c1257",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "rotation_driver.py",
+          "original_bytes": 6852,
+          "original_sha256": "554229622665b9cef4189e17600c930445484bae62d84e97a55c62bcd95c1257",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/scripts/bash-security-enhanced.sh.source.txt",
+      "bytes": 10301,
+      "sha256": "24708b8a0f1dcc4cc5dc29e99dbdc39039f308f456809c7ff499ae6185795379",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "scripts/bash-security-enhanced.sh",
+          "original_bytes": 10301,
+          "original_sha256": "24708b8a0f1dcc4cc5dc29e99dbdc39039f308f456809c7ff499ae6185795379",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/scripts/rollback-fusion.sh.source.txt",
+      "bytes": 4273,
+      "sha256": "ee5fab83b526600bc9e4a291852417c1e7bd940de189a8a2b1ca585545f2cb42",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "scripts/rollback-fusion.sh",
+          "original_bytes": 4273,
+          "original_sha256": "ee5fab83b526600bc9e4a291852417c1e7bd940de189a8a2b1ca585545f2cb42",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/scripts/test-fusion.sh.source.txt",
+      "bytes": 3247,
+      "sha256": "1088e4d3168b074c3acefe767e54a46ab72644f1e02885c81af8ed914c6ea983",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "scripts/test-fusion.sh",
+          "original_bytes": 3247,
+          "original_sha256": "1088e4d3168b074c3acefe767e54a46ab72644f1e02885c81af8ed914c6ea983",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/scripts/upgrade-protection.sh.source.txt",
+      "bytes": 8768,
+      "sha256": "8dec1e4e78a6ad1f3326da80303aae0d96e2a6d45e4799d3c74be232f0beb0b1",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "scripts/upgrade-protection.sh",
+          "original_bytes": 8768,
+          "original_sha256": "8dec1e4e78a6ad1f3326da80303aae0d96e2a6d45e4799d3c74be232f0beb0b1",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/self_heal.sh.source.txt",
+      "bytes": 11114,
+      "sha256": "df1fca4858154d50a17bf9036788d0a02405c06173cf39d7d34273efe125edee",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "self_heal.sh",
+          "original_bytes": 11114,
+          "original_sha256": "df1fca4858154d50a17bf9036788d0a02405c06173cf39d7d34273efe125edee",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/self_sustaining_loop.sh.source.txt",
+      "bytes": 7717,
+      "sha256": "99e054f8511e60e00bd467705d7275b4e9d4b76b04d1225d8f7eaec0cc20e033",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "self_sustaining_loop.sh",
+          "original_bytes": 7717,
+          "original_sha256": "99e054f8511e60e00bd467705d7275b4e9d4b76b04d1225d8f7eaec0cc20e033",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/sense_hardware.sh.source.txt",
+      "bytes": 169,
+      "sha256": "6be14655fdb222fbdf1f421fa752f2f2c21236fa225a95770fe3cc5e1b419bc1",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "sense_hardware.sh",
+          "original_bytes": 169,
+          "original_sha256": "6be14655fdb222fbdf1f421fa752f2f2c21236fa225a95770fe3cc5e1b419bc1",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/session_cleanup.sh.source.txt",
+      "bytes": 1669,
+      "sha256": "8dc6597bdcf18a61f0c3c5ba5e937a63b821e909fff62f1e148d533fa82c1730",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "session_cleanup.sh",
+          "original_bytes": 1669,
+          "original_sha256": "8dc6597bdcf18a61f0c3c5ba5e937a63b821e909fff62f1e148d533fa82c1730",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/session_evolution.sh.source.txt",
+      "bytes": 2385,
+      "sha256": "6759a841cdad1368d771df3dee6dfbf6e8f7cb4738532932a5bb266d5a9dbb0f",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "session_evolution.sh",
+          "original_bytes": 2385,
+          "original_sha256": "6759a841cdad1368d771df3dee6dfbf6e8f7cb4738532932a5bb266d5a9dbb0f",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/session_gc.py.source.txt",
+      "bytes": 3126,
+      "sha256": "e9b696c4d9acacfd8e44814944e89d3682a4fbf9839e961e11c8187025ec88e4",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "session_gc.py",
+          "original_bytes": 3126,
+          "original_sha256": "e9b696c4d9acacfd8e44814944e89d3682a4fbf9839e961e11c8187025ec88e4",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/session_guard.py.source.txt",
+      "bytes": 12871,
+      "sha256": "52eab631edd0272f451061d98d5d50e65ca152e7bb30387168ef12e791e3b6a5",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "session_guard.py",
+          "original_bytes": 12871,
+          "original_sha256": "52eab631edd0272f451061d98d5d50e65ca152e7bb30387168ef12e791e3b6a5",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/session_restore.sh.source.txt",
+      "bytes": 2815,
+      "sha256": "57cbf5de91cef56da39d97492bd6d032e4a152943db90894eeb5f599e018ba48",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "session_restore.sh",
+          "original_bytes": 2815,
+          "original_sha256": "57cbf5de91cef56da39d97492bd6d032e4a152943db90894eeb5f599e018ba48",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/shared_commitments.md",
+      "bytes": 745,
+      "sha256": "6938becb535fa250ee2ac61bd451ffbe671f1ee029129f45482a27b6a3b45293",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "shared_commitments.md",
+          "original_bytes": 745,
+          "original_sha256": "6938becb535fa250ee2ac61bd451ffbe671f1ee029129f45482a27b6a3b45293",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/skills/community_weekly_summary.py.source.txt",
+      "bytes": 3894,
+      "sha256": "e545aeb9267af414582a10d6ee01293ceb637d836d425c7bd996546ccc40972c",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "skills/community_weekly_summary.py",
+          "original_bytes": 3894,
+          "original_sha256": "e545aeb9267af414582a10d6ee01293ceb637d836d425c7bd996546ccc40972c",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/skills/github_etp_monitor.py.source.txt",
+      "bytes": 2619,
+      "sha256": "fa0c628721846001a6c5c46a3f9af55c0d2cd2f372712be9e80564c91ef4e9aa",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "skills/github_etp_monitor.py",
+          "original_bytes": 2619,
+          "original_sha256": "fa0c628721846001a6c5c46a3f9af55c0d2cd2f372712be9e80564c91ef4e9aa",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/skills/mathoverflow_monitor.py.source.txt",
+      "bytes": 3106,
+      "sha256": "d167dc4cf18ed566a46f0a60b5dd7de46d902a968861c10932964c96730f2781",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "skills/mathoverflow_monitor.py",
+          "original_bytes": 3106,
+          "original_sha256": "d167dc4cf18ed566a46f0a60b5dd7de46d902a968861c10932964c96730f2781",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/skills/multi-search-engine/CHANGELOG.md",
+      "bytes": 376,
+      "sha256": "21ed06de8dcb14e477f44b6cc7762e18689c4b2da0006600c9d5a509a32bb17c",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "skills/multi-search-engine/CHANGELOG.md",
+          "original_bytes": 376,
+          "original_sha256": "21ed06de8dcb14e477f44b6cc7762e18689c4b2da0006600c9d5a509a32bb17c",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/skills/multi-search-engine/CHANNELLOG.md",
+      "bytes": 1132,
+      "sha256": "e76603f4891c4deb7d81dfb8966218a3705d639bf1f721bccb1626d4fd1aa67e",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "skills/multi-search-engine/CHANNELLOG.md",
+          "original_bytes": 1132,
+          "original_sha256": "e76603f4891c4deb7d81dfb8966218a3705d639bf1f721bccb1626d4fd1aa67e",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/skills/multi-search-engine/references/international-search.md",
+      "bytes": 23161,
+      "sha256": "ee2d742aa59287140b388ca10ab2c9cb7da9c5d86a2b2a991ea06a79916ed390",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "skills/multi-search-engine/references/international-search.md",
+          "original_bytes": 23161,
+          "original_sha256": "ee2d742aa59287140b388ca10ab2c9cb7da9c5d86a2b2a991ea06a79916ed390",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/skills/multi-search-engine/searxng_client.py.source.txt",
+      "bytes": 5410,
+      "sha256": "4a8165fd35958c9657abc943e44a6234f4d4ca43c5fd0ed08c97556fd09ad487",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "skills/multi-search-engine/searxng_client.py",
+          "original_bytes": 5410,
+          "original_sha256": "4a8165fd35958c9657abc943e44a6234f4d4ca43c5fd0ed08c97556fd09ad487",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/skills/multi-search-engine/SKILL.md.source.txt",
+      "bytes": 3059,
+      "sha256": "e8adf1138bc106a9cbd515e9d336ac48e41a4bb83d304e93e33c4ac4aefe6b58",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "skills/multi-search-engine/SKILL.md",
+          "original_bytes": 3059,
+          "original_sha256": "e8adf1138bc106a9cbd515e9d336ac48e41a4bb83d304e93e33c4ac4aefe6b58",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/skills/multi-search-engine/toon.py.source.txt",
+      "bytes": 4192,
+      "sha256": "c9486b72921fd9dd51f3125cba6dd50e7062433d14c75c1c9c6037ac5d02ec65",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "skills/multi-search-engine/toon.py",
+          "original_bytes": 4192,
+          "original_sha256": "c9486b72921fd9dd51f3125cba6dd50e7062433d14c75c1c9c6037ac5d02ec65",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/skills/zulip_monitor.py.source.txt",
+      "bytes": 4168,
+      "sha256": "21417dfe669cc84bc42487a89cb673d52d96db46cd37a11f47c48ba55ea1f682",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "skills/zulip_monitor.py",
+          "original_bytes": 4180,
+          "original_sha256": "675892f8202ffb5fc88e736f8f328ce34984b12e4adacd93979e1a959dc15e02",
+          "redactions": [
+            {
+              "type": "sensitive_assignment",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/SOUL_IMMUTABLE.md",
+      "bytes": 1874,
+      "sha256": "9eafbfb746aec1cae61c3ac30308a97113e299541018586a513996bc27ebaa7d",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "SOUL_IMMUTABLE.md",
+          "original_bytes": 1874,
+          "original_sha256": "9eafbfb746aec1cae61c3ac30308a97113e299541018586a513996bc27ebaa7d",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/SOUL_VARIABLE.md",
+      "bytes": 171,
+      "sha256": "63bdf4f18f6c98a3bc99606ef7a494a9af6589c70a7710497198b5f239b359e3",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "SOUL_VARIABLE.md",
+          "original_bytes": 171,
+          "original_sha256": "63bdf4f18f6c98a3bc99606ef7a494a9af6589c70a7710497198b5f239b359e3",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/SOUL.md",
+      "bytes": 44,
+      "sha256": "3091445c49ae0fcf273febf1c8802e759b96fe7672cba613e57e1360ff0aeca5",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "SOUL.md",
+          "original_bytes": 44,
+          "original_sha256": "3091445c49ae0fcf273febf1c8802e759b96fe7672cba613e57e1360ff0aeca5",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/system_acceptance.sh.source.txt",
+      "bytes": 5088,
+      "sha256": "69ced0f349bc8ac4b2f97ffd5078d5bf70557cf1ff6e43dcf157a0ff196af99a",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "system_acceptance.sh",
+          "original_bytes": 5088,
+          "original_sha256": "69ced0f349bc8ac4b2f97ffd5078d5bf70557cf1ff6e43dcf157a0ff196af99a",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/system_harden.sh.source.txt",
+      "bytes": 3650,
+      "sha256": "56e41dff683de2e88fdf3a0f0af8e342ee5a1e26bd6a75317228aab21e397185",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "system_harden.sh",
+          "original_bytes": 3650,
+          "original_sha256": "56e41dff683de2e88fdf3a0f0af8e342ee5a1e26bd6a75317228aab21e397185",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/SYSTEM_SUMMARY.md",
+      "bytes": 1571,
+      "sha256": "e3722cd6c69e449479cea4025c97343f1bcd052cb73f0e41d42d2934bf9def7d",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "SYSTEM_SUMMARY.md",
+          "original_bytes": 1571,
+          "original_sha256": "e3722cd6c69e449479cea4025c97343f1bcd052cb73f0e41d42d2934bf9def7d",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/system-health-check.sh.source.txt",
+      "bytes": 4597,
+      "sha256": "194e6df6679ec90c54b55345f4c2fa9ce5be1799b1971ce57a0fce60cd04f57e",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "system-health-check.sh",
+          "original_bytes": 4597,
+          "original_sha256": "194e6df6679ec90c54b55345f4c2fa9ce5be1799b1971ce57a0fce60cd04f57e",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/task_executor.py.source.txt",
+      "bytes": 8662,
+      "sha256": "3d153cf708b14c3adb5daf390defef72e19b99dc5155c998b5f7c486bc5f1750",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "task_executor.py",
+          "original_bytes": 8662,
+          "original_sha256": "3d153cf708b14c3adb5daf390defef72e19b99dc5155c998b5f7c486bc5f1750",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/task_executor.sh.source.txt",
+      "bytes": 6326,
+      "sha256": "6c29d168b3a17aa61aebce05c73477e65210aa8be7fecc3f17c117a1bf357d88",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "task_executor.sh",
+          "original_bytes": 6326,
+          "original_sha256": "6c29d168b3a17aa61aebce05c73477e65210aa8be7fecc3f17c117a1bf357d88",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/TOKEN_MAXIMIZATION.md",
+      "bytes": 592,
+      "sha256": "d146f9974d1c512d97f56eedda4c84defe1cc2a1dc3df77ae772976b37d9d940",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "TOKEN_MAXIMIZATION.md",
+          "original_bytes": 592,
+          "original_sha256": "d146f9974d1c512d97f56eedda4c84defe1cc2a1dc3df77ae772976b37d9d940",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/token_tracker.py.source.txt",
+      "bytes": 8980,
+      "sha256": "3f1d06aea530702d720159fcfbd0775834407b67378798f02599c84ba95fe803",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "token_tracker.py",
+          "original_bytes": 8980,
+          "original_sha256": "3f1d06aea530702d720159fcfbd0775834407b67378798f02599c84ba95fe803",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/TOOLS.md",
+      "bytes": 45,
+      "sha256": "88d7163359696fae4b756ca47d632f32b6b3c1d71974b5a80dc6e6b4a58eb76c",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "TOOLS.md",
+          "original_bytes": 45,
+          "original_sha256": "88d7163359696fae4b756ca47d632f32b6b3c1d71974b5a80dc6e6b4a58eb76c",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/track_evolution_frameworks.sh.source.txt",
+      "bytes": 1733,
+      "sha256": "4fe17a85aa7e25a5453beac3aec196925106b13cc40cffe61516692455d35acf",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "track_evolution_frameworks.sh",
+          "original_bytes": 1733,
+          "original_sha256": "4fe17a85aa7e25a5453beac3aec196925106b13cc40cffe61516692455d35acf",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/upgrade-protection.sh.source.txt",
+      "bytes": 4025,
+      "sha256": "8607b32a039476a6ce1cd9b61b4d4f9cfb755ed706d025da3657b4f911885e3d",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "upgrade-protection.sh",
+          "original_bytes": 4025,
+          "original_sha256": "8607b32a039476a6ce1cd9b61b4d4f9cfb755ed706d025da3657b4f911885e3d",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/USER.md",
+      "bytes": 44,
+      "sha256": "5cbe3f2cc1833c6aaaab2345f9de2da02520dc9ddee2501876c7b980955982f9",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "USER.md",
+          "original_bytes": 44,
+          "original_sha256": "5cbe3f2cc1833c6aaaab2345f9de2da02520dc9ddee2501876c7b980955982f9",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/wd_consumer.sh.source.txt",
+      "bytes": 2797,
+      "sha256": "8e54133ad9f1ec6c5478be3f887a26647daf67dddc204b933e3bafa917749981",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "wd_consumer.sh",
+          "original_bytes": 2797,
+          "original_sha256": "8e54133ad9f1ec6c5478be3f887a26647daf67dddc204b933e3bafa917749981",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/web_query.py.source.txt",
+      "bytes": 3233,
+      "sha256": "b4be7c0813a0c1dd3ed843a61aeef5ee82e58099ee19c2c908386e0a0c1bc7e7",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "web_query.py",
+          "original_bytes": 3233,
+          "original_sha256": "b4be7c0813a0c1dd3ed843a61aeef5ee82e58099ee19c2c908386e0a0c1bc7e7",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/wechat_monitor.sh.source.txt",
+      "bytes": 1233,
+      "sha256": "5a5f30e40d9ad7faf42cb9397e777f3b4162e857ad6fb7cfaee0d6d331454149",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "wechat_monitor.sh",
+          "original_bytes": 1233,
+          "original_sha256": "5a5f30e40d9ad7faf42cb9397e777f3b4162e857ad6fb7cfaee0d6d331454149",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/wechat_scraper.py.source.txt",
+      "bytes": 6938,
+      "sha256": "2d55c663c250e63fbef8214f677e3cb61516a05e284717225266cb9ac0f07ff6",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "wechat_scraper.py",
+          "original_bytes": 6938,
+          "original_sha256": "2d55c663c250e63fbef8214f677e3cb61516a05e284717225266cb9ac0f07ff6",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/wechat_search.py.source.txt",
+      "bytes": 1714,
+      "sha256": "bb860157b32f4379b65ee77a09da6df5889179813e7f1f115ff2e60f9912f470",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "wechat_search.py",
+          "original_bytes": 1714,
+          "original_sha256": "bb860157b32f4379b65ee77a09da6df5889179813e7f1f115ff2e60f9912f470",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/openclaw_workspace_ec656/xi_pulse.sh.source.txt",
+      "bytes": 2325,
+      "sha256": "82ad2a3ef43f381f608c86dcb59292b65e0344b55dad55dc9b88a7861f49be25",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "openclaw_workspace_ec656",
+          "path": "xi_pulse.sh",
+          "original_bytes": 2325,
+          "original_sha256": "82ad2a3ef43f381f608c86dcb59292b65e0344b55dad55dc9b88a7861f49be25",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_custom/docs/DEVELOPMENT_SUSTAINABILITY.md",
+      "bytes": 3350,
+      "sha256": "3c896040be2c6db712b2204c2a39f392a2b2934cc3ff56d87cb33a92514558d5",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_custom",
+          "path": "docs/DEVELOPMENT_SUSTAINABILITY.md",
+          "original_bytes": 3350,
+          "original_sha256": "3c896040be2c6db712b2204c2a39f392a2b2934cc3ff56d87cb33a92514558d5",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_custom/docs/FOOLPROOF_ARCHITECTURE.md",
+      "bytes": 4422,
+      "sha256": "d5b416c9f021105280976c7c2781e172ed877c884dbf2b0ef1ff305295e40e24",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_custom",
+          "path": "docs/FOOLPROOF_ARCHITECTURE.md",
+          "original_bytes": 4422,
+          "original_sha256": "d5b416c9f021105280976c7c2781e172ed877c884dbf2b0ef1ff305295e40e24",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_custom/docs/SESSION_CLEANUP.md",
+      "bytes": 1895,
+      "sha256": "1b188d04efe9b44d57c55c8b79e939be69cbe385b539cb3f8cb584fdd9b2cbc9",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_custom",
+          "path": "docs/SESSION_CLEANUP.md",
+          "original_bytes": 1895,
+          "original_sha256": "1b188d04efe9b44d57c55c8b79e939be69cbe385b539cb3f8cb584fdd9b2cbc9",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_custom/docs/SESSION_DREAM.md",
+      "bytes": 6104,
+      "sha256": "04c1fb6be7efc5fb80b2aeef6049d6ef8ef898d400640d9dc3f45eabe1c655cf",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_custom",
+          "path": "docs/SESSION_DREAM.md",
+          "original_bytes": 6104,
+          "original_sha256": "04c1fb6be7efc5fb80b2aeef6049d6ef8ef898d400640d9dc3f45eabe1c655cf",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_custom/docs/STRESS_TEST.md",
+      "bytes": 4520,
+      "sha256": "588e55b400a3349c17f8a340a41fe0061b494adda4677a13c8e2a0000c2b8b46",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_custom",
+          "path": "docs/STRESS_TEST.md",
+          "original_bytes": 4520,
+          "original_sha256": "588e55b400a3349c17f8a340a41fe0061b494adda4677a13c8e2a0000c2b8b46",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_custom/docs/WECHAT_RPA_ELEGANT_SOLUTION.md",
+      "bytes": 8020,
+      "sha256": "8ec3079ea7ceeca195fbcd4396ea0065547f170e198c263401c9c18cb1513d54",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_custom",
+          "path": "docs/WECHAT_RPA_ELEGANT_SOLUTION.md",
+          "original_bytes": 8020,
+          "original_sha256": "8ec3079ea7ceeca195fbcd4396ea0065547f170e198c263401c9c18cb1513d54",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_custom/docs/WECHAT_SCRAPING_ANALYSIS.md",
+      "bytes": 3824,
+      "sha256": "6375ce57ae85042919f60524494b855e62a5a93fc3734b90b4706c3bcf6f9586",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_custom",
+          "path": "docs/WECHAT_SCRAPING_ANALYSIS.md",
+          "original_bytes": 3824,
+          "original_sha256": "6375ce57ae85042919f60524494b855e62a5a93fc3734b90b4706c3bcf6f9586",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_custom/docs/WSL_READONLY_CONFIG.md",
+      "bytes": 2173,
+      "sha256": "99e53f0044e623ecb1e932b2d66f9ea3db67f878285c6e5cd02196a9224ca513",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_custom",
+          "path": "docs/WSL_READONLY_CONFIG.md",
+          "original_bytes": 2173,
+          "original_sha256": "99e53f0044e623ecb1e932b2d66f9ea3db67f878285c6e5cd02196a9224ca513",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_custom/scripts/track_research.sh.source.txt",
+      "bytes": 1540,
+      "sha256": "812083786782af22ab22194e9d21264bb40b871e43e8e98105dbd49571c61ac3",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_custom",
+          "path": "scripts/track_research.sh",
+          "original_bytes": 1540,
+          "original_sha256": "812083786782af22ab22194e9d21264bb40b871e43e8e98105dbd49571c61ac3",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_custom/scripts/update-latest-memory.sh.source.txt",
+      "bytes": 347,
+      "sha256": "2d6e8d321081ddb4c79e07b7b3962ea59accd65f8142179bc0899c18e1c81a92",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_custom",
+          "path": "scripts/update-latest-memory.sh",
+          "original_bytes": 347,
+          "original_sha256": "2d6e8d321081ddb4c79e07b7b3962ea59accd65f8142179bc0899c18e1c81a92",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/agents/delta/memory/2026-04-03.md",
+      "bytes": 501,
+      "sha256": "87ab6a338ca7c118c77e8a7194719eb8c96b706c76d7b577db01904597be62fa",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "agents/delta/memory/2026-04-03.md",
+          "original_bytes": 501,
+          "original_sha256": "87ab6a338ca7c118c77e8a7194719eb8c96b706c76d7b577db01904597be62fa",
+          "redactions": []
+        },
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "agents/gamma/memory/2026-04-03.md",
+          "original_bytes": 501,
+          "original_sha256": "87ab6a338ca7c118c77e8a7194719eb8c96b706c76d7b577db01904597be62fa",
+          "redactions": []
+        },
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "agents/omega/memory/2026-04-03.md",
+          "original_bytes": 501,
+          "original_sha256": "87ab6a338ca7c118c77e8a7194719eb8c96b706c76d7b577db01904597be62fa",
+          "redactions": []
+        },
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "agents/phi/memory/2026-04-03.md",
+          "original_bytes": 501,
+          "original_sha256": "87ab6a338ca7c118c77e8a7194719eb8c96b706c76d7b577db01904597be62fa",
+          "redactions": []
+        },
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "agents/psi/memory/2026-04-03.md",
+          "original_bytes": 501,
+          "original_sha256": "87ab6a338ca7c118c77e8a7194719eb8c96b706c76d7b577db01904597be62fa",
+          "redactions": []
+        },
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "agents/theta/memory/2026-04-03.md",
+          "original_bytes": 501,
+          "original_sha256": "87ab6a338ca7c118c77e8a7194719eb8c96b706c76d7b577db01904597be62fa",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/agents/delta/memory/2026-04-06.md",
+      "bytes": 99,
+      "sha256": "bb1c6bda248254da23a4762ae93699317f9ab10f3c6e37479a5a0c443335d2b5",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "agents/delta/memory/2026-04-06.md",
+          "original_bytes": 99,
+          "original_sha256": "bb1c6bda248254da23a4762ae93699317f9ab10f3c6e37479a5a0c443335d2b5",
+          "redactions": []
+        },
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "agents/gamma/memory/2026-04-06.md",
+          "original_bytes": 99,
+          "original_sha256": "bb1c6bda248254da23a4762ae93699317f9ab10f3c6e37479a5a0c443335d2b5",
+          "redactions": []
+        },
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "agents/omega/memory/2026-04-06.md",
+          "original_bytes": 99,
+          "original_sha256": "bb1c6bda248254da23a4762ae93699317f9ab10f3c6e37479a5a0c443335d2b5",
+          "redactions": []
+        },
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "agents/phi/memory/2026-04-06.md",
+          "original_bytes": 99,
+          "original_sha256": "bb1c6bda248254da23a4762ae93699317f9ab10f3c6e37479a5a0c443335d2b5",
+          "redactions": []
+        },
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "agents/psi/memory/2026-04-06.md",
+          "original_bytes": 99,
+          "original_sha256": "bb1c6bda248254da23a4762ae93699317f9ab10f3c6e37479a5a0c443335d2b5",
+          "redactions": []
+        },
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "agents/theta/memory/2026-04-06.md",
+          "original_bytes": 99,
+          "original_sha256": "bb1c6bda248254da23a4762ae93699317f9ab10f3c6e37479a5a0c443335d2b5",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/agents/phi/memory/2026-04-04.md",
+      "bytes": 86,
+      "sha256": "6b2cbaa6177bf8cefc7c15754f654f8d38c038b441f9ec6fb436cee934796fb7",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "agents/phi/memory/2026-04-04.md",
+          "original_bytes": 86,
+          "original_sha256": "6b2cbaa6177bf8cefc7c15754f654f8d38c038b441f9ec6fb436cee934796fb7",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/agents/psi/memory/2026-04-04.md",
+      "bytes": 128,
+      "sha256": "d552c10a38bf13e11f12ae3691a2cb0547731e24ef6af3d1df266fc99e8fceb7",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "agents/psi/memory/2026-04-04.md",
+          "original_bytes": 128,
+          "original_sha256": "d552c10a38bf13e11f12ae3691a2cb0547731e24ef6af3d1df266fc99e8fceb7",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/archive/2026-03-26.md",
+      "bytes": 2327,
+      "sha256": "786c7c1aa4690f9b480cffc0ded7fb56564a03e54a2ba6b1cda60c9d3b8c6cc0",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "archive/2026-03-26.md",
+          "original_bytes": 2327,
+          "original_sha256": "786c7c1aa4690f9b480cffc0ded7fb56564a03e54a2ba6b1cda60c9d3b8c6cc0",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/archive/2026-03-27.md",
+      "bytes": 42882,
+      "sha256": "0fabbd6da62a0ac85ad6dac3ece433be1f195f02e0fdaba075d37c25aaaf8e33",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "archive/2026-03-27.md",
+          "original_bytes": 42882,
+          "original_sha256": "0fabbd6da62a0ac85ad6dac3ece433be1f195f02e0fdaba075d37c25aaaf8e33",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/archive/2026-03-28.md",
+      "bytes": 66346,
+      "sha256": "077bdf1039680ac2cf250993337a630218f3ed94b6109979a1368fd6880f40d1",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "archive/2026-03-28.md",
+          "original_bytes": 66346,
+          "original_sha256": "077bdf1039680ac2cf250993337a630218f3ed94b6109979a1368fd6880f40d1",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/archive/2026-03-29.md",
+      "bytes": 32448,
+      "sha256": "0f2dbda7363ccc408b9a5df16e5ec10b46338260955150a5a8c00e0c2748b9b8",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "archive/2026-03-29.md",
+          "original_bytes": 32466,
+          "original_sha256": "29522c4805794701e04f8f5632f82fd1908b3b22dc28e00e597a638b04574f50",
+          "redactions": [
+            {
+              "type": "github_classic_token",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/archive/2026-03-30.md",
+      "bytes": 39223,
+      "sha256": "82a6803c2bc1b04062814932b69df26c4cede7f43bd3d48f4c6d8dc96d4f16b6",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "archive/2026-03-30.md",
+          "original_bytes": 39223,
+          "original_sha256": "82a6803c2bc1b04062814932b69df26c4cede7f43bd3d48f4c6d8dc96d4f16b6",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/archive/2026-03-31.md",
+      "bytes": 33608,
+      "sha256": "4f900785dd771c1f62bd4df25901bb97a988fab792391b8c745089b217f68a27",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "archive/2026-03-31.md",
+          "original_bytes": 33608,
+          "original_sha256": "4f900785dd771c1f62bd4df25901bb97a988fab792391b8c745089b217f68a27",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/memory/2026-04-02.md",
+      "bytes": 33665,
+      "sha256": "ed2154a1672854ab752e23ac228dbc6283ff1eb857490d3980f953da496994f1",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "memory/2026-04-02.md",
+          "original_bytes": 33665,
+          "original_sha256": "ed2154a1672854ab752e23ac228dbc6283ff1eb857490d3980f953da496994f1",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/memory/2026-04-03.md",
+      "bytes": 4923,
+      "sha256": "47c30aa6c5eb9f81af732287f6dc9757f2bba182ad4004f7e7aac755002034e7",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "memory/2026-04-03.md",
+          "original_bytes": 4923,
+          "original_sha256": "47c30aa6c5eb9f81af732287f6dc9757f2bba182ad4004f7e7aac755002034e7",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/memory/2026-04-04.md",
+      "bytes": 276,
+      "sha256": "d60460b202580d4efa25d5b60a1933b06d2beb9c8bb98f162514a6bc647ee24a",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "memory/2026-04-04.md",
+          "original_bytes": 276,
+          "original_sha256": "d60460b202580d4efa25d5b60a1933b06d2beb9c8bb98f162514a6bc647ee24a",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/memory/2026-04-05.md",
+      "bytes": 276,
+      "sha256": "13a5a284b170e5103117b4407e12f30c848af2a72bd62034d705023488539874",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "memory/2026-04-05.md",
+          "original_bytes": 276,
+          "original_sha256": "13a5a284b170e5103117b4407e12f30c848af2a72bd62034d705023488539874",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/memory/2026-04-06.md",
+      "bytes": 191,
+      "sha256": "6536a87c0f00d9c58c13cc789ca6356201136d86334fce2d0f95f05c0e074824",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "memory/2026-04-06.md",
+          "original_bytes": 191,
+          "original_sha256": "6536a87c0f00d9c58c13cc789ca6356201136d86334fce2d0f95f05c0e074824",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/memory/2026-04-07-rho-config.md",
+      "bytes": 3788,
+      "sha256": "de86721d68ae33db8e06714ad9016cebd7e9b83d0e631616b87ddbfd458af50d",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "memory/2026-04-07-rho-config.md",
+          "original_bytes": 3788,
+          "original_sha256": "de86721d68ae33db8e06714ad9016cebd7e9b83d0e631616b87ddbfd458af50d",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/memory/2026-04-07.md",
+      "bytes": 408,
+      "sha256": "2c5f9a9f4cd5d537a9091e052772e81abaf60b518cc1b8c745bd64c37c500bc0",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "memory/2026-04-07.md",
+          "original_bytes": 408,
+          "original_sha256": "2c5f9a9f4cd5d537a9091e052772e81abaf60b518cc1b8c745bd64c37c500bc0",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/memory/2026-04-08.md",
+      "bytes": 1186,
+      "sha256": "4c966faebd16598a277dfdf51748b7dac11f23319e7365566c5b3b08d5c8cc78",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "memory/2026-04-08.md",
+          "original_bytes": 1186,
+          "original_sha256": "4c966faebd16598a277dfdf51748b7dac11f23319e7365566c5b3b08d5c8cc78",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/memory/knowledge/SELF_EVOLUTION_FRAMEWORKS.md",
+      "bytes": 14866,
+      "sha256": "3b111d99f6bc2120b65e78bbf836d8325e939c6a0686f8ad7a9ab9a7d934ad41",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "memory/knowledge/SELF_EVOLUTION_FRAMEWORKS.md",
+          "original_bytes": 14866,
+          "original_sha256": "3b111d99f6bc2120b65e78bbf836d8325e939c6a0686f8ad7a9ab9a7d934ad41",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/memory/knowledge/SELF_EVOLUTION_RESEARCH_2026-04-08.md",
+      "bytes": 1443,
+      "sha256": "a28a9f9f1d5fc7ae1ea985ef45a8761d27a7bded06b20928d66a20596ceb67e6",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "memory/knowledge/SELF_EVOLUTION_RESEARCH_2026-04-08.md",
+          "original_bytes": 1443,
+          "original_sha256": "a28a9f9f1d5fc7ae1ea985ef45a8761d27a7bded06b20928d66a20596ceb67e6",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/memory/knowledge/TODAY_RESEARCH_SUMMARY_2026-04-08.md",
+      "bytes": 1033,
+      "sha256": "3b8d5b811e56d5ecec8c95ac08c3aa65902a132180f83acdae94e494c2c8db85",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "memory/knowledge/TODAY_RESEARCH_SUMMARY_2026-04-08.md",
+          "original_bytes": 1033,
+          "original_sha256": "3b8d5b811e56d5ecec8c95ac08c3aa65902a132180f83acdae94e494c2c8db85",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/memory/LATEST.md",
+      "bytes": 47,
+      "sha256": "b24c88fda2baf23f747cb75c5c1d916b8d10b486df69e893dd2a975e129dc39f",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "memory/LATEST.md",
+          "original_bytes": 47,
+          "original_sha256": "b24c88fda2baf23f747cb75c5c1d916b8d10b486df69e893dd2a975e129dc39f",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/memory/MEMORY.md",
+      "bytes": 11639,
+      "sha256": "3135454a4e828a482eabcb970bf54993b03b705464f85daadc8145c921f52b24",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "memory/MEMORY.md",
+          "original_bytes": 11639,
+          "original_sha256": "3135454a4e828a482eabcb970bf54993b03b705464f85daadc8145c921f52b24",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/reports/daily_report_2026-04-08.md",
+      "bytes": 1874,
+      "sha256": "d96331e87531b5233cc25fa89749327e1319479035a460e1330915d81c4a1391",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "reports/daily_report_2026-04-08.md",
+          "original_bytes": 1874,
+          "original_sha256": "d96331e87531b5233cc25fa89749327e1319479035a460e1330915d81c4a1391",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/reports/daily_research_2026-04-08.md",
+      "bytes": 1635,
+      "sha256": "4dd72dd31a2c2e7627da2401b0627570ef5c77919390f3b4277d68d47c1e1230",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "reports/daily_research_2026-04-08.md",
+          "original_bytes": 1635,
+          "original_sha256": "4dd72dd31a2c2e7627da2401b0627570ef5c77919390f3b4277d68d47c1e1230",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/reports/LATEST_RESEARCH.md",
+      "bytes": 28,
+      "sha256": "f88db82d35a0ea0c4394e342f62df8d8d8aca78b7465f437c5495ca2bfd1f4af",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "reports/LATEST_RESEARCH.md",
+          "original_bytes": 28,
+          "original_sha256": "f88db82d35a0ea0c4394e342f62df8d8d8aca78b7465f437c5495ca2bfd1f4af",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/reports/LATEST_STATUS.md",
+      "bytes": 62,
+      "sha256": "87f3ef3fc9848b71553184ee50fce8a2aee21c683752c858311b07f855ed68b9",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "reports/LATEST_STATUS.md",
+          "original_bytes": 62,
+          "original_sha256": "87f3ef3fc9848b71553184ee50fce8a2aee21c683752c858311b07f855ed68b9",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/reports/LATEST.md",
+      "bytes": 61,
+      "sha256": "3df7091a5845e525dfe535ea8792bf3f2632f0258dce99089397c3e145a095ae",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "reports/LATEST.md",
+          "original_bytes": 61,
+          "original_sha256": "3df7091a5845e525dfe535ea8792bf3f2632f0258dce99089397c3e145a095ae",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_changed/reports/system_status_2026-04-08.md",
+      "bytes": 8336,
+      "sha256": "b819a9aff21176d4e553b02337ace5bd4344db041b6203f1cf51b903c47a6488",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_changed",
+          "path": "reports/system_status_2026-04-08.md",
+          "original_bytes": 8336,
+          "original_sha256": "b819a9aff21176d4e553b02337ace5bd4344db041b6203f1cf51b903c47a6488",
+          "redactions": []
+        }
+      ]
+    },
+    {
+      "target_path": "documents/xuzhi_memory_untracked/archive/2026-04-01.md",
+      "bytes": 19082,
+      "sha256": "c6724a7fb41c51103cf57f45b813bea73f5f6bd4061597724b8fbca3872988e8",
+      "legacy_context_only": true,
+      "no_runtime_authority": true,
+      "sources": [
+        {
+          "lane": "xuzhi_memory_untracked",
+          "path": "archive/2026-04-01.md",
+          "original_bytes": 19082,
+          "original_sha256": "c6724a7fb41c51103cf57f45b813bea73f5f6bd4061597724b8fbca3872988e8",
+          "redactions": []
+        }
+      ]
+    }
+  ]
+}

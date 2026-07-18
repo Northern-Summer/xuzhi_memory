@@ -1,0 +1,38 @@
+#!/bin/bash
+# memory_write_guard.sh — 原子写入守护 v2
+# 用法: echo "内容" | memory_write_guard.sh <目标文件>
+# 原则：原子写入 + 自动同步 + 时间戳规范
+
+set -euo pipefail
+
+TARGET="$1"
+[ -z "$TARGET" ] && { echo "用法: $0 <目标文件>"; exit 1; }
+
+LOCK="/tmp/memory_write.lock"
+TMP="${TARGET}.tmp.$$"
+
+# 获取锁（超时10秒）
+exec 9>"$LOCK"
+flock -w 10 9 || { echo "获取锁超时"; exit 1; }
+
+# 添加时间戳（如果内容是新的 section）
+content=$(cat)
+timestamp=$(date '+%Y-%m-%d %H:%M:%S CST')
+
+# 如果内容以 ## 开头，添加时间戳
+if echo "$content" | grep -qE '^## '; then
+    # 在第一个 ## 前添加时间戳注释
+    content="<!-- $timestamp -->\n$content"
+fi
+
+# 原子写入
+echo -e "$content" > "$TMP"
+mv "$TMP" "$TARGET"
+
+# 释放锁
+flock -u 9
+
+# 触发同步（后台）
+~/.openclaw/workspace/memory_sync.sh &>/dev/null &
+
+echo "✓ 写入完成: $TARGET"

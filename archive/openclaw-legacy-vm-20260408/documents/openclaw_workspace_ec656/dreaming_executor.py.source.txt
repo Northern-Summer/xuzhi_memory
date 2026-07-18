@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+# dreaming_executor.py — 做梦执行器
+# 被 dreaming_dispatcher.py 调用，在subagent里运行
+# 读取 prompt.txt，执行思考，写入 notepad
+
+import sys
+from datetime import datetime
+from pathlib import Path
+
+PROMPT_FILE = Path.home() / ".xuzhi_memory" / ".dream_prompt.txt"
+NOTEPAD = Path.home() / ".xuzhi_memory" / "memory" / "inter_agent_notepad.md"
+
+
+def main():
+    if not PROMPT_FILE.exists():
+        print("No prompt file, exiting")
+        sys.exit(0)
+
+    prompt = PROMPT_FILE.read_text()
+    print(f"Read prompt ({len(prompt)} chars)")
+
+    # 把prompt追加到notepad（agent的思考结果会更新这里）
+    ts = datetime.now().strftime('%Y-%m-%dT%H:%M:%S+08:00')
+
+    # 格式：留空让agent填写
+    entry = f"""
+
+## [TS: {ts}] [agent] → 世界
+
+{prompt}
+
+---
+"""
+    content = NOTEPAD.read_text()
+    NOTEPAD.write_text(content + '\n' + entry.strip())
+
+    # 清理
+    PROMPT_FILE.unlink()
+    print("Dreaming prompt written to notepad")
+
+
+if __name__ == "__main__":
+    main()

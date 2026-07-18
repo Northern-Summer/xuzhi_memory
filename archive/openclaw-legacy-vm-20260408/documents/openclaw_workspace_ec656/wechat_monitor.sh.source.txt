@@ -1,0 +1,35 @@
+#!/bin/bash
+# 工程改进铁律合规 — Ξ | 2026-03-27
+# 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+#
+# 公众号文章监控脚本
+# 用法: bash wechat_monitor.sh [关键词]
+# 无参数时搜索所有高优先级账号
+
+ACCOUNTS_FILE="$HOME/.xuzhi_memory/expert_tracker/wechat_accounts.json"
+OUTPUT_DIR="$HOME/.xuzhi_memory/expert_tracker/wechat_articles"
+SEARCH_ENGINE="python3 $HOME/.openclaw/workspace/skills/multi-search-engine/searxng_client.py"
+MAX_RESULTS=5
+
+mkdir -p "$OUTPUT_DIR"
+
+if [ -z "$1" ]; then
+    # 无关键词：抓所有高优先级账号的最新文章
+    echo "抓取所有高优先级公众号最新文章..."
+    QUERY="site:mp.weixin.qq.com"
+else
+    QUERY="$1"
+fi
+
+# 搜索并抓取
+RESULT=$($SEARCH_ENGINE "$QUERY mp.weixin.qq.com" bing,ddg 2>/dev/null)
+
+if [ -z "$RESULT" ]; then
+    echo "搜索无结果，尝试搜狗微信..."
+    # 备用：通过搜狗微信搜索
+    SOGOU_URL="https://weixin.sogou.com/weixin?type=2&query=$(python3 -c "import urllib.parse; print(urllib.parse.quote('$QUERY'))")"
+    echo "URL: $SOGOU_URL"
+    echo "（搜狗需要浏览器cookie才能抓全文，此处仅展示标题摘要）"
+else
+    echo "$RESULT" | head -50
+fi

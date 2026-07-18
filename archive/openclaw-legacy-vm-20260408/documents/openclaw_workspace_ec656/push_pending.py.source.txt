@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+"""
+push_pending.py — pending消息推送
+调用 openclaw message send，走CLI，绕过API层
+"""
+import subprocess, sys
+from pathlib import Path
+
+HOME = Path.home()
+PENDING = HOME / ".xuzhi_watchdog" / "pending_research_msg.txt"
+WE_CHAT_ID = "o9cq80z9eorqJasg6hB1W-Cc4-Po@im.wechat"
+
+def main():
+    if not PENDING.exists():
+        return
+
+    msg = PENDING.read_text(encoding="utf-8").strip()
+    if not msg:
+        PENDING.unlink()
+        return
+
+    result = subprocess.run([
+        "openclaw", "message", "send",
+        "--channel", "openclaw-weixin",
+        "--target", WE_CHAT_ID,
+        "--message", msg
+    ], capture_output=True, text=True, timeout=15)
+
+    if result.returncode == 0:
+        print(f"✅ 推送成功")
+        PENDING.unlink()
+    else:
+        print(f"⚠️ 推送失败: {result.stderr[-200:]}")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()

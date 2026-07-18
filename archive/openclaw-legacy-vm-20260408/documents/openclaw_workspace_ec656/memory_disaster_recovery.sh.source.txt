@@ -1,0 +1,92 @@
+#!/bin/bash
+# memory_disaster_recovery.sh — 灾难恢复验证 v2
+
+set -euo pipefail
+
+BASE="$HOME/.xuzhi_memory"
+ISSUES=()
+
+log() { echo "[$(date +%H:%M:%S)] $1"; }
+
+# 检查 1：Git 仓库完整性（更准确的方法）
+log "检查 Git 仓库..."
+cd "$BASE"
+
+# 使用 git status 检测损坏（比 fsck 更可靠）
+if ! git status &>/dev/null; then
+  ISSUES+=("🔴 Git 仓库损坏")
+else
+  log "✓ Git 仓库完好"
+fi
+
+# 检查 2：远程仓库连接
+log "检查远程仓库..."
+if git remote -v | grep -q origin; then
+  if git ls-remote origin &>/dev/null; then
+    log "✓ 远程仓库可访问"
+  else
+    ISSUES+=("🟡 远程仓库无法连接")
+  fi
+fi
+
+# 检查 3：备份目录存在
+log "检查备份目录..."
+backup_dirs=(
+  "$BASE/backup"
+  "$BASE/archive"
+  "$BASE/compressed"
+)
+for dir in "${backup_dirs[@]}"; do
+  if [ -d "$dir" ]; then
+    count=$(ls "$dir" 2>/dev/null | wc -l)
+    log "✓ $dir 存在 ($count 文件)"
+  else
+    ISSUES+=("🟡 $dir 不存在")
+  fi
+done
+
+# 检查 4：关键文件存在
+log "检查关键文件..."
+critical_files=(
+  "MEMORY_HYGIENE_RULES.md"
+  "manifests/MEMORY_SYSTEM_SPEC.md"
+  "memory/$(date +%Y-%m-%d).md"
+)
+for file in "${critical_files[@]}"; do
+  if [ -f "$BASE/$file" ]; then
+    log "✓ $file 存在"
+  else
+    ISSUES+=("🔴 $file 丢失")
+  fi
+done
+
+# 检查 5：工具脚本存在
+log "检查工具脚本..."
+scripts=(
+  "memory_sync.sh"
+  "memory_health_check.sh"
+  "memory_write_guard.sh"
+)
+for script in "${scripts[@]}"; do
+  if [ -f "$HOME/.openclaw/workspace/$script" ]; then
+    log "✓ $script 存在"
+  else
+    ISSUES+=("🔴 $script 丢失")
+  fi
+done
+
+# 检查 6：最近 Git commit
+log "检查最近提交..."
+last_commit=$(git log -1 --format="%cr" 2>/dev/null || echo "未知")
+log "上次提交: $last_commit"
+
+# 输出结果
+echo ""
+if [ ${#ISSUES[@]} -eq 0 ]; then
+  echo "✅ 灾难恢复验证通过"
+  exit 0
+else
+  echo "⚠️ 发现问题："
+  printf '%s\n' "${ISSUES[@]}"
+  exit 1
+fi

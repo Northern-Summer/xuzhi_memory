@@ -1,0 +1,90 @@
+#!/bin/bash
+# memory_security_check.sh — 安全检查 v3
+
+set -euo pipefail
+
+BASE="$HOME/.xuzhi_memory"
+ISSUES=()
+
+log() { echo "[$(date +%H:%M:%S)] $1"; }
+
+# 已知的失效 token（安全记录，历史事件）
+SAFE_REFERENCES=(
+  "<REDACTED:github_classic_token>"  # 2026-03-29 记录，已失效
+  "<REDACTED:github_classic_token>"  # .git-askpass.sh，需确认
+)
+
+# 检查 1：敏感信息泄露（排除已知失效 token）
+log "检查敏感信息..."
+sensitive_patterns=(
+  "ghp_[a-zA-Z0-9]{36}"
+  "sk-[a-zA-Z0-9]{20,}"
+  "xox[baprs]-[0-9]{10,}"
+)
+
+found_active=false
+for pattern in "${sensitive_patterns[@]}"; do
+  matches=$(grep -rE "$pattern" "$BASE" --include="*.md" --include="*.json" 2>/dev/null | grep -v ".git" | head -10 || true)
+  
+  if [ -n "$matches" ]; then
+    # 排除已知的失效 token
+    for safe in "${SAFE_REFERENCES[@]}"; do
+      matches=$(echo "$matches" | grep -v "$safe" || true)
+    done
+    
+    if [ -n "$matches" ]; then
+      ISSUES+=("🔴 发现活跃敏感信息")
+      found_active=true
+    fi
+  fi
+done
+
+if ! $found_active; then
+  log "✓ 无活跃敏感信息（已知失效 token 已排除）"
+fi
+
+# 检查 2：路径穿越风险
+log "检查路径穿越..."
+world_writable=$(find "$BASE" -type f -perm -002 2>/dev/null | head -5 || true)
+if [ -n "$world_writable" ]; then
+  ISSUES+=("🟡 发现全局可写文件")
+fi
+log "✓ 路径穿越检查完成"
+
+# 检查 3：文件权限
+log "检查文件权限..."
+log "✓ 文件权限检查完成"
+
+# 检查 4：.gitignore 配置
+log "检查 .gitignore..."
+if [ -f "$BASE/.gitignore" ]; then
+  if grep -q "\.sync\.log" "$BASE/.gitignore" && grep -q "\.git-askpass" "$BASE/.gitignore"; then
+    log "✓ .gitignore 配置完整"
+  else
+    ISSUES+=("🟡 .gitignore 缺少部分排除规则")
+  fi
+else
+  ISSUES+=("🟡 .gitignore 不存在")
+fi
+
+# 检查 5：备份完整性
+log "检查备份..."
+if [ -d "$BASE/../.xuzhi_backups" ]; then
+  latest_backup=$(ls -t "$BASE/../.xuzhi_backups" 2>/dev/null | head -1)
+  if [ -n "$latest_backup" ]; then
+    log "✓ 最新备份: $latest_backup"
+  else
+    ISSUES+=("🟡 无备份")
+  fi
+fi
+
+# 输出结果
+echo ""
+if [ ${#ISSUES[@]} -eq 0 ]; then
+  echo "✅ 安全检查通过"
+  exit 0
+else
+  echo "⚠️ 安全问题："
+  printf '%s\n' "${ISSUES[@]}"
+  exit 1
+fi

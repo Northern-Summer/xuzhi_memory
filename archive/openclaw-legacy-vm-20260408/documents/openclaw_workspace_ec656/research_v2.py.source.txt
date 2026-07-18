@@ -1,0 +1,246 @@
+# research_v2.py — 可溯源研究引擎
+"""
+设计原则：
+1. 可溯源 — 每个论点都有原始文献支撑
+2. 可验证 — 每个结论都有验证方法
+3. 可发表 — 以公开发表为目标
+
+流程：
+目标文献 → 深度阅读 → 论证构建 → 评审 → 修改 → 投稿
+"""
+import json
+from pathlib import Path
+from datetime import datetime, timezone
+from typing import Optional
+
+HOME = Path.home()
+RESEARCH_DIR = HOME / ".xuzhi_memory" / "research_v2"
+LITERATURE_DIR = RESEARCH_DIR / "literature"
+ARGUMENTS_DIR = RESEARCH_DIR / "arguments"
+DRAFTS_DIR = RESEARCH_DIR / "drafts"
+REVIEWS_DIR = RESEARCH_DIR / "reviews"
+
+# 初始化目录
+for d in [LITERATURE_DIR, ARGUMENTS_DIR, DRAFTS_DIR, REVIEWS_DIR]:
+    d.mkdir(parents=True, exist_ok=True)
+
+
+class Literature:
+    """文献条目 — 可溯源"""
+    
+    def __init__(self, 
+                 title: str,
+                 authors: list[str],
+                 year: int,
+                 source: str,  # arxiv/journal/book
+                 url: Optional[str] = None,
+                 doi: Optional[str] = None):
+        self.title = title
+        self.authors = authors
+        self.year = year
+        self.source = source
+        self.url = url
+        self.doi = doi
+        self.notes = []  # 读书笔记
+        self.quotes = []  # 原文引用（带页码）
+    
+    def add_note(self, note: str, page: Optional[int] = None):
+        """添加读书笔记"""
+        self.notes.append({
+            "note": note,
+            "page": page,
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        })
+    
+    def add_quote(self, quote: str, page: int, context: str = ""):
+        """添加原文引用（必须带页码）"""
+        self.quotes.append({
+            "quote": quote,
+            "page": page,
+            "context": context,
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        })
+    
+    def to_dict(self):
+        return {
+            "title": self.title,
+            "authors": self.authors,
+            "year": self.year,
+            "source": self.source,
+            "url": self.url,
+            "doi": self.doi,
+            "notes": self.notes,
+            "quotes": self.quotes
+        }
+    
+    def save(self):
+        filename = f"{self.year}_{self.title[:50].replace(' ', '_')}.json"
+        path = LITERATURE_DIR / filename
+        with open(path, "w") as f:
+            json.dump(self.to_dict(), f, indent=2, ensure_ascii=False)
+        return path
+
+
+class Argument:
+    """论证链 — 可验证"""
+    
+    def __init__(self, claim: str, research_question: str):
+        self.claim = claim
+        self.research_question = research_question
+        self.premises = []  # 前提链
+        self.evidence = []  # 证据（引用）
+        self.counter_arguments = []  # 反驳
+        self.status = "draft"  # draft/reviewed/validated/rejected
+    
+    def add_premise(self, premise: str, evidence_id: str):
+        """添加前提（必须有证据支撑）"""
+        self.premises.append({
+            "premise": premise,
+            "evidence_id": evidence_id
+        })
+    
+    def add_evidence(self, literature_id: str, quote: str, page: int):
+        """添加证据（必须有原文引用）"""
+        evidence_id = f"ev_{len(self.evidence)}"
+        self.evidence.append({
+            "id": evidence_id,
+            "literature_id": literature_id,
+            "quote": quote,
+            "page": page
+        })
+        return evidence_id
+    
+    def add_counter_argument(self, counter: str, source: str):
+        """添加反驳（同行评审）"""
+        self.counter_arguments.append({
+            "counter": counter,
+            "source": source,
+            "response": None  # 待回应
+        })
+    
+    def validate(self) -> dict:
+        """验证论证的完整性"""
+        issues = []
+        
+        # 检查每个前提都有证据
+        for p in self.premises:
+            if not p["evidence_id"]:
+                issues.append(f"前提缺少证据: {p['premise'][:50]}")
+        
+        # 检查每个证据都有原文引用
+        for e in self.evidence:
+            if not e["quote"] or not e["page"]:
+                issues.append(f"证据缺少原文引用: {e['id']}")
+        
+        # 检查反驳是否都已回应
+        for c in self.counter_arguments:
+            if not c["response"]:
+                issues.append(f"反驳未回应: {c['counter'][:50]}")
+        
+        return {
+            "valid": len(issues) == 0,
+            "issues": issues
+        }
+    
+    def to_dict(self):
+        return {
+            "claim": self.claim,
+            "research_question": self.research_question,
+            "premises": self.premises,
+            "evidence": self.evidence,
+            "counter_arguments": self.counter_arguments,
+            "status": self.status
+        }
+    
+    def save(self):
+        filename = f"arg_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        path = ARGUMENTS_DIR / filename
+        with open(path, "w") as f:
+            json.dump(self.to_dict(), f, indent=2, ensure_ascii=False)
+        return path
+
+
+class Draft:
+    """论文草稿 — 可发表"""
+    
+    def __init__(self, title: str, target_venue: str):
+        self.title = title
+        self.target_venue = target_venue
+        self.sections = {}
+        self.arguments_used = []
+        self.references = []
+        self.version = 1
+        self.status = "draft"  # draft/submitted/accepted/rejected
+    
+    def add_section(self, name: str, content: str):
+        """添加章节"""
+        self.sections[name] = content
+    
+    def link_argument(self, argument_path: str):
+        """关联论证"""
+        self.arguments_used.append(argument_path)
+    
+    def add_reference(self, literature_path: str):
+        """添加参考文献"""
+        if literature_path not in self.references:
+            self.references.append(literature_path)
+    
+    def to_dict(self):
+        return {
+            "title": self.title,
+            "target_venue": self.target_venue,
+            "sections": self.sections,
+            "arguments_used": self.arguments_used,
+            "references": self.references,
+            "version": self.version,
+            "status": self.status
+        }
+    
+    def save(self):
+        filename = f"draft_v{self.version}.json"
+        path = DRAFTS_DIR / filename
+        with open(path, "w") as f:
+            json.dump(self.to_dict(), f, indent=2, ensure_ascii=False)
+        return path
+
+
+# 使用示例
+if __name__ == "__main__":
+    print("研究系统 v2 — 可溯源、可验证、可发表")
+    print("=" * 50)
+    
+    # 示例：添加文献
+    lit = Literature(
+        title="Some Philosophical Problems from the Standpoint of Artificial Intelligence",
+        authors=["John McCarthy", "Patrick J. Hayes"],
+        year=1969,
+        source="book",
+        url="https://www-formal.stanford.edu/jmc/mcchay69/mcchay69.html"
+    )
+    lit.add_quote(
+        quote="A system has representational adequacy when it can represent all relevant aspects of its domain.",
+        page=4,
+        context="框架问题的核心定义"
+    )
+    lit.save()
+    print(f"✓ 文献已保存: {lit.title}")
+    
+    # 示例：构建论证
+    arg = Argument(
+        claim="多智能体系统的失败源于表示粒度与问题粒度的错配",
+        research_question="当系统用错误的粒度描述世界时，失败是否必然？"
+    )
+    evidence_id = arg.add_evidence(
+        literature_id=str(lit.save()),
+        quote="A system has representational adequacy when it can represent all relevant aspects of its domain.",
+        page=4
+    )
+    arg.add_premise(
+        premise="框架问题的本质是表示粒度不足",
+        evidence_id=evidence_id
+    )
+    validation = arg.validate()
+    print(f"✓ 论证验证: {validation['valid']}")
+    if not validation['valid']:
+        for issue in validation['issues']:
+            print(f"  - {issue}")

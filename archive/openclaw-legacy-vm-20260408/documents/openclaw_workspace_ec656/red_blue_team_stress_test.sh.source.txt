@@ -1,0 +1,56 @@
+#!/bin/bash
+# 红蓝队压力测试 — 系统健壮性验证
+# 工程改进铁律合规 — Ξ | 2026-03-30
+#
+# 用途：手动触发，检查系统健康状态
+# 不添加到 cron，不频繁执行
+
+PASS=0
+FAIL=0
+
+check() {
+    if [ $1 -eq 0 ]; then
+        echo "✅ $2"
+        ((PASS++))
+    else
+        echo "❌ $2"
+        ((FAIL++))
+    fi
+}
+
+echo "=== 系统健壮性检查 ==="
+echo ""
+
+# 核心原则
+grep -q "优雅原则" ~/.openclaw/workspace/MEMORY.md 2>/dev/null
+check $? "优雅原则存在"
+
+grep -q "工程改进铁律" ~/.openclaw/workspace/AGENTS.md 2>/dev/null
+check $? "工程铁律存在"
+
+grep -q "技能库" ~/.openclaw/workspace/MEMORY.md 2>/dev/null
+check $? "技能库存在"
+
+# 记忆系统
+[ -f ~/.xuzhi_memory/memory/2026-03-30.md ]
+check $? "今日记忆存在"
+
+# Gateway
+curl -s --max-time 3 http://127.0.0.1:18789/health | grep -q '"ok":true'
+check $? "Gateway健康"
+
+# Cron配置
+python3 -c "
+import json
+d = json.load(open('/home/summer/.openclaw/cron/jobs.json'))
+j = [x for x in d['jobs'] if x['name']=='xi_pulse_research']
+exit(0 if j and j[0]['sessionTarget']=='session:xi-pulse-main' else 1)
+" 2>/dev/null
+check $? "Cron配置正确"
+
+echo ""
+echo "通过: $PASS | 失败: $FAIL"
+
+[ $FAIL -eq 0 ] && echo "🎉 系统健康" || echo "⚠️ 需要修复"
+
+exit $FAIL

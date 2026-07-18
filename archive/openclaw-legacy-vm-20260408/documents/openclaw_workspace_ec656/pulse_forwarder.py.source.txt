@@ -1,0 +1,104 @@
+#!/usr/bin/env python3
+"""
+Ξ Pulse Forwarder — 监控main session transcript，提取completion event并转发到WeChat
+工程改进铁律合规 — Ξ | 2026-03-27
+"""
+import json
+import time
+import os
+import re
+from pathlib import Path
+
+SESSION_FILE = Path.home() / ".openclaw/agents/main/sessions/c229b6e1-6c48-4f9d-a692-0d04393aaa79.jsonl"
+GATEWAY = "http://127.0.0.1:18789"
+WEIXIN_TARGET = "direct:o9cq80z9eorqjasg6hb1w-cc4-po@im.wechat"
+
+def rpc_send(session_key, message):
+    """发送消息到WeChat"""
+    import urllib.request
+    payload = {
+        "method": "sessions.send",
+        "params": {
+            "sessionKey": session_key,
+            "message": message,
+            "timeoutSeconds": 5
+        },
+        "jsonrpc": "2.0",
+        "id": 1
+    }
+    req = urllib.request.Request(
+        f"{GATEWAY}/rpc",
+        data=json.dumps(payload).encode(),
+        headers={"Content-Type": "application/json"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=5) as r:
+            return json.loads(r.read())
+    except Exception as e:
+        return {"error": str(e)}
+
+def extract_completion_results(filepath, since_size):
+    """从transcript文件提取新的completion event结果"""
+    results = []
+    if not filepath.exists():
+        return results, since_size
+    current_size = filepath.stat().st_size
+    if current_size <= since_size:
+        return results, since_size
+    with open(filepath, 'rb') as f:
+        f.seek(since_size)
+        new_data = f.read().decode('utf-8', errors='ignore')
+    since_size = current_size
+    # 解析每行JSON
+    for line in new_data.strip().split('\n'):
+        if not line.strip():
+            continue
+        try:
+            obj = json.loads(line)
+            if obj.get('type') == 'message':
+                content = obj.get('message', {}).get('content', '')
+                if isinstance(content, list):
+                    for c in content:
+                        if c.get('type') == 'text':
+                            text = c['text']
+                            # 识别completion event结果
+                            if 'BEGIN_UNTRUSTED_CHILD_RESULT' in text:
+                                match = re.search(r'<<<BEGIN_UNTRUSTED_CHILD_RESULT>>>(.*?)<<<END_UNTRUSTED_CHILD_RESULT>>>', text, re.DOTALL)
+                                if match:
+                                    raw = match.group(1).strip()
+                                    # 清理markdown格式
+                                    cleaned = re.sub(r'\*\*(.*?)\*\*', r'\1', raw)
+                                    cleaned = re.sub(r'\*(.*?)\*', r'\1', cleaned)
+                                    cleaned = re.sub(r'#+(.*?)$', r'\1', cleaned, flags=re.MULTILINE)
+                                    cleaned = re.sub(r'^(.{0,5}):\s*', r'\1: ', cleaned, flags=re.MULTILINE)
+                                    results.append(cleaned.strip())
+        except Exception:
+            pass
+    return results, since_size
+
+def main():
+    known_size = 0
+    last_send_time = 0
+    send_interval = 300  # 至少5分钟发一次，避免重复
+
+    while True:
+        results, known_size = extract_completion_results(SESSION_FILE, known_size)
+        now = time.time()
+        for content in results:
+            if now - last_send_time > send_interval and content:
+                # 格式化并发送
+                lines = content.split('\n')
+                formatted = ['【Ξ 前沿动态】', '']
+                for line in lines[:8]:  # 最多8行
+                    if line.strip():
+                        formatted.append(line.strip())
+                formatted.append('')
+                formatted.append(f'——Ξ {time.strftime("%H:%M")}')
+                msg = '\n'.join(formatted)
+                result = rpc_send(f"agent:main:openclaw-weixin:{WEIXIN_TARGET}", msg)
+                print(f"[{time.strftime('%H:%M:%S')}] Forwarded, result: {result}")
+                last_send_time = now
+        time.sleep(15)
+
+if __name__ == "__main__":
+    main()

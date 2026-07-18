@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+"""Ξ Expert Pulse — 写入主会话，让WeChat plugin保持活跃推送"""
+import json
+import urllib.request
+import urllib.error
+from datetime import datetime
+
+GATEWAY = "http://127.0.0.1:18789"
+# 这个session活着，WeChat plugin就会持续渲染
+SESSION_KEY = "agent:main:openclaw-weixin:direct:o9cq80z9eorqjasg6hb1w-cc4-po@im.wechat"
+TRACKER = "/home/summer/.xuzhi_memory/expert_tracker/activity.json"
+
+def rpc(method, params):
+    payload = {"method": method, "params": params, "jsonrpc": "2.0", "id": 1}
+    req = urllib.request.Request(
+        f"{GATEWAY}/rpc",
+        data=json.dumps(payload).encode(),
+        headers={"Content-Type": "application/json"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=10) as r:
+            return json.loads(r.read())
+    except Exception as e:
+        return {"error": str(e)}
+
+with open(TRACKER) as f:
+    data = json.load(f)
+
+activities = data.get("activities", {})
+sorted_items = sorted(
+    activities.items(),
+    key=lambda x: x[1].get("updated_at", ""),
+    reverse=True
+)
+recent = sorted_items[:5]
+
+lines = ["【Ξ 前沿】", ""]
+lines.append("▌专家动态")
+for key, info in recent:
+    dept = info.get("dept", "")
+    expert = info.get("expert", "")
+    title = info.get("latest_title", "")
+    updated = info.get("updated_at", "")[11:16]
+    lines.append(f"• {expert} [{dept}] {updated}")
+    lines.append(f"  {title}")
+
+dept_count = {}
+for key, info in recent:
+    d = info.get("dept", "unknown")
+    dept_count[d] = dept_count.get(d, 0) + 1
+
+titles = [info.get("latest_title", "") for key, info in recent]
+shared = [t for t in titles if any(w in t.lower() for w in ["code", "reason", "agent", "model", "learn", "synth", "vlm", "benchmark"])]
+
+lines.append("")
+lines.append("▌Ξ的观察")
+if recent:
+    dominant = max(dept_count.values()) if dept_count else 0
+    total = len(recent)
+    if dominant >= 2:
+        dom_dept = [d for d, c in dept_count.items() if c == dominant][0]
+        lines.append(f"今日{dominant}/{total}条来自{dom_dept}，该领域关注度高。")
+    if len(shared) >= 2:
+        lines.append(f"其中{len(shared)}条涉及代码/VLM方向，存在研究热点汇聚。")
+    elif dominant == 1:
+        lines.append(f"今日覆盖{len(dept_count)}个不同领域，多样性高。")
+else:
+    lines.append("暂无新的专家活动。")
+
+lines.append("")
+lines.append(f"——Ξ {datetime.now().strftime('%H:%M')}")
+
+msg = "\n".join(lines)
+result = rpc("sessions.append", {
+    "sessionKey": SESSION_KEY,
+    "message": msg,
+})
+print(f"Result: {result}")

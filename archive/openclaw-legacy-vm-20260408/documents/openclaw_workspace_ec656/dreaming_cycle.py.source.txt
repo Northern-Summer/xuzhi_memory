@@ -1,0 +1,175 @@
+#!/usr/bin/env python3
+# dreaming_cycle.py — 完整做梦循环
+# 被cron调用，同步完成：选agent/theme → 生成思考 → 写notepad
+# 不依赖其他session，在本进程内完成所有步骤
+
+import json
+import random
+import subprocess
+import sys
+from datetime import datetime
+from pathlib import Path
+
+STATE_FILE = Path.home() / ".xuzhi_memory" / "rotation_state.json"
+NOTEPAD = Path.home() / ".xuzhi_memory" / "memory" / "inter_agent_notepad.md"
+DREAMING_STATE = Path.home() / ".xuzhi_memory" / ".dreaming_state.json"
+
+AGENTS = ['phi', 'delta', 'gamma', 'theta', 'omega', 'psi', 'rho']
+DISCIPLINE = {
+    'phi': '语言学/文学', 'delta': '数学', 'gamma': '自然科学',
+    'theta': '历史学/社科', 'omega': '艺术', 'psi': '哲学', 'rho': '经济学',
+}
+THEMES = {
+    'phi': ["语言塑造思维，还是思维塑造语言？", "翻译过程中，什么一定会丢失？", "沉默为什么有时候比说出来更有力？"],
+    'delta': ["数学里的「优雅」是客观的美，还是人类的投射？", "有没有一个数学问题，是不可能有答案的？"],
+    'gamma': ["意识是进化的产物，还是进化的目的？", "暗物质是观测的局限，还是自然的真实？"],
+    'theta': ["历史有规律，还是只有偶然？", "「进步」这个概念本身是不是一种偏见？"],
+    'omega': ["AI生成的艺术有没有「真实性」？", "如果没有人看，一件艺术作品还存在吗？"],
+    'psi': ["自由意志是一个语言陷阱吗？", "「意义」是发现的，还是发明的？"],
+    'rho': ["A股散户亏损的根因是信息不对称，还是情绪驱动？", "如果所有人都用AI做投资决策，市场会更稳定还是更动荡？"],
+}
+
+
+def ensure_notepad():
+    if not NOTEPAD.exists():
+        NOTEPAD.write_text("# inter_agent_notepad.md\n\n---\n\n")
+
+
+def get_current_duty():
+    try:
+        return json.loads(STATE_FILE.read_text()).get('current')
+    except Exception:
+        return None
+
+
+def get_recent_snippets():
+    if NOTEPAD.exists():
+        content = NOTEPAD.read_text()
+        entries = content.split('## [TS:')
+        if len(entries) >= 3:
+            lines = []
+            for entry in entries[-2:]:
+                for ln in entry.split('\n'):
+                    if '**主题**' in ln:
+                        lines.append(ln.strip())
+                        break
+            if lines:
+                return '\n'.join(lines[:2])
+    return None
+
+
+def select_next():
+    try:
+        last = json.loads(DREAMING_STATE.read_text()).get('last_agent')
+    except Exception:
+        last = None
+    duty = get_current_duty()
+    candidates = [a for a in AGENTS if a != duty]
+    if last in candidates:
+        selected = candidates[(candidates.index(last) + 1) % len(candidates)]
+    else:
+        selected = random.choice(candidates)
+    DREAMING_STATE.parent.mkdir(parents=True, exist_ok=True)
+    DREAMING_STATE.write_text(json.dumps({'last_agent': selected}))
+    return selected
+
+
+def get_dream_prompt(agent, theme, snippets):
+    context = f"相关片段：{snippets}" if snippets else "暂无前文，这是一个新话题的开始。"
+    return f"""你是 {agent}（{DISCIPLINE.get(agent, '')}）。
+
+你在虚质系统里「做梦」。
+
+梦境不是随机噪音，也不是照本宣科。梦境有轻的叙事结构，允许跳跃，允许矛盾，允许没说完。不要给结论，要给探索。
+
+{context}
+
+今天你的梦境种子：「{theme}」
+
+请以{DISCIPLINE.get(agent, '')}的视角，围绕这个种子写一段梦境片段。
+要求：
+- 可以是碎片、问题、半句话
+- 允许跳跃和矛盾
+- 不要有结论
+- 有开放性
+
+用Python将以下内容追加写入 ~/.xuzhi_memory/memory/inter_agent_notepad.md（用append，不要覆盖）：
+
+```
+## [TS: {datetime.now().strftime('%Y-%m-%dT%H:%M:%S+08:00')}] {agent} → 世界
+
+**主题**: {theme}
+
+**梦境片段**:
+
+[你的联想内容]
+---
+```
+
+只执行Python写入，不要输出其他内容。"""
+
+
+def write_entry(agent, theme, content):
+    ts = datetime.now().strftime('%Y-%m-%dT%H:%M:%S+08:00')
+    entry = f"""
+
+## [TS: {ts}] {agent} → 世界
+
+**主题**: {theme}
+
+**梦境片段**:
+
+{content}
+
+---
+"""
+    ensure_notepad()
+    current = NOTEPAD.read_text()
+    NOTEPAD.write_text(current + '\n' + entry + '\n')
+
+
+def spawn_thinker_and_wait(agent, theme, snippets):
+    """Spawn a thinking subagent and wait for it to complete"""
+    prompt = get_dream_prompt(agent, theme, snippets)
+
+    # Spawn thinking subagent
+    result = subprocess.run([
+        'openclaw', 'sessions', 'spawn',
+        '--sessionKey', f'agent:dreamer:{agent}:{datetime.now().strftime("%H%M%S")}',
+        '--runtime', 'subagent',
+        '--message', prompt,
+        '--runTimeoutSeconds', '90',
+        '--mode', 'run',
+        '--cwd', str(Path.home() / '.openclaw' / 'workspace'),
+    ], capture_output=True, text=True, timeout=120)
+
+    return result.stdout[:500] if result.stdout else result.stderr[:500]
+
+
+def main():
+    ensure_notepad()
+
+    agent = select_next()
+    theme = random.choice(THEMES.get(agent, ["今天有什么值得想的？"]))
+    snippets = get_recent_snippets()
+
+    ts = datetime.now().strftime('%H:%M:%S')
+    print(f"[{ts}] 🧠 {agent}（{DISCIPLINE.get(agent, '')}）开始做梦")
+    print(f"主题: {theme}")
+
+    # Spawn thinker and wait for result
+    result = spawn_thinker_and_wait(agent, theme, snippets)
+    print(f"思考完成: {result[:200]}")
+
+    # Fallback: if thinker failed, write placeholder
+    if not result or 'error' in result.lower() or 'failed' in result.lower():
+        print("⚠️ 思考器未正常完成，写入占位符")
+        write_entry(agent, theme, "（梦境片段生成中……）")
+    else:
+        print(f"✅ {agent} 梦境已写入 notepad")
+
+    print(f"下次做梦: 2小时后")
+
+
+if __name__ == "__main__":
+    main()

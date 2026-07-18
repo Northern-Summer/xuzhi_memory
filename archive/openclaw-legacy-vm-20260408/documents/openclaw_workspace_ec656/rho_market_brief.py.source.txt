@@ -1,0 +1,88 @@
+#!/usr/bin/env python3
+# 工程改进铁律合规 — Ξ | 2026-03-28
+# 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+
+"""
+rho_market_brief.py — ρ 经济agent 市场快报生成器
+功能：
+  1. 抓取 A股主要指数（上证/深证/创业板/科创50/沪深300）
+  2. 抓取美股（纳指/标普500/道琼斯）
+  3. 抓取港股（恒生）
+  4. 生成格式化早报，推送给 WeChat
+"""
+
+from datetime import datetime
+
+
+def get_zh_index():
+    """A股指数"""
+    import akshare as ak
+    df = ak.stock_zh_index_spot_em()
+    indices = ['上证指数', '深证成指', '创业板指', '科创50', '沪深300']
+    rows = []
+    for _, row in df[df['名称'].isin(indices)].iterrows():
+        change = row['涨跌幅']
+        emoji = "🟢" if change > 0 else "🔴" if change < 0 else "⚪"
+        rows.append(f"{emoji} {row['名称']}: {row['最新价']:.2f} ({change:+.2f}%)")
+    return rows
+
+
+def get_us_index():
+    """美股指数"""
+    import akshare as ak
+    try:
+        df = ak.index_global_spot_em()
+        us_indices = df[df['代码'].isin(['NDX', 'SPX', 'DJIA'])]
+        lines = []
+        name_map = {'NDX': '纳指', 'SPX': '标普500', 'DJIA': '道琼斯'}
+        for _, row in us_indices.iterrows():
+            change = row['涨跌幅']
+            emoji = "🟢" if change > 0 else "🔴" if change < 0 else "⚪"
+            lines.append(f"{emoji} {name_map.get(row['代码'], row['代码'])}: {row['最新价']:.2f} ({change:+.2f}%)")
+        return lines
+    except Exception as e:
+        return [f"⚠️ 美股数据获取失败: {e}"]
+
+
+def get_hk_index():
+    """恒生指数"""
+    import akshare as ak
+    try:
+        df = ak.stock_hk_index_spot_em()
+        hsi = df[df['名称'] == '恒生指数'].iloc[0]
+        change = hsi['涨跌幅']
+        emoji = "🟢" if change > 0 else "🔴" if change < 0 else "⚪"
+        return [f"{emoji} 恒生指数: {hsi['最新价']:.2f} ({change:+.2f}%)"]
+    except Exception as e:
+        return [f"⚠️ 恒生获取失败: {e}"]
+
+
+def generate_brief():
+    lines = []
+    lines.append(f"📊 市场早报 | {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    lines.append("")
+    lines.append("【A股】")
+    try:
+        lines.extend(get_zh_index())
+    except Exception as e:
+        lines.append(f"⚠️ A股数据获取失败: {e}")
+    lines.append("")
+    lines.append("【美股】")
+    try:
+        lines.extend(get_us_index())
+    except Exception as e:
+        lines.append(f"⚠️ 美股数据获取失败: {e}")
+    lines.append("")
+    lines.append("【港股】")
+    try:
+        lines.extend(get_hk_index())
+    except Exception as e:
+        lines.append(f"⚠️ 港股数据获取失败: {e}")
+    lines.append("")
+    lines.append("— ρ 经济agent | 每日08:00自动推送 —")
+    return "\n".join(lines)
+
+
+if __name__ == "__main__":
+    brief = generate_brief()
+    print(brief)

@@ -1,0 +1,58 @@
+#!/bin/bash
+# 元启发式框架跟踪 — Ξ | 2026-03-31
+# 工程改进铁律合规 — 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+
+set -e
+
+TODAY=$(date +%Y-%m-%d)
+KNOWLEDGE_DIR="$HOME/.xuzhi_memory/memory/knowledge"
+FRAMEWORK_FILE="$KNOWLEDGE_DIR/SELF_EVOLUTION_FRAMEWORKS.md"
+LOG_FILE="$HOME/.xuzhi_memory/framework_tracking.log"
+
+echo "=== 元启发式框架跟踪 | $TODAY ==="
+echo ""
+
+# 检查知识库文件
+if [ ! -f "$FRAMEWORK_FILE" ]; then
+    echo "❌ 知识库文件不存在: $FRAMEWORK_FILE"
+    exit 1
+fi
+
+# 获取上次更新时间
+LAST_UPDATE=$(grep "更新时间：" "$FRAMEWORK_FILE" | head -1 | grep -oP '\d{4}-\d{2}-\d{2}')
+if [ -z "$LAST_UPDATE" ]; then
+    LAST_UPDATE="未知"
+fi
+
+# 计算天数差
+if [ "$LAST_UPDATE" != "未知" ]; then
+    DAYS_SINCE=$(( ($(date +%s) - $(date -d "$LAST_UPDATE" +%s)) / 86400 ))
+    echo "上次更新: $LAST_UPDATE ($DAYS_SINCE 天前)"
+    
+    if [ "$DAYS_SINCE" -gt 7 ]; then
+        echo "⚠️  超过 7 天未更新，需要扫描新框架"
+    else
+        echo "✅ 知识库在 7 天内已更新"
+    fi
+fi
+
+echo ""
+echo "--- 执行前沿扫描 ---"
+
+# 搜索新框架
+SEARCH_RESULTS=$(python3 "$HOME/.openclaw/workspace/skills/multi-search-engine/searxng_client.py" \
+    "self-evolving agent meta-learning autonomous 2025 2026" \
+    brave --count 5 2>&1 || echo "搜索失败")
+
+echo "$SEARCH_RESULTS" | head -20
+
+# 记录日志
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] 框架跟踪执行完成" >> "$LOG_FILE"
+
+echo ""
+echo "=== 跟踪完成 ==="
+echo ""
+echo "下一步："
+echo "1. 检查搜索结果中的新框架"
+echo "2. 如有新框架 → 学习并更新知识库"
+echo "3. 应用新框架机制到 Xuzhi 系统"

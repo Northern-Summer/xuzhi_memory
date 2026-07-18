@@ -1,0 +1,67 @@
+#!/bin/bash
+# memory_health_check.sh — 记忆系统健康检查 v2
+# 排除所有运行时文件
+
+set -euo pipefail
+
+BASE="$HOME/.xuzhi_memory"
+L1_DIR="$BASE/memory"
+AGENTS="delta gamma omega phi psi theta xi"
+ISSUES=()
+
+TODAY=$(date +%Y-%m-%d)
+YESTERDAY=$(date -d "$TODAY -1 day" +%Y-%m-%d 2>/dev/null || date -v-1d +%Y-%m-%d)
+
+# 运行时文件（不检查）
+RUNTIME_FILES="expert_tracker|session_guard|\.sync|\.conflict|checkpoints|backup|daily"
+
+# 检查 1：今日 L1 存在且非空
+today_file="$L1_DIR/$TODAY.md"
+if [ ! -f "$today_file" ]; then
+  ISSUES+=("🔴 今日记忆不存在: $TODAY.md")
+elif [ $(wc -c < "$today_file") -lt 200 ]; then
+  ISSUES+=("🟡 今日记忆过短: $TODAY.md (< 200 bytes)")
+fi
+
+# 检查 2：昨日 L1 存在
+yesterday_file="$L1_DIR/$YESTERDAY.md"
+if [ ! -f "$yesterday_file" ]; then
+  ISSUES+=("🔴 昨日记忆不存在: $YESTERDAY.md")
+fi
+
+# 检查 3：同步状态
+sync_log="$BASE/.sync.log"
+if [ -f "$sync_log" ]; then
+  last_sync=$(tail -1 "$sync_log" 2>/dev/null | grep -o '\[.*\]' | tr -d '[]' || echo "")
+  if [ -n "$last_sync" ]; then
+    now=$(date +%s)
+    sync_time=$(date -d "$last_sync" +%s 2>/dev/null || echo "$now")
+    if [ $((now - sync_time)) -gt 3600 ]; then
+      ISSUES+=("🟡 同步超过 1 小时未执行")
+    fi
+  fi
+fi
+
+# 检查 4：各 agent 私有 L1
+for agent in $AGENTS; do
+  private="$BASE/agents/$agent/memory/$TODAY.md"
+  if [ ! -f "$private" ]; then
+    ISSUES+=("🟡 $agent 私有记忆缺失今日文件")
+  fi
+done
+
+# 检查 5：Git 状态（排除运行时）
+cd "$BASE"
+if git status --short | grep -vE "$RUNTIME_FILES" | grep -v "^??" | grep -q .; then
+  ISSUES+=("🟡 Git 有未提交更改（非运行时）")
+fi
+
+# 输出结果
+if [ ${#ISSUES[@]} -eq 0 ]; then
+  echo "✅ 记忆系统健康检查通过"
+  exit 0
+else
+  echo "⚠️ 记忆系统问题："
+  printf '%s\n' "${ISSUES[@]}"
+  exit 1
+fi

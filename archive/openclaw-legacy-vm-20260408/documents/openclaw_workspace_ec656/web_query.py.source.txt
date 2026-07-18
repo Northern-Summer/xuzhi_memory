@@ -1,0 +1,90 @@
+#!/usr/bin/env python3
+"""
+web_query.py — 统一 Web 查询入口
+
+多路并进，自动选择最优路径：
+- SearXNG: 通用搜索
+- bb-browser: 浏览器自动化（公开数据 + 登录态数据）
+- wechat_search: 公众号搜索（备用）
+
+用法：
+  python3 web_query.py search "multi-agent AI" --sources brave,arxiv
+  python3 web_query.py hackernews --count 5
+  python3 web_query.py zhihu-hot --count 10  # 需要 Edge 扩展
+"""
+
+import subprocess
+import json
+import argparse
+import sys
+from pathlib import Path
+
+BB_BROWSER_PORT = 9222
+SEARXNG_URL = "http://localhost:8080"
+
+def bb_browser(site_cmd: str, *args, jq: str = None) -> dict:
+    """调用 bb-browser"""
+    cmd = ["npx", "bb-browser", "site", site_cmd] + list(args) + ["--port", str(BB_BROWSER_PORT), "--json"]
+    if jq:
+        cmd.extend(["--jq", jq])
+    
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+    if result.returncode != 0:
+        return {"success": False, "error": result.stderr}
+    try:
+        return json.loads(result.stdout)
+    except:
+        return {"success": False, "error": "JSON parse error", "raw": result.stdout}
+
+def searxng(query: str, sources: str = "brave,arxiv") -> dict:
+    """调用 SearXNG"""
+    script = Path.home() / ".openclaw/workspace/skills/multi-search-engine/searxng_client.py"
+    cmd = ["python3", str(script), query, sources]
+    
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+    if result.returncode != 0:
+        return {"success": False, "error": result.stderr}
+    try:
+        return {"success": True, "data": json.loads(result.stdout)}
+    except:
+        return {"success": True, "data": result.stdout}
+
+def main():
+    parser = argparse.ArgumentParser(description="统一 Web 查询入口")
+    subparsers = parser.add_subparsers(dest="command", help="命令")
+    
+    # search
+    p_search = subparsers.add_parser("search", help="通用搜索 (SearXNG)")
+    p_search.add_argument("query", help="搜索词")
+    p_search.add_argument("--sources", default="brave,arxiv", help="数据源 (brave,arxiv,bing,ddg)")
+    
+    # hackernews
+    p_hn = subparsers.add_parser("hackernews", help="HackerNews 热门")
+    p_hn.add_argument("--count", type=int, default=5, help="返回条数")
+    
+    # zhihu-hot
+    p_zhihu = subparsers.add_parser("zhihu-hot", help="知乎热榜 (需要登录态)")
+    p_zhihu.add_argument("--count", type=int, default=10, help="返回条数")
+    
+    # weibo-hot
+    p_weibo = subparsers.add_parser("weibo-hot", help="微博热搜 (需要登录态)")
+    p_weibo.add_argument("--count", type=int, default=10, help="返回条数")
+    
+    args = parser.parse_args()
+    
+    if args.command == "search":
+        result = searxng(args.query, args.sources)
+    elif args.command == "hackernews":
+        result = bb_browser("hackernews/top", str(args.count))
+    elif args.command == "zhihu-hot":
+        result = bb_browser("zhihu/hot", str(args.count))
+    elif args.command == "weibo-hot":
+        result = bb_browser("weibo/hot", str(args.count))
+    else:
+        parser.print_help()
+        return
+    
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+
+if __name__ == "__main__":
+    main()

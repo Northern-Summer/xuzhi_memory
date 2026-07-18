@@ -1,0 +1,39 @@
+#!/bin/bash
+# 研究追踪脚本 - 每日自动更新最新研究
+
+RESEARCH_DIR="$HOME/.xuzhi_memory/research_tracking"
+LOG_FILE="$RESEARCH_DIR/track.log"
+DATE=$(date +%Y-%m-%d)
+
+echo "[$(date)] 开始研究追踪..." >> "$LOG_FILE"
+
+# 检查代理
+export http_proxy="http://192.168.1.33:7897"
+export https_proxy="http://192.168.1.33:7897"
+
+# 1. 抓取 Anthropic 最新研究
+echo "[$(date)] 抓取 Anthropic Research..." >> "$LOG_FILE"
+curl -s --connect-timeout 10 "https://www.anthropic.com/research" > "$RESEARCH_DIR/anthropic_latest.html" 2>> "$LOG_FILE"
+
+# 2. 抓取 OpenAI 最新研究
+echo "[$(date)] 抓取 OpenAI Research..." >> "$LOG_FILE"
+curl -s --connect-timeout 10 "https://openai.com/research" > "$RESEARCH_DIR/openai_latest.html" 2>> "$LOG_FILE"
+
+# 3. 抓取 DeepMind 最新博客
+echo "[$(date)] 抓取 DeepMind Blog..." >> "$LOG_FILE"
+curl -s --connect-timeout 10 "https://deepmind.google/blog/" > "$RESEARCH_DIR/deepmind_latest.html" 2>> "$LOG_FILE"
+
+# 4. 抓取 arXiv cs.AI 最新论文
+echo "[$(date)] 抓取 arXiv cs.AI..." >> "$LOG_FILE"
+curl -s --connect-timeout 10 "https://arxiv.org/list/cs.AI/recent" > "$RESEARCH_DIR/arxiv_csai_latest.html" 2>> "$LOG_FILE"
+
+# 5. 更新时间戳
+echo "最后更新：$DATE" > "$RESEARCH_DIR/.last_update"
+
+echo "[$(date)] 研究追踪完成" >> "$LOG_FILE"
+
+# 清理旧日志（保留最近 30 天）
+find "$RESEARCH_DIR" -name "*.html" -mtime +7 -delete 2>/dev/null
+tail -100 "$LOG_FILE" > "$LOG_FILE.tmp" && mv "$LOG_FILE.tmp" "$LOG_FILE"
+
+echo "✅ 研究追踪完成: $DATE"

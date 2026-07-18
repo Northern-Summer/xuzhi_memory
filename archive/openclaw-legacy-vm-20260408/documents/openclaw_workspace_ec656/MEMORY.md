@@ -1,0 +1,1 @@
+/home/summer/.xuzhi_memory/agents/xi/MEMORY.md

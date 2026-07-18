@@ -1,0 +1,133 @@
+#!/usr/bin/env python3
+"""
+Lean Zulip Community Monitor - Observation Phase
+Delta's silent monitoring tool for community research
+"""
+
+import urllib.request
+import urllib.parse
+import json
+import ssl
+import base64
+import os
+from datetime import datetime
+from pathlib import Path
+
+# Configuration
+EMAIL = "MzgyMzMzMjk@163.com"
+<REDACTED:sensitive_assignment>"
+SITE = "https://leanprover.zulipchat.com"
+
+# Data storage
+DATA_DIR = Path.home() / ".xuzhi_memory" / "agents" / "delta" / "community_observations"
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+# Priority streams to monitor
+PRIORITY_STREAMS = [
+    "new members",
+    "maths",
+    "Research on ML and Lean",
+    "general",
+    "Lean 4",
+    "mathlib4"
+]
+
+def get_today_file():
+    """Get today's observation file"""
+    today = datetime.now().strftime("%Y-%m-%d")
+    return DATA_DIR / f"zulip_{today}.jsonl"
+
+def make_request(endpoint, params=None, method="GET", data=None):
+    """Generic Zulip API request"""
+    url = f"{SITE}{endpoint}"
+    auth_b64 = base64.b64encode(f'{EMAIL}:{API_KEY}'.encode()).decode()
+    headers = {"Authorization": f"Basic {auth_b64}"}
+    
+    if method == "POST" and data:
+        headers["Content-Type"] = "application/x-www-form-urlencoded"
+        data = urllib.parse.urlencode(data).encode()
+    
+    if params and method == "GET":
+        url += "?" + urllib.parse.urlencode(params)
+    
+    req = urllib.request.Request(url, headers=headers, method=method, data=data)
+    ctx = ssl.create_default_context()
+    
+    with urllib.request.urlopen(req, context=ctx) as response:
+        return json.loads(response.read().decode())
+
+def get_messages(stream_name, num=50):
+    """Get recent messages from a stream"""
+    params = {
+        "anchor": "newest",
+        "num_before": num,
+        "num_after": 0,
+        "narrow": json.dumps([{"operator": "stream", "operand": stream_name}])
+    }
+    return make_request("/api/v1/messages", params)
+
+def log_observation(source, stream, topic, author, content, timestamp):
+    """Log a community observation"""
+    # Clean HTML tags from content
+    import re
+    clean_content = re.sub(r'<[^>]+>', '', content)
+    
+    entry = {
+        "timestamp": timestamp or datetime.now().isoformat(),
+        "source": source,
+        "stream": stream,
+        "topic": topic,
+        "author": author,
+        "content": clean_content[:800],  # Truncate for storage
+        "collected_at": datetime.now().isoformat()
+    }
+    
+    with open(get_today_file(), "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+def monitor_stream(stream_name, num_messages=30):
+    """Monitor a specific stream and log observations"""
+    try:
+        result = get_messages(stream_name, num_messages)
+        messages = result.get('messages', [])
+        
+        print(f"  📊 {stream_name}: {len(messages)} messages")
+        
+        for msg in messages:
+            topic = msg.get('subject', 'general')
+            author = msg.get('sender_full_name', 'Unknown')
+            content = msg.get('content', '')
+            msg_time = msg.get('timestamp')
+            
+            # Convert timestamp if present
+            if msg_time:
+                from datetime import datetime
+                msg_time = datetime.fromtimestamp(msg_time).isoformat()
+            
+            log_observation("zulip", stream_name, topic, author, content, msg_time)
+        
+        return len(messages)
+    except Exception as e:
+        print(f"  ❌ Error monitoring {stream_name}: {e}")
+        return 0
+
+def run_monitoring_cycle():
+    """Run one monitoring cycle across all priority streams"""
+    print(f"\n{'='*70}")
+    print(f"🔍 Delta's Community Monitoring Cycle")
+    print(f"⏰ {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"{'='*70}\n")
+    
+    total_messages = 0
+    for stream in PRIORITY_STREAMS:
+        count = monitor_stream(stream)
+        total_messages += count
+    
+    print(f"\n✅ Total observations: {total_messages}")
+    print(f"📁 Saved to: {get_today_file()}")
+    print(f"{'='*70}\n")
+    
+    return total_messages
+
+if __name__ == "__main__":
+    run_monitoring_cycle()

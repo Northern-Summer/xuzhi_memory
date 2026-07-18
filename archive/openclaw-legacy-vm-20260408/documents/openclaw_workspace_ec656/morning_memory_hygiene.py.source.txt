@@ -1,0 +1,244 @@
+#!/usr/bin/env python3
+# 工程改进铁律合规 — Ξ | 2026-03-28
+# 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+
+"""
+morning_memory_hygiene.py — 每日记忆卫生自动检查
+强制执行机制：每日07:30自动运行
+互不监督：每周轮值当值agent自动成为评审人，检查上任agent
+竞态保护：hygiene_lock.py 防止并发执行
+"""
+
+import fcntl
+import hashlib
+import json
+import os
+import subprocess
+import sys
+from datetime import date, timedelta
+from pathlib import Path
+
+AGENTS = ['xi', 'phi', 'delta', 'gamma', 'theta', 'omega', 'psi', 'rho']
+
+REVIEW_CHAIN = {
+    'phi': 'omega',   # Mon: phi 评审 omega
+    'delta': 'phi',   # Tue: delta 评审 phi
+    'gamma': 'delta', # Wed: gamma 评审 delta
+    'theta': 'gamma', # Thu: theta 评审 gamma
+    'omega': 'theta', # Fri: omega 评审 theta
+    'psi': 'omega',   # Sat: psi 评审 omega
+    'xi': 'psi',      # Sun: xi 评审 psi
+}
+
+BASE = Path.home() / '.xuzhi_memory'
+STATE_FILE = BASE / 'rotation_state.json'
+LOCK_FILE = BASE / '.hygiene.lock'
+REPORT = []
+
+
+def add(category, items):
+    if items:
+        REPORT.append((category, items))
+
+
+def acquire_lock():
+    """获取互斥锁，防止并发执行"""
+    try:
+        LOCK_FILE.parent.mkdir(parents=True, exist_ok=True)
+        LOCK_FILE.touch()
+        fd = os.open(str(LOCK_FILE), os.O_RDWR)
+        fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        LOCK_FILE.write_text(str(os.getpid()))
+        return fd
+    except BlockingIOError:
+        return None
+
+
+def release_lock(fd):
+    try:
+        fcntl.flock(fd, fcntl.LOCK_UN)
+        os.close(fd)
+        LOCK_FILE.unlink(missing_ok=True)
+    except Exception:
+        pass
+
+
+def check_l1_age():
+    memory_dir = BASE / 'memory'
+    today = date.today()
+    issues = []
+    for f in sorted(memory_dir.glob('[0-9]*.md')):
+        if f.name.startswith('handover'):
+            continue
+        try:
+            file_date = date.fromisoformat(f.name.replace('.md', ''))
+            age = (today - file_date).days
+            if age > 7:
+                issues.append(f"  🔴 {f.name} 已存在 {age} 天，超过7天未整理")
+        except ValueError:
+            continue
+    add("L1超时文件", issues)
+
+
+def check_yesterday_l1():
+    yesterday = (date.today() - timedelta(days=1)).isoformat()
+    f = BASE / 'memory' / f'{yesterday}.md'
+    if not f.exists() or f.stat().st_size < 50:
+        add("昨日L1缺失", [f"  🔴 {yesterday}.md 不存在或为空"])
+        return False
+    return True
+
+
+def check_handover_for(recipient, giver, date_str):
+    path = BASE / 'agents' / recipient / 'memory' / f'handover_{date_str}.md'
+    issues = []
+    if not path.exists():
+        issues.append(f"  🔴 {giver} → {recipient} 的 handover 未写")
+    else:
+        content = path.read_text()
+        if len(content) < 100:
+            issues.append(f"  🟡 handover 内容过短（{len(content)}字）")
+        if "交接信息" not in content:
+            issues.append(f"  🟡 handover 缺少'交接信息'section")
+        if "我是谁" not in content and "接手" not in content:
+            issues.append(f"  🟡 handover 缺少'我是谁'section")
+    return issues
+
+
+def check_current_agent_handover():
+    schedules = {0:'phi',1:'delta',2:'gamma',3:'theta',4:'omega',5:'psi',6:'xi'}
+    today = date.today()
+    weekday = today.weekday()
+
+    if weekday == 0:  # 周一
+        prev_date = (today - timedelta(days=3)).isoformat()
+        add("Handover检查", check_handover_for('phi', 'omega', prev_date))
+    else:
+        today_agent = schedules.get(weekday)
+        prev_agent = schedules.get((weekday - 1) % 7)
+        if today_agent and prev_agent:
+            add("Handover检查", check_handover_for(today_agent, prev_agent, today.isoformat()))
+
+
+def check_peer_review():
+    schedules = {0:'phi',1:'delta',2:'gamma',3:'theta',4:'omega',5:'psi',6:'xi'}
+    today = date.today()
+    weekday = today.weekday()
+    today_agent = schedules.get(weekday)
+
+    if today_agent and today_agent in REVIEW_CHAIN:
+        target = REVIEW_CHAIN[today_agent]
+        issues = []
+
+        for f in sorted((BASE / 'memory').glob('[0-9]*.md')):
+            if f.name.startswith('handover'):
+                continue
+            try:
+                file_date = date.fromisoformat(f.name.replace('.md', ''))
+                age = (today - file_date).days
+                if 3 < age <= 7:
+                    issues.append(f"  🟡 {target} 遗留 {f.name}（{age}天前）")
+            except ValueError:
+                continue
+
+        target_memory = BASE / 'agents' / target / 'memory'
+        if target_memory.exists():
+            for f in target_memory.glob('*.md'):
+                content = f.read_text()
+                for other in AGENTS:
+                    if other != target:
+                        if other.capitalize() in content[:300]:
+                            issues.append(f"  🟡 {f.name} 可能含有 {other} 相关内容（污染嫌疑）")
+
+        if issues:
+            add(f"{today_agent}评审{target}", issues)
+
+
+def check_rules_file():
+    rules = BASE / 'manifests' / 'MEMORY_HYGIENE_RULES.md'
+    if not rules.exists():
+        add("规则文件", ["  🔴 manifests/MEMORY_HYGIENE_RULES.md 不存在"])
+
+
+def send_wechat(msg):
+    escaped = msg.replace('"', '\\"')[:800]
+    cmd = f'openclaw message send --channel openclaw-weixin --target o9cq80z9eOrqJasg6hB1W-Cc4-Po@im.wechat --message "{escaped}"'
+    subprocess.run(cmd, shell=True)
+
+
+def write_audit_log():
+    today = date.today().isoformat()
+    log_path = BASE / 'memory' / f'hygiene_audit_{today}.md'
+    if not REPORT:
+        content = f"# 记忆卫生审计 | {today}\n\n✅ 检查通过，无问题\n"
+    else:
+        lines = [f"# 记忆卫生审计 | {today}", ""]
+        for category, items in REPORT:
+            lines.append(f"## {category}")
+            lines.extend(items)
+            lines.append("")
+        content = "\n".join(lines)
+    log_path.write_text(content)
+
+
+def run_checks():
+    global REPORT
+    REPORT = []
+    check_yesterday_l1()
+    check_current_agent_handover()
+    check_peer_review()
+    check_l1_age()
+    check_rules_file()
+    today = date.today().isoformat()
+
+    if not REPORT:
+        msg = f"✅ 记忆卫生检查通过 | {today}"
+        print(msg)
+        send_wechat(msg)
+        write_audit_log()
+        return
+
+    lines = [f"⚠️ 记忆卫生问题 | {today}"]
+    for category, items in REPORT:
+        lines.append(f"【{category}】")
+        lines.extend(items)
+        lines.append("")
+    report = "\n".join(lines)
+    print(report)
+    send_wechat(report)
+    write_audit_log()
+
+
+def check_script_integrity():
+    """检查脚本是否被篡改"""
+    script_path = Path(__file__)
+    current_hash = hashlib.sha256(script_path.read_bytes()).hexdigest()
+
+    hash_file = BASE / '.hygiene_sha256.json'
+    if hash_file.exists():
+        recorded = json.loads(hash_file.read_text()).get('sha256')
+        if recorded and recorded != current_hash:
+            msg = f"🔴 脚本完整性校验失败！hygiene脚本已被修改。拒绝运行。"
+            send_wechat(msg)
+            print(msg)
+            sys.exit(1)
+    else:
+        # 首次运行，记录哈希
+        hash_file.write_text(json.dumps({'sha256': current_hash}))
+        print(f"🔐 脚本哈希已记录: {current_hash[:16]}...")
+
+
+def main():
+    check_script_integrity()
+    fd = acquire_lock()
+    if fd is None:
+        print("⚠️ Hygiene already running, exiting")
+        sys.exit(0)
+    try:
+        run_checks()
+    finally:
+        release_lock(fd)
+
+
+if __name__ == "__main__":
+    main()

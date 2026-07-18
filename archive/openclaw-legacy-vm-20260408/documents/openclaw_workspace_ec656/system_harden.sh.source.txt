@@ -1,0 +1,122 @@
+#!/bin/bash
+# 工程改进铁律合规 — Ξ | 2026-03-28
+# 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+#
+# End-of-Day System Hardening
+# 每天结束前必须执行，确保系统状态干净、变更已固化
+
+echo "=========================================="
+echo "系统封堵检查 | $(date '+%Y-%m-%d %H:%M')"
+echo "=========================================="
+
+REPOS=(
+  "/home/summer/.xuzhi_memory"
+  "/home/summer/xuzhi_genesis"
+  "/home/summer/xuzhi_workspace"
+)
+
+ISSUES=0
+
+for repo in "${REPOS[@]}"; do
+  echo ""
+  echo ">>> 检查 $repo"
+
+  cd "$repo" 2>/dev/null || { echo "  ❌ 仓库不存在"; ((ISSUES++)); continue; }
+
+  # 1. 检查是否有未提交的更改
+  if ! git diff --quiet 2>/dev/null; then
+    echo "  ⚠️  有未提交的更改:"
+    git status --short | head -10
+    ((ISSUES++))
+  else
+    echo "  ✅ 无未提交更改"
+  fi
+
+  # 2. 检查是否有 staged 但未 commit 的
+  if ! git diff --cached --quiet 2>/dev/null && [ -n "$(git diff --cached --name-only 2>/dev/null)" ]; then
+    echo "  ⚠️  有 staged 但未 commit 的文件"
+    git diff --cached --name-only | head -5
+    ((ISSUES++))
+  fi
+
+  # 3. 检查 HEAD 是否指向最新
+  LATEST=$(git log --oneline -1 2>/dev/null)
+  echo "  📍 HEAD: $LATEST"
+
+  # 4. 检查工作目录干净度
+  CLEAN=$(git status --porcelain 2>/dev/null | wc -l)
+  if [ "$CLEAN" -eq 0 ]; then
+    echo "  ✅ 工作目录干净"
+  else
+    echo "  ⚠️  工作目录有 $CLEAN 个未跟踪/未暂存文件"
+  fi
+
+  # 5. 检查是否有未 push 的 commits
+  UNPUSHED=$(git log origin/master..HEAD --oneline 2>/dev/null | wc -l)
+  if [ "$UNPUSHED" -gt 0 ]; then
+    echo "  ⚠️  有 $UNPUSHED 个 commit 未 push（可能是 GitHub token 失效）"
+    echo "     → 确认 GitHub PAT 有效后，执行: git push origin master"
+    ((ISSUES++))
+  else
+    echo "  ✅ 所有 commits 已推送"
+  fi
+done
+
+echo ""
+echo "=========================================="
+echo ">>> 环境状态检查"
+
+# 检查 gateway 是否正常
+if pgrep -f openclaw-gateway > /dev/null 2>&1; then
+  echo "  ✅ Gateway 运行中"
+else
+  echo "  ❌ Gateway 未运行"
+  ((ISSUES++))
+fi
+
+# 检查今日 memory 是否存在（00:01 的session实际是前一天的延续，优先检查昨天）
+YESTERDAY_MEM="$HOME/.xuzhi_memory/memory/$(date -d yesterday +%Y-%m-%d).md"
+TODAY_MEM="$HOME/.xuzhi_memory/memory/$(date +%Y-%m-%d).md"
+# 00:01-05:59 视为前一天的延续
+HOUR=$(date +%H)
+if [ "$HOUR" -lt 6 ]; then
+  ACTIVE_MEM="$YESTERDAY_MEM"
+  ACTIVE_DATE=$(date -d yesterday +%Y-%m-%d)
+else
+  ACTIVE_MEM="$TODAY_MEM"
+  ACTIVE_DATE=$(date +%Y-%m-%d)
+fi
+
+if [ -f "$ACTIVE_MEM" ]; then
+  LINES=$(wc -l < "$ACTIVE_MEM")
+  echo "  ✅ 今日 memory 存在 ($ACTIVE_DATE, $LINES 行)"
+else
+  echo "  ❌ 今日 memory 不存在"
+  ((ISSUES++))
+  ACTIVE_MEM="$TODAY_MEM"
+fi
+
+# 检查交接备忘录是否已写入
+if grep -q "交接备忘录" "$ACTIVE_MEM" 2>/dev/null; then
+  echo "  ✅ 交接备忘录已写入"
+else
+  echo "  ⚠️  交接备忘录未写入今日 memory"
+  echo "     → 必须在 session 结束前写入交接备忘录"
+  ((ISSUES++))
+fi
+
+echo ""
+echo "=========================================="
+echo ">>> 最终状态"
+
+if [ $ISSUES -eq 0 ]; then
+  echo "  ✅ 系统状态干净，可以安全结束今日工作"
+  echo ""
+  echo "  今日变更已固化。"
+  echo "  下次启动时，系统将从 SOUL.md 开始，按 Startup 序列读取所有文件。"
+  echo "  Session交接备忘录会告诉下一个你，今天发生了什么。"
+  exit 0
+else
+  echo "  ⚠️  发现 $ISSUES 个问题，请先处理"
+  exit 1
+fi

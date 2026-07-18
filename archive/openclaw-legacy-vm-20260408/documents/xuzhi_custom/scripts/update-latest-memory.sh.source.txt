@@ -1,0 +1,11 @@
+#!/bin/bash
+# 每日更新 LATEST.md symlink
+LATEST_LINK="$HOME/.xuzhi_memory/memory/LATEST.md"
+TODAY_FILE="$HOME/.xuzhi_memory/memory/$(date +%Y-%m-%d).md"
+
+if [ -f "$TODAY_FILE" ]; then
+    ln -sf "$TODAY_FILE" "$LATEST_LINK"
+    echo "✅ LATEST.md → $(date +%Y-%m-%d).md"
+else
+    echo "⚠️ 今日 memory 文件不存在: $TODAY_FILE"
+fi

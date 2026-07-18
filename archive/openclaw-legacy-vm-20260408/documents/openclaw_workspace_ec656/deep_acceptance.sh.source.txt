@@ -1,0 +1,270 @@
+#!/bin/bash
+# 最高级别系统深度验收 — Ξ | 2026-03-31
+# 绝对安全前提下，全方位检查
+
+TODAY=$(date +%Y-%m-%d)
+PASS=0
+FAIL=0
+WARN=0
+CRITICAL=0
+
+echo "╔════════════════════════════════════════════════════════════════╗"
+echo "║          最高级别系统深度验收 | $TODAY                        ║"
+echo "╚════════════════════════════════════════════════════════════════╝"
+echo ""
+
+# ============================================
+# 第一组：安全边界（绝对不可妥协）
+# ============================================
+echo "【第一组：安全边界 — 绝对级别】"
+echo ""
+
+# 1.1 敏感文件保护
+echo -n "[1.1] 敏感文件不在 git 中... "
+if git -C ~/.xuzhi_memory log --all --full-history -- "*.token" "*.key" "*.secret" 2>/dev/null | grep -q "."; then
+    echo "❌ CRITICAL (发现敏感文件历史)"; CRITICAL=$((CRITICAL+1))
+else
+    echo "✅ PASS"; PASS=$((PASS+1))
+fi
+
+# 1.2 .gitignore 配置
+echo -n "[1.2] .gitignore 包含敏感项... "
+if grep -q "session_archive" ~/.xuzhi_memory/.gitignore 2>/dev/null; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN"; WARN=$((WARN+1))
+fi
+
+# 1.3 rm 命令保护
+echo -n "[1.3] rm 命令有保护... "
+if grep -q "alias rm.*trash" ~/.bashrc 2>/dev/null; then
+    echo "✅ PASS (.bashrc 已配置)"; PASS=$((PASS+1))
+elif alias rm 2>/dev/null | grep -q "trash"; then
+    echo "✅ PASS (当前 shell)"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN (建议添加 rm alias)"; WARN=$((WARN+1))
+fi
+
+# 1.4 Gateway 非重启状态
+echo -n "[1.4] Gateway 运行正常... "
+GW_STATUS=$(curl -s http://127.0.0.1:18789/health 2>/dev/null || echo '{"ok":false}')
+if echo "$GW_STATUS" | grep -q '"ok":true'; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ CRITICAL"; CRITICAL=$((CRITICAL+1))
+fi
+
+# ============================================
+# 第二组：记忆系统完整性
+# ============================================
+echo ""
+echo "【第二组：记忆系统完整性】"
+echo ""
+
+# 2.1 L1 文件连续性（最近7天）
+echo -n "[2.1] L1 文件连续性（7天）... "
+MISSING_DAYS=0
+for i in {0..6}; do
+    DAY=$(date -d "$TODAY - $i days" +%Y-%m-%d 2>/dev/null || date -v-${i}d +%Y-%m-%d)
+    if [ ! -f "$HOME/.xuzhi_memory/memory/$DAY.md" ]; then
+        MISSING_DAYS=$((MISSING_DAYS+1))
+    fi
+done
+if [ "$MISSING_DAYS" -eq 0 ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN (缺失 $MISSING_DAYS 天)"; WARN=$((WARN+1))
+fi
+
+# 2.2 今日 memory 非空
+echo -n "[2.2] 今日 memory 非空... "
+TODAY_SIZE=$(wc -c < "$HOME/.xuzhi_memory/memory/$TODAY.md" 2>/dev/null || echo "0")
+if [ "$TODAY_SIZE" -gt 1000 ]; then
+    echo "✅ PASS ($TODAY_SIZE 字节)"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN ($TODAY_SIZE 字节)"; WARN=$((WARN+1))
+fi
+
+# 2.3 交接备忘录存在
+echo -n "[2.3] 交接备忘录存在... "
+if grep -q "Session交接备忘录" "$HOME/.xuzhi_memory/memory/$TODAY.md" 2>/dev/null; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN"; WARN=$((WARN+1))
+fi
+
+# 2.4 MEMORY.md 完整
+echo -n "[2.4] MEMORY.md 核心内容... "
+MEM_SECTIONS=$(grep -c "^## " ~/.openclaw/workspace/MEMORY.md 2>/dev/null || echo "0")
+if [ "$MEM_SECTIONS" -ge 10 ]; then
+    echo "✅ PASS ($MEM_SECTIONS 个章节)"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN ($MEM_SECTIONS 个章节)"; WARN=$((WARN+1))
+fi
+
+# ============================================
+# 第三组：自演化流程完整性
+# ============================================
+echo ""
+echo "【第三组：自演化流程完整性】"
+echo ""
+
+# 3.1 Session End 流程强制执行
+echo -n "[3.1] Session End 流程写入 AGENTS.md... "
+if grep -q "Session End 自演化流程" ~/.openclaw/workspace/AGENTS.md 2>/dev/null; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ FAIL"; FAIL=$((FAIL+1))
+fi
+
+# 3.2 技能库代数递增
+echo -n "[3.2] 技能库代数 >= g2... "
+if grep -q "g2" ~/.openclaw/workspace/MEMORY.md 2>/dev/null; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN (仅 g1)"; WARN=$((WARN+1))
+fi
+
+# 3.3 框架知识库更新
+echo -n "[3.3] 框架知识库 <= 7 天... "
+LAST_UPDATE=$(grep "更新时间" ~/.xuzhi_memory/memory/knowledge/SELF_EVOLUTION_FRAMEWORKS.md 2>/dev/null | grep -oP '\d{4}-\d{2}-\d{2}' | head -1)
+if [ -n "$LAST_UPDATE" ]; then
+    DAYS=$(( ($(date +%s) - $(date -d "$LAST_UPDATE" +%s 2>/dev/null || date -j -f "%Y-%m-%d" "$LAST_UPDATE" +%s)) / 86400 ))
+    if [ "$DAYS" -le 7 ]; then
+        echo "✅ PASS ($DAYS 天前)"; PASS=$((PASS+1))
+    else
+        echo "⚠️  WARN ($DAYS 天前)"; WARN=$((WARN+1))
+    fi
+else
+    echo "⚠️  WARN (无更新时间)"; WARN=$((WARN+1))
+fi
+
+# 3.4 cron 框架跟踪
+echo -n "[3.4] cron 框架跟踪任务... "
+if crontab -l 2>/dev/null | grep -q "track_evolution_frameworks"; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ FAIL"; FAIL=$((FAIL+1))
+fi
+
+# ============================================
+# 第四组：优雅原则
+# ============================================
+echo ""
+echo "【第四组：优雅原则】"
+echo ""
+
+# 4.1 Cron 任务不冗余
+echo -n "[4.1] Cron 任务 <= 20... "
+CRON_COUNT=$(crontab -l 2>/dev/null | grep -v "^#" | grep -v "^$" | wc -l)
+if [ "$CRON_COUNT" -le 20 ]; then
+    echo "✅ PASS ($CRON_COUNT)"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN ($CRON_COUNT)"; WARN=$((WARN+1))
+fi
+
+# 4.2 无频繁 spawn 模式
+echo -n "[4.2] 无频繁 spawn 记录... "
+SPAWN_COUNT=$(grep -c "sessions_spawn" ~/.xuzhi_memory/memory/$TODAY.md 2>/dev/null)
+SPAWN_COUNT=${SPAWN_COUNT:-0}
+if [ "$SPAWN_COUNT" -le 3 ]; then
+    echo "✅ PASS ($SPAWN_COUNT 次)"
+    PASS=$((PASS+1))
+else
+    echo "⚠️  WARN ($SPAWN_COUNT 次，过多)"
+    WARN=$((WARN+1))
+fi
+
+# 4.3 Context 使用率合理
+echo -n "[4.3] Context 使用率 < 70%... "
+CTX_USAGE=$(python3 ~/.openclaw/workspace/session_guard.py --check 2>&1 | grep -oP '\d+%' | head -1 | tr -d '%')
+if [ -n "$CTX_USAGE" ] && [ "$CTX_USAGE" -lt 70 ]; then
+    echo "✅ PASS ($CTX_USAGE%)"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN ($CTX_USAGE%)"; WARN=$((WARN+1))
+fi
+
+# 4.4 Gateway 无重启记录
+echo -n "[4.4] 今日无 Gateway 重启... "
+if grep -q "gateway restart\|gateway start" ~/.xuzhi_memory/memory/$TODAY.md 2>/dev/null; then
+    echo "⚠️  WARN (有重启记录)"; WARN=$((WARN+1))
+else
+    echo "✅ PASS"; PASS=$((PASS+1))
+fi
+
+# ============================================
+# 第五组：持久化完整性
+# ============================================
+echo ""
+echo "【第五组：持久化完整性】"
+echo ""
+
+# 5.1 xuzhi_memory 无未提交
+echo -n "[5.1] xuzhi_memory 干净... "
+MEMORY_CHANGES=$(git -C $HOME/.xuzhi_memory status --porcelain 2>/dev/null | grep -v "^??" | wc -l)
+if [ "$MEMORY_CHANGES" -eq 0 ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN ($MEMORY_CHANGES 个更改)"; WARN=$((WARN+1))
+fi
+
+# 5.2 xuzhi_genesis 无未提交（忽略 submodule）
+echo -n "[5.2] xuzhi_genesis 干净... "
+GENESIS_CHANGES=$(git -C $HOME/xuzhi_genesis status --porcelain 2>/dev/null | grep -v "submodule\|etp_work" | wc -l)
+if [ "$GENESIS_CHANGES" -eq 0 ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN ($GENESIS_CHANGES 个更改)"; WARN=$((WARN+1))
+fi
+
+# 5.3 最新 commit 已 push
+echo -n "[5.3] 最新 commit 已 push... "
+LOCAL=$(git -C $HOME/.xuzhi_memory rev-parse HEAD 2>/dev/null)
+REMOTE=$(git -C $HOME/.xuzhi_memory rev-parse origin/master 2>/dev/null)
+if [ "$LOCAL" = "$REMOTE" ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN (未同步)"; WARN=$((WARN+1))
+fi
+
+# ============================================
+# 汇总
+# ============================================
+echo ""
+echo "╔════════════════════════════════════════════════════════════════╗"
+echo "║                    深度验收结果汇总                            ║"
+echo "╠════════════════════════════════════════════════════════════════╣"
+printf "║  ✅ PASS: %-2d    ⚠️  WARN: %-2d    ❌ FAIL: %-2d    🚨 CRITICAL: %-2d  ║\n" $PASS $WARN $FAIL $CRITICAL
+echo "╚════════════════════════════════════════════════════════════════╝"
+echo ""
+
+TOTAL=$((PASS + WARN + FAIL + CRITICAL))
+SCORE=$((PASS * 100 / TOTAL))
+
+# 判定逻辑
+if [ "$CRITICAL" -gt 0 ]; then
+    echo "🚨 系统存在严重问题，必须立即修复！"
+    echo ""
+    echo "CRITICAL 问题清单："
+    echo "  - 安全边界违反"
+    echo "  - Gateway 故障"
+    exit 2
+elif [ "$FAIL" -gt 0 ]; then
+    echo "❌ 系统验收未通过！有 $FAIL 个失败项"
+    echo ""
+    echo "必须修复后重新验收"
+    exit 1
+elif [ "$WARN" -gt 3 ]; then
+    echo "⚠️  系统存在多个警告，建议优化"
+    echo ""
+    echo "警告项："
+    echo "  - 记忆系统连续性"
+    echo "  - Git 状态"
+    echo "  - Context 使用率"
+    exit 0
+else
+    echo "🎉 系统深度验收通过！得分: $SCORE%"
+    echo ""
+    echo "系统状态：优雅、稳定、收敛"
+    exit 0
+fi

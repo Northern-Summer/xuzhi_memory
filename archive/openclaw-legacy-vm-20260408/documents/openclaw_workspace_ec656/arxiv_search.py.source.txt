@@ -1,0 +1,28 @@
+# arxiv_search.py — 正确的 arXiv 搜索
+import urllib.request
+import urllib.parse
+import xml.etree.ElementTree as ET
+
+def search_arxiv(query, max_results=10):
+    """正确的 arXiv 搜索（URL 编码）"""
+    # 关键：用 quote 正确编码空格
+    encoded = urllib.parse.quote(query, safe='')
+    url = f"http://export.arxiv.org/api/query?search_query=all:{encoded}&max_results={max_results}&sortBy=relevance"
+    
+    print(f"URL: {url[:80]}...")
+    
+    try:
+        with urllib.request.urlopen(url, timeout=60) as r:
+            root = ET.fromstring(r.read().decode())
+            ns = {"a": "http://www.w3.org/2005/Atom"}
+            entries = root.findall("a:entry", ns)
+            print(f"找到 {len(entries)} 篇")
+            return len(entries)
+    except Exception as e:
+        print(f"失败: {e}")
+        return 0
+
+if __name__ == "__main__":
+    # 测试
+    search_arxiv("frame problem", 5)
+    search_arxiv("knowledge representation", 5)

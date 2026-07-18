@@ -1,0 +1,66 @@
+#!/bin/bash
+# research_pulse.sh — 研究脉冲：每10分钟执行
+# cron: */10 * * * * /home/summer/.openclaw/workspace/research_pulse.sh
+HOME=/home/summer
+LOG="$HOME/.xuzhi_memory/task_center/research_pulse.log"
+LOCK="$HOME/.xuzhi_memory/task_center/.research_pulse.lock"
+RESEARCH_LOOP="$HOME/xuzhi_workspace/task_center/research_loop.py"
+WE_CHAT_ID="o9cq80z9eorqJasg6hB1W-Cc4-Po@im.wechat"
+
+stamp() { echo "[$(date '+%H:%M:%S')] $1" | tee -a "$LOG"; }
+
+# Idempotency
+if [ -f "$LOCK" ]; then
+    stamp "跳过：上次运行尚未结束"
+    exit 0
+fi
+trap "rm -f $LOCK" EXIT
+touch "$LOCK"
+
+stamp "=== 研究脉冲 ==="
+
+# 1. research_loop（包含tracker采集+synthesis综合）
+stamp "1. research_loop..."
+python3 "$RESEARCH_LOOP" --force 2>&1 | tee -a "$LOG"
+
+# 2. 读取最新综合结果，推送WeChat
+stamp "2. 推送WeChat..."
+python3 << 'PYEOF' 2>&1 | tee -a "$LOG"
+import json, subprocess
+from pathlib import Path
+
+synth_path = Path.home() / ".xuzhi_memory/expert_tracker/synthesis.json"
+if not synth_path.exists():
+    print("无综合结果，跳过推送")
+    exit(0)
+
+synth = json.load(open(synth_path))
+round_n = synth.get("round", "?")
+conf = synth.get("confidence", 0)
+hyps = synth.get("hypotheses", [])
+rq = synth.get("research_question", "")
+at = synth.get("generated_at", "")[11:16]
+total = synth.get("total_findings", 0)
+relevant = synth.get("relevant_findings", 0)
+methods = synth.get("methods_summary", {})
+
+hyp_lines = [f"• {h['hypothesis'][:55]} (置信{h['confidence']:.0%})" for h in hyps[:2]]
+methods_str = "/".join([f"{k}" for k, v in list(methods.items())[:3]])
+
+msg = f"""📊 Round {round_n} 综合 | {at}
+❓ {rq[:55]}{'…' if len(rq)>55 else ''}
+📐 {relevant}/{total}条相关 | 置信度: {conf:.0%}
+🎯 假设:
+{chr(10).join(hyp_lines)}
+🔧 系统运行正常"""
+
+result = subprocess.run([
+    "openclaw", "message", "send",
+    "--channel", "openclaw-weixin",
+    "--target", "o9cq80z9eorqJasg6hB1W-Cc4-Po@im.wechat",
+    "--message", msg
+], capture_output=True, text=True, timeout=15)
+print("推送:", "成功" if result.returncode == 0 else f"失败:{result.stderr[-80:]}")
+PYEOF
+
+stamp "=== 脉冲完成 ==="

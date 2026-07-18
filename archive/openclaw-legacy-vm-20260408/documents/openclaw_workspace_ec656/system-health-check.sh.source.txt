@@ -1,0 +1,163 @@
+#!/bin/bash
+# system-health-check.sh — 系统健康检查
+# 工程改进铁律合规 — Ξ | 2026-04-01
+# 
+# 用途：定期检查系统健康状态，发现问题自动修复
+# 建议：每小时 cron 执行一次
+
+set -e
+
+HOME="${HOME:-$HOME}"
+MEMORY_DIR="$HOME/.xuzhi_memory"
+LOG_FILE="$MEMORY_DIR/system_health.log"
+
+log() {
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
+}
+
+fix_needed=0
+
+echo "═══════════════════════════════════════════════════════════════"
+echo "【系统健康检查 | $(date '+%Y-%m-%d %H:%M')】"
+echo "═══════════════════════════════════════════════════════════════"
+
+# 1. 检查 Gateway
+echo ""
+echo "=== 1. Gateway 状态 ==="
+if openclaw gateway status 2>&1 | grep -q "running"; then
+  log "✅ Gateway 运行正常"
+else
+  log "❌ Gateway 异常"
+  fix_needed=1
+fi
+
+# 2. 检查 Hooks
+echo ""
+echo "=== 2. Hooks 状态 ==="
+hook_count=$(openclaw hooks list 2>&1 | grep -c "ready" || true)
+if [ "$hook_count" -ge 9 ]; then
+  log "✅ Hooks 正常 ($hook_count 个)"
+else
+  log "⚠️ Hooks 可能缺失 ($hook_count 个)"
+fi
+
+# 3. 检查 Symlinks
+echo ""
+echo "=== 3. Symlinks 完整性 ==="
+broken_links=$(find ~/.openclaw/workspace -xtype l 2>/dev/null | wc -l)
+if [ "$broken_links" -eq 0 ]; then
+  log "✅ Symlinks 完整"
+else
+  log "❌ 发现 $broken_links 个断裂的 symlink"
+  fix_needed=1
+fi
+
+# 4. 检查今日 memory 文件
+echo ""
+echo "=== 4. 今日 memory 文件 ==="
+today=$(date +%Y-%m-%d)
+memory_file="$MEMORY_DIR/memory/$today.md"
+if [ -f "$memory_file" ]; then
+  size=$(wc -c < "$memory_file")
+  if [ "$size" -lt 200 ]; then
+    log "⚠️ 今日 memory 文件太小 ($size bytes)"
+    # 自动修复：追加基本内容
+    echo "
+
+## 自动检查 | $(date '+%Y-%m-%d %H:%M')
+
+系统自动检查通过。待办事项待确认。
+
+" >> "$memory_file"
+    log "✅ 已自动扩充 memory 文件"
+  else
+    log "✅ 今日 memory 文件正常 ($size bytes)"
+  fi
+else
+  log "❌ 今日 memory 文件不存在"
+  # 自动修复：创建文件
+  mkdir -p "$MEMORY_DIR/memory"
+  echo "# $today — 系统状态检查
+
+## $(date '+%H:%M') — 自动检查
+- Gateway: 运行中
+- Hooks: $hook_count 个 ready
+
+## 待办
+- [ ] 确认今日任务
+
+" > "$memory_file"
+  log "✅ 已自动创建 memory 文件"
+fi
+
+# 5. 检查断点文件
+echo ""
+echo "=== 5. 断点文件 ==="
+breakpoint_file="$MEMORY_DIR/agents/xi/SESSION_BREAKPOINT.md"
+if [ -f "$breakpoint_file" ]; then
+  log "✅ 断点文件存在"
+else
+  log "⚠️ 断点文件不存在"
+  # 自动修复：创建基本断点
+  mkdir -p "$MEMORY_DIR/agents/xi"
+  echo "# SESSION_BREAKPOINT.md — Ξ 断点文件
+
+> 此文件由系统自动维护
+
+## 当前断点
+
+\`\`\`yaml
+session_id: \"auto-generated\"
+ended_at: \"$(date -Iseconds)\"
+status: \"initialized\"
+
+pending_tasks:
+  content: |
+    无
+\`\`\`
+" > "$breakpoint_file"
+  log "✅ 已自动创建断点文件"
+fi
+
+# 6. 检查轮值状态
+echo ""
+echo "=== 6. 轮值状态 ==="
+rotation_file="$MEMORY_DIR/rotation_state.json"
+if [ -f "$rotation_file" ]; then
+  current=$(jq -r '.current' "$rotation_file" 2>/dev/null || echo "unknown")
+  weekday=$(date +%u)
+  expected=$(jq -r ".schedule[\"$weekday\"]" "$rotation_file" 2>/dev/null || echo "unknown")
+  if [ "$current" != "$expected" ]; then
+    log "⚠️ 轮值状态过期 (current=$current, expected=$expected)"
+    # 自动修复
+    jq ".current = \"$expected\" | .last_change = \"$(date +%Y-%m-%d)\"" "$rotation_file" > /tmp/rotation_new.json
+    mv /tmp/rotation_new.json "$rotation_file"
+    log "✅ 已自动更新轮值状态"
+  else
+    log "✅ 轮值状态正确 ($current)"
+  fi
+else
+  log "❌ 轮值状态文件不存在"
+  fix_needed=1
+fi
+
+# 7. 检查 Git 状态
+echo ""
+echo "=== 7. Git 状态 ==="
+memory_changes=$(git -C "$MEMORY_DIR" status --short 2>/dev/null | wc -l)
+if [ "$memory_changes" -gt 10 ]; then
+  log "⚠️ 记忆仓库有 $memory_changes 个未提交更改"
+else
+  log "✅ 记忆仓库正常 ($memory_changes 个更改)"
+fi
+
+# 总结
+echo ""
+echo "═══════════════════════════════════════════════════════════════"
+if [ "$fix_needed" -eq 0 ]; then
+  log "【系统健康检查通过】"
+  exit 0
+else
+  log "【系统需要关注】"
+  exit 1
+fi

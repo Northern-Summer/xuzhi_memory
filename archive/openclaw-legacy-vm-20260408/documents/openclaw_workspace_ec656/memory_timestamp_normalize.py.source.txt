@@ -1,0 +1,88 @@
+#!/usr/bin/env python3
+"""
+memory_timestamp_normalize.py — 时间戳规范化
+原则：所有新文件统一格式，旧文件保持不变（历史完整性）
+"""
+
+import re
+from pathlib import Path
+from datetime import datetime
+
+BASE = Path.home() / '.xuzhi_memory'
+L1_DIR = BASE / 'memory'
+
+# 规范格式
+CANONICAL_FORMAT = "%Y-%m-%d %H:%M:%S CST"  # 2026-03-31 09:35:00 CST
+
+def normalize_timestamp(content: str) -> str:
+    """统一时间戳格式"""
+    
+    # 规则1：头部时间戳
+    # 匹配各种格式并统一
+    patterns = [
+        # 2026-03-31 09:35 GMT+8 → 2026-03-31 09:35:00 CST
+        (r'(\d{4}-\d{2}-\d{2} \d{2}:\d{2}) GMT[+-]?\d*', r'\1:00 CST'),
+        # 2026-03-31T09:35:00 → 2026-03-31 09:35:00 CST
+        (r'(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2})', r'\1 \2 CST'),
+        # 2026-03-31 09:35:00（无时区）→ 加上 CST
+        (r'(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})(?!\s*(CST|GMT|UTC))', r'\1 CST'),
+    ]
+    
+    for pattern, replacement in patterns:
+        content = re.sub(pattern, replacement, content)
+    
+    return content
+
+def add_spec_to_new_file(filepath: Path):
+    """在新文件头部添加时间戳规范注释"""
+    
+    if not filepath.exists():
+        return
+    
+    content = filepath.read_text()
+    
+    # 如果已有规范注释，跳过
+    if '时间戳规范' in content:
+        return
+    
+    # 只对今天和未来的文件添加规范
+    today = datetime.now().strftime('%Y-%m-%d')
+    if today not in str(filepath):
+        return
+    
+    spec_comment = """
+<!--
+时间戳规范 v1.0
+- 格式：YYYY-MM-DD HH:MM:SS CST
+- 时区：CST (Asia/Shanghai, UTC+8)
+- 示例：2026-03-31 09:35:00 CST
+-->
+"""
+    
+    # 在头部插入
+    if content.startswith('#'):
+        # 在第一个标题后插入
+        lines = content.split('\n')
+        insert_pos = 1
+        for i, line in enumerate(lines[1:], 1):
+            if line.strip() and not line.startswith('#'):
+                insert_pos = i
+                break
+        lines.insert(insert_pos, spec_comment)
+        filepath.write_text('\n'.join(lines))
+    else:
+        filepath.write_text(spec_comment + content)
+
+if __name__ == '__main__':
+    import sys
+    
+    if len(sys.argv) > 1:
+        # 处理指定文件
+        filepath = Path(sys.argv[1])
+        content = filepath.read_text()
+        normalized = normalize_timestamp(content)
+        filepath.write_text(normalized)
+        print(f"✓ 已规范化: {filepath.name}")
+    else:
+        print("用法: memory_timestamp_normalize.py <文件路径>")
+        print("建议：只对新文件使用，保持历史文件完整性")

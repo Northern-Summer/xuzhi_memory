@@ -1,0 +1,363 @@
+#!/bin/bash
+# ============================================
+# Bash Security Enhanced - Claude Code 移植
+# OpenClaw Fusion Phase 1
+# ============================================
+# 工程改进铁律合规 — Ξ | 2026-03-31
+# 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+# ============================================
+
+# ============================================
+# 安全检查 ID 映射（Claude Code 移植）
+# ============================================
+# 1  - INCOMPLETE_COMMANDS
+# 2  - JQ_SYSTEM_FUNCTION
+# 3  - JQ_FILE_ARGUMENTS
+# 4  - OBFUSCATED_FLAGS
+# 5  - SHELL_METACHARACTERS
+# 6  - DANGEROUS_VARIABLES
+# 7  - NEWLINES
+# 8  - DANGEROUS_PATTERNS_COMMAND_SUBSTITUTION
+# 9  - DANGEROUS_PATTERNS_INPUT_REDIRECTION
+# 10 - DANGEROUS_PATTERNS_OUTPUT_REDIRECTION
+# 11 - IFS_INJECTION
+# 12 - GIT_COMMIT_SUBSTITUTION
+# 13 - PROC_ENVIRON_ACCESS
+# 14 - MALFORMED_TOKEN_INJECTION
+# 15 - BACKSLASH_ESCAPED_WHITESPACE
+# 16 - BRACE_EXPANSION
+# 17 - CONTROL_CHARACTERS
+# 18 - UNICODE_WHITESPACE
+# 19 - MID_WORD_HASH
+# 20 - ZSH_DANGEROUS_COMMANDS
+# 21 - BACKSLASH_ESCAPED_OPERATORS
+# 22 - COMMENT_QUOTE_DESYNC
+# 23 - QUOTED_NEWLINE
+
+# ============================================
+# Zsh 危险命令（Claude Code 移植）
+# ============================================
+# 这些命令可以绕过常规安全检查
+# zmodload: 模块加载网关
+# emulate: eval 等效命令
+# sysopen/sysread/syswrite: 文件描述符操作
+# zpty: 伪终端执行
+# ztcp/zsocket: 网络/TCP 连接
+# zf_*: 内置文件操作（绕过二进制检查）
+
+ZSH_DANGEROUS_COMMANDS=(
+    "zmodload"
+    "emulate"
+    "sysopen"
+    "sysread"
+    "syswrite"
+    "sysseek"
+    "zpty"
+    "ztcp"
+    "zsocket"
+    "mapfile"
+    "zf_rm"
+    "zf_mv"
+    "zf_ln"
+    "zf_chmod"
+    "zf_chown"
+    "zf_mkdir"
+    "zf_rmdir"
+    "zf_chgrp"
+)
+
+# ============================================
+# 命令替换模式检测（Claude Code 移植）
+# ============================================
+# 格式: "pattern|description"
+COMMAND_SUBSTITUTION_PATTERNS=(
+    "<\\(|process substitution <()"
+    ">\\(|process substitution >()"
+    "=\\(|Zsh process substitution =()"
+    "\\\$\\(|command substitution"
+    '\\\${}|parameter substitution'
+    "\\\$\\[|legacy arithmetic expansion"
+    "~\\[|Zsh-style parameter expansion"
+    "(e:|Zsh-style glob qualifiers"
+)
+
+# ============================================
+# 核心验证函数
+# ============================================
+# 输出格式: <action>:<check_id>:<reason>
+# action: allow | confirm | deny
+
+validate_bash_command() {
+    local command="$1"
+    local result="allow"
+    local reason="All checks passed"
+    local check_id=0
+    
+    # 检查 1: 空命令
+    if [[ -z "$command" ]]; then
+        echo "allow:0:empty_command"
+        return 0
+    fi
+    
+    # 提取基础命令（第一个词）
+    local base_command
+    base_command=$(echo "$command" | awk '{print $1}')
+    
+    # 检查 7: 换行符
+    if [[ "$command" == *$'\n'* ]]; then
+        result="confirm"
+        reason="Newlines in command (possible command injection)"
+        check_id=7
+        echo "${result}:${check_id}:${reason}"
+        return 0
+    fi
+    
+    # 检查 17: 控制字符
+    if [[ "$command" =~ [[:cntrl:]] ]]; then
+        result="deny"
+        reason="Control characters detected"
+        check_id=17
+        echo "${result}:${check_id}:${reason}"
+        return 0
+    fi
+    
+    # 检查 20: Zsh 危险命令
+    for dangerous_cmd in "${ZSH_DANGEROUS_COMMANDS[@]}"; do
+        if [[ "$base_command" == "$dangerous_cmd" ]]; then
+            result="deny"
+            reason="Zsh dangerous command: $dangerous_cmd"
+            check_id=20
+            echo "${result}:${check_id}:${reason}"
+            return 0
+        fi
+    done
+    
+    # 检查 11: IFS 注入
+    if [[ "$command" =~ IFS= ]] || [[ "$command" =~ \$IFS ]]; then
+        result="confirm"
+        reason="IFS manipulation detected"
+        check_id=11
+        echo "${result}:${check_id}:${reason}"
+        return 0
+    fi
+    
+    # 检查 12: Git commit 替换
+    if [[ "$command" =~ git[[:space:]]+commit ]] && [[ "$command" =~ \$[\(\{] ]]; then
+        result="confirm"
+        reason="Git commit with variable substitution"
+        check_id=12
+        echo "${result}:${check_id}:${reason}"
+        return 0
+    fi
+    
+    # 检查 13: /proc/environ 访问
+    if [[ "$command" =~ /proc/[0-9]+/environ ]]; then
+        result="confirm"
+        reason="Proc environ access detected"
+        check_id=13
+        echo "${result}:${check_id}:${reason}"
+        return 0
+    fi
+    
+    # 检查 8: 命令替换模式
+    for entry in "${COMMAND_SUBSTITUTION_PATTERNS[@]}"; do
+        local pattern="${entry%%|*}"
+        local desc="${entry#*|}"
+        if [[ "$command" =~ $pattern ]]; then
+            result="confirm"
+            reason="Command substitution: $desc"
+            check_id=8
+            echo "${result}:${check_id}:${reason}"
+            return 0
+        fi
+    done
+    
+    # 检查 5: Shell 元字符（复杂命令）
+    local safe_pattern='^[a-zA-Z0-9_\-\.\/]+(\ [a-zA-Z0-9_\-\.\/\ ]*)?$'
+    if [[ ! "$command" =~ $safe_pattern ]]; then
+        # 检查是否包含危险元字符组合
+        if [[ "$command" =~ \;\ *rm ]] || [[ "$command" =~ \|\ *rm ]]; then
+            result="confirm"
+            reason="Dangerous shell metacharacter combination"
+            check_id=5
+            echo "${result}:${check_id}:${reason}"
+            return 0
+        fi
+    fi
+    
+    # 检查 16: 大括号展开
+    if [[ "$command" =~ \{[0-9]+\.\.[0-9]+\} ]]; then
+        result="confirm"
+        reason="Brace expansion detected"
+        check_id=16
+        echo "${result}:${check_id}:${reason}"
+        return 0
+    fi
+    
+    # 检查 19: 词中哈希
+    if [[ "$command" =~ [a-zA-Z0-9]#[a-zA-Z0-9] ]]; then
+        result="confirm"
+        reason="Mid-word hash detected"
+        check_id=19
+        echo "${result}:${check_id}:${reason}"
+        return 0
+    fi
+    
+    # 检查 4: 混淆标志
+    if [[ "$command" =~ -[a-z][a-z][a-z][a-z][a-z][a-z][a-z][a-z] ]]; then
+        result="confirm"
+        reason="Obfuscated flags detected"
+        check_id=4
+        echo "${result}:${check_id}:${reason}"
+        return 0
+    fi
+    
+    # 检查 6: 危险变量
+    if [[ "$command" =~ \$RANDOM ]] || [[ "$command" =~ \$SECONDS ]]; then
+        result="confirm"
+        reason="Dangerous variable usage"
+        check_id=6
+        echo "${result}:${check_id}:${reason}"
+        return 0
+    fi
+    
+    # 所有检查通过
+    echo "${result}:${check_id}:${reason}"
+}
+
+# ============================================
+# 引号提取（Claude Code 移植）
+# 用于分析命令中的引号内容
+# ============================================
+extract_quoted_content() {
+    local command="$1"
+    local in_single_quote=false
+    local in_double_quote=false
+    local escaped=false
+    local with_double_quotes=""
+    local fully_unquoted=""
+    
+    for (( i=0; i<${#command}; i++ )); do
+        local char="${command:$i:1}"
+        
+        if $escaped; then
+            escaped=false
+            if ! $in_single_quote; then
+                with_double_quotes+="$char"
+            fi
+            if ! $in_single_quote && ! $in_double_quote; then
+                fully_unquoted+="$char"
+            fi
+            continue
+        fi
+        
+        if [[ "$char" == "\\" ]] && ! $in_single_quote; then
+            escaped=true
+            continue
+        fi
+        
+        if [[ "$char" == "'" ]] && ! $in_double_quote; then
+            in_single_quote=!$in_single_quote
+            continue
+        fi
+        
+        if [[ "$char" == '"' ]] && ! $in_single_quote; then
+            in_double_quote=!$in_double_quote
+            continue
+        fi
+        
+        if ! $in_single_quote; then
+            with_double_quotes+="$char"
+        fi
+        if ! $in_single_quote && ! $in_double_quote; then
+            fully_unquoted+="$char"
+        fi
+    done
+    
+    echo "WITH_DOUBLE_QUOTES:$with_double_quotes"
+    echo "FULLY_UNQUOTED:$fully_unquoted"
+}
+
+# ============================================
+# 安全执行包装器
+# ============================================
+safe_exec() {
+    local command="$1"
+    local validation
+    
+    validation=$(validate_bash_command "$command")
+    local action="${validation%%:*}"
+    
+    case "$action" in
+        "allow")
+            eval "$command"
+            ;;
+        "confirm")
+            echo "⚠️  Command requires confirmation: $validation"
+            echo "Command: $command"
+            read -p "Proceed? (y/n): " confirm
+            if [[ "$confirm" == "y" ]]; then
+                eval "$command"
+            else
+                echo "Command cancelled"
+                return 1
+            fi
+            ;;
+        "deny")
+            echo "❌ Command denied: $validation"
+            echo "Command: $command"
+            return 1
+            ;;
+    esac
+}
+
+# ============================================
+# 批量验证函数（用于管道）
+# ============================================
+batch_validate() {
+    while IFS= read -r command; do
+        validate_bash_command "$command"
+    done
+}
+
+# ============================================
+# 使用说明
+# ============================================
+show_help() {
+    cat << 'EOF'
+Bash Security Enhanced - OpenClaw Fusion Phase 1
+
+Usage:
+  source bash-security-enhanced.sh
+  
+  validate_bash_command "command"  # Validate a command
+  extract_quoted_content "command" # Extract quoted content
+  safe_exec "command"              # Execute with validation
+  
+  echo "command" | batch_validate  # Batch validate from stdin
+
+Security Checks (from Claude Code):
+  1  - Incomplete commands
+  4  - Obfuscated flags
+  5  - Shell metacharacters
+  6  - Dangerous variables
+  7  - Newlines
+  8  - Command substitution patterns
+  11 - IFS injection
+  12 - Git commit substitution
+  13 - Proc environ access
+  16 - Brace expansion
+  17 - Control characters
+  19 - Mid-word hash
+  20 - Zsh dangerous commands
+
+Output Format: <action>:<check_id>:<reason>
+  action: allow | confirm | deny
+  check_id: 0-23 (0 = all passed)
+EOF
+}
+
+# 如果直接执行，显示帮助
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    show_help
+fi

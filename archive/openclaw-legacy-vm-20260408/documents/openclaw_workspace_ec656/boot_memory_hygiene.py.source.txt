@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+# 工程改进铁律合规 — Ξ | 2026-03-28
+# 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+
+"""
+boot_memory_hygiene.py — 开机记忆卫生补跑脚本
+功能：
+  1. 检查今日记忆卫生是否已做
+  2. 没做则立即补跑 morning_memory_hygiene.py
+  3. 已做则静默退出
+  4. 记录最后补跑时间
+
+调用方式：
+  - 开机时自动调用（通过 systemd user service 或 .bashrc）
+  - 每日07:30 cron 也会触发（见 morning_memory_hygiene.py）
+"""
+
+import json
+import subprocess
+import sys
+from datetime import date
+from pathlib import Path
+
+STATE_FILE = Path.home() / ".xuzhi_memory" / "memory" / "hygiene_state.json"
+BASE = Path.home() / ".xuzhi_memory"
+
+
+def get_last_run():
+    if STATE_FILE.exists():
+        return json.loads(STATE_FILE.read_text()).get("last_run")
+    return None
+
+
+def set_last_run():
+    STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    STATE_FILE.write_text(json.dumps({
+        "last_run": date.today().isoformat(),
+        "last_run_ts": None
+    }, indent=2))
+
+
+def is_done_today():
+    last = get_last_run()
+    return last == date.today().isoformat()
+
+
+def main():
+    today = date.today().isoformat()
+
+    if is_done_today():
+        print(f"✅ 今日卫生已完成（{today})，跳过")
+        return
+
+    print(f"⚠️ 今日卫生未做，立即补跑...")
+
+    # 调用 morning_memory_hygiene.py
+    result = subprocess.run(
+        [sys.executable, Path.home() / ".openclaw" / "workspace" / "morning_memory_hygiene.py"],
+        capture_output=True,
+        text=True
+    )
+
+    if result.returncode == 0:
+        print("✅ 补跑成功")
+        set_last_run()
+    else:
+        print(f"❌ 补跑失败: {result.stderr}")
+        # 仍然标记为已尝试，防止循环重试
+        set_last_run()
+
+
+if __name__ == "__main__":
+    main()

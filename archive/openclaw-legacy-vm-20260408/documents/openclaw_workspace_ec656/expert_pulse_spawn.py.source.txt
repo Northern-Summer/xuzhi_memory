@@ -1,0 +1,87 @@
+#!/usr/bin/env python3
+"""Ξ Expert Pulse — 通过subagent的sessions_send tool发送到WeChat"""
+import json
+import urllib.request
+import urllib.error
+import subprocess
+import os
+from datetime import datetime
+
+# Expert pulse content
+TRACKER = "/home/summer/.xuzhi_memory/expert_tracker/activity.json"
+
+with open(TRACKER) as f:
+    data = json.load(f)
+
+activities = data.get("activities", {})
+sorted_items = sorted(
+    activities.items(),
+    key=lambda x: x[1].get("updated_at", ""),
+    reverse=True
+)
+recent = sorted_items[:5]
+
+lines = ["【Ξ 前沿】", ""]
+lines.append("▌专家动态")
+for key, info in recent:
+    dept = info.get("dept", "")
+    expert = info.get("expert", "")
+    title = info.get("latest_title", "")
+    updated = info.get("updated_at", "")[11:16]
+    lines.append(f"• {expert} [{dept}] {updated}")
+    lines.append(f"  {title}")
+
+dept_count = {}
+for key, info in recent:
+    d = info.get("dept", "unknown")
+    dept_count[d] = dept_count.get(d, 0) + 1
+
+titles = [info.get("latest_title", "") for key, info in recent]
+shared = [t for t in titles if any(w in t.lower() for w in ["code", "reason", "agent", "model", "learn", "synth", "vlm", "benchmark"])]
+
+lines.append("")
+lines.append("▌Ξ的观察")
+if recent:
+    dominant = max(dept_count.values()) if dept_count else 0
+    total = len(recent)
+    if dominant >= 2:
+        dom_dept = [d for d, c in dept_count.items() if c == dominant][0]
+        lines.append(f"今日{dominant}/{total}条来自{dom_dept}，该领域关注度高。")
+    if len(shared) >= 2:
+        lines.append(f"其中{len(shared)}条涉及代码/VLM方向，存在研究热点汇聚。")
+    elif dominant == 1:
+        lines.append(f"今日覆盖{len(dept_count)}个不同领域，多样性高。")
+else:
+    lines.append("暂无新的专家活动。")
+
+lines.append("")
+lines.append(f"——Ξ {datetime.now().strftime('%H:%M')}")
+
+msg = "\n".join(lines)
+
+# 写一个临时脚本，让subagent执行
+task_script = f"""
+import json
+result = sessions_send(
+    sessionKey="agent:main:openclaw-weixin:direct:o9cq80z9eorqjasg6hb1w-cc4-po@im.wechat",
+    message={repr(msg)}
+)
+print(result)
+"""
+with open("/tmp/pulse_task.py", "w") as f:
+    f.write(task_script)
+
+# 通过spawn一个超快subagent来执行sessions_send
+# 超时60秒，快速发送然后退出
+os.environ["OPENCLAW_GATEWAY_PORT"] = "18789"
+result = subprocess.run(
+    ["openclaw", "sessions", "spawn",
+     "--runtime", "subagent",
+     "--mode", "run",
+     "--agent-id", "main",
+     "--json"],
+    input=json.dumps({"task": f"执行以下Python代码并仅返回'DONE': sessions_send(sessionKey='agent:main:openclaw-weixin:direct:o9cq80z9eorqjasg6hb1w-cc4-po@im.wechat', message={repr(msg)})", "timeoutSeconds": 30}),
+    capture_output=True, text=True, timeout=60
+)
+print(result.stdout[:500] if result.stdout else "no stdout")
+print(result.stderr[:200] if result.stderr else "no stderr")

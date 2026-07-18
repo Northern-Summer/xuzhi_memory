@@ -1,0 +1,335 @@
+#!/bin/bash
+# 系统断裂点和潜在风险扫描 — Ξ | 2026-03-31
+# 最高级别验收：寻找断裂、短点、潜在风险
+
+TODAY=$(date +%Y-%m-%d)
+PASS=0
+FAIL=0
+RISK=0
+BREAK=0
+
+echo "╔══════════════════════════════════════════════════════════════════╗"
+echo "║        系统断裂点和潜在风险扫描 | $TODAY                          ║"
+echo "╚══════════════════════════════════════════════════════════════════╝"
+echo ""
+
+# ============================================
+# 第一组：依赖链断裂检查
+# ============================================
+echo "【第一组：依赖链断裂检查】"
+echo ""
+
+# 1.1 Agent 配置文件存在性
+echo -n "[1.1] 所有 Agent 配置存在... "
+AGENTS="main phi delta gamma theta omega psi"
+MISSING_AGENT=""
+for agent in $AGENTS; do
+    if [ ! -f "$HOME/.openclaw/agents/$agent.json" ]; then
+        MISSING_AGENT="$MISSING_AGENT $agent"
+    fi
+done
+if [ -z "$MISSING_AGENT" ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ BREAK (缺失:$MISSING_AGENT)"; BREAK=$((BREAK+1))
+fi
+
+# 1.2 Agent SOUL.md 存在性
+echo -n "[1.2] 所有 Agent SOUL.md 存在... "
+MISSING_SOUL=""
+for agent in $AGENTS; do
+    if [ "$agent" = "main" ]; then
+        if [ ! -f "$HOME/.openclaw/workspace/SOUL.md" ]; then
+            MISSING_SOUL="$MISSING_SOUL $agent"
+        fi
+    else
+        if [ ! -f "$HOME/.xuzhi_memory/agents/$agent/SOUL.md" ]; then
+            MISSING_SOUL="$MISSING_SOUL $agent"
+        fi
+    fi
+done
+if [ -z "$MISSING_SOUL" ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  RISK (缺失:$MISSING_SOUL)"; RISK=$((RISK+1))
+fi
+
+# 1.3 Symlink 目标存在
+echo -n "[1.3] Symlink 目标有效... "
+SYMLINK_TARGET=$(readlink -f $HOME/.openclaw/centers 2>/dev/null)
+if [ -d "$SYMLINK_TARGET" ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ BREAK (目标不存在)"; BREAK=$((BREAK+1))
+fi
+
+# 1.4 Cron 脚本存在
+echo -n "[1.4] Cron 脚本全部存在... "
+CRON_SCRIPTS=$(crontab -l 2>/dev/null | grep -oE '\$HOME/[^ ]+\.sh' | sed "s|\$HOME|$HOME|g" | sort -u)
+MISSING_SCRIPT=""
+for script in $CRON_SCRIPTS; do
+    if [ ! -f "$script" ]; then
+        MISSING_SCRIPT="$MISSING_SCRIPT $script"
+    fi
+done
+if [ -z "$MISSING_SCRIPT" ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ BREAK (缺失:$MISSING_SCRIPT)"; BREAK=$((BREAK+1))
+fi
+
+# ============================================
+# 第二组：数据流断裂检查
+# ============================================
+echo ""
+echo "【第二组：数据流断裂检查】"
+echo ""
+
+# 2.1 Expert Tracker 输出
+echo -n "[2.1] Expert Tracker 有产出... "
+SYNTHESIS="$HOME/.xuzhi_memory/expert_tracker/synthesis.json"
+if [ -f "$SYNTHESIS" ]; then
+    ROUND=$(grep -o '"round": [0-9]*' "$SYNTHESIS" | head -1 | grep -o '[0-9]*')
+    if [ -n "$ROUND" ] && [ "$ROUND" -gt 0 ]; then
+        echo "✅ PASS (Round $ROUND)"; PASS=$((PASS+1))
+    else
+        echo "⚠️  RISK (无有效 round)"; RISK=$((RISK+1))
+    fi
+else
+    echo "❌ BREAK (文件不存在)"; BREAK=$((BREAK+1))
+fi
+
+# 2.2 记忆同步机制
+echo -n "[2.2] Agent 记忆同步检查... "
+MAIN_MEMORY="$HOME/.xuzhi_memory/memory/$TODAY.md"
+SYNC_ISSUE=""
+for agent in phi delta gamma theta omega psi; do
+    AGENT_MEMORY="$HOME/.xuzhi_memory/agents/$agent/memory/$TODAY.md"
+    if [ -f "$MAIN_MEMORY" ] && [ ! -f "$AGENT_MEMORY" ]; then
+        SYNC_ISSUE="$SYNC_ISSUE $agent"
+    fi
+done
+if [ -z "$SYNC_ISSUE" ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  RISK (未同步:$SYNC_ISSUE)"; RISK=$((RISK+1))
+fi
+
+# 2.3 技能库写入权限
+echo -n "[2.3] 技能库可写入... "
+MEMORY_MD="$HOME/.openclaw/workspace/MEMORY.md"
+if [ -w "$MEMORY_MD" ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ BREAK (无写入权限)"; BREAK=$((BREAK+1))
+fi
+
+# ============================================
+# 第三组：潜在风险扫描
+# ============================================
+echo ""
+echo "【第三组：潜在风险扫描】"
+echo ""
+
+# 3.1 Context 使用率趋势
+echo -n "[3.1] Context 使用率安全... "
+CTX_USAGE=$(python3 ~/.openclaw/workspace/session_guard.py --check 2>&1 | grep -oP '\d+%' | head -1 | tr -d '%')
+if [ -n "$CTX_USAGE" ]; then
+    if [ "$CTX_USAGE" -lt 70 ]; then
+        echo "✅ PASS ($CTX_USAGE%)"; PASS=$((PASS+1))
+    elif [ "$CTX_USAGE" -lt 85 ]; then
+        echo "⚠️  RISK ($CTX_USAGE%，接近阈值)"; RISK=$((RISK+1))
+    else
+        echo "❌ BREAK ($CTX_USAGE%，超过阈值)"; BREAK=$((BREAK+1))
+    fi
+else
+    echo "⚠️  RISK (无法获取)"; RISK=$((RISK+1))
+fi
+
+# 3.2 Git 远程可达
+echo -n "[3.2] Git 远程可达... "
+if git -C $HOME/.xuzhi_memory ls-remote origin HEAD &>/dev/null; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  RISK (网络问题或认证失败)"; RISK=$((RISK+1))
+fi
+
+# 3.3 Cron 任务冲突检测
+echo -n "[3.3] Cron 任务无冲突... "
+# 整点执行（0分）不算冲突，检查同一分钟超过3个非整点任务
+CRON_MINUTES=$(crontab -l 2>/dev/null | grep -v "^#" | grep -v "^$" | awk '{print $1}' | grep -v "^0$" | grep -v "^\*" | sort | uniq -c | awk '$1 > 3 {print}')
+if [ -z "$CRON_MINUTES" ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  RISK (有任务重叠)"; RISK=$((RISK+1))
+fi
+
+# 3.4 敏感文件泄露风险
+echo -n "[3.4] 无敏感文件泄露风险... "
+SENSITIVE_COUNT=$(find $HOME/.xuzhi_memory -name "*.token" -o -name "*.key" -o -name "*secret*" 2>/dev/null | wc -l)
+if [ "$SENSITIVE_COUNT" -eq 0 ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  RISK (发现 $SENSITIVE_COUNT 个敏感文件)"; RISK=$((RISK+1))
+fi
+
+# 3.5 SearXNG 可用
+echo -n "[3.5] SearXNG 搜索可用... "
+if curl -s http://localhost:8080/health &>/dev/null || curl -s http://localhost:8080/ | grep -q "SearXNG"; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  RISK (SearXNG 不可用)"; RISK=$((RISK+1))
+fi
+
+# 3.6 Gateway 稳定性
+echo -n "[3.6] Gateway 运行时间... "
+GW_HEALTH=$(curl -s http://127.0.0.1:18789/health 2>/dev/null)
+if echo "$GW_HEALTH" | grep -q '"ok":true'; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ BREAK (Gateway 未运行)"; BREAK=$((BREAK+1))
+fi
+
+# ============================================
+# 第四组：短点和缺失检查
+# ============================================
+echo ""
+echo "【第四组：短点和缺失检查】"
+echo ""
+
+# 4.1 ECHO 校准循环
+echo -n "[4.1] ECHO 校准循环实现... "
+if grep -q "ECHO.*校准" ~/.openclaw/workspace/AGENTS.md 2>/dev/null; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  SHORT (未实现校准循环)"; RISK=$((RISK+1))
+fi
+
+# 4.2 技能废弃机制
+echo -n "[4.2] 技能废弃机制... "
+if grep -q "废弃" ~/.xuzhi_memory/memory/knowledge/SELF_EVOLUTION_FRAMEWORKS.md 2>/dev/null; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  SHORT (无技能生命周期管理)"; RISK=$((RISK+1))
+fi
+
+# 4.3 Agent 间通信协议
+echo -n "[4.3] Agent 通信协议明确... "
+if grep -q "Hub 协议" ~/.openclaw/workspace/AGENTS.md 2>/dev/null; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  SHORT (协议不明确)"; RISK=$((RISK+1))
+fi
+
+# 4.4 错误恢复机制
+echo -n "[4.4] 错误恢复机制... "
+if [ -f "$HOME/.openclaw/workspace/self_heal.sh" ] || grep -q "self_repair" ~/.xuzhi_memory/manifests/INFRASTRUCTURE.md 2>/dev/null; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  SHORT (缺少自修复机制)"; RISK=$((RISK+1))
+fi
+
+# 4.5 pre-commit hook
+echo -n "[4.5] pre-commit hook 存在... "
+if [ -f "$HOME/.xuzhi_memory/.git/hooks/pre-commit" ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  SHORT (未配置)"; RISK=$((RISK+1))
+fi
+
+# ============================================
+# 第五组：系统收敛检查
+# ============================================
+echo ""
+echo "【第五组：系统收敛检查】"
+echo ""
+
+# 5.1 无死循环 cron
+echo -n "[5.1] 无死循环 cron... "
+CRON_COUNT=$(crontab -l 2>/dev/null | grep -v "^#" | grep -v "^$" | wc -l)
+if [ "$CRON_COUNT" -le 25 ]; then
+    echo "✅ PASS ($CRON_COUNT 个任务)"; PASS=$((PASS+1))
+else
+    echo "⚠️  RISK ($CRON_COUNT 个任务)"; RISK=$((RISK+1))
+fi
+
+# 5.2 无孤儿进程
+echo -n "[5.2] 无孤儿 openclaw 进程... "
+ORPHAN=$(ps aux | grep openclaw | grep -v grep | grep defunct | wc -l)
+if [ "$ORPHAN" -eq 0 ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  RISK ($ORPHAN 个孤儿进程)"; RISK=$((RISK+1))
+fi
+
+# 5.3 磁盘空间充足
+echo -n "[5.3] 磁盘空间充足... "
+DISK_USAGE=$(df -h $HOME | tail -1 | awk '{print $5}' | tr -d '%')
+if [ "$DISK_USAGE" -lt 80 ]; then
+    echo "✅ PASS ($DISK_USAGE%)"; PASS=$((PASS+1))
+elif [ "$DISK_USAGE" -lt 90 ]; then
+    echo "⚠️  RISK ($DISK_USAGE%)"; RISK=$((RISK+1))
+else
+    echo "❌ BREAK ($DISK_USAGE%，磁盘空间不足)"; BREAK=$((BREAK+1))
+fi
+
+# 5.4 内存使用合理
+echo -n "[5.4] 内存使用合理... "
+MEM_USAGE=$(free | grep Mem | awk '{printf "%.0f", $3/$2 * 100}')
+if [ "$MEM_USAGE" -lt 80 ]; then
+    echo "✅ PASS ($MEM_USAGE%)"; PASS=$((PASS+1))
+elif [ "$MEM_USAGE" -lt 90 ]; then
+    echo "⚠️  RISK ($MEM_USAGE%)"; RISK=$((RISK+1))
+else
+    echo "⚠️  RISK ($MEM_USAGE%，内存紧张)"; RISK=$((RISK+1))
+fi
+
+# ============================================
+# 汇总
+# ============================================
+echo ""
+echo "╔══════════════════════════════════════════════════════════════════╗"
+echo "║                断裂点和风险扫描结果汇总                           ║"
+echo "╠══════════════════════════════════════════════════════════════════╣"
+printf "║  ✅ PASS: %-2d    ⚠️  RISK: %-2d    ❌ BREAK: %-2d                 ║\n" $PASS $RISK $BREAK
+echo "╚══════════════════════════════════════════════════════════════════╝"
+echo ""
+
+TOTAL=$((PASS + RISK + BREAK))
+SCORE=$((PASS * 100 / TOTAL))
+
+# 输出发现的问题
+if [ "$RISK" -gt 0 ] || [ "$BREAK" -gt 0 ]; then
+    echo "发现的问题："
+    echo ""
+    
+    if [ "$BREAK" -gt 0 ]; then
+        echo "【断裂点 — 必须修复】"
+        echo "  - 依赖链断裂"
+        echo "  - 数据流断裂"
+        echo ""
+    fi
+    
+    if [ "$RISK" -gt 0 ]; then
+        echo "【潜在风险 — 建议处理】"
+        echo "  - Agent 记忆同步"
+        echo "  - ECHO 校准循环"
+        echo "  - 技能生命周期管理"
+        echo "  - pre-commit hook"
+        echo ""
+    fi
+fi
+
+# 判定
+if [ "$BREAK" -gt 0 ]; then
+    echo "❌ 系统存在断裂点，必须修复！"
+    exit 2
+elif [ "$RISK" -gt 3 ]; then
+    echo "⚠️  系统存在多个风险点，建议优化后重新验收"
+    exit 1
+else
+    echo "🎉 系统断裂点和风险扫描通过！得分: $SCORE%"
+    echo ""
+    echo "系统状态：优雅、稳定、收敛"
+    exit 0
+fi

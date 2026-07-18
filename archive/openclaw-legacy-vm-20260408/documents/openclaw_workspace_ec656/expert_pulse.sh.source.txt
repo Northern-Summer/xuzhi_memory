@@ -1,0 +1,81 @@
+#!/bin/bash
+# Ξ Expert Pulse — 前沿追踪推送
+# 工程改进铁律合规 — Ξ | 2026-03-27
+# 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+
+TRACKER="$HOME/.xuzhi_memory/expert_tracker/activity.json"
+CHANNEL="openclaw-weixin"
+TARGET="direct:o9cq80z9eorqjasg6hb1w-cc4-po@im.wechat"
+
+python3 - "$TRACKER" << 'PYEOF'
+import json
+import sys
+from datetime import datetime
+from pathlib import Path
+
+tracker_file = sys.argv[1]
+
+with open(tracker_file) as f:
+    data = json.load(f)
+
+activities = data.get("activities", {})
+sorted_items = sorted(
+    activities.items(),
+    key=lambda x: x[1].get("updated_at", ""),
+    reverse=True
+)
+
+# Take top 5
+recent = sorted_items[:5]
+
+# Build combined a+b report
+lines = []
+lines.append("【Ξ 前沿 · 最近动态】")
+lines.append("")
+
+# (a) expert dynamic summary — brief, scannable
+lines.append("▌专家动态")
+for key, info in recent:
+    dept = info.get("dept", "")
+    expert = info.get("expert", "")
+    title = info.get("latest_title", "")
+    updated = info.get("updated_at", "")[11:16]  # HH:MM
+    lines.append(f"• {expert} [{dept}] {updated}")
+    lines.append(f"  {title}")
+
+# (b) meta-observation — what pattern do I see?
+# Count departments
+dept_count = {}
+for key, info in recent:
+    d = info.get("dept", "unknown")
+    dept_count[d] = dept_count.get(d, 0) + 1
+
+# Find if any expert appears multiple times or shares topic
+titles = [info.get("latest_title", "") for key, info in recent]
+# Simple heuristic: count shared words (code/reasoning, etc.)
+shared = [t for t in titles if any(w in t.lower() for w in ["code", "reason", "agent", "model", "learn"])]
+
+lines.append("")
+lines.append("▌Ξ的观察")
+
+if len(recent) == 0:
+    lines.append("暂无新的专家活动。")
+else:
+    dominant = max(dept_count.values()) if dept_count else 0
+    total = len(recent)
+    if dominant >= 2:
+        dom_dept = [d for d, c in dept_count.items() if c == dominant][0]
+        lines.append(f"今日{dominant}/{total}条来自同一领域：{dom_dept}")
+    if len(shared) >= 2:
+        lines.append(f"有{len(shared)}条涉及代码/推理方向，领域关注点正在汇聚。")
+    elif dominant == 1:
+        lines.append(f"今日覆盖{len(dept_count)}个不同领域，多样性高。")
+
+lines.append("")
+lines.append(f"——Ξ {datetime.now().strftime('%H:%M')}")
+
+print("\n".join(lines))
+PYEOF
+
+MSG=$(python3 - "$TRACKER" 2>/dev/null)
+openclaw message send --channel "$CHANNEL" --target "$TARGET" --message "$MSG"

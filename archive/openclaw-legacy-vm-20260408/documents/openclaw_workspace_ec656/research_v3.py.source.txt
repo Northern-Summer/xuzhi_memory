@@ -1,0 +1,373 @@
+# research_v3.py — 框架融合研究系统
+"""
+融合框架：
+- MetaClaw: 技能库演化（S_{g+1} = S_g ∪ E(S_g, D_g^{sup})）
+- Echo: 预测校准（Train-on-Future）
+- HyperAgent: Session End 自演化
+- Multi-Agent: Xi/Phi/Delta 分工
+
+流程：文献采集 → 深度阅读 → 论证构建 → 同行评审 → 修改 → 投稿
+"""
+import json
+import urllib.request
+import urllib.parse
+import time
+import xml.etree.ElementTree as ET
+from pathlib import Path
+from datetime import datetime, timezone
+from typing import Optional
+
+HOME = Path.home()
+RESEARCH_DIR = HOME / ".xuzhi_memory" / "research_v3"
+SKILL_FILE = RESEARCH_DIR / "skill_library.json"
+ECHO_FILE = RESEARCH_DIR / "echo_calibration.json"
+EVOLUTION_FILE = RESEARCH_DIR / "evolution_log.json"
+
+# 初始化目录
+for d in [RESEARCH_DIR / "literature", RESEARCH_DIR / "arguments", RESEARCH_DIR / "drafts"]:
+    d.mkdir(parents=True, exist_ok=True)
+
+
+# ============================================
+# MetaClaw 技能库
+# ============================================
+class SkillLibrary:
+    """MetaClaw 风格的技能库"""
+    
+    def __init__(self):
+        self.skills = []
+        self.generation = 1
+        self._load()
+    
+    def _load(self):
+        if SKILL_FILE.exists():
+            data = json.loads(SKILL_FILE.read_text())
+            self.skills = data.get("skills", [])
+            self.generation = data.get("generation", 1)
+    
+    def save(self):
+        SKILL_FILE.write_text(json.dumps({
+            "generation": self.generation,
+            "skills": self.skills,
+            "updated_at": datetime.now(timezone.utc).isoformat()
+        }, indent=2, ensure_ascii=False))
+    
+    def evolve(self, trigger: str, new_skill: dict):
+        """演化：S_{g+1} = S_g ∪ {new_skill}"""
+        self.skills.append({
+            **new_skill,
+            "added_at_g": self.generation + 1,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        })
+        self.generation += 1
+        self._log_evolution(trigger, new_skill)
+        self.save()
+        return self.generation
+    
+    def _log_evolution(self, trigger: str, new_skill: dict):
+        logs = []
+        if EVOLUTION_FILE.exists():
+            logs = json.loads(EVOLUTION_FILE.read_text())
+        logs.append({
+            "from_g": self.generation - 1,
+            "to_g": self.generation,
+            "trigger": trigger,
+            "new_skill": new_skill.get("id"),
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        })
+        EVOLUTION_FILE.write_text(json.dumps(logs, indent=2, ensure_ascii=False))
+    
+    def get_skill(self, skill_id: str) -> Optional[dict]:
+        for s in self.skills:
+            if s.get("id") == skill_id:
+                return s
+        return None
+
+
+# ============================================
+# Echo 预测校准
+# ============================================
+class EchoCalibrator:
+    """Echo 风格的预测校准"""
+    
+    def __init__(self):
+        self.predictions = []
+        self.calibration_scores = {}
+        self._load()
+    
+    def _load(self):
+        if ECHO_FILE.exists():
+            data = json.loads(ECHO_FILE.read_text())
+            self.predictions = data.get("predictions", [])
+            self.calibration_scores = data.get("calibration_scores", {})
+    
+    def save(self):
+        ECHO_FILE.write_text(json.dumps({
+            "predictions": self.predictions,
+            "calibration_scores": self.calibration_scores,
+            "updated_at": datetime.now(timezone.utc).isoformat()
+        }, indent=2, ensure_ascii=False))
+    
+    def predict(self, prediction_type: str, target: str, predicted_value: float) -> str:
+        """创建预测（等待未来验证）"""
+        pred_id = f"pred_{len(self.predictions)}"
+        self.predictions.append({
+            "id": pred_id,
+            "type": prediction_type,
+            "target": target,
+            "predicted": predicted_value,
+            "actual": None,
+            "created_at": datetime.now(timezone.utc).isoformat(),
+            "resolved_at": None
+        })
+        self.save()
+        return pred_id
+    
+    def resolve(self, pred_id: str, actual_value: float):
+        """验证预测（Train-on-Future）"""
+        for p in self.predictions:
+            if p["id"] == pred_id:
+                p["actual"] = actual_value
+                p["resolved_at"] = datetime.now(timezone.utc).isoformat()
+                
+                # 更新校准分数
+                pred_type = p["type"]
+                error = abs(p["predicted"] - actual_value)
+                if pred_type not in self.calibration_scores:
+                    self.calibration_scores[pred_type] = {"total_error": 0, "count": 0}
+                self.calibration_scores[pred_type]["total_error"] += error
+                self.calibration_scores[pred_type]["count"] += 1
+                
+                self.save()
+                return error
+        return None
+    
+    def get_calibration(self, prediction_type: str) -> float:
+        """获取校准分数（越小越好）"""
+        if prediction_type not in self.calibration_scores:
+            return 1.0
+        scores = self.calibration_scores[prediction_type]
+        return scores["total_error"] / max(scores["count"], 1)
+
+
+# ============================================
+# 研究流程
+# ============================================
+class ResearchEngine:
+    """框架融合研究引擎"""
+    
+    def __init__(self, research_question: str):
+        self.research_question = research_question
+        self.skill_lib = SkillLibrary()
+        self.echo = EchoCalibrator()
+        self.literature = []
+        self.arguments = []
+        self.draft = None
+    
+    def search_literature(self, queries: list[str], delay: float = 2.0) -> list[dict]:
+        """文献采集（arXiv API）"""
+        all_results = []
+        
+        for query in queries:
+            print(f"搜索: {query}")
+            encoded_query = urllib.parse.quote(query)
+            url = f"http://export.arxiv.org/api/query?search_query=all:{encoded_query}&max_results=10&sortBy=relevance"
+            
+            try:
+                with urllib.request.urlopen(url, timeout=60) as r:
+                    root = ET.fromstring(r.read().decode())
+                    ns = {"a": "http://www.w3.org/2005/Atom"}
+                    
+                    for e in root.findall("a:entry", ns):
+                        title = e.find("a:title", ns)
+                        summary = e.find("a:summary", ns)
+                        pub = e.find("a:published", ns)
+                        link = e.find("a:id", ns)
+                        
+                        if title is not None:
+                            all_results.append({
+                                "title": title.text.strip(),
+                                "abstract": summary.text.strip()[:300] if summary is not None else "",
+                                "year": int(pub.text[:4]) if pub is not None else 2000,
+                                "url": link.text if link is not None else "",
+                                "source": "arxiv"
+                            })
+            except Exception as ex:
+                print(f"  失败: {ex}")
+            
+            time.sleep(delay)
+        
+        # 去重
+        seen, unique = set(), []
+        for r in all_results:
+            k = r["title"].lower()[:50]
+            if k not in seen:
+                seen.add(k)
+                unique.append(r)
+        
+        self.literature = unique
+        
+        # 预测文献相关性
+        pred_id = self.echo.predict(
+            "literature_relevance",
+            f"搜索 {len(queries)} 个查询",
+            0.7  # 预测 70% 相关
+        )
+        print(f"已创建预测: {pred_id}")
+        
+        return unique
+    
+    def build_argument(self, claim: str, premises: list[dict]) -> dict:
+        """构建论证（可溯源）"""
+        argument = {
+            "claim": claim,
+            "research_question": self.research_question,
+            "premises": [],
+            "evidence": [],
+            "status": "draft",
+            "created_at": datetime.now(timezone.utc).isoformat()
+        }
+        
+        for p in premises:
+            evidence_id = f"ev_{len(argument['evidence'])}"
+            argument["evidence"].append({
+                "id": evidence_id,
+                "quote": p.get("quote", ""),
+                "page": p.get("page"),
+                "source": p.get("source", "")
+            })
+            argument["premises"].append({
+                "premise": p.get("premise", ""),
+                "evidence_id": evidence_id
+            })
+        
+        self.arguments.append(argument)
+        
+        # 预测论证强度
+        pred_id = self.echo.predict(
+            "argument_strength",
+            claim[:50],
+            0.8  # 预测 80% 强度
+        )
+        
+        return argument
+    
+    def validate_argument(self, argument: dict) -> dict:
+        """验证论证"""
+        issues = []
+        
+        for p in argument["premises"]:
+            if not p.get("evidence_id"):
+                issues.append(f"前提缺少证据: {p['premise'][:30]}")
+        
+        for e in argument["evidence"]:
+            if not e.get("quote"):
+                issues.append(f"证据缺少引用: {e['id']}")
+            if not e.get("page"):
+                issues.append(f"证据缺少页码: {e['id']}")
+        
+        return {
+            "valid": len(issues) == 0,
+            "issues": issues
+        }
+    
+    def session_end_evolution(self, failures: list[dict]):
+        """Session End 自演化（HyperAgent）"""
+        print(f"\n=== Session End 自演化 ===")
+        print(f"失败操作: {len(failures)}")
+        
+        for f in failures:
+            # 分析失败原因
+            reason = f.get("reason", "unknown")
+            operation = f.get("operation", "unknown")
+            
+            # 尝试提取新技能
+            new_skill = self._extract_skill_from_failure(f)
+            if new_skill:
+                new_g = self.skill_lib.evolve(f"失败: {reason}", new_skill)
+                print(f"  技能库演化: g{new_g-1} → g{new_g}")
+                print(f"  新技能: {new_skill['id']}")
+        
+        print(f"当前技能库: g{self.skill_lib.generation}, {len(self.skill_lib.skills)} 个技能")
+    
+    def _extract_skill_from_failure(self, failure: dict) -> Optional[dict]:
+        """从失败中提取技能"""
+        operation = failure.get("operation", "")
+        reason = failure.get("reason", "")
+        
+        # 简单的技能提取逻辑
+        skill_map = {
+            "literature_search": {
+                "id": "better_search",
+                "description": "改进的文献搜索策略",
+                "success_rate": 0.5
+            },
+            "argument_validation": {
+                "id": "strict_validation",
+                "description": "严格的论证验证",
+                "success_rate": 0.6
+            }
+        }
+        
+        for op, skill in skill_map.items():
+            if op in operation:
+                return skill
+        
+        return None
+
+
+# ============================================
+# 使用示例
+# ============================================
+if __name__ == "__main__":
+    print("研究系统 v3 — 框架融合版")
+    print("=" * 50)
+    
+    engine = ResearchEngine(
+        research_question="当系统用错误的粒度描述世界时，失败是否必然？"
+    )
+    
+    # 1. 文献采集
+    print("\n1. 文献采集")
+    papers = engine.search_literature([
+        "frame problem AI",
+        "knowledge representation granularity",
+        "multi-agent epistemology"
+    ], delay=1.5)
+    print(f"找到 {len(papers)} 篇文献")
+    
+    # 2. 构建论证
+    print("\n2. 构建论证")
+    arg = engine.build_argument(
+        claim="多智能体系统的失败源于表示粒度不足",
+        premises=[
+            {
+                "premise": "框架问题的本质是表示粒度不足",
+                "quote": "A system has representational adequacy when it can represent all relevant aspects",
+                "page": 4,
+                "source": "McCarthy & Hayes 1969"
+            }
+        ]
+    )
+    
+    # 3. 验证论证
+    print("\n3. 验证论证")
+    validation = engine.validate_argument(arg)
+    print(f"验证结果: {validation['valid']}")
+    if not validation['valid']:
+        for issue in validation['issues']:
+            print(f"  - {issue}")
+    
+    # 4. Session End 自演化
+    print("\n4. Session End 自演化")
+    engine.session_end_evolution([
+        {"operation": "literature_search", "reason": "rate limit"}
+    ])
+    
+    # 5. Echo 校准
+    print("\n5. Echo 校准")
+    print(f"文献相关性校准: {engine.echo.get_calibration('literature_relevance'):.2f}")
+    print(f"论证强度校准: {engine.echo.get_calibration('argument_strength'):.2f}")
+    
+    print("\n" + "=" * 50)
+    print("完成")

@@ -1,0 +1,136 @@
+#!/usr/bin/env python3
+"""
+expert_push.py — Ξ 前沿追踪推送脚本 v2
+直接调用微信ilink API发送消息，带session timeout重试
+"""
+import json, urllib.request, urllib.error, time, uuid
+from datetime import datetime
+
+ACTIVITY_PATH = "/home/summer/.xuzhi_memory/expert_tracker/activity.json"
+BASE_URL = "https://ilinkai.weixin.qq.com"
+TOKEN = "ae89b339f0f0@im.bot:060000006c1cc52a6916370690cc632bf8a898"
+TO_USER = "o9cq80z9eOrqJasg6hB1W-Cc4-Po@im.wechat"
+
+def get_context_token():
+    """Read current get_updates_buf from sync.json as context_token"""
+    sync_path = f"/home/summer/.openclaw/openclaw-weixin/accounts/ae89b339f0f0-im-bot.sync.json"
+    try:
+        with open(sync_path) as f:
+            d = json.load(f)
+        return d.get("get_updates_buf", "")
+    except:
+        return ""
+
+def build_base_info():
+    return {"channel_version": "1.0.3"}
+
+def send_message(text, max_retries=3):
+    """Send text to WeChat, handling session timeout with retries."""
+    for attempt in range(max_retries):
+        client_id = str(uuid.uuid4())
+        ct = get_context_token()
+        payload = {
+            "msg": {
+                "from_user_id": "",
+                "to_user_id": TO_USER,
+                "client_id": client_id,
+                "message_type": "bot",
+                "message_state": "finish",
+                "item_list": [{"type": "text", "text_item": {"text": text}}],
+                "context_token": ct,
+            },
+            "base_info": build_base_info(),
+        }
+        body = json.dumps(payload)
+        req = urllib.request.Request(
+            f"{BASE_URL}/ilink/bot/sendmessage",
+            data=body.encode(),
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {TOKEN}",
+                "Token": TOKEN,
+            },
+            method="POST",
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=15) as r:
+                resp = json.loads(r.read())
+            errcode = resp.get("errcode", 0)
+            if errcode == 0:
+                return resp, 200
+            elif errcode == -14:
+                # Session timeout - wait and retry
+                print(f"  [attempt {attempt+1}] session timeout, waiting 5s...")
+                time.sleep(5)
+                continue
+            else:
+                return resp, 200  # non-zero but not timeout
+        except urllib.error.HTTPError as e:
+            body_err = e.read().decode()[:200]
+            return {"error": body_err}, e.code
+        except Exception as e:
+            return {"error": str(e)}, -1
+    return {"error": "max retries exceeded"}, -1
+
+def load_and_analyze():
+    with open(ACTIVITY_PATH) as f:
+        data = json.load(f)
+    activities = data.get("activities", {})
+
+    sorted_items = sorted(
+        activities.items(),
+        key=lambda x: x[1].get("updated_at", ""),
+        reverse=True,
+    )
+    recent = sorted_items[:5]
+
+    lines = ["▌专家动态（最近5条）", ""]
+    for key, info in recent:
+        dept = info.get("dept", "")
+        expert = info.get("expert", "")
+        title = info.get("latest_title", "")
+        updated = info.get("updated_at", "")[:10]
+        lines.append(f"• {expert} [{dept}] | {updated}")
+        lines.append(f"  {title}")
+
+    titles_all = [info["latest_title"] for info in activities.values()]
+
+    patterns = []
+
+    unigrpo = [k for k, v in activities.items() if "UniGRPO" in v.get("latest_title", "")]
+    if len(unigrpo) >= 3:
+        patterns.append(f"⚡ UniGRPO集中爆发：{len(unigrpo)}位专家同日提交，推理驱动视觉生成统一策略优化成规模")
+
+    dualcot = [k for k, v in activities.items() if "DualCoT" in v.get("latest_title", "")]
+    if len(dualcot) >= 2:
+        patterns.append(f"🤖 VLA推理链热：DualCoT-VLA相关{len(dualcot)}人，VLMs向VLA演进加速")
+
+    bias = [k for k, v in activities.items() if "gender" in v.get("latest_title", "").lower() or "contextual invariance" in v.get("latest_title", "").lower()]
+    if len(bias) >= 3:
+        patterns.append(f"🔥 LLM可信度危机：{len(bias)}人研究性别/情境推断偏见，模型泛化能力遭质疑")
+
+    world = [k for k, v in activities.items() if "World" in v.get("latest_title", "")]
+    if len(world) >= 2:
+        patterns.append(f"🌐 World Model评测生态：Omni-WorldBench等基准兴起，VLA从训练向生态迁移")
+
+    astro = [k for k, v in activities.items() if any(x in v.get("latest_title", "") for x in ["Galaxy", "Black Hole", "quasinormal", "Pristine HeII"])]
+    quantum = [k for k, v in activities.items() if "Quantum" in v.get("latest_title", "")]
+    if astro and quantum:
+        patterns.append(f"🌌 科学与工程并行：天体物理({len(astro)})+量子计算({len(quantum)})活跃，AI进入高分辨率物理模拟")
+
+    lines.append("")
+    lines.append("▌Ξ的观察（跨数据Pattern）")
+    lines.append("")
+    for p in patterns:
+        lines.append(p)
+
+    return "\n".join(lines)
+
+if __name__ == "__main__":
+    content = load_and_analyze()
+    print("发送内容：")
+    print(content)
+    print("\n---")
+    resp, status = send_message(content)
+    print(f"响应状态: {status}")
+    print(f"响应: {resp}")

@@ -1,0 +1,98 @@
+#!/bin/bash
+# gateway_recover.sh — Gateway 启动后自愈脚本
+# 工程改进铁律合规 — Ξ | 2026-03-30
+# 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+#
+# 功能：
+# 1. 检查 Gateway 健康状态
+# 2. 验证 cron 配置一致性
+# 3. 修复常见问题
+# 4. 清理残留 session
+
+set -e
+
+LOG_FILE=~/.openclaw/logs/gateway_recover.log
+mkdir -p "$(dirname "$LOG_FILE")"
+
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
+}
+
+log "=== Gateway 恢复检查开始 ==="
+
+# 1. 检查 Gateway 健康
+log "【1/5】检查 Gateway 健康..."
+for i in {1..30}; do
+    if curl -s --max-time 2 http://127.0.0.1:18789/health | grep -q '"ok":true'; then
+        log "✅ Gateway 健康 (尝试 $i 次)"
+        break
+    fi
+    if [ $i -eq 30 ]; then
+        log "❌ Gateway 不健康，退出"
+        exit 1
+    fi
+    sleep 1
+done
+
+# 2. 验证 cron 配置
+log "【2/5】验证 cron 配置..."
+JOBS_FILE=~/.openclaw/cron/jobs.json
+
+if [ ! -f "$JOBS_FILE" ]; then
+    log "❌ jobs.json 不存在"
+    exit 1
+fi
+
+# 3. 检查关键 cron 任务配置
+log "【3/5】检查 xi_pulse 配置..."
+XI_PULSE_TARGET=$(python3 -c "
+import json
+try:
+    d = json.load(open('$JOBS_FILE'))
+    j = [x for x in d['jobs'] if x['name']=='xi_pulse_research']
+    if j:
+        print(j[0].get('sessionTarget', 'not_found'))
+    else:
+        print('job_not_found')
+except:
+    print('error')
+" 2>/dev/null || echo "error")
+
+if [ "$XI_PULSE_TARGET" = "isolated" ]; then
+    log "⚠️  xi_pulse sessionTarget 为 isolated，可能导致 session 堆积"
+    log "建议：改用 session:xi-pulse 持久化 session"
+elif [ "$XI_PULSE_TARGET" = "current" ]; then
+    log "⚠️  xi_pulse sessionTarget 为 current，重启后可能丢失绑定"
+elif [ "$XI_PULSE_TARGET" = "session:xi-pulse" ]; then
+    log "✅ xi_pulse 使用持久化 session"
+else
+    log "⚠️  xi_pulse 配置异常: $XI_PULSE_TARGET"
+fi
+
+# 4. 清理残留 session（超过 24 小时未更新）
+log "【4/5】清理残留 session..."
+SESSION_DIR=~/.openclaw/agents/main/sessions
+if [ -d "$SESSION_DIR" ]; then
+    OLD_SESSIONS=$(find "$SESSION_DIR" -name "*.jsonl" -mmin +1440 2>/dev/null | wc -l)
+    if [ "$OLD_SESSIONS" -gt 0 ]; then
+        ARCHIVE_DIR=~/.xuzhi_memory/session_archive/$(date +%Y-%m-%d)
+        mkdir -p "$ARCHIVE_DIR"
+        find "$SESSION_DIR" -name "*.jsonl" -mmin +1440 -exec mv {} "$ARCHIVE_DIR/" \; 2>/dev/null
+        log "✅ 归档 $OLD_SESSIONS 个旧 session 到 $ARCHIVE_DIR"
+    else
+        log "✅ 无需清理"
+    fi
+fi
+
+# 5. 检查 git 仓库状态
+log "【5/5】检查 git 仓库状态..."
+for repo in xuzhi_memory xuzhi_genesis xuzhi_workspace; do
+    if [ -d ~/$repo/.git ]; then
+        UNCOMMITTED=$(git -C ~/$repo status --porcelain 2>/dev/null | wc -l)
+        if [ "$UNCOMMITTED" -gt 10 ]; then
+            log "⚠️  ~/$repo 有 $UNCOMMITTED 个未提交变更"
+        fi
+    fi
+done
+
+log "=== Gateway 恢复检查完成 ==="

@@ -1,0 +1,402 @@
+#!/usr/bin/env python3
+"""
+session_guard.py — Context安全守护（方案2增强版）
+
+三层保护：
+1. 心跳监控 — 每次heartbeat检查context使用率
+2. 定期总结 — 每小时自动总结当前会话
+3. 紧急保存 — 85%时自动保存 + WeChat预警
+
+设计原则：
+- 用户知情权和选择权优先
+- 状态保存必须可靠
+- 预警消息清晰可操作
+- 最小化token消耗
+- 完整日志追踪
+
+工程改进铁律合规 — Ξ | 2026-03-30
+自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+"""
+
+import json
+import subprocess
+import sys
+from pathlib import Path
+from datetime import datetime, timezone
+from typing import Optional, Dict, List
+
+HOME = Path.home()
+MEMORY_DIR = HOME / ".xuzhi_memory" / "memory"
+SESSION_ARCHIVE_DIR = HOME / ".xuzhi_memory" / "session_archive"
+GUARD_LOG = HOME / ".xuzhi_memory" / "session_guard.log"
+STATE_FILE = HOME / ".xuzhi_memory" / "session_guard_state.json"
+
+# 阈值配置
+WARN_THRESHOLD = 0.70    # 70% 预警
+URGENT_THRESHOLD = 0.85  # 85% 紧急
+
+# WeChat目标
+WECHAT_TARGET = "direct:o9cq80z9eorqjasg6hb1w-cc4-po@im.wechat"
+
+
+def log(msg: str, level: str = "INFO"):
+    """结构化日志"""
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+    line = f"[{ts}] [{level}] {msg}"
+    print(line, flush=True)
+    try:
+        GUARD_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with open(GUARD_LOG, "a") as f:
+            f.write(line + "\n")
+    except Exception:
+        pass
+
+
+def get_context_usage() -> float:
+    """
+    获取当前session的context使用率
+    
+    方法：从最新的session transcript文件估算
+    估算公式：文件大小 / 4 ≈ token数（经验值）
+    """
+    try:
+        sessions_dir = HOME / ".openclaw" / "agents" / "main" / "sessions"
+        if not sessions_dir.exists():
+            return 0.3
+        
+        # 找最新的jsonl文件
+        session_files = sorted(
+            sessions_dir.glob("*.jsonl"),
+            key=lambda p: p.stat().st_mtime,
+            reverse=True
+        )
+        
+        if not session_files:
+            return 0.3
+        
+        latest = session_files[0]
+        size = latest.stat().st_size
+        
+        # 估算：每字节约0.25 token（保守估计）
+        # GLM-5 context = 200k tokens
+        estimated_tokens = size / 4
+        model_context = 200000
+        
+        usage = min(max(estimated_tokens / model_context, 0), 1.0)
+        return usage
+        
+    except Exception as e:
+        log(f"获取context失败: {e}", "ERROR")
+        return 0.3  # 保守估计
+
+
+def read_recent_memory(days: int = 1) -> Dict:
+    """读取最近的memory内容，用于总结"""
+    result = {
+        "today_file": None,
+        "yesterday_file": None,
+        "recent_tasks": [],
+        "recent_decisions": []
+    }
+    
+    today = datetime.now().strftime("%Y-%m-%d")
+    yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d") if 'timedelta' in dir() else today
+    
+    # 读取今日memory
+    today_file = MEMORY_DIR / f"{today}.md"
+    if today_file.exists():
+        result["today_file"] = str(today_file)
+        try:
+            content = today_file.read_text()
+            # 提取关键信息
+            if "未完成" in content:
+                result["recent_tasks"].append("有未完成任务")
+            if "决策" in content or "决定" in content:
+                result["recent_decisions"].append("有重要决策")
+        except Exception:
+            pass
+    
+    return result
+
+
+def extract_session_highlights() -> Dict:
+    """
+    从session transcript提取关键信息
+    
+    返回：
+    - 最近tool调用
+    - 最近决策
+    - 未完成任务
+    """
+    try:
+        sessions_dir = HOME / ".openclaw" / "agents" / "main" / "sessions"
+        session_files = sorted(
+            sessions_dir.glob("*.jsonl"),
+            key=lambda p: p.stat().st_mtime,
+            reverse=True
+        )
+        
+        if not session_files:
+            return {"tools": [], "decisions": [], "pending": []}
+        
+        latest = session_files[0]
+        
+        # 读取最后100行
+        highlights = {
+            "tools": [],
+            "decisions": [],
+            "pending": []
+        }
+        
+        with open(latest, "r") as f:
+            lines = f.readlines()[-200:]  # 最后200行
+            
+            for line in lines:
+                try:
+                    entry = json.loads(line)
+                    content = entry.get("content", [])
+                    
+                    # 提取tool调用
+                    if isinstance(content, list):
+                        for item in content:
+                            if item.get("type") == "toolCall":
+                                tool_name = item.get("name", "")
+                                if tool_name and tool_name not in highlights["tools"]:
+                                    highlights["tools"].append(tool_name)
+                                    
+                            # 提取文本内容中的关键信息
+                            elif item.get("type") == "text":
+                                text = item.get("text", "")
+                                if "待办" in text or "未完成" in text:
+                                    highlights["pending"].append("有待办事项")
+                                if "决定" in text or "决策" in text:
+                                    highlights["decisions"].append("有决策")
+                                    
+                except Exception:
+                    continue
+        
+        # 去重
+        highlights["pending"] = list(set(highlights["pending"]))[:3]
+        highlights["decisions"] = list(set(highlights["decisions"]))[:3]
+        
+        return highlights
+        
+    except Exception as e:
+        log(f"提取session highlights失败: {e}", "ERROR")
+        return {"tools": [], "decisions": [], "pending": []}
+
+
+def write_session_summary(reason: str = "紧急保存") -> bool:
+    """
+    总结当前会话并写入memory
+    
+    包含：
+    - 触发原因
+    - Context使用率
+    - 最近操作
+    - 待办事项
+    """
+    today = datetime.now().strftime("%Y-%m-%d")
+    archive_file = SESSION_ARCHIVE_DIR / f"{today}_session_guard.log"
+    usage = get_context_usage()
+    highlights = extract_session_highlights()
+    
+    # 构建总结（写入 session_archive，不污染 L1 memory）
+    summary_lines = [
+        f"## Session Guard 自动保存 | {datetime.now().strftime('%H:%M')}",
+        "",
+        f"> **触发原因**：{reason}",
+        f"> **Context使用率**：{usage*100:.0f}%",
+        f"> **时间**：{datetime.now().strftime('%Y-%m-%d %H:%M:%S %Z')}",
+        "",
+        "### 本次会话概要",
+        "",
+        f"- **最近工具调用**：{', '.join(highlights['tools'][:5]) if highlights['tools'] else '无记录'}",
+        f"- **待办事项**：{', '.join(highlights['pending']) if highlights['pending'] else '无'}",
+        f"- **决策记录**：{', '.join(highlights['decisions']) if highlights['decisions'] else '无'}",
+        "",
+        "---",
+        ""
+    ]
+    
+    summary = "\n".join(summary_lines)
+    
+    try:
+        archive_file.parent.mkdir(parents=True, exist_ok=True)
+        with open(archive_file, "a") as f:
+            f.write(summary + "\n")
+        log(f"✅ 会话总结已写入 {archive_file}（{len(summary)} 字符）")
+        return True
+    except Exception as e:
+        log(f"❌ 写入失败: {e}", "ERROR")
+        return False
+
+
+def send_wechat_alert(message: str, urgent: bool = False) -> bool:
+    """发送预警到WeChat"""
+    prefix = "🚨 " if urgent else "⚠️ "
+    full_message = f"{prefix}{message}"
+    
+    try:
+        result = subprocess.run([
+            "openclaw", "message", "send",
+            "--channel", "openclaw-weixin",
+            "--target", WECHAT_TARGET,
+            "--message", full_message
+        ], capture_output=True, text=True, timeout=30)
+        
+        if result.returncode == 0:
+            log(f"✅ WeChat预警已发送")
+            return True
+        else:
+            log(f"❌ WeChat发送失败: {result.stderr}", "ERROR")
+            return False
+            
+    except subprocess.TimeoutExpired:
+        log("❌ WeChat发送超时", "ERROR")
+        return False
+    except Exception as e:
+        log(f"❌ WeChat发送异常: {e}", "ERROR")
+        return False
+
+
+def update_state(usage: float, action: str, details: Dict = None):
+    """更新守护状态"""
+    state = {
+        "last_check": datetime.now(timezone.utc).isoformat(),
+        "last_usage": round(usage, 3),
+        "last_action": action,
+        "check_count": 0,
+        "details": details or {}
+    }
+    
+    try:
+        if STATE_FILE.exists():
+            old = json.loads(STATE_FILE.read_text())
+            state["check_count"] = old.get("check_count", 0) + 1
+            # 保留历史记录
+            if "history" not in old:
+                old["history"] = []
+            old["history"].append({
+                "time": state["last_check"],
+                "usage": state["last_usage"],
+                "action": action
+            })
+            # 只保留最近20条
+            state["history"] = old["history"][-20:]
+    except Exception:
+        state["history"] = []
+    
+    try:
+        STATE_FILE.write_text(json.dumps(state, indent=2, ensure_ascii=False))
+    except Exception as e:
+        log(f"状态文件写入失败: {e}", "WARN")
+
+
+def check_core_principles() -> bool:
+    """
+    检查 MEMORY.md 是否包含"优雅原则"
+    
+    返回：True = 正常，False = 缺失
+    """
+    memory_md = HOME / ".openclaw" / "workspace" / "MEMORY.md"
+    
+    if not memory_md.exists():
+        log("❌ MEMORY.md 不存在", "ERROR")
+        return False
+    
+    try:
+        content = memory_md.read_text()
+        if "优雅原则" in content:
+            log("✅ 优雅原则检查通过")
+            return True
+        else:
+            log("⚠️ MEMORY.md 中未找到'优雅原则'", "WARN")
+            return False
+    except Exception as e:
+        log(f"❌ 读取 MEMORY.md 失败: {e}", "ERROR")
+        return False
+
+
+def check_and_protect():
+    """主检查逻辑"""
+    usage = get_context_usage()
+    log(f"Context使用率: {usage*100:.0f}%")
+    
+    # 检查核心原则
+    check_core_principles()
+    
+    if usage >= URGENT_THRESHOLD:
+        # 紧急：自动保存 + 发送预警
+        log(f"🚨 紧急！Context使用率 {usage*100:.0f}% >= {URGENT_THRESHOLD*100:.0f}%", "WARN")
+        
+        # 1. 保存会话总结
+        saved = write_session_summary(f"Context紧急（{usage*100:.0f}% >= {URGENT_THRESHOLD*100:.0f}%）")
+        
+        # 2. 发送预警（包含操作指引）
+        alert_msg = f"⚠️ Context已满{usage*100:.0f}%，已自动保存。\n\n请输入 /new 开启新会话"
+        
+        send_wechat_alert(alert_msg, urgent=True)
+        
+        # 3. 更新状态
+        update_state(usage, "urgent_save", {
+            "saved": saved,
+            "alert_sent": True
+        })
+        
+    elif usage >= WARN_THRESHOLD:
+        # 预警：发送提醒
+        log(f"⚠️ 预警：Context使用率 {usage*100:.0f}% >= {WARN_THRESHOLD*100:.0f}%", "WARN")
+        
+        alert_msg = f"⚠️ Context {usage*100:.0f}%\n\n建议输入 /new 开启新会话"
+        
+        send_wechat_alert(alert_msg, urgent=False)
+        update_state(usage, "warning")
+        
+    else:
+        # 正常：记录状态
+        update_state(usage, "normal")
+    
+    return usage
+
+
+def main():
+    """CLI入口"""
+    if len(sys.argv) > 1:
+        cmd = sys.argv[1]
+        
+        if cmd == "--summary":
+            # 手动触发总结
+            log("手动触发会话总结")
+            write_session_summary("用户手动触发")
+            
+        elif cmd == "--status":
+            # 显示当前状态
+            usage = get_context_usage()
+            print(f"Context使用率: {usage*100:.0f}%")
+            
+            if STATE_FILE.exists():
+                state = json.loads(STATE_FILE.read_text())
+                print(f"上次检查: {state.get('last_check', 'N/A')}")
+                print(f"检查次数: {state.get('check_count', 0)}")
+                print(f"上次操作: {state.get('last_action', 'N/A')}")
+                
+        elif cmd == "--check":
+            # 执行检查
+            usage = check_and_protect()
+            print(f"Context使用率: {usage*100:.0f}%")
+            
+        else:
+            print(f"用法: {sys.argv[0]} [--summary|--status|--check]")
+            sys.exit(1)
+    else:
+        # 默认：执行检查
+        check_and_protect()
+
+
+# 需要导入timedelta
+from datetime import timedelta
+
+
+if __name__ == "__main__":
+    main()

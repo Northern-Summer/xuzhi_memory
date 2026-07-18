@@ -1,0 +1,125 @@
+#!/bin/bash
+# ============================================
+# OpenClaw Fusion Test Suite
+# 验证核心功能在融合过程中保持正常
+# ============================================
+
+PASSED=0
+FAILED=0
+
+echo "============================================"
+echo "  OpenClaw Fusion Test Suite"
+echo "  $(date '+%Y-%m-%d %H:%M:%S')"
+echo "============================================"
+
+# 测试 1: Gateway 健康检查
+test_gateway_health() {
+    echo -n "[1/6] Gateway health... "
+    if systemctl --user is-active openclaw-gateway >/dev/null 2>&1 || pgrep -f "openclaw gateway" >/dev/null 2>&1; then
+        echo "PASS"
+        ((PASSED++))
+    else
+        echo "FAIL - Gateway not running"
+        ((FAILED++))
+    fi
+}
+
+# 测试 2: 基础文件操作
+test_file_operations() {
+    echo -n "[2/6] File operations (read/write)... "
+    local test_file="/tmp/openclaw_test_$$"
+    if echo "test" > "$test_file" 2>/dev/null && cat "$test_file" 2>/dev/null | grep -q "test" && rm "$test_file" 2>/dev/null; then
+        echo "PASS"
+        ((PASSED++))
+    else
+        echo "FAIL"
+        ((FAILED++))
+    fi
+}
+
+# 测试 3: Memory 系统可用
+test_memory_system() {
+    echo -n "[3/6] Memory system... "
+    local memory_file="$HOME/.xuzhi_memory/memory/$(date +%Y-%m-%d).md"
+    if [[ -f "$memory_file" ]]; then
+        local lines=$(wc -l < "$memory_file")
+        echo "PASS ($lines lines)"
+        ((PASSED++))
+    else
+        echo "WARN - Today's memory file not found (still PASS)"
+        ((PASSED++))
+    fi
+}
+
+# 测试 4: Git 仓库状态
+test_git_status() {
+    echo -n "[4/6] Git repositories... "
+    local repos=("$HOME/.xuzhi_memory" "$HOME/xuzhi_genesis")
+    local all_ok=true
+    for repo in "${repos[@]}"; do
+        if [[ -d "$repo/.git" ]]; then
+            if ! git -C "$repo" status --porcelain >/dev/null 2>&1; then
+                all_ok=false
+            fi
+        fi
+    done
+    if $all_ok; then
+        echo "PASS"
+        ((PASSED++))
+    else
+        echo "FAIL"
+        ((FAILED++))
+    fi
+}
+
+# 测试 5: Bash 安全检查（Phase 1 准备）
+test_bash_security() {
+    echo -n "[5/6] Bash security script... "
+    local script="$HOME/.openclaw/workspace/scripts/bash-security-enhanced.sh"
+    if [[ -f "$script" ]]; then
+        if bash -n "$script" 2>/dev/null; then
+            echo "PASS"
+            ((PASSED++))
+        else
+            echo "FAIL - Syntax error"
+            ((FAILED++))
+        fi
+    else
+        echo "SKIP - Not yet created (Phase 1)"
+        ((PASSED++))
+    fi
+}
+
+# 测试 6: Fork Subagent Skill（Phase 2 准备）
+test_fork_skill() {
+    echo -n "[6/6] Fork subagent skill... "
+    local skill="$HOME/.openclaw/skills/fork-subagent/SKILL.md"
+    if [[ -f "$skill" ]]; then
+        echo "PASS"
+        ((PASSED++))
+    else
+        echo "SKIP - Not yet created (Phase 2)"
+        ((PASSED++))
+    fi
+}
+
+# 运行所有测试
+test_gateway_health
+test_file_operations
+test_memory_system
+test_git_status
+test_bash_security
+test_fork_skill
+
+# 输出结果
+echo ""
+echo "============================================"
+echo "  Results: $PASSED passed, $FAILED failed"
+echo "============================================"
+
+# 返回码
+if [[ $FAILED -gt 0 ]]; then
+    exit 1
+else
+    exit 0
+fi

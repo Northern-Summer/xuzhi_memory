@@ -1,0 +1,70 @@
+# arxiv_fetcher.py — arXiv 文献采集器
+import urllib.request, urllib.parse, xml.etree.ElementTree as ET, time, json
+from pathlib import Path
+from datetime import datetime, timezone
+
+HOME = Path.home()
+RESEARCH_DIR = HOME / ".xuzhi_memory" / "research_v2"
+
+def search_arxiv(query, max_results=15):
+    encoded = urllib.parse.quote(query, safe='')
+    url = f"http://export.arxiv.org/api/query?search_query=all:{encoded}&max_results={max_results}&sortBy=relevance"
+    results = []
+    try:
+        with urllib.request.urlopen(url, timeout=60) as r:
+            root = ET.fromstring(r.read().decode())
+            ns = {"a": "http://www.w3.org/2005/Atom"}
+            for e in root.findall("a:entry", ns):
+                title = e.find("a:title", ns)
+                summary = e.find("a:summary", ns)
+                pub = e.find("a:published", ns)
+                link = e.find("a:id", ns)
+                authors = [a.find("a:name", ns).text for a in e.findall("a:author", ns)]
+                if title is not None:
+                    results.append({
+                        "title": title.text.strip(),
+                        "abstract": summary.text.strip()[:400] if summary is not None else "",
+                        "year": int(pub.text[:4]) if pub is not None else 2000,
+                        "authors": authors,
+                        "url": link.text if link is not None else ""
+                    })
+    except Exception as ex:
+        print(f"  ✗ {ex}")
+    return results
+
+QUERIES = ["frame problem AI", "knowledge representation granularity", "multi-agent epistemology", "normative reasoning AI", "agent architecture abstraction"]
+KEYWORDS = ["frame", "granularity", "knowledge", "multi-agent", "epistemology", "normative", "reasoning", "abstraction"]
+
+if __name__ == "__main__":
+    print("arXiv 文献采集")
+    all_papers = []
+    for i, q in enumerate(QUERIES):
+        print(f"[{i+1}/{len(QUERIES)}] {q}")
+        papers = search_arxiv(q)
+        print(f"  ✓ {len(papers)}")
+        all_papers.extend(papers)
+        time.sleep(1)
+    
+    # 去重
+    seen, unique = set(), []
+    for p in all_papers:
+        k = p["title"].lower()[:50]
+        if k not in seen:
+            seen.add(k)
+            unique.append(p)
+    
+    # 评分
+    for p in unique:
+        text = (p["title"] + " " + p["abstract"]).lower()
+        rel = sum(0.3 if kw in p["title"].lower() else 0.1 if kw in text else 0 for kw in KEYWORDS)
+        p["score"] = min(rel, 1.0)
+    unique.sort(key=lambda x: x["score"], reverse=True)
+    
+    # 保存
+    path = RESEARCH_DIR / "arxiv_results.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w") as f:
+        json.dump({"count": len(unique), "papers": unique[:30]}, f, indent=2)
+    print(f"\n✓ 保存 {len(unique)} 篇")
+    for i, p in enumerate(unique[:5], 1):
+        print(f"{i}. [{p['year']}] {p['title'][:50]}... ({p['score']:.2f})")

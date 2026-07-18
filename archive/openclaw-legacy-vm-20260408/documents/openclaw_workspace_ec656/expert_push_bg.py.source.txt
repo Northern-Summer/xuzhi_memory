@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+"""
+Background retry loop for expert_push.py
+Waits for session-guard to clear, then pushes every 15 minutes.
+"""
+import subprocess, time, sys, os
+from datetime import datetime
+
+PUSH_SCRIPT = "/home/summer/.openclaw/workspace/expert_push.py"
+STATE_FILE = "/home/summer/.openclaw/workspace/expert_push_state.json"
+
+def load_state():
+    import json
+    if os.path.exists(STATE_FILE):
+        with open(STATE_FILE) as f:
+            return json.load(f)
+    return {"last_push": None, "next_push": None, "push_count": 0}
+
+def save_state(s):
+    import json
+    with open(STATE_FILE, "w") as f:
+        json.dump(s, f, indent=2)
+
+def do_push():
+    result = subprocess.run(
+        ["python3", PUSH_SCRIPT],
+        capture_output=True, text=True, timeout=30
+    )
+    return result.returncode == 0, result.stdout, result.stderr
+
+def main():
+    print(f"[{datetime.now().strftime('%H:%M:%S')}] Expert push background loop starting")
+    state = load_state()
+    
+    while True:
+        now = datetime.now()
+        
+        # Check if it's time to push (every 15 minutes = 900 seconds)
+        should_push = False
+        if state["last_push"] is None:
+            should_push = True
+        else:
+            from datetime import datetime as dt
+            last = dt.fromisoformat(state["last_push"])
+            elapsed = (now - last).total_seconds()
+            if elapsed >= 900:  # 15 minutes
+                should_push = True
+        
+        if should_push:
+            print(f"[{now.strftime('%H:%M:%S')}] Attempting push...")
+            ok, stdout, stderr = do_push()
+            if "响应状态: 200" in stdout and "errcode\": -14" not in stdout:
+                print(f"[{now.strftime('%H:%M:%S')}] Push SUCCESS")
+                state["last_push"] = now.isoformat()
+                state["push_count"] = state.get("push_count", 0) + 1
+                # Extract timestamp for "——Ξ 已推送 HH:MM"
+                print(f"——Ξ 已推送 {now.strftime('%H:%M')}")
+            else:
+                # Check if still session timeout
+                if "errcode\": -14" in stdout or "session timeout" in stdout:
+                    print(f"[{now.strftime('%H:%M:%S')}] Session still blocked (errcode -14), retrying in 5 min...")
+                    time.sleep(300)  # 5 min
+                    continue
+                else:
+                    print(f"[{now.strftime('%H:%M:%S')}] Push failed: {stderr[-200:]}")
+            
+            save_state(state)
+        
+        # Sleep 15 minutes between push attempts
+        time.sleep(900)
+
+if __name__ == "__main__":
+    main()

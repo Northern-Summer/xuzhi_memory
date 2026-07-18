@@ -1,0 +1,161 @@
+#!/bin/bash
+# 系统验收标准检查 — Ξ | 2026-03-31
+
+TODAY=$(date +%Y-%m-%d)
+PASS=0
+FAIL=0
+WARN=0
+
+echo "╔════════════════════════════════════════════════════════════╗"
+echo "║          Xuzhi 系统验收标准检查 | $TODAY                  ║"
+echo "╚════════════════════════════════════════════════════════════╝"
+echo ""
+
+# 第一组：基础架构
+echo "【第一组：基础架构】"
+
+# 1.1
+echo -n "[1.1] Gateway 健康... "
+if curl -s http://127.0.0.1:18789/health 2>/dev/null | grep -q '"ok":true'; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ FAIL"; FAIL=$((FAIL+1))
+fi
+
+# 1.2
+echo -n "[1.2] Symlink 有效... "
+if [ "$(readlink -f $HOME/.openclaw/centers)" = "$HOME/xuzhi_genesis/centers" ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ FAIL"; FAIL=$((FAIL+1))
+fi
+
+# 1.3
+echo -n "[1.3] Cron 任务数... "
+CRON_COUNT=$(crontab -l 2>/dev/null | grep -v "^#" | grep -v "^$" | wc -l)
+if [ "$CRON_COUNT" -le 20 ]; then
+    echo "✅ PASS ($CRON_COUNT)"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN ($CRON_COUNT)"; WARN=$((WARN+1))
+fi
+
+# 第二组：自演化流程
+echo ""
+echo "【第二组：自演化流程】"
+
+# 2.1
+echo -n "[2.1] Session End 流程... "
+if grep -q "Session End 自演化流程" $HOME/.openclaw/workspace/AGENTS.md 2>/dev/null; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ FAIL"; FAIL=$((FAIL+1))
+fi
+
+# 2.2
+echo -n "[2.2] 技能库存在... "
+SKILL_COUNT=$(grep -c "| v1 |" $HOME/.openclaw/workspace/MEMORY.md 2>/dev/null || echo "0")
+if [ "$SKILL_COUNT" -ge 5 ]; then
+    echo "✅ PASS ($SKILL_COUNT 条)"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN ($SKILL_COUNT 条)"; WARN=$((WARN+1))
+fi
+
+# 2.3
+echo -n "[2.3] 技能代数 g2... "
+if grep -q "g2" $HOME/.openclaw/workspace/MEMORY.md 2>/dev/null; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN (仅 g1)"; WARN=$((WARN+1))
+fi
+
+# 2.4
+echo -n "[2.4] Session End 脚本... "
+if [ -x "$HOME/.openclaw/workspace/session_evolution.sh" ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ FAIL"; FAIL=$((FAIL+1))
+fi
+
+# 第三组：框架跟踪
+echo ""
+echo "【第三组：框架跟踪】"
+
+# 3.1
+echo -n "[3.1] 框架知识库... "
+if [ -f "$HOME/.xuzhi_memory/memory/knowledge/SELF_EVOLUTION_FRAMEWORKS.md" ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ FAIL"; FAIL=$((FAIL+1))
+fi
+
+# 3.2
+echo -n "[3.2] 框架数量... "
+FRAMEWORK_COUNT=$(grep -c "arXiv:" $HOME/.xuzhi_memory/memory/knowledge/SELF_EVOLUTION_FRAMEWORKS.md 2>/dev/null || echo "0")
+if [ "$FRAMEWORK_COUNT" -ge 8 ]; then
+    echo "✅ PASS ($FRAMEWORK_COUNT 个)"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN ($FRAMEWORK_COUNT 个)"; WARN=$((WARN+1))
+fi
+
+# 3.3
+echo -n "[3.3] 框架跟踪 cron... "
+if crontab -l 2>/dev/null | grep -q "track_evolution_frameworks"; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ FAIL"; FAIL=$((FAIL+1))
+fi
+
+# 3.4
+echo -n "[3.4] Heartbeat 框架检查... "
+if grep -q "元启发式框架跟踪检查" $HOME/.openclaw/workspace/HEARTBEAT.md 2>/dev/null; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ FAIL"; FAIL=$((FAIL+1))
+fi
+
+# 第四组：优雅原则
+echo ""
+echo "【第四组：优雅原则】"
+
+# 4.1
+echo -n "[4.1] 优雅原则... "
+if grep -q "优雅原则" $HOME/.openclaw/workspace/MEMORY.md 2>/dev/null; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ FAIL"; FAIL=$((FAIL+1))
+fi
+
+# 4.2
+echo -n "[4.2] 今日 memory 存在... "
+if [ -f "$HOME/.xuzhi_memory/memory/$TODAY.md" ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "❌ FAIL"; FAIL=$((FAIL+1))
+fi
+
+# 4.3
+echo -n "[4.3] session_guard 运行... "
+if [ -f "$HOME/.xuzhi_memory/session_guard_state.json" ]; then
+    echo "✅ PASS"; PASS=$((PASS+1))
+else
+    echo "⚠️  WARN"; WARN=$((WARN+1))
+fi
+
+# 汇总
+echo ""
+echo "╔════════════════════════════════════════════════════════════╗"
+echo "║                    验收结果汇总                            ║"
+echo "╠════════════════════════════════════════════════════════════╣"
+printf "║  ✅ PASS: %-2d    ⚠️  WARN: %-2d    ❌ FAIL: %-2d              ║\n" $PASS $WARN $FAIL
+echo "╚════════════════════════════════════════════════════════════╝"
+echo ""
+
+TOTAL=$((PASS + WARN + FAIL))
+SCORE=$((PASS * 100 / TOTAL))
+
+if [ "$FAIL" -eq 0 ]; then
+    echo "🎉 系统验收通过！得分: $SCORE%"
+else
+    echo "❌ 系统验收未通过！有 $FAIL 个失败项需修复"
+    exit 1
+fi

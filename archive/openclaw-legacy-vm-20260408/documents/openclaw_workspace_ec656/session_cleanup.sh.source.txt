@@ -1,0 +1,41 @@
+#!/bin/bash
+# session_cleanup.sh — 安全清理 session 文件
+# 原则：先归档，再清理
+
+set -e
+
+# 配置
+SESSIONS_DIR="$HOME/.openclaw/agents"
+ARCHIVE_DIR="$HOME/.xuzhi_memory/session_archive"
+KEEP_DAYS=3
+
+# 创建归档目录
+mkdir -p "$ARCHIVE_DIR"
+
+# 步骤1：提取今天之前 session 中的关键内容
+echo "=== 提取关键内容 ==="
+for session_file in $(find "$SESSIONS_DIR"/*/sessions/ -name "*.jsonl" -type f ! -newermt "$(date +%Y-%m-%d)"); do
+  # 提取决策、任务、重要结论
+  decisions=$(grep -o '"text":"[^"]*"' "$session_file" 2>/dev/null | grep -iE "决定|决策|重要|完成|关键" | head -5)
+  if [ -n "$decisions" ]; then
+    echo "=== $session_file ===" >> "$ARCHIVE_DIR/pending_review_$(date +%Y-%m-%d).log"
+    echo "$decisions" >> "$ARCHIVE_DIR/pending_review_$(date +%Y-%m-%d).log"
+  fi
+done
+
+# 步骤2：归档到 xuzhi_memory（保留 7 天）
+for session_file in $(find "$SESSIONS_DIR"/*/sessions/ -name "*.jsonl" -type f ! -newermt "$(date +%Y-%m-%d)"); do
+  agent=$(echo "$session_file" | cut -d'/' -f6)
+  mkdir -p "$ARCHIVE_DIR/$agent"
+  cp "$session_file" "$ARCHIVE_DIR/$agent/" 2>/dev/null || true
+done
+
+# 步骤3：清理（用 gio trash 而不是 rm）
+find "$SESSIONS_DIR"/*/sessions/ -name "*.jsonl" -type f ! -newermt "$(date +%Y-%m-%d)" -exec gio trash {} \; 2>/dev/null || true
+
+# 步骤4：报告
+archive_count=$(find "$ARCHIVE_DIR" -name "*.jsonl" -type f | wc -l)
+trash_count=$(gio list trash:/// 2>/dev/null | grep -c ".jsonl" || echo "0")
+echo "归档：$archive_count 个文件"
+echo "待审阅：$ARCHIVE_DIR/pending_review_$(date +%Y-%m-%d).log"
+echo "回收站：$trash_count 个 jsonl 文件"

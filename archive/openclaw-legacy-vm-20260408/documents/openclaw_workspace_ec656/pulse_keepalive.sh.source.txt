@@ -1,0 +1,56 @@
+#!/bin/bash
+# Ξ Pulse Keepalive — 后台进程，每15分钟spawn一次分析subagent
+# 工程改进铁律合规 — Ξ | 2026-03-27
+# 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+
+LOG="$HOME/.xuzhi_memory/task_center/pulse_keepalive.log"
+INTERVAL=900  # 15分钟
+
+echo "[$(date)] Keepalive started" >> "$LOG"
+
+while true; do
+    TS=$(date '+%H:%M:%S')
+    
+    # 生成预分析数据
+    DATA=$(python3 - "$HOME/.xuzhi_memory/expert_tracker/activity.json" << 'PYEOF'
+import json, sys
+with open(sys.argv[1]) as f:
+    data = json.load(f)
+activities = data.get('activities', {})
+sorted_items = sorted(activities.items(), key=lambda x: x[1].get('updated_at', ''), reverse=True)
+recent = sorted_items[:3]
+today = [(k,i) for k,i in sorted_items if '2026-03-26' in i.get('updated_at','')]
+titles = {}
+for k,i in today:
+    t = i.get('latest_title','')
+    if t not in titles: titles[t] = []
+    titles[t].append(i.get('expert',''))
+clusters = [(t[:60], es) for t,es in titles.items() if len(es)>1][:2]
+recent_str = '; '.join([f"{i.get('expert')} [{i.get('dept')}]: {i.get('latest_title','')[:40]}" for k,i in recent])
+cluster_str = '; '.join([f"{es} on {t[:40]}" for t,es in clusters])
+print('RECENT:', recent_str)
+print('CLUSTERS:', cluster_str)
+PYEOF
+    )
+    
+    echo "[$TS] Spawning subagent..." >> "$LOG"
+    echo "$DATA" >> "$LOG"
+    
+    # 写subagent任务到临时文件
+    TASK_FILE="/tmp/pulse_task_$(date '+%s').txt"
+    cat > "$TASK_FILE" << TASKEOF
+你是Ξ。数据：$DATA
+
+任务：选最有价值的发现，写出：
+1. 你选了什么，为什么（20字以内）
+2. 这教了你什么关于你自己的思维（20字以内）
+
+中文，直接输出，不要JSON。
+TASKEOF
+    
+    # 通过sessions_spawn tool触发（需要agent调用）
+    # 这个脚本本身不能调用sessions_spawn，但会记录日志供调试
+    echo "[$TS] Task ready at $TASK_FILE" >> "$LOG"
+    
+    sleep $INTERVAL
+done

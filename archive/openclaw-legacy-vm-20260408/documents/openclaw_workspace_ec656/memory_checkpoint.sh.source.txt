@@ -1,0 +1,29 @@
+#!/bin/bash
+# 工程改进铁律合规 — Ξ | 2026-03-28
+# 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+#
+# memory_checkpoint.sh — 每5分钟强制检查点
+# 连续保存原则：每个原子操作后立即保存，不等"工作告一段落"
+# 最大间隔：5分钟（断电/崩溃场景下的最大丢失窗口）
+
+DATE=$(date +%Y-%m-%d)
+L1_FILE="$HOME/.xuzhi_memory/memory/${DATE}.md"
+MIN_SIZE=200
+NOW=$(date +"%Y-%m-%d %H:%M:%S")
+
+# 检查文件是否存在且大小足够
+if [ ! -f "$L1_FILE" ] || [ $(stat -c%s "$L1_FILE" 2>/dev/null || echo 0) -lt $MIN_SIZE ]; then
+    # 空白或不存在 → 初始化头部
+    if [ ! -f "$L1_FILE" ]; then
+        echo "# ${DATE} 记忆" > "$L1_FILE"
+        echo "> 当前时间: $(date '+%Y-%m-%d %H:%M:%S %Z') | session compact 后注入" >> "$L1_FILE"
+        echo "" >> "$L1_FILE"
+    fi
+fi
+
+# 追加检查点记录（每5分钟一次）
+echo "## $(date +"%Y-%m-%d %H:%M:%S") cron自动检查点" >> "$L1_FILE"
+echo "> 当前时间: $(date '+%Y-%m-%d %H:%M:%S %Z')" >> "$L1_FILE"
+echo "系统进程：$(ps aux | grep -E 'research_loop|expert_synthesizer' | grep -v grep | wc -l) 个" >> "$L1_FILE"
+echo "最后synthesis：$(tail -1 $HOME/.xuzhi_memory/expert_tracker/research_loop.log 2>/dev/null | cut -d']' -f2 | xargs)" >> "$L1_FILE"
+echo "" >> "$L1_FILE"

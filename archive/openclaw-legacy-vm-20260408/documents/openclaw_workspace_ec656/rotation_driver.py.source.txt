@@ -1,0 +1,204 @@
+#!/usr/bin/env python3
+# 工程改进铁律合规 — Ξ | 2026-03-28
+# 自问：此操作是否让系统更安全/准确/优雅/高效？答案：YES
+
+"""
+rotation_driver.py — 七日轮值调度器
+功能：
+  1. 判断今天轮到谁（Python weekday: Mon=0, Sun=6）
+  2. 检测轮换是否发生（与 last_active_day 比较）
+  3. 执行交接：写 handover memo，更新 rotation_state.json
+  4. 生成每日 agent 表（供 cron 推送）
+  5. 解析人类消息，返回路由目标
+
+日程（用户指定）：
+  Sun→Ξ Mon→Φ Tue→Δ Wed→Γ Thu→Θ Fri→Ω Sat→ψ
+"""
+
+import json
+import re
+import sys
+from datetime import date
+from pathlib import Path
+
+STATE_FILE = Path.home() / ".xuzhi_memory" / "rotation_state.json"
+
+# Python weekday(): Mon=0, Tue=1, Wed=2, Thu=3, Fri=4, Sat=5, Sun=6
+SCHEDULE = {
+    0: "phi",   # Monday    → Φ (语言学/文学)
+    1: "delta",   # Tuesday   → Δ (数学)
+    2: "gamma",   # Wednesday → Γ (自然科学)
+    3: "theta",   # Thursday  → Θ (历史学/社会科学)
+    4: "omega",   # Friday    → Ω (艺术)
+    5: "psi",   # Saturday  → Ψ (哲学)
+    6: "xi",   # Sunday    → Ξ (人工智能)
+}
+
+DEPARTMENTS = {
+    "xi": "人工智能",
+    "phi": "语言学/文学",
+    "delta": "数学",
+    "gamma": "自然科学",
+    "theta": "历史学/社会科学",
+    "omega": "艺术",
+    "psi": "哲学",
+    "rho": "经济学/金融市场",
+}
+
+# 名字 → agent 映射（支持中文、英文、希腊字母）
+NAME_TO_AGENT = {
+    "xi": "xi", "Xi": "xi", "xi": "xi", "艾克斯": "xi",
+    "phi": "phi", "Phi": "phi", "phi": "phi", "斐": "phi",
+    "delta": "delta", "Delta": "delta", "delta": "delta", "德尔塔": "delta",
+    "theta": "theta", "Theta": "theta", "theta": "theta", "西塔": "theta",
+    "gamma": "gamma", "Gamma": "gamma", "gamma": "gamma", "伽马": "gamma",
+    "omega": "omega", "Omega": "omega", "omega": "omega", "奥米伽": "omega",
+    "psi": "psi", "Psi": "psi", "psi": "psi", "普西": "psi",
+    "rho": "rho", "Rho": "rho", "rho": "rho", "柔": "rho",
+    # 中文方向名
+    "人工智能": "xi",
+    "语言学": "phi", "文学": "phi",
+    "数学": "delta",
+    "自然科学": "gamma", "科学": "gamma",
+    "历史": "theta", "社科": "theta", "历史学": "theta", "社会科学": "theta",
+    "艺术": "omega",
+    "哲学": "psi",
+    "经济": "rho", "经济学": "rho", "市场": "rho", "股市": "rho",
+}
+
+
+def get_today_agent():
+    return SCHEDULE[date.today().weekday()]
+
+
+def load_state():
+    if STATE_FILE.exists():
+        with open(STATE_FILE) as f:
+            return json.load(f)
+    return {}
+
+
+def save_state(state):
+    STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(STATE_FILE, "w") as f:
+        json.dump(state, f, ensure_ascii=False, indent=2)
+
+
+def write_handover(outgoing, incoming):
+    today = date.today().isoformat()
+    memo = f"""# 交接备忘录 — {today}
+
+## 交接信息
+- 交出：{outgoing}（{DEPARTMENTS.get(outgoing, "?")}）
+- 接手：{incoming}（{DEPARTMENTS.get(incoming, "?")}）
+- 日期：{today}
+
+## 我是谁
+你是 **<agent={incoming}>**，学科：**{DEPARTMENTS.get(incoming, "?")}**
+今天是你轮值日。请：
+1. 读这个备忘录了解上下文
+2. 用自己的学科视角回应人类
+
+## 上一位留下的重要事项
+（由交出方填写）
+
+---
+*rotation_driver.py | {today}*
+"""
+
+    # 写入接手者的私有记忆目录
+    incoming_dir = Path.home() / ".xuzhi_memory" / "agents" / incoming / "memory"
+    incoming_dir.mkdir(parents=True, exist_ok=True)
+    (incoming_dir / f"handover_{today}.md").write_text(memo, encoding="utf-8")
+
+    # 写入公共记忆（供所有人参考）
+    shared_dir = Path.home() / ".xuzhi_memory" / "memory"
+    shared_dir.mkdir(parents=True, exist_ok=True)
+    (shared_dir / f"handover_{today}.md").write_text(memo, encoding="utf-8")
+
+
+def check_and_rotate():
+    """检查是否需要轮换，每日只执行一次"""
+    state = load_state()
+    today_str = date.today().isoformat()
+    today_agent = get_today_agent()
+
+    if state.get("last_active_day") != today_str:
+        previous = state.get("current")
+
+        if previous is not None and previous != today_agent:
+            write_handover(previous, today_agent)
+
+        state["current"] = today_agent
+        state["last_change"] = today_str
+        state["last_active_day"] = today_str
+        state["departments"] = DEPARTMENTS
+        state["schedule"] = {str(k): v for k, v in SCHEDULE.items()}
+        save_state(state)
+
+        return {"event": "ROTATED" if previous != today_agent else "FIRST_DAY",
+                "today": today_agent, "department": DEPARTMENTS.get(today_agent, "?")}
+    else:
+        return {"event": "STABLE", "today": state.get("current"),
+                "department": DEPARTMENTS.get(state.get("current"), "?")}
+
+
+def generate_agent_table():
+    """生成每日 agent 表（供 cron 推送）"""
+    today = date.today().strftime("%Y-%m-%d")
+    current = get_today_agent()
+
+    lines = [
+        f"📋 今日 Agent 表 | {today}",
+        "",
+        f"🟢 当值中：{current}（{DEPARTMENTS.get(current, "?")}）",
+        "━━━━━━━━━━━━━━",
+        "Ξ 人工智能  |  Φ 语言学/文学",
+        "Δ 数学       |  Γ 自然科学",
+        "Θ 历史/社科  |  Ω 艺术",
+        "Ψ 哲学       |  ρ 经济学 ⚡每日潜水",
+        "",
+        "召唤：叫Θ出来 / 换人 / 市场",
+    ]
+    return "\n".join(lines)
+
+
+def route_message(message):
+    """
+    解析人类消息，返回路由目标
+    返回: {"target": "phi", "action": "transfer"} | {"target": None, "action": "current"}
+    """
+    msg = message.strip()
+
+    # 换人
+    if re.search(r"换人|换班|下一个|轮到谁", msg):
+        return {"target": "TABLE", "action": "show_table"}
+
+    # 召唤经济/市场
+    if re.search(r"经济|市场|股市|ρ|rho", msg, re.IGNORECASE):
+        return {"target": "rho", "action": "transfer"}
+
+    # 名字匹配
+    for name, agent in NAME_TO_AGENT.items():
+        if name in msg:
+            return {"target": agent, "action": "transfer"}
+
+    # 默认 → 当前轮值者
+    return {"target": get_today_agent(), "action": "current"}
+
+
+if __name__ == "__main__":
+    if "--rotate" in sys.argv:
+        result = check_and_rotate()
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+    elif "--table" in sys.argv:
+        print(generate_agent_table())
+    elif "--route" in sys.argv:
+        msg = " ".join(sys.argv[2:]) if len(sys.argv) > 2 else ""
+        result = route_message(msg)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+    else:
+        result = check_and_rotate()
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        print()
+        print(generate_agent_table())

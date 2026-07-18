@@ -1,0 +1,41 @@
+#!/bin/bash
+# memory_conflict_check.sh — 记忆冲突检测
+# 检查共享 L1 和私有 L1 是否有内容冲突
+
+set -euo pipefail
+
+BASE="$HOME/.xuzhi_memory"
+SHARED="$BASE/memory"
+AGENTS="delta gamma omega phi psi theta xi"
+REPORT="$BASE/.conflict_report.txt"
+
+> "$REPORT"
+
+for f in "$SHARED"/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md; do
+  [ -f "$f" ] || continue
+  file=$(basename "$f")
+  
+  for agent in $AGENTS; do
+    private="$BASE/agents/$agent/memory/$file"
+    
+    if [ -f "$private" ]; then
+      # 比较文件哈希
+      shared_hash=$(sha256sum "$f" | cut -d' ' -f1)
+      private_hash=$(sha256sum "$private" | cut -d' ' -f1)
+      
+      if [ "$shared_hash" != "$private_hash" ]; then
+        echo "⚠️ 冲突: $file (共享 vs $agent)" >> "$REPORT"
+        echo "  共享: $(wc -l < "$f") 行" >> "$REPORT"
+        echo "  $agent: $(wc -l < "$private") 行" >> "$REPORT"
+      fi
+    fi
+  done
+done
+
+if [ -s "$REPORT" ]; then
+  cat "$REPORT"
+  echo ""
+  echo "⚠️ 发现冲突，请手动检查"
+else
+  echo "✓ 无冲突"
+fi
