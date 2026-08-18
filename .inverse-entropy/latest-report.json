@@ -1,0 +1,42 @@
+{
+  "branches": [
+    {
+      "archive_tag": "archive/inverse-entropy/archive__openclaw-legacy-vm-20260408-ddaed6a397d7",
+      "branch": "archive/openclaw-legacy-vm-20260408",
+      "disposition": "archived-orphan-and-reclaimed",
+      "tag_created": true,
+      "tip": "ddaed6a397d77d401c0a5325327a0ef1ee06860e"
+    },
+    {
+      "archive_tag": "archive/inverse-entropy/inverse-entropy__cleanup-v1-a7f6f23cafa3",
+      "branch": "inverse-entropy/cleanup-v1",
+      "disposition": "absorbed-and-reclaimed",
+      "tag_created": true,
+      "tip": "a7f6f23cafa3971f98ad7c4a48d9e6fd53aa7f8c"
+    },
+    {
+      "archive_tag": "archive/inverse-entropy/inverse-entropy__reconcile-final-a7f6f23cafa3",
+      "branch": "inverse-entropy/reconcile-final",
+      "disposition": "absorbed-and-reclaimed",
+      "tag_created": true,
+      "tip": "a7f6f23cafa3971f98ad7c4a48d9e6fd53aa7f8c"
+    },
+    {
+      "archive_tag": "archive/inverse-entropy/inverse-entropy__reconcile-v1-a7f6f23cafa3",
+      "branch": "inverse-entropy/reconcile-v1",
+      "disposition": "absorbed-and-reclaimed",
+      "tag_created": true,
+      "tip": "a7f6f23cafa3971f98ad7c4a48d9e6fd53aa7f8c"
+    }
+  ],
+  "coverage_percent": 100.0,
+  "default_branch": "master",
+  "finished_at": "2026-08-18T10:27:24.487470+00:00",
+  "repository": "Northern-Summer/xuzhi_memory",
+  "schema": "inverse-entropy-reconciliation/v1",
+  "started_at": "2026-08-18T10:27:14.909985+00:00",
+  "summary": {
+    "absorbed-and-reclaimed": 3,
+    "archived-orphan-and-reclaimed": 1
+  }
+}
